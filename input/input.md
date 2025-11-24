@@ -9,28 +9,10 @@ Dưới đây là 3 điểm cốt tử ("key takeaways") để xây dựng **met
 *   **Ngôn ngữ thiết kế "Sang trọng & Tĩnh lặng" (Silence as Luxury):**
     *mettasingingbowl.com* cần sử dụng triệt để **Khoảng trắng (Negative Space)**. Khoảng trắng trong thiết kế website cũng giống như khoảng lặng trong thiền định và âm nhạc. Nó tạo ra cảm giác "đắt tiền", giúp người xem thở được và tập trung hoàn toàn vào vẻ đẹp của chiếc chuông cũng như thần thái của chuyên gia.
 
-*   **Bảng màu "Vũ trụ & Kim loại" (Cosmic & Metallic):**
-    Tránh xa màu trắng tinh (như bệnh viện) hoặc màu hồng phấn (quá yểu điệu). Hãy chọn bảng màu có chiều sâu để kích thích trí tưởng tượng về âm thanh:
-    *   **Nền:** https://saraauster.com
-    *   **Điểm nhấn:** Màu Vàng đồng (Bronze/Gold) của chuông xoay để tạo cảm giác linh thiêng và cao cấp. Sự kết hợp này tạo ra giao diện vừa mang tính công nghệ hiện đại, vừa đậm chất tâm linh.
+*   **Bảng màu** làm giống hệt https://saraauster.com
+    Tránh xa màu trắng tinh (như bệnh viện) hoặc màu hồng phấn (quá yểu điệu). Hãy chọn bảng màu có chiều sâu để kích thích trí tưởng tượng về âm thanh.
 
-
-Tham khảo:
-
-- https://saraauster.com
-- https://elenabrower.com
-
-
-### Elena Brower (elenabrower.com)
-> **Phong cách:** Tĩnh tại, Trí tuệ, Sự vững chãi của người dẫn đường (Mentor).
-
-*   **Tại sao chọn:** Elena là một "cây đa cây đề" trong làng Yoga thế giới. Website của bà không cần màu mè, nó toát lên sự bình an tuyệt đối của một người đã thấu hiểu bản thân. Đây là sự "vững chãi" mềm mại chứ không gồng cứng.
-*   **Điểm "ăn tiền" về giao diện:**
-    *   **Bố cục:** Rất giống một tạp chí nghệ thuật (Art Gallery). Các khối nội dung được sắp xếp bất đối xứng (asymmetrical) tạo cảm giác hiện đại.
-    *   **Hình ảnh:** Bà dùng nhiều ảnh đen trắng (Black & White). Ảnh đen trắng luôn loại bỏ sự xao nhãng, giúp người xem tập trung vào thần thái đôi mắt và ngôn ngữ cơ thể.
-    *   **Ứng dụng cho Mettasingingbowl:** Nếu chủ nhân web có gương mặt điện ảnh hoặc thần thái tốt, hãy dùng ảnh đen trắng cho phần giới thiệu (About Me). Kết hợp với ảnh màu của chuông xoay màu vàng đồng sẽ tạo ra sự tương phản cực kỳ sang trọng.
-
-### Sara Auster (saraauster.com) - *Nhắc lại vì quá chuẩn*
+### Tham khảo saraauster.com
 > **Phong cách:** Tinh tế, Hiện đại, Chuyên gia hàng đầu (Authority).
 
 *   **Tại sao chọn:** Vì bạn làm về Singing Bowl/Sound Healing, đây là đối thủ chuẩn mực nhất thế giới hiện tại. Website của NguyenYoga mang dáng dấp "bán khóa học", còn Sara Auster mang dáng dấp "Nghệ sĩ âm thanh".
@@ -265,9 +247,3 @@ hoặc bằng **một khóa học để hiểu rõ hơn về vibrational medicin
 Dù bạn chọn cách nào, Metta vẫn sẽ ở đây – giữa Đà Lạt yên tĩnh –
 để cùng bạn lắng nghe, cùng bạn học, và cùng bạn đi chặng đường dài với **sound therapy, singing bowl và vibrational medicine**.
 
----
-
-Nếu bạn muốn, bước tiếp theo mình có thể giúp bạn:
-
-* Chẻ nhỏ các đoạn trên thành **section cụ thể cho web (banner, block 2 cột, CTA)**
-* Hoặc viết thêm **một phiên bản ngắn hơn dành riêng cho tiếng Anh** dùng chung trên site.

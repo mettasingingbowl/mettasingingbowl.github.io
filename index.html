@@ -1,283 +1,718 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metta Singingbowl - Nghệ thuật Chữa lành Âm thanh</title>
-    
-    <!-- Fonts: Playfair Display (Serif) & Montserrat (Sans Serif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <meta name="description" content="Metta Singing Bowl - Trị liệu âm thanh và Y học rung động tại Đà Lạt. Hành trình chữa lành bằng chuông xoay, thiền định và năng lượng âm thanh.">
+    <meta name="keywords" content="singing bowl, chuông xoay, trị liệu âm thanh, sound therapy, vibrational medicine, y học rung động, thiền, Đà Lạt">
+    <title>Metta Singing Bowl - Trị Liệu Âm Thanh & Y Học Rung Động</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Sara Auster inspired "Muted Dark" palette
-                        // Instead of harsh black, we use Deep Slate, Muted Teal, Warm Grey
-                        metta: {
-                            bg: '#1a1c20',      // Soft Charcoal
-                            deep: '#121418',    // Darker depth
-                            accent: '#d4af37',  // Muted Gold (Metallic)
-                            text: '#e0e0e0',    // Soft White
-                            muted: '#9ca3af',   // Cool Grey
-                            subtle: '#2d3748'   // For borders/lines
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Montserrat"', 'sans-serif'],
-                    },
-                    fontSize: {
-                        '10xl': '10rem',
-                        '12xl': '12rem',
-                    }
-                }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-sand: #E5DDD5;
+            --color-cream: #F5F1ED;
+            --color-earth: #C9BDB1;
+            --color-deep-earth: #9B8B7E;
+            --color-forest: #6B7A6E;
+            --color-text-dark: #3A3531;
+            --color-text-light: #6B6560;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text-dark);
+            background-color: var(--color-cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        /* Hero Video Background */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(229, 221, 213, 0.3) 0%, rgba(201, 189, 177, 0.2) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            color: var(--color-text-dark);
+        }
+        
+        .rotating-text {
+            display: inline-block;
+            min-width: 400px;
+            text-align: left;
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        
+        .rotating-text.active {
+            opacity: 1;
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Section Spacing */
+        .section {
+            padding: 8rem 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .rotating-text {
+                min-width: 300px;
             }
         }
-    </script>
-
-    <style>
-        /* Custom Scrollbar for smooth feel */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a1c20; }
-        ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 4px; }
-
-        /* Smooth Text Rendering */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Parallax & Transitions */
-        .reveal-text {
+        
+        /* Fade In Animation */
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .reveal-visible {
+        
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        /* Gradient Mesh Animation (Subtle Sound Waves) */
-        .aurora-bg {
-            background: radial-gradient(circle at 50% 0%, #2a3b4c 0%, #1a1c20 60%);
+        /* Circular Button */
+        .circular-button {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        /* Typography Tweaks */
-        .font-heading { letter-spacing: -0.03em; }
+        .circular-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        /* Quote Style */
+        .quote-block {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            padding: 3rem;
+            border-left: 3px solid var(--color-earth);
+            margin: 3rem 0;
+        }
+        
+        /* Card Style */
+        .program-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--color-deep-earth);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-deep-earth);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--color-deep-earth);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: transparent;
+            color: var(--color-deep-earth);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border: 2px solid var(--color-earth);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-earth);
+            color: white;
+            border-color: var(--color-earth);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 2rem 3rem;
+            background: rgba(245, 241, 237, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 1rem 3rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Animated Water Background */
+        .water-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                var(--color-sand) 0%, 
+                var(--color-cream) 25%, 
+                var(--color-earth) 50%, 
+                var(--color-cream) 75%, 
+                var(--color-sand) 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Image Overlay Effect */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            transition: transform 0.6s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body class="bg-metta-bg text-metta-text font-sans overflow-x-hidden selection:bg-metta-accent/30 selection:text-white">
-
-    <!-- Navigation: Invisible/Floating -->
-    <nav class="fixed top-0 w-full z-50 px-8 py-8 flex justify-between items-center mix-blend-difference text-white">
-        <a href="#" class="font-serif italic text-2xl tracking-widest z-50">Metta.</a>
-        <div class="hidden md:flex space-x-12 text-xs uppercase tracking-[0.2em] font-light z-50">
-            <a href="#journal" class="hover:text-metta-accent transition-colors">Hành trình</a>
-            <a href="#therapy" class="hover:text-metta-accent transition-colors">Trị liệu</a>
-            <a href="#education" class="hover:text-metta-accent transition-colors">Đào tạo</a>
-            <a href="about.html" class="hover:text-metta-accent transition-colors">Câu chuyện</a>
+<body>
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-serif">Metta Singing Bowl</div>
+            <div class="hidden md:flex gap-8 text-sm tracking-wider">
+                <a href="#gioi-thieu" class="hover:text-[var(--color-deep-earth)] transition">GIỚI THIỆU</a>
+                <a href="#sound-therapy" class="hover:text-[var(--color-deep-earth)] transition">SOUND THERAPY</a>
+                <a href="#chuong-trinh" class="hover:text-[var(--color-deep-earth)] transition">CHƯƠNG TRÌNH</a>
+                <a href="#lien-he" class="hover:text-[var(--color-deep-earth)] transition">LIÊN HỆ</a>
+            </div>
         </div>
-        <a href="#contact" class="hidden md:block px-6 py-2 border border-white/20 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 z-50">
-            Kết nối
-        </a>
     </nav>
 
-    <!-- HERO SECTION: Big Type + Ethereal Image -->
-    <section class="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden aurora-bg">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Animated Water Background -->
+        <div class="water-animation"></div>
+        <div class="video-overlay"></div>
         
-        <!-- Giant Background Typography (Decorative) -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03]">
-            <h1 class="font-serif text-[15vw] italic leading-none text-white">Vibration</h1>
-        </div>
-
-        <!-- Main Content -->
-        <div class="relative z-10 max-w-5xl mx-auto text-center mt-20">
-            <p class="text-metta-accent text-xs md:text-sm tracking-[0.4em] uppercase mb-8 reveal-text">Đà Lạt • Sound Medicine</p>
-            
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-9xl leading-[1.1] font-light mb-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 font-heading reveal-text" style="transition-delay: 0.2s;">
-                Metta <br> <span class="italic font-normal">Singingbowl</span>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Âm thanh là<br>
+                <span class="rotating-text active" id="rotatingText">một lời mời gọi</span>
             </h1>
             
-            <div class="w-px h-24 bg-gradient-to-b from-metta-accent to-transparent mx-auto my-8 reveal-text" style="transition-delay: 0.4s;"></div>
-            
-            <p class="font-light text-metta-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal-text" style="transition-delay: 0.6s;">
-                Đánh thức khả năng tự chữa lành qua <span class="text-white italic font-serif">Y học Rung động</span> và sự tĩnh lặng tuyệt đối.
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto" style="color: var(--color-text-light); line-height: 1.8;">
+                Không chỉ là tiếng chuông, mà là hành trình trở về với cơ thể,<br>
+                hơi thở và sự tĩnh lặng bên trong
             </p>
-        </div>
-
-        <!-- Floating Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce duration-[3000ms] opacity-50">
-            <span class="text-xs tracking-widest uppercase">Khám phá</span>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-12">
+                <a href="#lien-he" class="btn-primary">ĐẶT LỊCH TRỊ LIỆU</a>
+                <a href="#gioi-thieu" class="btn-secondary">TÌM HIỂU THÊM</a>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 2: ASYMMETRICAL INTRO (Like Sara Auster / Art Gallery) -->
-    <section class="py-40 relative">
-        <div class="max-w-screen-2xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
-            
-            <!-- Text Block (Left, overlapping) -->
-            <div class="md:col-span-5 relative z-20 md:pl-12">
-                <h2 class="font-serif text-5xl md:text-7xl leading-tight mb-12">
-                    Sự Vững Chãi <br>
-                    <span class="italic text-metta-accent text-4xl md:text-6xl">của Sự Tĩnh Lặng.</span>
-                </h2>
-                <div class="w-20 h-px bg-metta-accent/50 mb-10"></div>
-                <p class="text-metta-muted text-lg font-light leading-loose mb-8">
-                    Chúng tôi không bán sự thư giãn nhất thời. Metta là hành trình đi sâu vào hệ thần kinh, dùng <strong>Rung động (Vibration)</strong> để chạm vào những tầng sâu nhất của tiềm thức.
+    <!-- Introduction Section -->
+    <section id="gioi-thieu" class="section bg-[var(--color-cream)]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="image-container">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/8e78b94e-41d9-465c-ab60-506238c2368b/Sara_Auster_Sound_Bath_Listening_Experience_Meditation_Calming_Relaxing_Sounds_Sara%2BAuster%2B-%2Bkoshi+hand.png" 
+                             alt="Singing Bowl - Chuông xoay" 
+                             class="w-full h-auto shadow-2xl">
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl mb-6 font-serif">Metta Singing Bowl là ai?</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6" style="color: var(--color-text-light);">
+                        Metta Singing Bowl là một nhánh chuyên sâu của <strong>Metta Yoga & Singing Bowl Academy</strong> – học viện được đăng ký chính thức với Yoga Alliance (USA), do <strong>Giang Hoàng</strong> sáng lập và dẫn dắt.
+                    </p>
+                    
+                    <ul class="space-y-4 text-lg mb-8" style="color: var(--color-text-light);">
+                        <li>• Hơn <strong>9 năm</strong> sống trọn với một nghề: Yoga, thiền và chữa lành bằng âm thanh</li>
+                        <li>• Kết hợp <strong>tri thức giải phẫu – thần kinh – nội tiết</strong> với hệ thống luân xa</li>
+                        <li>• Đào tạo nhiều <strong>giáo viên yoga, sound healer, nhà trị liệu chuông xoay</strong></li>
+                    </ul>
+                    
+                    <p class="text-xl font-serif italic" style="color: var(--color-deep-earth);">
+                        Ở Metta, tiếng chuông không chỉ để nghe cho dễ chịu, mà là một công cụ nghiêm túc trong trị liệu âm thanh và y học rung động.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sound Therapy Section -->
+    <section id="sound-therapy" class="section bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Trị liệu âm thanh & Y học rung động</h2>
+                <p class="text-xl" style="color: var(--color-text-light); max-width: 800px; margin: 0 auto;">
+                    Theo cách Metta hiểu
                 </p>
-                <a href="about.html" class="inline-flex items-center group text-sm uppercase tracking-widest text-white mt-4">
-                    <span class="border-b border-metta-accent pb-1 group-hover:border-white transition-colors">Về chúng tôi</span>
-                    <span class="ml-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">&rarr;</span>
-                </a>
             </div>
-
-            <!-- Image Block (Right, Artistic) -->
-            <div class="md:col-span-7 relative">
-                <!-- Main Image -->
-                <div class="relative z-10 overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1593697821252-0c913b64c5e6?q=80&w=1200&auto=format&fit=crop" 
-                         alt="Metta Portrait" 
-                         class="w-full h-[80vh] object-cover object-center transform hover:scale-105 transition-transform duration-[2s]">
-                </div>
-                <!-- Decorative Element behind -->
-                <div class="absolute -bottom-10 -left-10 w-full h-full border border-metta-accent/20 -z-0 hidden md:block"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: SOUND MEDICINE PHILOSOPHY (Clean, Negative Space) -->
-    <section id="therapy" class="py-40 bg-metta-deep">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-32">
-                <div>
-                    <span class="block text-metta-accent text-xs tracking-[0.4em] uppercase mb-6">Triết lý</span>
-                    <h3 class="font-serif text-4xl md:text-6xl leading-snug mb-8">
-                        Y học Rung động <br> <span class="italic text-gray-500">& Hệ thần kinh</span>
-                    </h3>
-                </div>
-                <div class="pt-10">
-                    <p class="text-metta-muted text-lg font-light leading-relaxed mb-8">
-                        Khi Singing Bowl chạm vào cơ thể, dao động cơ học lan vào mô mềm, dịch thể; từ đó chuyển hóa thành dao động điện sinh học. 
+            
+            <div class="grid md:grid-cols-2 gap-16 mb-16">
+                <div class="fade-in">
+                    <h3 class="text-2xl mb-4 font-serif">Trị liệu âm thanh là gì?</h3>
+                    <p class="text-lg leading-relaxed mb-6" style="color: var(--color-text-light);">
+                        <strong>Sound Therapy</strong> là phương pháp dùng âm thanh, tần số và rung động để tác động lên:
                     </p>
-                    <p class="text-metta-muted text-lg font-light leading-relaxed">
-                        Metta không coi đây là phép màu. Chúng tôi coi nó là khoa học của sự cân bằng. Một cánh cửa dịu dàng giúp cơ thể nhớ lại khả năng tự chữa lành.
+                    <ul class="space-y-3 text-lg mb-6" style="color: var(--color-text-light);">
+                        <li>• Hệ thần kinh</li>
+                        <li>• Hệ nội tiết</li>
+                        <li>• Dòng chảy năng lượng dọc cột sống (luân xa)</li>
+                    </ul>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl mb-4 font-serif">Y học rung động</h3>
+                    <p class="text-lg leading-relaxed" style="color: var(--color-text-light);">
+                        Khi <strong>chuông xoay</strong> chạm vào cơ thể, dao động cơ học lan vào mô mềm, dịch thể; từ đó chuyển hóa thành <strong>dao động điện sinh học</strong> trong hệ thần kinh. Đó chính là nền tảng của <strong>Vibrational Medicine</strong> – y học dựa trên rung động.
                     </p>
                 </div>
             </div>
+            
+            <div class="quote-block fade-in">
+                Một cánh cửa dịu dàng, giúp cơ thể nhớ lại khả năng tự chữa lành vốn có.
+            </div>
+            
+            <div class="text-center fade-in">
+                <p class="text-sm" style="color: var(--color-text-light);">
+                    <em>Khuyến nghị: Bạn vẫn cần thăm khám và tuân thủ chỉ định của bác sĩ khi có vấn đề sức khỏe.</em>
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <!-- 3 Pillars with Minimal Icons -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 mt-32 border border-white/5">
-                <div class="bg-metta-deep p-12 hover:bg-metta-bg transition-colors duration-500 group">
-                    <span class="text-4xl font-serif text-metta-accent opacity-50 group-hover:opacity-100 transition-opacity">01.</span>
-                    <h4 class="text-xl font-serif mt-6 mb-4">Gốc rễ & Sinh tồn</h4>
-                    <p class="text-sm text-metta-muted font-light leading-loose">Luân xa 1-2-3. Xây dựng nền tảng an toàn và vững chãi cho cơ thể vật lý.</p>
+    <!-- Singing Bowl Process Section -->
+    <section class="section" style="background-color: var(--color-sand);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Chuông xoay tại Metta</h2>
+                <p class="text-xl" style="color: var(--color-text-light);">
+                    Hơn cả vài tiếng chuông thư giãn
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 fade-in">
+                    <div class="text-5xl mb-4 font-serif" style="color: var(--color-deep-earth);">01</div>
+                    <h3 class="text-xl mb-4 font-serif">Ngày 1</h3>
+                    <p style="color: var(--color-text-light);">
+                        Làm việc với luân xa 1–2–3: nền tảng an toàn, sinh tồn, tiêu hóa năng lượng
+                    </p>
                 </div>
-                <div class="bg-metta-deep p-12 hover:bg-metta-bg transition-colors duration-500 group">
-                    <span class="text-4xl font-serif text-metta-accent opacity-50 group-hover:opacity-100 transition-opacity">02.</span>
-                    <h4 class="text-xl font-serif mt-6 mb-4">Cảm xúc & Kết nối</h4>
-                    <p class="text-sm text-metta-muted font-light leading-loose">Luân xa 4. Mở rộng dung lượng trái tim để đón nhận và chuyển hóa cảm xúc.</p>
+                
+                <div class="bg-white p-8 fade-in">
+                    <div class="text-5xl mb-4 font-serif" style="color: var(--color-deep-earth);">02</div>
+                    <h3 class="text-xl mb-4 font-serif">Ngày 2</h3>
+                    <p style="color: var(--color-text-light);">
+                        Luân xa 4: trái tim, kết nối, cảm xúc
+                    </p>
                 </div>
-                <div class="bg-metta-deep p-12 hover:bg-metta-bg transition-colors duration-500 group">
-                    <span class="text-4xl font-serif text-metta-accent opacity-50 group-hover:opacity-100 transition-opacity">03.</span>
-                    <h4 class="text-xl font-serif mt-6 mb-4">Trực giác & Tĩnh lặng</h4>
-                    <p class="text-sm text-metta-muted font-light leading-loose">Luân xa 5-6-7. Sự sáng suốt của tâm trí và sự kết nối với cái toàn thể.</p>
+                
+                <div class="bg-white p-8 fade-in">
+                    <div class="text-5xl mb-4 font-serif" style="color: var(--color-deep-earth);">03</div>
+                    <h3 class="text-xl mb-4 font-serif">Ngày 3</h3>
+                    <p style="color: var(--color-text-light);">
+                        Luân xa 5–6–7: biểu đạt, trực giác, nhận thức
+                    </p>
+                </div>
+            </div>
+            
+            <div class="fade-in">
+                <p class="text-lg text-center leading-relaxed" style="color: var(--color-text-light); max-width: 800px; margin: 0 auto;">
+                    Cách đi từ gốc lên ngọn giúp <strong>nền tảng cơ thể – thần kinh – năng lượng</strong> trở nên vững hơn, thay vì chỉ "bay" ở những tầng trên.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="section bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Ai phù hợp với Metta?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl" style="background-color: var(--color-sand);">
+                        🧘‍♀️
+                    </div>
+                    <h3 class="text-xl mb-4 font-serif">Người tìm kiếm sự thư giãn</h3>
+                    <p style="color: var(--color-text-light);">
+                        Đang căng thẳng, mất ngủ, khó thả lỏng, muốn tìm phương pháp mềm mại chăm sóc hệ thần kinh
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl" style="background-color: var(--color-sand);">
+                        🌱
+                    </div>
+                    <h3 class="text-xl mb-4 font-serif">Chuyên gia muốn nâng cao</h3>
+                    <p style="color: var(--color-text-light);">
+                        Giáo viên yoga, thiền, coach, therapist muốn học thêm sound therapy để bổ sung cho nghề
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl" style="background-color: var(--color-sand);">
+                        ✨
+                    </div>
+                    <h3 class="text-xl mb-4 font-serif">Người tìm nghề nghiệp mới</h3>
+                    <p style="color: var(--color-text-light);">
+                        Tìm con đường nghề trong lĩnh vực chữa lành, học nghiêm túc với nền tảng khoa học
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: OFFERINGS (Image Heavy, Magazine Style) -->
-    <section id="education" class="py-40">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <h2 class="font-serif text-5xl md:text-7xl text-center mb-24">Không gian <span class="italic text-metta-accent">Thực hành</span></h2>
+    <!-- Programs Section -->
+    <section id="chuong-trinh" class="section" style="background-color: var(--color-cream);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Các chương trình chính</h2>
+                <p class="text-xl" style="color: var(--color-text-light);">
+                    Tại Metta Singing Bowl
+                </p>
+            </div>
             
-            <div class="space-y-32">
-                <!-- Item 1 -->
-                <div class="group grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1 overflow-hidden rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1602192509153-ce7231022db7?q=80&w=1000&auto=format&fit=crop" 
-                             class="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-[1.5s] grayscale hover:grayscale-0">
-                    </div>
-                    <div class="order-1 md:order-2 md:pl-10">
-                        <span class="text-xs tracking-widest uppercase text-metta-accent mb-4 block">Cá nhân</span>
-                        <h3 class="font-serif text-4xl mb-6">Trị liệu Chuyên sâu</h3>
-                        <p class="text-metta-muted font-light leading-loose mb-8">
-                            Phiên làm việc 1:1 được thiết kế riêng biệt. Chúng tôi lắng nghe cơ thể bạn để chọn ra tần số rung động phù hợp nhất, giải phóng những tắc nghẽn sâu kín.
-                        </p>
-                        <a href="#contact" class="text-xs uppercase tracking-widest border-b border-white/30 pb-1 hover:border-white transition-colors">Đặt lịch hẹn</a>
+            <div class="space-y-8">
+                <div class="program-card fade-in">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-2xl mb-2 font-serif">01.</h3>
+                            <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Phiên trị liệu cá nhân & nhóm</h3>
+                        </div>
+                        <div class="md:col-span-2">
+                            <p class="text-lg leading-relaxed mb-4" style="color: var(--color-text-light);">
+                                Buổi 1–1 hoặc nhóm nhỏ, đi sâu vào thư giãn hệ thần kinh, cân bằng luân xa, hỗ trợ giấc ngủ và tái tạo năng lượng.
+                            </p>
+                            <p class="text-sm italic" style="color: var(--color-text-light);">
+                                Hình thức: trực tiếp tại Metta Đà Lạt / workshop tại Hà Nội & các tỉnh
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                <div class="group grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="md:pr-10 text-right md:text-left order-1">
-                        <span class="text-xs tracking-widest uppercase text-metta-accent mb-4 block">Đào tạo</span>
-                        <h3 class="font-serif text-4xl mb-6">Nhà Trị Liệu Chuông Xoay</h3>
-                        <p class="text-metta-muted font-light leading-loose mb-8">
-                            Khóa học nghề nghiêm túc dành cho những ai muốn trở thành Sound Healer. Kết hợp kiến thức khoa học, kỹ thuật gõ chuông và nghệ thuật lắng nghe.
-                        </p>
-                        <a href="#contact" class="text-xs uppercase tracking-widest border-b border-white/30 pb-1 hover:border-white transition-colors">Xem giáo trình</a>
+                
+                <div class="program-card fade-in">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-2xl mb-2 font-serif">02.</h3>
+                            <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Đào tạo Nhà trị liệu Chuông xoay</h3>
+                        </div>
+                        <div class="md:col-span-2">
+                            <p class="text-lg leading-relaxed mb-4" style="color: var(--color-text-light);">
+                                Dành cho giáo viên yoga, healer, coach, nhà trị liệu. Học từ nền tảng âm thanh – sóng não – cơ thể học đến kỹ thuật thực hành và xây dựng phác đồ cá nhân hóa.
+                            </p>
+                            <p class="text-sm italic" style="color: var(--color-text-light);">
+                                Sau khóa, học viên có thể hành nghề độc lập hoặc tích hợp sound therapy vào công việc hiện tại
+                            </p>
+                        </div>
                     </div>
-                    <div class="order-2 overflow-hidden rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?q=80&w=1000&auto=format&fit=crop" 
-                             class="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-[1.5s] grayscale hover:grayscale-0">
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-2xl mb-2 font-serif">03.</h3>
+                            <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Workshop, Retreat & Setup</h3>
+                        </div>
+                        <div class="md:col-span-2">
+                            <p class="text-lg leading-relaxed" style="color: var(--color-text-light);">
+                                Metta tổ chức và nhận thiết kế: Buổi thiền chuông, sound bath theo chủ đề, retreat cuối tuần kết hợp Yoga – Thiền – Chuông xoay – Gong, và setup không gian sound therapy tại studio, resort, wellness center.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER: Minimalist -->
-    <footer id="contact" class="py-32 bg-metta-deep border-t border-white/5 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-             <h1 class="font-serif text-[20vw] text-center text-white leading-none italic">Metta</h1>
+    <!-- Philosophy Section -->
+    <section class="section bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Triết lý Metta</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center fade-in">
+                    <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Học tử tế – Dạy tử tế</h3>
+                    <p class="text-lg leading-relaxed" style="color: var(--color-text-light);">
+                        Không dạy "chiêu trò", chỉ dạy những gì Giang và đội ngũ đã tự mình đi qua, đã kiểm chứng trên cơ thể mình và học viên.
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Chậm mà sâu</h3>
+                    <p class="text-lg leading-relaxed" style="color: var(--color-text-light);">
+                        Metta không chạy theo phong trào hay giảm giá ồn ào. Chúng tôi chọn đi chậm, để mỗi học viên có thời gian tiêu hóa, thực hành và trưởng thành thật sự.
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <h3 class="text-2xl mb-4 font-serif" style="color: var(--color-deep-earth);">Không phán xét – Không so sánh</h3>
+                    <p class="text-lg leading-relaxed" style="color: var(--color-text-light);">
+                        Mỗi người đến đây với một câu chuyện. Nhiệm vụ của chúng tôi là đồng hành để bạn nhớ lại con người khỏe mạnh, an yên vốn có bên trong.
+                    </p>
+                </div>
+            </div>
         </div>
-        
-        <div class="relative z-10 max-w-screen-md mx-auto text-center px-6">
-            <h2 class="font-serif text-3xl md:text-5xl mb-10">Sẵn sàng lắng nghe?</h2>
-            <p class="text-metta-muted font-light mb-12">
-                Mỗi hành trình chữa lành đều bắt đầu từ một khoảnh khắc tĩnh lặng. <br>
-                Hãy nhắn cho chúng tôi khi bạn đã sẵn sàng.
-            </p>
-            
-            <div class="flex justify-center gap-8 mb-16">
-                <a href="mailto:contact@mettasingingbowl.com" class="px-10 py-4 bg-metta-accent text-metta-deep font-medium text-xs uppercase tracking-widest hover:bg-white transition-colors">
-                    Gửi Email
-                </a>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section" style="background-color: var(--color-sand);">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl mb-6 font-serif">Giữa rừng thông Đà Lạt</h2>
+                    <p class="text-xl leading-relaxed mb-6" style="color: var(--color-text-light);">
+                        Nằm giữa rừng thông Đà Lạt, Metta Singing Bowl là không gian nơi sound therapy, chuông xoay và vibrational medicine được thực hành một cách bài bản, an toàn và đầy tính nhân văn.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-8" style="color: var(--color-text-light);">
+                        Không khí mát lành, tiếng gió thông và sự tĩnh lặng của Đà Lạt tạo nên môi trường lý tưởng cho hành trình chữa lành và tái sinh của bạn.
+                    </p>
+                    <a href="#lien-he" class="btn-primary">ĐẾN THĂM CHÚNG TÔI</a>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="image-container">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/6721b827-8466-43df-a1bd-998ee1074913/Home+sand+bkg.jpg" 
+                             alt="Đà Lạt - Rừng thông" 
+                             class="w-full h-auto shadow-2xl">
+                    </div>
+                </div>
             </div>
-            
-            <div class="flex justify-center space-x-8 text-xs uppercase tracking-widest text-metta-muted">
-                <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                <a href="#" class="hover:text-white transition-colors">Facebook</a>
-                <a href="#" class="hover:text-white transition-colors">Zalo</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="lien-he" class="section bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl md:text-5xl mb-6 font-serif">Bắt đầu hành trình của bạn</h2>
+                <p class="text-xl mb-12" style="color: var(--color-text-light); max-width: 600px; margin: 0 auto 3rem;">
+                    Dù bạn chọn cách nào, Metta vẫn sẽ ở đây – giữa Đà Lạt yên tĩnh – để cùng bạn lắng nghe, cùng bạn học, và cùng bạn đi chặng đường dài.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-6 justify-center mb-12">
+                    <a href="mailto:info@mettasingingbowl.com" class="btn-primary">GỬI EMAIL</a>
+                    <a href="tel:+84123456789" class="btn-secondary">GỌI ĐIỆN</a>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div>
+                        <h4 class="font-serif text-xl mb-3" style="color: var(--color-deep-earth);">Địa chỉ</h4>
+                        <p style="color: var(--color-text-light);">
+                            Đà Lạt, Lâm Đồng<br>
+                            Việt Nam
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-serif text-xl mb-3" style="color: var(--color-deep-earth);">Liên hệ</h4>
+                        <p style="color: var(--color-text-light);">
+                            Email: info@mettasingingbowl.com<br>
+                            Điện thoại: +84 123 456 789
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-serif text-xl mb-3" style="color: var(--color-deep-earth);">Giờ làm việc</h4>
+                        <p style="color: var(--color-text-light);">
+                            Thứ 2 - Thứ 6: 8:00 - 18:00<br>
+                            Cuối tuần: Theo lịch hẹn
+                        </p>
+                    </div>
+                </div>
             </div>
-            
-            <p class="mt-16 text-[10px] text-metta-muted/30 uppercase tracking-widest">
-                &copy; 2024 Metta Singingbowl. Designed with Silence.
-            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center" style="background-color: var(--color-deep-earth); color: white;">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-2xl font-serif mb-4">Metta Singing Bowl</p>
+            <p class="mb-4">Trị liệu âm thanh & Y học rung động</p>
+            <p class="text-sm opacity-80">© 2024 Metta Singing Bowl. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Simple Reveal Script -->
+    <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+        // Rotating Text
+        const rotatingTexts = [
+            'một lời mời gọi',
+            'một cánh cửa',
+            'một hướng dẫn',
+            'một hành trình',
+            'sự chữa lành'
+        ];
+        let currentIndex = 0;
+        const textElement = document.getElementById('rotatingText');
 
-            document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+        function rotateText() {
+            textElement.classList.remove('active');
+            
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % rotatingTexts.length;
+                textElement.textContent = rotatingTexts[currentIndex];
+                textElement.classList.add('active');
+            }, 600);
+        }
+
+        setInterval(rotateText, 3000);
+
+        // Fade In on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Navigation Scroll Effect
+        const nav = document.getElementById('mainNav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
