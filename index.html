@@ -33,7 +33,7 @@
       <div class="container hero-inner">
         <div class="hero-text">
           <p class="eyebrow">Đà Lạt • Không gian âm thanh và tĩnh lặng</p>
-          <h1>Âm thanh là <span class="rotating-text" id="rotatingText">một lời mời gọi</span></h1>
+          <h1>Âm thanh là <span class="rotating-text active" id="rotatingText">một lời mời gọi</span></h1>
           <p class="hero-lead">
             Chuông xoay mời chúng ta dừng lại một nhịp, lắng nghe cơ thể, quan sát tâm trí
             và chạm vào vùng tĩnh lặng sâu bên trong. Từ đó, hệ thần kinh được nghỉ ngơi,
@@ -234,9 +234,6 @@
     let currentIndex = 0;
     const textElement = document.getElementById('rotatingText');
 
-    // Set initial state
-    textElement.classList.add('active');
-
     function rotateText() {
       textElement.classList.remove('active');
       
@@ -244,10 +241,10 @@
         currentIndex = (currentIndex + 1) % rotatingTexts.length;
         textElement.textContent = rotatingTexts[currentIndex];
         textElement.classList.add('active');
-      }, 600);
+      }, 800);
     }
 
-    setInterval(rotateText, 3000);
+    setInterval(rotateText, 5000);
   </script>
 </body>
 </html>

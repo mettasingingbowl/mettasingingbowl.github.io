@@ -75,10 +75,9 @@ h1 {
 }
 
 .rotating-text {
-  display: inline-block;
-  font-style: italic;
+  display: inline;
   opacity: 0;
-  transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .rotating-text.active {
