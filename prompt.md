@@ -1,4 +1,4 @@
- đọc @input.md và dựng cho tôi website mettasingingbowl.com theo đúng yêu cầu trong đó, lưu ý hiện tại
+ đọc ../input.md và dựng cho tôi website mettasingingbowl.com theo đúng yêu cầu trong đó, lưu ý hiện tại
 chúng tôi chưa có ảnh minh hoạ nên bạn hãy lấy những ảnh phù hợp từ trang       
 https://saraauster.com để lấp chỗ trống, nếu bạn tìm thấy những ảnh tốt hơn
 trên internet để mình hoạ thì cứ việc chủ động thay, yêu cầu: tạo website tĩnh, có thể dùng css      
