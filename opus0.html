@@ -42,9 +42,12 @@
                     animation: {
                         'fade-in': 'fadeIn 1s ease-in-out',
                         'fade-in-up': 'fadeInUp 1s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
+                        'float': 'float 8s ease-in-out infinite',
                         'ripple': 'ripple 3s ease-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'emerge': 'emerge 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'glow': 'glow 4s ease-in-out infinite',
+                        'ripple-out': 'rippleOut 6s ease-out infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -56,12 +59,24 @@
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(1deg)' },
                         },
                         ripple: {
                             '0%': { transform: 'scale(1)', opacity: '0.8' },
                             '100%': { transform: 'scale(2)', opacity: '0' },
+                        },
+                        emerge: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        },
+                        rippleOut: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0.6' },
+                            '100%': { transform: 'scale(2.5)', opacity: '0' },
                         }
                     }
                 }
@@ -201,6 +216,25 @@
             background-image: radial-gradient(circle at 1px 1px, rgba(156, 175, 136, 0.1) 1px, transparent 0);
             background-size: 40px 40px;
         }
+        
+        /* Staggered animations */
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.35s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.7s; opacity: 0; }
+        
+        /* Sonic ripple effect */
+        .sonic-ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(156, 175, 136, 0.3);
+            animation: rippleOut 6s ease-out infinite;
+        }
+        
+        .sonic-ripple:nth-child(2) { animation-delay: 1.5s; }
+        .sonic-ripple:nth-child(3) { animation-delay: 3s; }
+        .sonic-ripple:nth-child(4) { animation-delay: 4.5s; }
     </style>
 </head>
 <body class="bg-cream text-deep-charcoal font-sans antialiased">
@@ -260,25 +294,25 @@
             <div class="hero-overlay absolute inset-0"></div>
         </div>
         
-        <!-- Animated water ripples -->
+        <!-- Animated sonic ripples -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-            <div class="water-ripple w-48 h-48 md:w-96 md:h-96"></div>
-            <div class="water-ripple w-48 h-48 md:w-96 md:h-96"></div>
-            <div class="water-ripple w-48 h-48 md:w-96 md:h-96"></div>
-            <div class="water-ripple w-48 h-48 md:w-96 md:h-96"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
         </div>
         
         <!-- Hero Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40">
             <div class="max-w-4xl">
                 <!-- Badge -->
-                <div class="inline-flex items-center px-4 py-2 bg-sage/10 rounded-full mb-8 animate-fade-in">
-                    <span class="w-2 h-2 bg-sage rounded-full mr-3 animate-pulse-slow"></span>
+                <div class="inline-flex items-center px-4 py-2 bg-sage/10 rounded-full mb-10 animate-emerge stagger-1">
+                    <span class="w-2 h-2 bg-sage rounded-full mr-3 animate-glow"></span>
                     <span class="text-sm font-medium text-sage">Trị Liệu Âm Thanh & Y Học Rung Động tại Đà Lạt</span>
                 </div>
                 
                 <!-- Main Heading -->
-                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-deep-brown leading-tight mb-8 animate-fade-in-up">
+                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-deep-brown leading-[1.1] mb-10 animate-emerge stagger-2">
                     Âm thanh là
                     <span class="rotating-text text-sage">
                         <span class="rotating-text-item">cánh cửa</span>
@@ -289,12 +323,12 @@
                 </h1>
                 
                 <!-- Subtitle -->
-                <p class="font-serif text-xl md:text-2xl text-deep-charcoal/70 leading-relaxed mb-12 max-w-2xl animate-fade-in" style="animation-delay: 0.3s;">
+                <p class="font-serif text-xl md:text-2xl text-deep-charcoal/70 leading-relaxed mb-14 max-w-2xl animate-emerge stagger-3">
                     Không chỉ là tiếng chuông, mà là hành trình trở về với cơ thể, hơi thở và sự tĩnh lặng bên trong.
                 </p>
                 
                 <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="flex flex-col sm:flex-row gap-5 animate-emerge stagger-4">
                     <a href="#contact" class="btn-metta inline-flex items-center justify-center px-8 py-4 bg-sage text-white font-medium rounded-full hover:bg-muted-green transition-all duration-300 shadow-lg shadow-sage/20">
                         <span>Đặt lịch trị liệu</span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1023,7 +1057,7 @@
             });
         });
         
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for staggered animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1032,11 +1066,18 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate-emerge');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
+        
+        // Observe staggered elements
+        document.querySelectorAll('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
         
         // Observe elements with data-animate attribute
         document.querySelectorAll('[data-animate]').forEach(el => {
