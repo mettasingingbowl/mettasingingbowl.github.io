@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Câu chuyện Metta Singing Bowl - Từ tiếng chuông đến y học rung động. Hành trình của Giang Hoàng trong việc chữa lành bằng âm thanh.">
+    <title>Giới thiệu | Metta Singing Bowl</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F5F0E8',
+                        sand: '#E8E0D5',
+                        sage: '#9CAF88',
+                        muted: {
+                            blue: '#8FA5B5',
+                            green: '#A8B8A0',
+                            rose: '#C9B8B3',
+                            gold: '#C4A962',
+                            brown: '#8B7355',
+                        },
+                        deep: {
+                            brown: '#4A3F35',
+                            charcoal: '#3D3D3D',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .decorative-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #9CAF88, transparent);
+        }
+        
+        .quote-mark {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 6rem;
+            line-height: 1;
+            color: rgba(156, 175, 136, 0.3);
+        }
+        
+        .section-divider {
+            background: linear-gradient(to right, transparent, rgba(156, 175, 136, 0.3), transparent);
+            height: 1px;
+        }
+        
+        .pattern-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(156, 175, 136, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        .btn-metta {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-metta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-metta:hover::before {
+            left: 100%;
+        }
+        
+        .prose p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .prose strong {
+            color: #4A3F35;
+        }
+    </style>
+</head>
+<body class="bg-cream text-deep-charcoal font-sans antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sand/50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <span class="font-serif text-2xl font-medium tracking-wide text-deep-brown">Metta</span>
+                    <span class="font-serif text-lg text-muted-brown">Singing Bowl</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#about" class="text-sm font-medium text-deep-charcoal/70 hover:text-sage transition-colors">Giới thiệu</a>
+                    <a href="index.html#sound-therapy" class="text-sm font-medium text-deep-charcoal/70 hover:text-sage transition-colors">Trị liệu âm thanh</a>
+                    <a href="index.html#programs" class="text-sm font-medium text-deep-charcoal/70 hover:text-sage transition-colors">Chương trình</a>
+                    <a href="index.html#philosophy" class="text-sm font-medium text-deep-charcoal/70 hover:text-sage transition-colors">Triết lý</a>
+                    <a href="index.html#contact" class="btn-metta px-6 py-2.5 bg-sage text-white text-sm font-medium rounded-full hover:bg-muted-green transition-colors">
+                        Liên hệ
+                    </a>
+                </div>
+                
+                <button class="md:hidden p-2" id="mobile-menu-btn" aria-label="Menu">
+                    <svg class="w-6 h-6 text-deep-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="hidden md:hidden bg-cream border-t border-sand/50" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html#about" class="block text-sm font-medium text-deep-charcoal/70 hover:text-sage">Giới thiệu</a>
+                <a href="index.html#sound-therapy" class="block text-sm font-medium text-deep-charcoal/70 hover:text-sage">Trị liệu âm thanh</a>
+                <a href="index.html#programs" class="block text-sm font-medium text-deep-charcoal/70 hover:text-sage">Chương trình</a>
+                <a href="index.html#philosophy" class="block text-sm font-medium text-deep-charcoal/70 hover:text-sage">Triết lý</a>
+                <a href="index.html#contact" class="inline-block px-6 py-2.5 bg-sage text-white text-sm font-medium rounded-full">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-sand/30 relative overflow-hidden">
+        <div class="pattern-bg absolute inset-0 opacity-50"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <div class="decorative-line mx-auto mb-8"></div>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-deep-brown leading-tight mb-6">
+                Từ tiếng chuông đến<br>
+                <span class="text-sage">y học rung động</span>
+            </h1>
+            <p class="font-serif text-xl text-deep-charcoal/70 max-w-2xl mx-auto">
+                Câu chuyện Metta Singing Bowl
+            </p>
+        </div>
+    </section>
+    
+    <!-- Story Section 1 -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="prose text-lg text-deep-charcoal/80 leading-relaxed">
+                <p>
+                    Năm 2016, tôi rời công việc văn phòng, bắt đầu lại với một tấm thảm yoga và rất nhiều câu hỏi về ý nghĩa cuộc sống. Từ đó đến nay, tôi chỉ làm một việc: dạy Yoga, thiền và đồng hành cùng con người trên hành trình chữa lành.
+                </p>
+                
+                <p>
+                    Trong những năm đầu, tôi tập trung gần như trọn vẹn cho Yoga. Tôi học giải phẫu, hệ cơ – xương – khớp, hệ thần kinh – nội tiết, cách một cơ thể mệt mỏi hay đau đớn lên tiếng. Và rồi, tôi gặp <strong>chuông xoay</strong>.
+                </p>
+                
+                <p>
+                    Lúc đầu, đó chỉ là những âm thanh êm dịu đi kèm trong giờ thư giãn. Nhưng càng thực hành, tôi càng nhận ra: tiếng chuông không chỉ "hay" hay "dễ chịu". Nó <strong>chạm vào hệ thần kinh và tâm trí</strong> theo cách mà lời nói nhiều khi không làm được.
+                </p>
+                
+                <p>
+                    Tôi bắt đầu tìm hiểu sâu hơn về <strong>trị liệu âm thanh</strong>, về <strong>sóng não, tần số, rung động</strong>, về cách mà một dao động cơ học từ mặt chuông chuyển thành <strong>tín hiệu điện sinh học</strong> trong cơ thể. Cùng lúc đó, tôi kết nối những hiểu biết khoa học này với hệ thống <strong>luân xa</strong> trong Yoga – trục năng lượng dọc cột sống gắn với các tuyến nội tiết chính.
+                </p>
+                
+                <p>
+                    Từ đó, Metta Singing Bowl dần hình thành – như một mảnh ghép chuyên sâu trong hành trình của Metta Yoga.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Image Break -->
+    <section class="py-8">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="aspect-[21/9] rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                    src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/8e655c8e-afe7-4421-a5a2-8728a8f13915/Group+Sound+Bath+Release+Tension+Find+Serenity+Sara+Auster.png" 
+                    alt="Buổi trị liệu âm thanh nhóm" 
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                >
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section 2 -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 class="font-serif text-3xl md:text-4xl font-light text-deep-brown mb-8">
+                Trị liệu âm thanh & Y học rung động<br>
+                <span class="text-sage">– không phải phép màu, mà là con đường</span>
+            </h2>
+            
+            <div class="prose text-lg text-deep-charcoal/80 leading-relaxed">
+                <p>
+                    Có người đến với Metta vì mất ngủ lâu ngày. Có người mang theo những cơn đau mơ hồ không tìm thấy nguyên nhân. Có người chỉ thấy mình "quá mệt", nhưng không còn từ nào để miêu tả.
+                </p>
+                
+                <p>
+                    Trong mỗi phiên <strong>trị liệu âm thanh bằng chuông xoay</strong>, tôi không xem mình là người "chữa" cho ai. Tôi chỉ là người:
+                </p>
+                
+                <ul class="list-none space-y-3 my-6 pl-0">
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Sắp xếp không gian đủ an toàn để họ được thả lỏng,</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Dùng tiếng chuông, hơi thở và sự hiện diện để <strong>đánh thức cơ chế tự chữa lành</strong> mà cơ thể vốn đã có.</span>
+                    </li>
+                </ul>
+                
+                <p>
+                    Đó là cách tôi hiểu về <strong>y học rung động</strong>:
+                </p>
+            </div>
+            
+            <!-- Quote -->
+            <div class="bg-sage/10 rounded-2xl p-8 md:p-10 my-10 relative">
+                <span class="quote-mark absolute top-2 left-4">"</span>
+                <blockquote class="relative z-10">
+                    <p class="font-serif text-xl md:text-2xl text-deep-brown leading-relaxed">
+                        Không áp đặt lên cơ thể, mà gõ nhịp để cơ thể tự nhớ lại tiết tấu lành của chính nó.
+                    </p>
+                </blockquote>
+            </div>
+            
+            <div class="prose text-lg text-deep-charcoal/80 leading-relaxed">
+                <p>
+                    Tiếng chuông đi từ luân xa gốc lên đến đỉnh đầu, đi qua từng điểm tắc nghẽn, từng vùng cơ thể không còn biết rung lên như thế nào. Có lúc là rung động rất nhẹ nhàng. Có lúc là khoảng lặng dài, khi cả phòng chỉ còn lại tiếng thở và nhịp tim.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section 3 -->
+    <section class="py-16 md:py-24 bg-sand/30">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 class="font-serif text-3xl md:text-4xl font-light text-deep-brown mb-8">
+                Từ người nhận đến người trao<br>
+                <span class="text-sage">– đào tạo nhà trị liệu chuông xoay</span>
+            </h2>
+            
+            <div class="prose text-lg text-deep-charcoal/80 leading-relaxed">
+                <p>
+                    Sau một thời gian, ngày càng nhiều học viên, giáo viên yoga, nhà trị liệu, huấn luyện viên… hỏi tôi:
+                </p>
+                
+                <blockquote class="border-l-2 border-sage pl-6 py-2 my-6 not-italic">
+                    <p class="font-serif text-xl text-deep-charcoal/80">
+                        "Làm sao để em không chỉ trải nghiệm, mà còn có thể <strong>học để làm nghề</strong> với chuông xoay?"
+                    </p>
+                </blockquote>
+                
+                <p>
+                    Thế là những khóa <strong>Đào tạo Nhà trị liệu Chuông xoay – Trị liệu âm thanh & Y học rung động</strong> ra đời.
+                </p>
+                
+                <p>
+                    Trong các khóa này, chúng tôi không chỉ học cách cầm dùi, xoay chuông hay bày bộ chuông cho đẹp. Chúng tôi học:
+                </p>
+                
+                <ul class="list-none space-y-3 my-6 pl-0">
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Các loại sóng não (Beta, Alpha, Theta, Delta) và vì sao trạng thái Theta phù hợp cho chữa lành.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Cách lắng nghe tiếng chuông để biết nơi nào trong cơ thể đang "nghẹt" năng lượng.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Cách xây dựng một phiên trị liệu có <strong>mở – thân – kết</strong>, không quá mạnh, không quá nhẹ.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Cách giữ trường năng lượng an toàn cho thân chủ – và cho chính mình.</span>
+                    </li>
+                </ul>
+                
+                <p>
+                    Tôi luôn nhắc học viên:
+                </p>
+            </div>
+            
+            <!-- Quote -->
+            <div class="bg-white rounded-2xl p-8 md:p-10 my-10 shadow-lg relative">
+                <span class="quote-mark absolute top-2 left-4">"</span>
+                <blockquote class="relative z-10">
+                    <p class="font-serif text-xl md:text-2xl text-deep-brown leading-relaxed">
+                        Một nhà trị liệu giỏi không phải người gõ chuông hay nhất, mà là người <em class="text-sage">lắng nghe sâu nhất</em> – với trái tim, với đôi tay, với cả sự tĩnh lặng bên trong.
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section 4 -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 class="font-serif text-3xl md:text-4xl font-light text-deep-brown mb-8">
+                Metta – nơi tiếng chuông trở thành nghề<br>
+                <span class="text-sage">và cũng là nếp sống</span>
+            </h2>
+            
+            <div class="prose text-lg text-deep-charcoal/80 leading-relaxed">
+                <p>
+                    Ngày hôm nay, Metta Singing Bowl không chỉ là nơi mọi người đến để <strong>nằm xuống, đắp chăn, nghe chuông và nghỉ ngơi</strong>. Đó còn là nơi:
+                </p>
+                
+                <ul class="list-none space-y-3 my-6 pl-0">
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Những giáo viên yoga tìm thấy <strong>một công cụ mới</strong> để nâng cấp lớp học,</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Những huấn luyện viên, nhà trị liệu tìm thấy <strong>một ngôn ngữ khác</strong> để chạm vào thân – tâm – năng lượng thân chủ,</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Những người khủng hoảng trước ngã rẽ nghề nghiệp tìm thấy <strong>một con đường chậm mà sâu</strong>, vừa nuôi sống mình, vừa nuôi dưỡng tâm hồn.</span>
+                    </li>
+                </ul>
+                
+                <p>
+                    Nếu bạn đang đọc những dòng này, có thể trong bạn đã có một phần bị tiếng chuông gọi tên. Bạn có thể bắt đầu bằng <strong>một buổi trải nghiệm trị liệu âm thanh</strong>, hoặc bằng <strong>một khóa học để hiểu rõ hơn về y học rung động</strong>.
+                </p>
+                
+                <p>
+                    Dù bạn chọn cách nào, Metta vẫn sẽ ở đây – giữa Đà Lạt yên tĩnh – để cùng bạn lắng nghe, cùng bạn học, và cùng bạn đi chặng đường dài với <strong>trị liệu âm thanh, chuông xoay và y học rung động</strong>.
+                </p>
+            </div>
+            
+            <!-- CTA -->
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-metta inline-flex items-center justify-center px-8 py-4 bg-sage text-white font-medium rounded-full hover:bg-muted-green transition-all shadow-lg shadow-sage/20">
+                    <span>Đặt lịch trị liệu</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="index.html#programs" class="inline-flex items-center justify-center px-8 py-4 border border-deep-brown/20 text-deep-brown font-medium rounded-full hover:bg-deep-brown/5 transition-all">
+                    <span>Khám phá khóa học</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-deep-brown text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <span class="font-serif text-2xl font-medium">Metta</span>
+                        <span class="font-serif text-lg text-white/70">Singing Bowl</span>
+                    </div>
+                    <p class="text-white/70 leading-relaxed max-w-md">
+                        Nằm giữa rừng thông Đà Lạt, Metta Singing Bowl là không gian nơi trị liệu âm thanh, chuông xoay và y học rung động được thực hành một cách bài bản, an toàn và đầy tính nhân văn.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-4">Liên kết</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-white/70 hover:text-sage transition-colors">Giới thiệu</a></li>
+                        <li><a href="index.html#sound-therapy" class="text-white/70 hover:text-sage transition-colors">Trị liệu âm thanh</a></li>
+                        <li><a href="index.html#programs" class="text-white/70 hover:text-sage transition-colors">Chương trình</a></li>
+                        <li><a href="index.html#philosophy" class="text-white/70 hover:text-sage transition-colors">Triết lý</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-4">Liên hệ</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li>Đà Lạt, Lâm Đồng</li>
+                        <li>hello@mettasingingbowl.com</li>
+                        <li>+84 xxx xxx xxx</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-divider mb-8"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-white/50 text-sm">
+                    &copy; 2024 Metta Singing Bowl. Tất cả quyền được bảo lưu.
+                </p>
+                <p class="text-white/50 text-sm">
+                    Thiết kế với <span class="text-sage">♥</span> tại Đà Lạt
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
