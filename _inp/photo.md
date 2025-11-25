@@ -1,3 +1,5 @@
+https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221_86HJ6fqUvu45f73qT6fqwL18oLs6rmu%22%5D,%22action%22:%22open%22,%22userId%22:%22114236828616531031866%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
+
 Đây là bản **Brief Hình Ảnh (Photography Brief)** được soạn thảo chuyên nghiệp để gửi cho Nhiếp ảnh gia. Bạn có thể copy nội dung này vào file Word/PDF, chèn thêm các hình ảnh mẫu (Moodboard) mà bạn thích để họ dễ hình dung.
 
 ---
