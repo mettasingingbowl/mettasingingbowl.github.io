@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METTA SINGINGBOWL ĐÀ LẠT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-olive: #3A3F2C;
+            --moss-dark: #4A4F3A;
+            --forest-dark: #2E3524;
+            --accent-sage: #9CAF88;
+            --accent-cream: #E8DCC4;
+            --text-cream: #F2EDE4;
+            --text-warm: #D9D4C8;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Inter', -apple-system, sans-serif;
+            color: var(--text-cream);
+            line-height: 1.65;
+            background: var(--dark-olive);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(58, 63, 44, 0.96);
+            backdrop-filter: blur(12px);
+            padding: 1.8rem 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(156, 175, 136, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-sage);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-warm);
+            font-size: 0.78rem;
+            transition: all 0.3s;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-sage);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 85px;
+            height: 92vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) sepia(0.15);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(58, 63, 44, 0.5), rgba(46, 53, 36, 0.6));
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            color: var(--accent-sage);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 7rem;
+            font-weight: 900;
+            letter-spacing: 12px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            color: var(--text-cream);
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--accent-cream);
+            text-transform: uppercase;
+        }
+
+        /* Section */
+        .section {
+            padding: 9rem 8%;
+            background: var(--dark-olive);
+        }
+
+        .section.alt {
+            background: var(--moss-dark);
+        }
+
+        .section.darker {
+            background: var(--forest-dark);
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            color: var(--accent-sage);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 3.5rem;
+            color: var(--text-cream);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .content-box {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .text-content {
+            font-size: 1.12rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            color: var(--text-warm);
+            font-weight: 400;
+        }
+
+        .quote-box {
+            background: rgba(156, 175, 136, 0.08);
+            padding: 4rem;
+            border-left: 6px solid var(--accent-sage);
+            margin: 4rem 0;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--accent-cream);
+            font-weight: 600;
+            line-height: 1.75;
+        }
+
+        /* Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 7rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            border: 5px solid var(--accent-sage);
+            box-shadow: 20px 20px 0 rgba(156, 175, 136, 0.2);
+        }
+
+        .subtitle {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            color: var(--accent-sage);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* Chakra System */
+        .chakra-list {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .chakra-item {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 3.5rem;
+            border-radius: 0;
+            border-left: 6px solid;
+            transition: all 0.4s;
+            border-right: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .chakra-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateX(20px);
+        }
+
+        .chakra-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.8rem;
+            color: var(--text-cream);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chakra-detail {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-warm);
+            line-height: 1.85;
+        }
+
+        .chakra-detail strong {
+            color: var(--accent-cream);
+            font-weight: 700;
+        }
+
+        /* Training Section */
+        .training-area {
+            padding: 9rem 8%;
+            background: linear-gradient(135deg, var(--forest-dark), var(--dark-olive));
+            text-align: center;
+        }
+
+        /* Sản Phẩm Section */
+        .products-section {
+            padding: 9rem 8%;
+            background: var(--warm-earth);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 2px solid rgba(156, 175, 136, 0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-sage);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-sage);
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-cream);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-warm);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-cta {
+            color: var(--accent-sage);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent-sage);
+            padding-bottom: 0.3rem;
+            transition: all 0.3s;
+        }
+
+        .product-cta:hover {
+            color: var(--accent-cream);
+            border-bottom-color: var(--accent-cream);
+        }
+
+        /* Training Section */
+        .training-area {
+            padding: 9rem 8%;
+            background: linear-gradient(135deg, var(--forest-dark), var(--dark-olive));
+            text-align: center;
+        }
+
+        .training-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3.5rem;
+            margin-top: 6rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .training-box {
+            background: rgba(0, 0, 0, 0.35);
+            padding: 4.5rem 3rem;
+            border: 4px solid var(--accent-sage);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .training-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--accent-cream);
+            transition: width 0.4s;
+        }
+
+        .training-box:hover::after {
+            width: 100%;
+        }
+
+        .training-box:hover {
+            background: rgba(0, 0, 0, 0.55);
+            transform: translateY(-18px);
+            border-color: var(--accent-cream);
+        }
+
+        .training-num {
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--accent-sage);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .training-box h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-cream);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            line-height: 1.2;
+        }
+
+        .training-box p {
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: var(--text-warm);
+        }
+
+        /* Contact Area */
+        .contact-area {
+            padding: 9rem 8%;
+            background: var(--dark-olive);
+            text-align: center;
+        }
+
+        .contact-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 6rem auto 0;
+        }
+
+        .contact-box {
+            padding: 3rem;
+            background: rgba(156, 175, 136, 0.06);
+            border: 2px solid rgba(156, 175, 136, 0.2);
+            transition: all 0.4s;
+        }
+
+        .contact-box:hover {
+            background: rgba(156, 175, 136, 0.12);
+            transform: translateY(-12px);
+            border-color: var(--accent-sage);
+        }
+
+        .contact-box h4 {
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--accent-sage);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .contact-box p {
+            font-size: 1.4rem;
+            line-height: 1.85;
+            color: var(--text-cream);
+            font-weight: 600;
+        }
+
+        .contact-box a {
+            color: var(--text-cream);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .contact-box a:hover {
+            color: var(--accent-sage);
+            border-bottom-color: var(--accent-sage);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 8%;
+            background: #1F2219;
+            text-align: center;
+            border-top: 3px solid var(--accent-sage);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-warm);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .grid-layout,
+            .training-row,
+            .contact-row,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .grid-img {
+                height: 500px;
+            }
+
+            .contact-row {
+                gap: 3rem;
+            }
+
+            .products-grid {
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            /* Services responsive */
+            #services div[style*="grid-template-columns: repeat(2"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">METTA SINGINGBOWL</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Trang Chủ</a></li>
+                <li><a href="#giang">Về Tôi</a></li>
+                <li><a href="#chuong-xoay">Kiến Thức</a></li>
+                <li><a href="#services">Dịch Vụ</a></li>
+                <li><a href="#training">Khóa Học</a></li>
+                <li><a href="#products">Sản Phẩm</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <img src="IMG_5914.jpeg" alt="Metta Singingbowl" class="hero-bg">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <div class="hero-label">Âm Thanh Tây Tạng</div>
+                <h1>METTA SINGINGBOWL</h1>
+                <div class="hero-subtitle">Việt Nam</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="chuong-xoay" class="section">
+        <div class="content-box">
+            <div class="section-label">Kiến Thức</div>
+            <h2 class="section-title">Chuông Xoay<br>Tây Tạng</h2>
+            
+            <p class="text-content">
+                Chuông xoay Tây Tạng (Tây Tạngan Singing Bowl) là nhạc cụ kim loại hình chén, được chế tác từ hợp kim 7 kim loại: vàng, bạc, đồng, sắt, thiếc, chì và thủy ngân. Mỗi kim loại tương ứng với một hành tinh và một tần số rung động riêng.
+            </p>
+
+            <p class="text-content">
+                Khi gõ hoặc xoay chuông bằng chày gỗ, chuông phát ra âm thanh có tần số ổn định, tạo sóng âm lan tỏa 360 độ. Đây không phải âm nhạc giải trí – đây là công cụ tác động trực tiếp vào hệ thần kinh và trường năng lượng cơ thể.
+            </p>
+
+            <div class="quote-box">
+                "Chuông xoay không chỉ rung lên âm thanh — nó đánh thức khoảng lặng bên trong mỗi người. Mỗi vòng xoay là nhịp chạm vào thân – tâm – khí, đưa người nghe về chính mình."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 5rem;">Nguồn Gốc</h3>
+            <p class="text-content">
+                Chuông xoay có nguồn gốc từ vùng Tây Tạng, Nepal, Ấn Độ và Bhutan từ hơn 2000 năm trước. Ban đầu được sử dụng trong các nghi lễ Phật giáo và thiền định, sau này lan rộng ra thế giới như một phương pháp thư giãn và nghỉ ngơi bằng âm thanh.
+            </p>
+            <p class="text-content">
+                Ngày nay, chuông xoay được ứng dụng rộng rãi trong: hỗ trợ âm thanh (hỗ trợ bằng âm thanh), yoga, thiền định (meditation), sức khỏe tổng thể (holistic health), và các buổi tắm âm thanh (tắm âm thanh).
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 5rem;">Phân Biệt: Chuông Full Moon vs Chuông Thường</h3>
+            <p class="text-content">
+                <strong>Chuông Full Moon</strong> là dòng chuông được rèn vào đúng đêm trăng tròn (full moon night). Ngày xưa, người thợ rèn tin rằng nhịp trăng – lực hấp dẫn của mặt trăng – ảnh hưởng đến kim loại khi nóng chảy và rèn, tạo ra âm ngân sâu hơn, dày hơn, trầm và đi vào hệ thần kinh rất êm.
+            </p>
+            <p class="text-content">
+                Nhưng không phải cứ bóng vàng là Full Moon. Và cũng không phải cứ được người bán nói là "đêm trăng rèn ra" thì tự nhiên âm thành huyền thoại.
+            </p>
+            <p class="text-content">
+                <strong>Chuông thường</strong> – rèn vào ngày bình thường – cũng có những chiếc rất đẹp và rất hay. Có cái ngân cực lâu, có cái đi vào cơ thể sâu và sạch, đôi khi còn "ăn" hơn cả những chiếc Full Moon được quảng cáo quá mức.
+            </p>
+            <p class="text-content">
+                Cuối cùng, điều quyết định âm không phải là câu chuyện marketing, mà là: <strong>tay nghề thợ rèn + độ dày + hợp kim + nhiệt độ nung.</strong>
+            </p>
+
+            <div class="quote-box">
+                "Đừng mua bằng miệng người bán. Hãy mua bằng tai và bằng cơ thể của chính bạn. Gõ thử, nghe thử, cảm nhận xem âm có đi vào thân không."
+            </div>
+        </div>
+    </section>
+
+    <!-- Tắm Âm Thanh -->
+    <section class="section darker">
+        <div class="content-box">
+            <div class="section-label">Phương Pháp</div>
+            <h2 class="section-title">Tắm Âm Thanh</h2>
+            
+            <p class="text-content">
+                Tắm âm thanh (Tắm Âm Thanh) là một trải nghiệm ngâm mình trong sóng âm thanh – bạn nằm yên, nhắm mắt, và để âm thanh từ chuông xoay "tắm" toàn bộ cơ thể. Không phải nghe bằng tai – mà cảm nhận bằng da, bằng xương, bằng từng tế bào.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Tại Sao Gọi Là "Tắm"?</h3>
+            <p class="text-content">
+                Giống như khi bạn ngâm mình trong bồn tắm nước ấm – nước bao phủ toàn thân, thấm vào da, cơ thể thư giãn từ từ. Tắm âm thanh cũng vậy – sóng âm lan tỏa 360 độ, bao phủ cơ thể, thấm vào da, rung động qua xương, tạo cảm giác được "ngâm" trong âm thanh.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Một Buổi Tắm Âm Thanh Diễn Ra Như Thế Nào?</h3>
+            <p class="text-content">
+                <strong>Chuẩn bị:</strong> Bạn nằm trên thảm yoga, có thể đắp chăn mỏng, có gối đầu thoải mái. Không gian im lặng, ánh sáng dịu. Có thể thắp nến hoặc nhang nhẹ.
+            </p>
+            <p class="text-content">
+                <strong>Bắt đầu:</strong> Người hướng dẫn bắt đầu gõ chuông nhẹ nhàng. Âm thanh từ từ lan tỏa. Bạn chỉ cần nằm yên, không cần làm gì cả – chỉ thở, lắng nghe, và để cơ thể thả lỏng.
+            </p>
+            <p class="text-content">
+                <strong>Trong phiên:</strong> Âm thanh đến từ nhiều hướng, nhiều chuông với tần số khác nhau. Có lúc êm dịu như gió thoảng, có lúc trầm sâu như sóng biển. Não bộ dần chuyển từ Beta (căng thẳng) xuống Alpha (thư giãn) rồi Theta (thiền sâu).
+            </p>
+            <p class="text-content">
+                <strong>Kết thúc:</strong> Âm thanh dần nhỏ lại, im lặng quay trở lại. Bạn từ từ mở mắt, duỗi người, trở về thực tại với cảm giác nhẹ nhàng, tươi mới.
+            </p>
+
+            <div class="quote-box">
+                "Tắm âm thanh không phải để 'sửa' hay 'chữa' điều gì. Nó chỉ đơn giản là tạo không gian cho cơ thể được nghỉ ngơi sâu – và khi cơ thể nghỉ đúng cách, nó biết cách tự cân bằng lại."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Cảm Giác Trong Tắm Âm Thanh</h3>
+            <p class="text-content">
+                Mỗi người trải nghiệm khác nhau. Có người cảm thấy cơ thể nặng như chìm vào đất. Có người thấy nhẹ như bay. Có người thấy ấm, có người thấy mát. Có người thấy màu sắc hay hình ảnh trong đầu. Có người thấy cảm xúc dâng lên – buồn, vui, nhớ nhung.
+            </p>
+            <p class="text-content">
+                Tất cả đều bình thường. Không có trải nghiệm "đúng" hay "sai". Cơ thể đang xử lý những gì nó cần xử lý. Nhiệm vụ của bạn chỉ là quan sát, không phán xét.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Sau Tắm Âm Thanh</h3>
+            <p class="text-content">
+                Nhiều người báo cáo: ngủ sâu hơn vào đêm đó, cảm giác nhẹ nhõm, tâm trí trong trẻo hơn, bớt căng thẳng. Một số người cảm thấy mệt (vì cơ thể đang xả stress tích tụ) – đây là dấu hiệu tốt, cần uống nhiều nước và nghỉ ngơi.
+            </p>
+        </div>
+    </section>
+
+    <!-- Năng Lượng & Tần Số -->
+    <section class="section">
+        <div class="content-box">
+            <div class="section-label">Khái Niệm</div>
+            <h2 class="section-title">Năng Lượng<br>& Tần Số</h2>
+
+            <h3 class="subtitle">Năng Lượng Là Gì?</h3>
+            <p class="text-content">
+                Trong bối cảnh chuông xoay và yoga, "năng lượng" không phải khái niệm huyền bí mà là cách gọi đơn giản cho trạng thái sống động (vitality) của cơ thể. Theo sinh học, năng lượng có thể hiểu là:
+            </p>
+            <p class="text-content">
+                <strong>1. Dòng điện sinh học (Điện Sinh Học):</strong> Hệ thần kinh truyền tín hiệu bằng xung điện. Tim đập nhờ xung điện. Não hoạt động bằng sóng điện. Đây là "năng lượng" có thể đo được bằng máy EEG, ECG.
+            </p>
+            <p class="text-content">
+                <strong>2. Khí huyết tuần hoàn:</strong> Khi máu chạy tốt, oxy và dưỡng chất đến đủ mọi tế bào – ta cảm thấy "đầy năng lượng". Khi tuần hoàn kém – ta mệt mỏi, "hết năng lượng".
+            </p>
+            <p class="text-content">
+                <strong>3. Trạng thái tâm-thần:</strong> Khi tâm trí thoải mái, cơ thể sản xuất hormone tốt (serotonin, dopamine) – ta cảm thấy "năng lượng cao". Khi stress, cơ thể tiết cortisol – ta "năng lượng thấp".
+            </p>
+
+            <div class="quote-box">
+                "Năng lượng không phải thứ bí ẩn ngoài hành tinh. Nó chính là trạng thái sống động của cơ thể – máu chạy, thần kinh truyền tín hiệu, hormone cân bằng. Khi cơ thể hoạt động hài hòa, ta gọi đó là 'năng lượng tốt'."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Tần Số Là Gì?</h3>
+            <p class="text-content">
+                Tần số (tần số) là số lần rung động trong một giây, đo bằng Héc (Hz). Mọi vật đều rung động – từ nguyên tử, tế bào, cơ quan, cho đến âm thanh. Chuông xoay tạo ra sóng âm với tần số ổn định.
+            </p>
+            <p class="text-content">
+                <strong>Tần số âm thanh:</strong> Âm trầm (âm trầm) có tần số thấp (50-200 Hz), âm cao (treble) có tần số cao (2000-8000 Hz). Chuông xoay thường tạo âm có nhiều tần số chồng lấp (họa âm), tạo cảm giác "phong phú" và "sâu".
+            </p>
+            <p class="text-content">
+                <strong>Tần số não:</strong> Như đã nói – não hoạt động ở các tần số khác nhau: Beta (13-30 Hz), Alpha (8-13 Hz), Theta (4-8 Hz), Delta (0.5-4 Hz). Âm thanh ổn định có thể ảnh hưởng đến tần số não.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Cộng Hưởng (Cộng Hưởng)</h3>
+            <p class="text-content">
+                Cộng hưởng xảy ra khi hai vật có tần số giống nhau bắt đầu rung cùng nhau. Ví dụ: đặt hai cây đàn đàn guitar cạnh nhau, gảy dây Đồ ở cây thứ nhất → dây Đồ ở cây thứ hai cũng rung theo (dù không ai chạm vào).
+            </p>
+            <p class="text-content">
+                Khi chuông xoay phát ra âm thanh ổn định, cơ thể "cộng hưởng" với âm đó. Nếu cơ thể đang căng thẳng (rung ở tần số cao, hỗn loạn), âm thanh ổn định giúp "kéo" về trạng thái điều hòa hơn.
+            </p>
+
+            <div class="quote-box">
+                "Cộng hưởng không phải phép màu. Đó là hiện tượng vật lý – khi hai vật rung gần tần số giống nhau, chúng tự nhiên đồng bộ. Cơ thể bạn cũng vậy – khi nghe âm thanh ổn định lâu đủ, nó bắt đầu 'nhịp' theo."
+            </div>
+        </div>
+    </section>
+
+    <!-- Mất Cân Bằng -->
+    <section class="section darker">
+        <div class="content-box">
+            <div class="section-label">Hiểu Biết</div>
+            <h2 class="section-title">Sự Mất<br>Cân Bằng</h2>
+
+            <p class="text-content">
+                Mất cân bằng (mất cân bằng) là trạng thái cơ thể hoặc tâm trí không hài hòa – giống như cái bàn bị xiêu vẹo, hoặc bánh xe bị lệch tâm khi lăn. Không phải bệnh – nhưng nếu kéo dài, có thể ảnh hưởng đến sức khỏe.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Các Loại Mất Cân Bằng</h3>
+            
+            <p class="text-content">
+                <strong>1. Mất cân bằng thần kinh:</strong> Khi hệ giao cảm (chế độ căng thẳng) hoạt động quá mức, trong khi hệ đối giao cảm (chế độ nghỉ ngơi) không được kích hoạt đủ. Dấu hiệu: khó ngủ, hay lo âu, tim đập nhanh không rõ lý do, tiêu hóa kém.
+            </p>
+
+            <p class="text-content">
+                <strong>2. Mất cân bằng cảm xúc:</strong> Khi cảm xúc bị đè nén, không được xử lý. Ví dụ: tức giận nhưng nuốt vào trong, buồn nhưng không khóc được, sợ hãi nhưng phải giả vờ mạnh mẽ. Những cảm xúc này không biến mất – chúng tích tụ trong cơ thể.
+            </p>
+
+            <p class="text-content">
+                <strong>3. Mất cân bằng năng lượng:</strong> Khi một luân xa hoạt động quá mức, luân xa khác lại bị "tắc". Ví dụ: luân xa 3 (ý chí) quá mạnh → kiểm soát mọi thứ, nhưng luân xa 4 (tim) bị tắc → khó mở lòng, khó tin tưởng.
+            </p>
+
+            <p class="text-content">
+                <strong>4. Mất cân bằng thể chất:</strong> Cơ thể không đối xứng – vai bên phải cao hơn bên trái, lưng cong, hông nghiêng. Điều này tạo ra căng cứng mãn tính và đau nhức.
+            </p>
+
+            <div class="quote-box">
+                "Mất cân bằng không phải lỗi của bạn. Đó là cách cơ thể phản ứng với cuộc sống – stress, áp lực, tổn thương. Nhiệm vụ không phải 'sửa' ngay – mà là nhận ra, chấp nhận, và từ từ tạo điều kiện để cơ thể tự cân bằng lại."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Dấu Hiệu Cơ Thể Đang Mất Cân Bằng</h3>
+            <p class="text-content">
+                • Ngủ không sâu giấc, hay mơ hỗn loạn, thức giữa đêm<br>
+                • Mệt mỏi dù ngủ đủ giấc<br>
+                • Hay cáu gắt, dễ nổi giận không rõ lý do<br>
+                • Cảm giác "rỗng trong" dù bề ngoài bận rộn<br>
+                • Đau nhức mãn tính ở vai, cổ, lưng không rõ nguyên nhân<br>
+                • Khó tập trung, tâm trí lang thang<br>
+                • Hơi thở nông, ngực chật<br>
+                • Cảm giác "sống qua ngày" chứ không thực sự sống
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Chuông Xoay Hỗ Trợ Như Thế Nào?</h3>
+            <p class="text-content">
+                Chuông xoay không "sửa" mất cân bằng. Nó tạo điều kiện để cơ thể tự cân bằng lại. Giống như khi bạn mệt, bạn cần ngủ – cơ thể tự điều chỉnh trong lúc ngủ. Chuông xoay cũng vậy – nó đưa cơ thể vào trạng thái nghỉ sâu, và cơ thể tự biết cần làm gì.
+            </p>
+        </div>
+    </section>
+
+    <!-- Giang -->
+    <section id="giang" class="section alt">
+        <div class="grid-layout">
+            <img src="IMG_5917.jpeg" alt="Giang Metta" class="grid-img">
+            <div>
+                <div class="section-label">Người Sáng Lập</div>
+                <h3 class="subtitle">Giang<br>Metta</h3>
+                <p class="text-content">
+                    Người sáng lập Học viện Yoga & Chuông Xoay Metta, được đăng ký với Yoga Alliance (USA).
+                </p>
+                <p class="text-content">
+                    Kinh nghiệm thực hành và giảng dạy từ năm 2016, hướng dẫn với năng lượng bình an và tính ứng dụng cao.
+                </p>
+                <div class="quote-box">
+                    "Càng tu thì càng phải giữ kín cho riêng mình vì đó gọi là tài sản tâm linh."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science -->
+    <section id="science" class="section">
+        <div class="content-box">
+            <div class="section-label">Nghiên Cứu</div>
+            <h2 class="section-title">Khoa Học<br>Âm Thanh</h2>
+
+            <div class="quote-box">
+                "Dù là Chuông xoay hay bất kỳ phương pháp hỗ trợ nào, đều cần dựa trên hiểu biết cơ thể học. Đừng thực hành dựa trên cảm tính hay lời nói huyền bí mà không kết nối với thực tế cơ thể. Tỉnh thức là chân có chạm đất. Đức Phật là một nhà khoa học lỗi lạc."
+            </div>
+
+            <h3 class="subtitle">Hệ Thần Kinh Tự Động</h3>
+            <p class="text-content">
+                Cơ thể con người có hai nhánh hệ thần kinh tự động (Hệ Thần Kinh Tự Động):
+            </p>
+            <p class="text-content">
+                <strong>Hệ Giao Cảm (Hệ Giao Cảm)</strong> – trạng thái "chiến đấu hoặc chạy trốn" (chiến đấu hoặc chạy trốn). Khi hệ này hoạt động: tim đập nhanh, hơi thở nông, cơ thể căng cứng, chuẩn bị cho nguy hiểm.
+            </p>
+            <p class="text-content">
+                Vấn đề là: cuộc sống hiện đại khiến chúng ta sống trong trạng thái này liên tục – deadline, áp lực công việc, lo âu về tương lai, tin tức tiêu cực. Khi hệ giao cảm hoạt động quá mức, cơ thể có thể cảm thấy mệt mỏi, căng thẳng tích lũy.
+            </p>
+            <p class="text-content">
+                <strong>Hệ Đối Giao Cảm (Hệ Đối Giao Cảm)</strong> – trạng thái "nghỉ ngơi và tiêu hóa" (nghỉ ngơi và tiêu hóa). Đây là khi cơ thể thư giãn, nghỉ ngơi. Tim đập chậm, hơi thở sâu, cơ thể có điều kiện để phục hồi tự nhiên.
+            </p>
+            <p class="text-content">
+                <strong>Vai trò của Chuông xoay:</strong> Khi não bộ nhận được tần số âm thanh ổn định từ chuông, nó có thể chuyển sang trạng thái thư giãn hơn. Tim đập chậm lại. Hơi thở sâu hơn. Cơ thể có điều kiện để nghỉ ngơi.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 4rem;">Sóng Não (Sóng Não)</h3>
+            <p class="text-content">
+                Não bộ hoạt động ở các tần số khác nhau tùy theo trạng thái. Đây không phải khái niệm tâm linh – đây là khoa học thần kinh, được đo bằng máy EEG (electroencephalography).
+            </p>
+            <p class="text-content">
+                <strong>Beta (13-30 Hz)</strong> – Tỉnh táo, tập trung, hoạt động. Khi quá cao: lo âu, căng thẳng, suy nghĩ quá mức (overthinking). Đây là tần số chủ đạo của đời sống hiện đại – làm việc, deadline, áp lực.
+            </p>
+            <p class="text-content">
+                <strong>Alpha (8-13 Hz)</strong> – Thư giãn nhẹ, tỉnh táo nhưng không căng thẳng. Đây là cổng vào thiền định (gateway to meditation). Khi bạn nhắm mắt thư giãn, não chuyển từ Beta sang Alpha.
+            </p>
+            <p class="text-content">
+                <strong>Theta (4-8 Hz)</strong> – Thiền sâu, giấc ngủ nông, sáng tạo, truy cập tiềm thức. Đây là vùng não liên quan đến thư giãn sâu. Khi não ở Theta: cơ thể có điều kiện thuận lợi để nghỉ ngơi và phục hồi tự nhiên.
+            </p>
+            <p class="text-content">
+                <strong>Delta (0.5-4 Hz)</strong> – Giấc ngủ sâu, phục hồi tế bào, tái tạo năng lượng hoàn toàn. Đây là tần số của giấc ngủ không mơ (dreamless sleep), khi cơ thể sửa chữa tổn thương ở cấp độ tế bào.
+            </p>
+
+            <div class="quote-box">
+                "Mục tiêu của một phiên chuông xoay (tắm âm thanh session) là đưa não từ Beta → Alpha → Theta. Khi não ở Theta, cơ thể có điều kiện để thư giãn sâu và nghỉ ngơi tự nhiên."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 4rem;">Tần Số & Cộng Hưởng</h3>
+            <p class="text-content">
+                Cơ thể con người là một dàn nhạc. Mỗi cơ quan, mỗi tuyến nội tiết, mỗi tế bào đều có tần số rung động riêng (rung độngal tần số). Chuông xoay tạo ra âm thanh ổn định giúp tâm trí thư giãn và cơ thể nghỉ ngơi.
+            </p>
+            <p class="text-content">
+                <strong>Nguyên lý cộng hưởng (Cộng Hưởng):</strong> Khi hai vật có tần số gần giống nhau đặt cạnh nhau, chúng bắt đầu rung cùng nhau. Ví dụ: đặt hai cây đàn đàn guitar cạnh nhau, gảy dây Đồ ở cây thứ nhất → dây Đồ ở cây thứ hai cũng rung theo.
+            </p>
+            <p class="text-content">
+                Khi chuông xoay phát ra tần số ổn định, sóng âm (sound waves) lan tỏa, chạm vào cơ thể, tạo cảm giác rung động (đồng bộ hóa). Đây là hiện tượng cộng hưởng tự nhiên – khi âm thanh ổn định giúp cơ thể và tâm trí thư giãn.
+            </p>
+            <p class="text-content">
+                Năng lượng (năng lượng) có thể được hiểu theo sinh học là: dòng điện sinh học (bioelectric current) và dao động tế bào (dao động tế bào) – hoạt động dẫn điện và tín hiệu trong mô thần kinh, cơ, và cơ quan nội tạng.
+            </p>
+        </div>
+    </section>
+
+    <!-- Đồng Bộ Hóa & Họa Âm -->
+    <section class="section">
+        <div class="content-box">
+            <div class="section-label">Kỹ Thuật</div>
+            <h2 class="section-title">Đồng Bộ Hóa<br>& Họa Âm</h2>
+
+            <h3 class="subtitle">Đồng Bộ Hóa - Đồng Bộ Hóa</h3>
+            <p class="text-content">
+                Đồng Bộ Hóa (đồng bộ hóa) là hiện tượng hai hệ thống rung động bắt đầu đồng bộ với nhau khi đặt gần nhau đủ lâu. Đây là hiện tượng vật lý được phát hiện từ thế kỷ 17 bởi nhà khoa học người Hà Lan Christiaan Huygens.
+            </p>
+
+            <p class="text-content">
+                <strong>Thí nghiệm nổi tiếng:</strong> Huygens treo hai cái đồng hồ quả lắc cạnh nhau trên cùng một bức tường. Ban đầu, hai đồng hồ dao động không đồng bộ. Nhưng sau một thời gian, chúng tự động đồng bộ – hai quả lắc dao động cùng nhịp.
+            </p>
+
+            <p class="text-content">
+                <strong>Trong cơ thể:</strong> Não bộ cũng hoạt động theo nguyên lý tương tự. Khi bạn nghe một âm thanh ổn định với tần số cụ thể (ví dụ: 8 Hz - Alpha), não có xu hướng "đồng bộ" theo tần số đó. Đây là cơ sở khoa học của việc sử dụng âm thanh để thay đổi trạng thái ý thức.
+            </p>
+
+            <div class="quote-box">
+                "Đồng Bộ Hóa không phải ép buộc. Não không thể bị ép. Nhưng khi môi trường xung quanh ổn định, não tự nhiên muốn 'về nhịp' – giống như khi bạn đi bộ cạnh người khác, bước chân tự nhiên đồng điệu."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Họa Âm - Họa Âm</h3>
+            <p class="text-content">
+                Khi bạn gõ một chiếc chuông, bạn không chỉ nghe một nót nhạc đơn giản – bạn nghe một "dàn hợp xướng" của nhiều tần số chồng lên nhau. Đó là họa âm (họa âm hay bội âm).
+            </p>
+
+            <p class="text-content">
+                <strong>Âm cơ bản (Âm Cơ Bản):</strong> Là âm chính bạn nghe – ví dụ nốt Đồ. Đây là tần số thấp nhất, mạnh nhất.
+            </p>
+
+            <p class="text-content">
+                <strong>Họa Âm (Họa âm):</strong> Là các tần số cao hơn, nhẹ hơn, cùng rung lên với âm cơ bản. Chúng theo tỉ lệ toán học: 2x, 3x, 4x, 5x... tần số gốc. Ví dụ: nếu âm cơ bản là 100 Hz, các họa âm sẽ là 200 Hz, 300 Hz, 400 Hz...
+            </p>
+
+            <p class="text-content">
+                <strong>Tại sao họa âm quan trọng?</strong> Chính những họa âm này tạo ra "màu sắc" (màu sắc âm thanh) của âm thanh. Đó là lý do tại sao cùng chơi nốt Đồ, nhưng đàn piano khác guitar, đàn guitar khác chuông xoay. Chuông xoay có họa âm phong phú, phức tạp, tạo cảm giác "đầy", "sâu", "bao trùm".
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Nhịp Đập Song Tai - Nhịp Đập Song Tai</h3>
+            <p class="text-content">
+                Binaural beats xảy ra khi hai tai nghe hai tần số hơi khác nhau. Ví dụ: tai trái nghe 200 Hz, tai phải nghe 210 Hz. Não bộ sẽ tạo ra một "nhịp đập" ảo ở tần số chênh lệch: 10 Hz (210 - 200 = 10).
+            </p>
+
+            <p class="text-content">
+                10 Hz nằm trong dải Alpha (8-13 Hz) – tần số của thư giãn tỉnh táo. Đây là cách một số ứng dụng thiền định và thư giãn hoạt động. Tuy nhiên, chuông xoay không cần binaural beats – họa âm tự nhiên của chuông đã đủ phong phú để tạo hiệu ứng.
+            </p>
+
+            <div class="quote-box">
+                "Chuông xoay tốt có thể tạo ra hàng chục họa âm cùng lúc. Đó là lý do tại sao âm chuông 'no', 'đầy', 'sống' – không phẳng như máy phát âm điện tử."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Khoảng Lặng (Khoảng Lặng) Giữa Các Âm</h3>
+            <p class="text-content">
+                Điều quan trọng không kém âm thanh là khoảng lặng. Khi người hướng dẫn gõ chuông xong, âm vẫn ngân dài, rồi từ từ nhỏ lại... và khoảng lặng xuất hiện.
+            </p>
+
+            <p class="text-content">
+                Đây là khoảnh khắc não bộ "xử lý" âm thanh vừa nghe. Nếu gõ liên tục không có khoảng lặng, não bị quá tải. Nếu có khoảng lặng phù hợp, não có thời gian đồng bộ, thư giãn sâu hơn.
+            </p>
+
+            <div class="quote-box">
+                "Trong âm nhạc, khoảng lặng cũng là một phần của nhạc. Trong chuông xoay, khoảng lặng là nơi phép màu thực sự diễn ra – đó là lúc cơ thể 'lắng xuống'."
+            </div>
+        </div>
+    </section>
+
+    <!-- Rung Động & Cellular Response -->
+    <section class="section darker">
+        <div class="content-box">
+            <div class="section-label">Sinh Học</div>
+            <h2 class="section-title">Rung Động<br>& Tế Bào</h2>
+
+            <h3 class="subtitle">Âm Thanh Là Rung Động Vật Lý</h3>
+            <p class="text-content">
+                Âm thanh không phải thứ "vô hình" hay "huyền bí". Âm thanh là rung động cơ học – khi chuông rung, nó đẩy không khí xung quanh tạo thành sóng. Sóng này lan tỏa, chạm vào tai bạn (màng nhĩ rung), chạm vào da bạn, chạm vào xương bạn.
+            </p>
+
+            <p class="text-content">
+                <strong>Ví dụ trực quan:</strong> Đứng gần loa âm trầm mạnh trong hòa nhạc – bạn không chỉ "nghe" bass, bạn CẢM THẤY nó rung trong lồng ngực. Đó là bằng chứng rằng âm thanh là rung động vật lý, không phải chỉ là "tín hiệu" trừu tượng.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Cơ Thể Là Chất Dẫn Âm Tốt</h3>
+            <p class="text-content">
+                Cơ thể người 60-70% là nước. Nước dẫn âm thanh nhanh hơn không khí gấp 4 lần (1,482 m/s so với 343 m/s). Khi chuông xoay rung, sóng âm không chỉ đi qua tai – nó đi qua da, mô mỡ, cơ, xương, nước trong tế bào.
+            </p>
+
+            <p class="text-content">
+                <strong>Xương dẫn âm đặc biệt tốt:</strong> Nếu bạn đặt chuông lên xương (ví dụ: vai, ngực, chậu), rung động truyền trực tiếp vào cơ thể qua xương. Một số người báo cáo cảm giác "tan chảy" ở vùng đó – đó là do cơ bắp xung quanh thả lỏng khi nhận rung động.
+            </p>
+
+            <div class="quote-box">
+                "Bạn không cần 'tin' vào chuông xoay. Rung động là vật lý. Nếu có sóng âm, có cơ thể – thì có tương tác. Câu hỏi không phải 'có tác dụng không', mà là 'bạn có cho phép cơ thể tiếp nhận không'."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Tế Bào Rung Động (Dao Động Tế Bào)</h3>
+            <p class="text-content">
+                Mọi tế bào trong cơ thể đều rung động. Không phải theo nghĩa huyền bí, mà theo nghĩa sinh học: tế bào có màng tế bào (cell membrane) hoạt động bằng bơm ion (natri, kali) vào ra – tạo ra xung điện nhỏ. Đây gọi là "dao động tế bào" (dao động tế bào).
+            </p>
+
+            <p class="text-content">
+                Khi tế bào khỏe mạnh, nó dao động ổn định. Khi bị stress, thiếu oxy, viêm nhiễm – dao động bị rối loạn. Một số nghiên cứu cho rằng rung động bên ngoài (như âm thanh) có thể ảnh hưởng đến dao động tế bào, giúp "reset" về trạng thái ổn định hơn.
+            </p>
+
+            <p class="text-content">
+                <strong>Lưu ý:</strong> Đây vẫn là lĩnh vực nghiên cứu. Chưa có bằng chứng khoa học cuối cùng về việc âm thanh "chữa" tế bào. Nhưng có đủ nghiên cứu cho thấy âm thanh ảnh hưởng đến trạng thái thần kinh, và thần kinh ảnh hưởng đến mọi tế bào.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Phản Ứng Mạc Cơ - Phản Ứng Của Mạc Cơ</h3>
+            <p class="text-content">
+                Fascia (mạc cơ) là mạng lưới mô liên kết bao bọc mọi cơ, cơ quan, xương trong cơ thể. Nó như "áo giáp mềm" của cơ thể. Fascia rất nhạy cảm với rung động.
+            </p>
+
+            <p class="text-content">
+                Khi bị căng thẳng mãn tính, fascia bị "dính" (adhesion) – giống như tấm vải bị nhăn cứng. Điều này gây đau, hạn chế vận động. Rung động từ chuông xoay có thể giúp fascia "nhả" ra, mềm mại hơn – giống như massage rung (rung động therapy).
+            </p>
+
+            <div class="quote-box">
+                "Nhiều người sau tắm âm thanh nói: 'Tôi cảm thấy cơ thể mềm hơn, nhẹ hơn'. Đó có thể là do fascia đã thả lỏng – không phải phép màu, mà là phản ứng sinh học với rung động."
+            </div>
+        </div>
+    </section>
+
+    <!-- Breath & Sound -->
+    <section class="section">
+        <div class="content-box">
+            <div class="section-label">Kết Nối</div>
+            <h2 class="section-title">Hơi Thở<br>& Âm Thanh</h2>
+
+            <h3 class="subtitle">Dây Thần Kinh Mê Tẩu (Dây Thần Kinh Mê Tẩu)</h3>
+            <p class="text-content">
+                Dây thần kinh mê tẩu (dây thần kinh mê tẩu) là dây thần kinh dài nhất trong cơ thể, chạy từ não xuống bụng, kết nối tim, phổi, dạ dày, ruột. Đây là "đường cao tốc" của hệ đối giao cảm – hệ thống nghỉ ngơi và hồi phục.
+            </p>
+
+            <p class="text-content">
+                Khi dây thần kinh mê tẩu hoạt động tốt (gọi là "trương lực thần kinh mê tẩu cao"), bạn: thở sâu dễ dàng, tim đập chậm và đều, tiêu hóa tốt, ngủ sâu, cảm thấy bình an. Khi trương lực thần kinh mê tẩu thấp: hơi thở nông, tim đập nhanh, lo âu, tiêu hóa kém, khó ngủ.
+            </p>
+
+            <div class="quote-box">
+                "Vagus nerve giống như công tắc dimmer của hệ thần kinh. Khi nó 'bật sáng', toàn bộ cơ thể chuyển sang chế độ nghỉ ngơi."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Âm Thanh Kích Hoạt Dây Thần Kinh Mê Tẩu</h3>
+            <p class="text-content">
+                Nghiên cứu cho thấy âm thanh tần số thấp (dưới 500 Hz) – đặc biệt là âm trầm từ chuông xoay – có thể kích hoạt dây thần kinh mê tẩu. Cơ chế: rung động âm thanh chạm vào xương trong tai (ossicles), gửi tín hiệu đến não, não kích hoạt dây thần kinh mê tẩu.
+            </p>
+
+            <p class="text-content">
+                Kết quả: hơi thở tự động chậm lại, sâu hơn. Tim đập chậm lại. Cơ thể chuyển từ "chiến đấu" sang "nghỉ ngơi". Đây là lý do tại sao nhiều người tự nhiên thở sâu hơn trong tắm âm thanh mà không cần cố gắng.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Hơi Thở Hoành (Hơi Thở Hoành)</h3>
+            <p class="text-content">
+                Hầu hết người hiện đại thở nông – chỉ dùng ngực, không dùng hoành (diaphragm). Hơi thở nông = tín hiệu nguy hiểm gửi đến não = não giữ trạng thái căng thẳng.
+            </p>
+
+            <p class="text-content">
+                Trong tắm âm thanh, khi cơ thể thư giãn dần, hơi thở tự nhiên chuyển từ ngực xuống bụng (hoành). Đây là dấu hiệu cơ thể đang vào chế độ nghỉ ngơi. Người hướng dẫn không cần dạy – cơ thể tự biết khi an toàn.
+            </p>
+
+            <div class="quote-box">
+                "Hơi thở là chiếc cầu nối giữa ý thức và vô thức. Khi hơi thở thay đổi, mọi thứ trong cơ thể thay đổi theo."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Cái Thở Dài Giải Tỏa - Cái Thở Dài Giải Tỏa</h3>
+            <p class="text-content">
+                Trong tắm âm thanh, bạn có thể nghe ai đó thở dài (sigh) – hít sâu rồi thở ra dài. Đây là phản ứng sinh học tự nhiên khi cơ thể xả stress.
+            </p>
+
+            <p class="text-content">
+                Khi căng thẳng kéo dài, phổi giữ khí CO2 dư thừa (vì thở nông). Khi cơ thể thư giãn, não gửi tín hiệu: "Thở dài đi, xả CO2 ra". Đó là lý do tại sao thở dài khiến bạn cảm thấy nhẹ nhõm ngay lập tức.
+            </p>
+
+            <p class="text-content">
+                Nếu bạn cảm thấy muốn thở dài trong tắm âm thanh – hãy làm. Đừng kìm. Đó là cơ thể đang tự giải phóng.
+            </p>
+        </div>
+    </section>
+
+    <!-- Deep Relaxation Cơ Chế -->
+    <section class="section darker">
+        <div class="content-box">
+            <div class="section-label">Cơ Chế</div>
+            <h2 class="section-title">Thư Giãn<br>Sâu</h2>
+
+            <h3 class="subtitle">Khác Biệt Giữa "Thư Giãn" và "Thư Giãn Sâu"</h3>
+            <p class="text-content">
+                <strong>Thư giãn thông thường:</strong> Nằm xem phim, lướt điện thoại, nghe nhạc nhẹ. Não vẫn hoạt động ở Beta (tỉnh táo). Cơ thể nghỉ bề ngoài, nhưng hệ thần kinh vẫn "on".
+            </p>
+
+            <p class="text-content">
+                <strong>Thư giãn sâu:</strong> Não chuyển xuống Alpha hoặc Theta. Hệ thần kinh thực sự "off" – giao cảm tắt, đối giao cảm bật. Đây là trạng thái mà cơ thể thực sự phục hồi, không chỉ "nghỉ tạm".
+            </p>
+
+            <div class="quote-box">
+                "Bạn có thể 'nghỉ' cả ngày mà không hề thư giãn sâu. Thư giãn sâu không phải về thời gian – mà về chất lượng của trạng thái thần kinh."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">4 Giai Đoạn Thư Giãn Sâu</h3>
+            <p class="text-content">
+                <strong>Giai đoạn 1 - Nhận thức (Nhận Thức):</strong> Bạn còn ý thức về xung quanh – nghe rõ âm thanh, biết mình đang nằm đâu, tâm trí còn suy nghĩ. Não ở Beta.
+            </p>
+
+            <p class="text-content">
+                <strong>Giai đoạn 2 - Thả lỏng (Thả Lỏng):</strong> Cơ thể bắt đầu nặng. Suy nghĩ chậm lại. Bạn vẫn tỉnh nhưng không còn "theo dõi" mọi thứ. Não chuyển sang Alpha.
+            </p>
+
+            <p class="text-content">
+                <strong>Giai đoạn 3 - Trôi nổi (Trôi Nổi):</strong> Ranh giới giữa tỉnh và ngủ mờ đi. Bạn có thể thấy hình ảnh, màu sắc, cảm giác lạ. Đây là Theta – cửa vào tiềm thức.
+            </p>
+
+            <p class="text-content">
+                <strong>Giai đoạn 4 - Hòa nhập (Hòa Nhập):</strong> Sau khi âm thanh dừng, bạn từ từ trở về. Cảm giác tươi mới, nhẹ nhàng, như vừa ngủ dậy sau giấc ngủ ngon.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Tại Sao Không Ngủ Trong Tắm Âm Thanh?</h3>
+            <p class="text-content">
+                Nhiều người lo: "Tôi sợ ngủ quên". Đừng lo. Ngủ trong tắm âm thanh là TUYỆT VỜI. Đó là dấu hiệu cơ thể rất cần nghỉ ngơi. Tuy nhiên, mục tiêu không phải ngủ – mà là trạng thái Theta: tỉnh táo nhưng thư giãn cực sâu.
+            </p>
+
+            <p class="text-content">
+                Trong giấc ngủ (Delta), bạn mất ý thức hoàn toàn. Trong Theta, bạn vẫn có ý thức mỏng manh – vừa đủ để "chứng kiến" quá trình thư giãn. Đây là trạng thái mà thiền định sâu cũng hướng đến.
+            </p>
+
+            <div class="quote-box">
+                "Theta giống như bạn đang nằm ở bờ biển – sóng vừa chạm vào chân, bạn biết mình đang ở đó, nhưng không cần làm gì, chỉ là cảm nhận."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Giải Phóng Ký Ức Cơ - Giải Phóng Ký Ức Cơ</h3>
+            <p class="text-content">
+                Cơ bắp "nhớ" stress. Khi bạn căng thẳng lâu ngày, cơ giữ trạng thái co cứng ngay cả khi bạn không còn gặp nguy hiểm. Đây gọi là "ký ức cơ" (muscle memory) hoặc "armor" (áo giáp).
+            </p>
+
+            <p class="text-content">
+                Trong thư giãn sâu, cơ bắt đầu "nhả" – bạn có thể cảm thấy giật mình (muscle twitch), run nhẹ, hoặc cảm xúc bật ra (khóc, cười). Đừng sợ – đây là cơ thể đang xả những gì giữ lâu.
+            </p>
+
+            <p class="text-content">
+                Đôi khi cảm xúc không rõ nguồn gốc xuất hiện – buồn, giận, sợ – không biết tại sao. Bởi vì cơ bắp giữ cảm xúc chưa xử lý từ quá khứ. Khi cơ thả lỏng, cảm xúc được giải phóng.
+            </p>
+        </div>
+    </section>
+
+    <!-- Chakra -->
+    <section id="chakra" class="section darker">
+    <section id="chakra" class="section darker">
+        <div class="content-box">
+            <div class="section-label">Hệ Thống Năng Lượng</div>
+            <h2 class="section-title">7 Luân Xa</h2>
+            
+            <p class="text-content" style="max-width: 900px;">
+                Luân xa (chakra) không phải khái niệm huyền bí. Đây là những vùng năng lượng tập trung gắn với hệ nội tiết (hệ nội tiết), hệ thần kinh (hệ thần kinh) và cơ quan cụ thể. Mỗi luân xa có chức năng thân – tâm riêng.
+            </p>
+
+            <div class="chakra-list">
+                <div class="chakra-item" style="border-left-color: #C1272D;">
+                    <h3>Luân Xa 1: Rễ (Rễ) – Đỏ</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Đáy xương chậu, xương cụt</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến thượng thận</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> An toàn tồn tại, bản năng sinh tồn, đứng vững trong đời sống, kết nối đất</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Lo âu tiền bạc/nhà cửa, cảm giác không an toàn, đau chân, đau lưng dưới, miễn dịch yếu</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #FF6B35;">
+                    <h3>Luân Xa 2: Sinh Dục (Sinh Dục) – Cam</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Dưới rốn, vùng xương chậu</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến sinh dục (buồng trứng/tinh hoàn)</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Cảm xúc, sáng tạo, khoái cảm, ham muốn sống, dòng chảy cuộc sống</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Rối loạn cảm xúc, thiếu động lực sáng tạo, vấn đề sinh dục, đau bụng dưới, kinh nguyệt không đều</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #FFD23F;">
+                    <h3>Luân Xa 3: Rốn (Solar Plexus) – Vàng</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Vùng dạ dày, giữa ngực và rốn</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến tụy</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Ý chí, quyền lực cá nhân, tự tin, ranh giới, ngọn lửa bên trong</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Mất tự tin, sợ đánh giá, kiểm soát quá mức, vấn đề tiêu hóa, đau dạ dày, mệt mỏi</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #4CAF50;">
+                    <h3>Luân Xa 4: Tim (Tim) – Xanh Lá</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Giữa ngực, tim</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến ức (trung tâm miễn dịch)</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Cho và nhận tình yêu, trắc ẩn, kết nối, tha thứ, mở lòng</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Tổn thương chưa lành, khó mở lòng, cô lập, đau ngực, rối loạn nhịp tim, hơi thở nông</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #2196F3;">
+                    <h3>Luân Xa 5: Họng (Họng) – Xanh Dương</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Cổ họng</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến giáp (điều chỉnh chuyển hóa)</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Biểu đạt bản thân, nói sự thật, lắng nghe, giao tiếp chân thật</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Nuốt chặt cảm xúc, không dám nói, hoặc nói quá nhiều không chân thật, đau cổ, viêm họng, vấn đề tuyến giáp</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #673AB7;">
+                    <h3>Luân Xa 6: Trán (Third Eye) – Chàm</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Giữa hai lông mày</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến yên (chỉ huy hệ nội tiết)</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Trực giác, tầm nhìn rộng, nhận diện bản chất, nhìn thấu đáo</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Suy nghĩ quá mức, không tin trực giác, hoặc quá mơ hồ/không thực tế, đau đầu, mỏi mắt, mất ngủ</p>
+                </div>
+
+                <div class="chakra-item" style="border-left-color: #9C27B0;">
+                    <h3>Luân Xa 7: Đỉnh Đầu (Đỉnh Đầu) – Tím/Trắng</h3>
+                    <p class="chakra-detail"><strong>Vị trí:</strong> Đỉnh đầu</p>
+                    <p class="chakra-detail"><strong>Tuyến:</strong> Tuyến tùng (sản xuất melatonin)</p>
+                    <p class="chakra-detail"><strong>Chức năng:</strong> Kết nối với cái lớn hơn bản thân, ý nghĩa cuộc sống, tâm linh, thức tỉnh</p>
+                    <p class="chakra-detail"><strong>Dấu hiệu có thể gặp:</strong> Cô đơn tâm linh, mất phương hướng, hoặc quá tách rời thực tế, sống "trên mây", trầm cảm tâm linh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Triết Lý -->
+    <section class="section">
+        <div class="grid-layout">
+            <div>
+                <div class="section-label">Triết Lý</div>
+                <h3 class="subtitle">Triết Lý Metta</h3>
+                <div class="quote-box">
+                    "Ai chọn nghề chuông xoay, trước hết là chọn quay về với chính mình. Rồi từ sự tĩnh lặng đó, bạn mới đủ âm vang để dẫn dắt người khác trở về."
+                </div>
+                <p class="text-content">
+                    Ở Metta, chúng tôi không coi Chuông xoay chỉ là "nhạc cụ" hay "công cụ" để thư giãn. Chuông là tần số – là cầu nối giữa cơ thể, tâm trí và linh hồn.
+                </p>
+                <h3 class="subtitle" style="margin-top: 3rem;">Thực Hành Hàng Ngày</h3>
+                <p class="text-content">
+                    Điều chỉnh âm, rèn tay mượt, rèn tâm tĩnh – quan trọng hơn mọi lý thuyết và công thức. Phải chơi và nghe mỗi ngày, không phải chỉ tập vài ngày trước sự kiện.
+                </p>
+                <div class="quote-box">
+                    "Trước tiên mình phải siêng năng chơi, nghe âm, điều chỉnh lực tay và lắng nghe lại. Không có thiên tài nào mà không có 99% công sức nỗ lực."
+                </div>
+            </div>
+            <img src="IMG_5923.jpeg" alt="Metta Thực Hành" class="grid-img">
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="section">
+        <div class="content-box">
+            <div class="section-label">Thực Hành</div>
+            <h2 class="section-title">Ứng Dụng<br>Thực Tế</h2>
+
+            <h3 class="subtitle">Sử Dụng Chuông Xoay Hàng Ngày</h3>
+            <p class="text-content">
+                Bạn không cần tham gia tắm âm thanh chính thức mới được hưởng lợi. Chuông xoay có thể dùng tại nhà, mỗi ngày, như một công cụ tự chăm sóc.
+            </p>
+
+            <p class="text-content">
+                <strong>Buổi sáng - Khởi động:</strong> Gõ chuông nhẹ 3-5 phút sau khi thức dậy. Âm thanh giúp não chuyển từ giấc ngủ sang tỉnh táo nhẹ nhàng, không giật mình như chuông báo thức.
+            </p>
+
+            <p class="text-content">
+                <strong>Giữa ngày - Reset:</strong> Khi cảm thấy căng thẳng, mệt mỏi, đầu óc bế tắc – dừng lại 10 phút, gõ chuông, thở sâu. Giống như khởi động lại máy tính khi bị lag.
+            </p>
+
+            <p class="text-content">
+                <strong>Buổi tối - Chuẩn bị ngủ:</strong> Gõ chuông 15-20 phút trước khi ngủ. Âm thanh báo hiệu cho não: "Đã đến lúc nghỉ". Giúp chuyển từ chế độ làm việc sang chế độ ngủ mượt mà hơn.
+            </p>
+
+            <div class="quote-box">
+                "Chuông xoay giống như chìa khóa mở cửa vào trạng thái yên tĩnh. Càng dùng thường xuyên, cơ thể càng 'nhận ra' tín hiệu nhanh hơn."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Kết Hợp Với Thiền Định & Yoga</h3>
+            <p class="text-content">
+                <strong>Trước khi thiền:</strong> Gõ chuông 5 phút để "dọn dẹp" tâm trí. Âm thanh giúp suy nghĩ lắng xuống, dễ vào thiền hơn.
+            </p>
+
+            <p class="text-content">
+                <strong>Sau khi yoga:</strong> Shavasana (tư thế xác chết) với chuông xoay = thư giãn gấp đôi. Cơ thể vừa duỗi từ yoga, thêm âm thanh = thả lỏng hoàn toàn.
+            </p>
+
+            <p class="text-content">
+                <strong>Trong thiền hành:</strong> Một số trường phái Phật giáo dùng chuông đánh dấu thời gian thiền. Mỗi lần chuông rung = nhắc nhở quay về hơi thở, về hiện tại.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Cho Trẻ Em & Người Già</h3>
+            <p class="text-content">
+                <strong>Trẻ em:</strong> Trẻ rất nhạy với âm thanh. Chuông xoay giúp trẻ hiếu động tĩnh lại, hoặc trẻ lo âu bớt sợ. Gõ nhẹ nhàng, không ồn. Để trẻ tự chạm, tự gõ – biến thành trò chơi.
+            </p>
+
+            <p class="text-content">
+                <strong>Người già:</strong> Nhiều người già khó ngủ, lo âu, đau nhức. Chuông xoay hỗ trợ không dùng thuốc. Ngồi gần người già, gõ nhẹ, để họ cảm nhận rung động – cảm giác được chăm sóc.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">Không Gian & Thời Gian Phù Hợp</h3>
+            <p class="text-content">
+                <strong>Không gian:</strong> Yên tĩnh, sạch sẽ, tối vừa phải. Không cần hoàn hảo – góc phòng nhỏ, thảm yoga là đủ. Quan trọng là cảm giác an toàn.
+            </p>
+
+            <p class="text-content">
+                <strong>Thời gian:</strong> Buổi nào cũng được, nhưng tối hoặc sáng sớm hiệu quả nhất (không gian vắng, ít tiếng ồn). Ngắn nhất 5 phút, dài nhất 60 phút. Đừng ép bản thân làm quá lâu khi mới bắt đầu.
+            </p>
+
+            <div class="quote-box">
+                "Thực hành đều đặn 10 phút mỗi ngày hiệu quả hơn 1 tiếng một lần một tháng. Cơ thể cần thời gian để 'học' cách thư giãn."
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section darker">
+        <div class="content-box">
+            <div class="section-label">Câu Hỏi</div>
+            <h2 class="section-title">Thắc Mắc<br>Thường Gặp</h2>
+
+            <h3 class="subtitle">1. Tôi không cảm thấy gì trong Tắm Âm Thanh. Có bình thường không?</h3>
+            <p class="text-content">
+                Hoàn toàn bình thường. Không phải ai cũng "thấy" ngay. Một số người mất 3-5 lần mới bắt đầu cảm nhận sâu. Cơ thể cần thời gian để "tin" rằng đây là không gian an toàn để thả lỏng.
+            </p>
+            <p class="text-content">
+                Đừng kỳ vọng "trải nghiệm thần kỳ". Đôi khi "không cảm thấy gì" nghĩa là cơ thể đang thư giãn một cách rất tự nhiên – không kịch tính, chỉ yên bình.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">2. Tôi Khóc Trong Tắm Âm Thanh. Có Sao Không?</h3>
+            <p class="text-content">
+                Không có gì sai. Khóc là cách cơ thể giải phóng cảm xúc tích tụ. Nước mắt chứa hormone stress (cortisol) – khóc = xả stress ra ngoài, theo nghĩa đen.
+            </p>
+            <p class="text-content">
+                Nhiều người khóc mà không biết tại sao. Không cần biết. Chỉ cần để nó ra. Đừng kìm. Đừng phán xét. Cảm xúc không có lỗi.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">3. Bao Lâu Thì Thấy Hiệu Quả?</h3>
+            <p class="text-content">
+                Tùy người và tùy vấn đề. Một số người ngủ ngon hơn ngay đêm đó. Một số người cần 2-3 tuần thực hành đều đặn mới thấy thay đổi.
+            </p>
+            <p class="text-content">
+                Dấu hiệu hiệu quả: ngủ sâu hơn, ít cáu gắt hơn, hơi thở sâu hơn, đau nhức giảm, tâm trí thanh thản hơn. Không phải "cảm giác lạ" hay "thần kỳ" – chỉ là sống dễ thở hơn.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">4. Có Ai Không Nên Dùng Chuông Xoay?</h3>
+            <p class="text-content">
+                <strong>Thận trọng với:</strong> Phụ nữ có thai 3 tháng đầu (tránh rung động mạnh vùng bụng), người có rối loạn tâm thần nặng (tránh dùng một mình, nên có người hướng dẫn), người có máy tạo nhịp tim (tránh đặt chuông lên ngực).
+            </p>
+            <p class="text-content">
+                Nếu có bất kỳ vấn đề sức khỏe nào, hãy tham khảo ý kiến bác sĩ trước. Chuông xoay an toàn cho hầu hết người, nhưng luôn lắng nghe cơ thể mình.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">5. Chuông Càng Đắt Càng Tốt?</h3>
+            <p class="text-content">
+                Không hẳn. Giá phụ thuộc vào: nguồn gốc (thủ công hay máy), tuổi (cổ hay mới), kích thước, chất lượng hợp kim. Chuông đắt có thể có âm phong phú hơn, nhưng chuông rẻ chơi đúng cách cũng rất hiệu quả.
+            </p>
+            <p class="text-content">
+                Quan trọng nhất: âm thanh có "nói chuyện" với bạn không. Đừng mua vì đắt. Mua vì bạn THÍCH âm đó.
+            </p>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">6. Tự Học Qua YouTube Được Không?</h3>
+            <p class="text-content">
+                Được, nhưng có giới hạn. YouTube dạy kỹ thuật cơ bản – cách cầm, cách gõ. Nhưng không dạy được: cảm nhận năng lượng, điều chỉnh theo người nghe, biết khi nào nên dừng.
+            </p>
+            <p class="text-content">
+                Nếu chỉ chơi cho bản thân – YouTube đủ. Nếu muốn hướng dẫn người khác – cần học trực tiếp từ người thầy có kinh nghiệm.
+            </p>
+
+            <div class="quote-box">
+                "Kỹ thuật học được trong vài ngày. Cảm nhận và sự nhạy bén – cần vài năm tu luyện. Đừng vội. Đường dài mới biết ngựa hay."
+            </div>
+
+            <h3 class="subtitle" style="margin-top: 3rem;">7. Chuông Xoay Có "Sạc Năng Lượng" Không?</h3>
+            <p class="text-content">
+                Không. Chuông là vật chất – kim loại rung động. Không có "năng lượng tâm linh" tích trữ bên trong. Nếu ai nói chuông cần "sạc" bằng trăng, mặt trời, ý niệm – đó là niềm tin cá nhân, không phải khoa học.
+            </p>
+            <p class="text-content">
+                Điều quan trọng: giữ chuông sạch (lau bụi), cất ở nơi khô ráo, tôn trọng như nhạc cụ. Vậy là đủ.
+            </p>
+        </div>
+    </section>
+
+    <!-- Dịch Vụ -->
+    <section id="services" class="section">
+        <div class="content-box">
+            <div class="section-label">Dịch Vụ</div>
+            <h2 class="section-title">Gói Dịch Vụ<br>Chuông Xoay</h2>
+            
+            <p class="text-content" style="max-width: 900px; text-align: center; margin: 0 auto 3rem;">
+                Chúng tôi cung cấp đầy đủ các dịch vụ hỗ trợ bằng âm thanh – từ buổi cá nhân, nhóm, đến sự kiện và thiết lập tại studio/resort.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Service 1 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Hỗ Trợ Cá Nhân 1:1</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Buổi hỗ trợ riêng tư, tập trung 100% vào bạn. Thời lượng 60-90 phút. Phù hợp cho người cần không gian riêng để thư giãn sâu, xử lý cảm xúc, hoặc làm việc với vấn đề cụ thể.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Đặt lịch liên hệ trực tiếp
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Hỗ Trợ Chuyên Sâu</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Gói nhiều buổi (4-8 buổi) cho người muốn làm việc sâu hơn. Theo dõi tiến trình, điều chỉnh theo nhu cầu cá nhân. Phù hợp cho căng thẳng mãn tính, mất ngủ kéo dài, hoặc quá trình phục hồi.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Cam kết tối thiểu 4 buổi
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Hỗ Trợ Nhóm</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Buổi âm thanh cho nhóm 10-20 người. Thời lượng 90-120 phút. Tạo không gian chung để cùng trải nghiệm, cùng thư giãn. Phù hợp cho công ty, cộng đồng, hoặc nhóm bạn.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Đặt trước tối thiểu 1 tuần
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Workshop Thiền Định Kỳ</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Workshop theo tháng (nửa ngày hoặc cả ngày) kết hợp thiền, yoga nhẹ, và chuông xoay. Học cách tự thực hành tại nhà. Cộng đồng người cùng tần số.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Theo lịch hàng tháng
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Trại Thiền Cuối Tuần</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Chuỗi sự kiện 2-3 ngày, thường tổ chức tại Đà Lạt. Ngắt kết nối hoàn toàn – không điện thoại, không công việc. Chỉ thở, nghe, và về với chính mình.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Thông báo lịch qua Fanpage
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div style="background: rgba(156, 175, 136, 0.08); padding: 3rem; border-left: 5px solid var(--accent-sage); transition: all 0.4s;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                    <h3 class="subtitle" style="margin: 0 0 1.5rem; font-size: 1.8rem;">Kết Hợp Chuông Xoay + Yoga</h3>
+                    <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                        Lớp yoga nhẹ nhàng (yin yoga, restorative) kết hợp chuông xoay. Cơ thể duỗi, tâm trí lắng. Thời lượng 90-120 phút. Phù hợp cho người mới hoặc đã tập yoga.
+                    </p>
+                    <p style="margin-top: 1.5rem; color: var(--accent-sage); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">
+                        Lớp nhóm hoặc riêng
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Service 7 - Full Width -->
+            <div style="background: rgba(156, 175, 136, 0.12); padding: 4rem; margin-top: 3rem; border: 3px solid var(--accent-sage); max-width: 1200px; margin-left: auto; margin-right: auto; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1.5rem;">🌱</div>
+                <h3 class="subtitle" style="margin: 0 0 2rem; font-size: 2.2rem;">Thiết Lập Tại Studio / Khách Sạn / Resort</h3>
+                <p class="text-content" style="font-size: 1.1rem; line-height: 2; max-width: 900px; margin: 0 auto 2rem;">
+                    Bạn có studio yoga, khách sạn, hoặc resort muốn thêm dịch vụ âm thanh? Chúng tôi cung cấp:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; text-align: left;">
+                    <div>
+                        <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                            ✓ Tư vấn không gian phù hợp<br>
+                            ✓ Setup âm thanh và thiết bị<br>
+                            ✓ Đào tạo nhân viên cơ bản
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-content" style="font-size: 1rem; line-height: 1.9;">
+                            ✓ Thiết kế gói dịch vụ cho khách<br>
+                            ✓ Hỗ trợ marketing ban đầu<br>
+                            ✓ Theo dõi và điều chỉnh
+                        </p>
+                    </div>
+                </div>
+                <p style="margin-top: 2.5rem; color: var(--accent-sage); font-weight: 700; font-size: 1rem; letter-spacing: 1.5px;">
+                    Liên hệ để nhận báo giá chi tiết
+                </p>
+            </div>
+
+            <div class="quote-box" style="margin-top: 5rem;">
+                "Mỗi gói dịch vụ được thiết kế linh hoạt, điều chỉnh theo nhu cầu thực tế của bạn. Không có công thức cứng nhắc – chỉ có sự lắng nghe và tôn trọng hành trình của mỗi người."
+            </div>
+        </div>
+    </section>
+
+    <!-- Sản Phẩm -->
+    <section id="products" class="products-section">
+        <div class="content-box">
+            <div class="section-label">Sản Phẩm</div>
+            <h2 class="section-title">Chuông Xoay<br>& Phụ Kiện</h2>
+            
+            <p class="text-content" style="max-width: 900px; text-align: center; margin: 0 auto 3rem;">
+                Chúng tôi cung cấp chuông xoay Tây Tạng chính hãng, tranh mandala thủ công, pháp phục yoga và các phụ kiện hỗ trợ thực hành.
+            </p>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="IMG_5871.jpeg" alt="Chuông Xoay Tây Tạng" class="product-image">
+                    <div class="product-content">
+                        <h3>Chuông Xoay<br>Tây Tạng</h3>
+                        <p>Chuông xoay nguyên bản từ Nepal, làm thủ công từ hợp kim 7 kim loại. Âm thanh trong trẻo, ngân dài.</p>
+                        <a href="#contact" class="product-cta">Liên hệ đặt hàng →</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="IMG_5872.jpeg" alt="Tranh Mandala" class="product-image">
+                    <div class="product-content">
+                        <h3>Tranh<br>Mandala</h3>
+                        <p>Tranh mandala và tangka thủ công từ Nepal, vẽ trên vải và giấy thủ công, màu sắc tự nhiên.</p>
+                        <a href="#contact" class="product-cta">Liên hệ đặt hàng →</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="IMG_5873.jpeg" alt="Pháp Phục Yoga" class="product-image">
+                    <div class="product-content">
+                        <h3>Pháp Phục<br>Yoga</h3>
+                        <p>Trang phục yoga thoải mái, chất liệu cotton và linen tự nhiên, thiết kế truyền thống và hiện đại.</p>
+                        <a href="#contact" class="product-cta">Liên hệ đặt hàng →</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="IMG_5921.jpeg" alt="Phụ Kiện" class="product-image">
+                    <div class="product-content">
+                        <h3>Phụ Kiện<br>Thực Hành</h3>
+                        <p>Chày gỗ, đệm chuông, thảm yoga, nến thơm, nhang tự nhiên và các phụ kiện hỗ trợ khác.</p>
+                        <a href="#contact" class="product-cta">Liên hệ đặt hàng →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 5rem;">
+                "Mỗi chiếc chuông có âm sắc riêng, có tần số riêng. Hãy chọn chiếc chuông mà âm thanh của nó 'nói chuyện' với bạn – không phải với tai, mà với cơ thể và trái tim bạn."
+            </div>
+        </div>
+    </section>
+
+    <!-- Training -->
+    <section id="training" class="training-area">
+        <div class="section-label">Chương Trình</div>
+        <h2 class="section-title">Khóa Học Tại Metta</h2>
+        <p class="text-content" style="max-width: 900px; margin: 0 auto 2rem; color: var(--text-warm);">
+            Từ người mới bắt đầu đến Nhà hỗ trợ và Nhà đào tạo chuyên nghiệp
+        </p>
+
+        <div class="training-row">
+            <div class="training-box">
+                <div class="training-num">01</div>
+                <h3>Cấp Độ 1<br>Nền Tảng</h3>
+                <p>Tổng quan về Chuông xoay Tây Tạng. Kỹ thuật cơ bản: gõ, xoay, tạo âm. Hiểu 7 luân xa. Ứng dụng đời sống hàng ngày. Học một lần, thực hành cả đời.</p>
+            </div>
+
+            <div class="training-box">
+                <div class="training-num">02</div>
+                <h3>Cấp Độ 2<br>Chuyên Sâu</h3>
+                <p>Làm việc với năng lượng. Hiểu sóng não và cơ chế thư giãn sâu. Kỹ thuật chơi chuông chuyên sâu. Biết lắng nghe và điều chỉnh. Trở thành người hướng dẫn âm thanh chuyên nghiệp.</p>
+            </div>
+
+            <div class="training-box">
+                <div class="training-num">03</div>
+                <h3>Cấp Độ 3<br>Nhà Đào Tạo</h3>
+                <p>Sư phạm: cách truyền đạt hiệu quả. Xây dựng thương hiệu cá nhân. Mở lớp học riêng. Tự xây dựng curriculum. Trở thành người dẫn đường cho người khác.</p>
+            </div>
+        </div>
+
+        <div class="quote-box" style="background: rgba(0,0,0,0.3); border: none; margin-top: 4rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+            "Metta không dạy theo 'công thức': đặt đây, gõ X lần, xoay Y vòng. Theo công thức chỉ khiến bạn trở thành người lặp lại, không phải người dẫn dắt. Âm đó chỉ chạm tai, chưa đủ chạm tâm hồn."
+        </div>
+
+        <p class="text-content" style="margin-top: 3rem; color: var(--text-warm);">
+            Thông tin chi tiết về lộ trình, học phí và lịch khai giảng, vui lòng liên hệ trực tiếp
+        </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-area">
+        <div class="section-label">Kết Nối</div>
+        <h2 class="section-title">Liên Hệ</h2>
+
+        <div class="contact-row">
+            <div class="contact-box">
+                <h4>Địa Chỉ</h4>
+                <p>1/16/4 Khởi Nghĩa Bắc Sơn<br>Phường Xuân Hương, Đà Lạt<br>Lâm Đồng, Việt Nam</p>
+            </div>
+
+            <div class="contact-box">
+                <h4>Điện Thoại</h4>
+                <p><a href="tel:84912353999">084 9123 53 999</a></p>
+            </div>
+
+            <div class="contact-box">
+                <h4>Email</h4>
+                <p><a href="mailto:giangmetta@gmail.com">giangmetta@gmail.com</a></p>
+            </div>
+
+            <div class="contact-box">
+                <h4>Facebook</h4>
+                <p><a href="https://www.facebook.com/gianghoangyoga" target="_blank">@gianghoangyoga</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p style="margin-bottom: 1rem; font-size: 0.7rem; opacity: 0.8; font-weight: 400;">
+            <strong>Lưu ý quan trọng:</strong> Chuông xoay là phương pháp hỗ trợ thư giãn và cân bằng năng lượng, không thay thế cho điều trị y khoa. 
+            Nếu bạn có vấn đề sức khỏe, vui lòng tham khảo ý kiến bác sĩ chuyên môn.
+        </p>
+        <p>© 2026 Metta Singing bowl • Nội dung có bản quyền</p>
+    </footer>
+</body>
+</html>
