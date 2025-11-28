@@ -12,20 +12,22 @@ Website sử dụng **single-file approach** - tất cả ảnh được nhúng 
 |----------|---------|
 | Format | **WebP** |
 | Tool | **cwebp** (cài: `sudo apt install webp`) |
-| Quality | **75** |
-| Target | **~40KB** (base64 trong HTML) |
-| Size mặc định | **600x500px** |
+| Quality | **80** |
+| Target | **~30KB** WebP (~40KB base64) |
+| DPR | **2x** (full retina) |
 
-**Lưu ý:** Kích thước WxH cần scan CSS trong `index.html` để tối ưu cho từng vị trí ảnh.
+**Công thức tính size:** `Container_W * 2` x `Container_H * 2` (full retina)
+
+**Lưu ý:** Nếu retina size > ảnh gốc → dùng size ảnh gốc (không upscale)
 
 ---
 
 ## Kích thước theo CSS class
 
-| CSS Class | Container | Khuyến nghị WxH | Ghi chú |
-|-----------|-----------|-----------------|---------|
-| `.grid-img` | 568x500px | **600x500** | Ảnh trong grid-2, có `object-fit: cover` |
-| `.img-placeholder` | 100% x 500px | **600x500** | Placeholder |
+| CSS Class | Container | Output (2x) | Ghi chú |
+|-----------|-----------|-------------|---------|
+| `.grid-img` | 568x500px | **1136x1000** | Ảnh trong grid-2, `object-fit: cover` |
+| `.img-placeholder` | 568x500px | **1136x1000** | Placeholder |
 | *(thêm class mới khi cần)* | | | |
 
 ---
@@ -38,20 +40,22 @@ Website sử dụng **single-file approach** - tất cả ảnh được nhúng 
 - Tìm CSS class của `<img>` trong `index.html`
 - Tra bảng trên để lấy WxH phù hợp
 
-### 3. Optimize với cwebp
+### 3. Optimize với ffmpeg + cwebp
 
 ```bash
-# Resize bằng ffmpeg
-ffmpeg -i assets/INPUT.jpg \
-  -vf "scale=W:H:force_original_aspect_ratio=increase,crop=W:H" \
+# Pre-crop về tỷ lệ container rồi resize (ví dụ container 568x500, output 2x = 1136x1000)
+ffmpeg -y -i assets/INPUT.jpg \
+  -vf "crop=iw:iw*500/568,scale=1136:1000" \
   assets/INPUT_resized.jpg
 
 # Convert WebP với cwebp
-cwebp -q 75 assets/INPUT_resized.jpg -o assets/INPUT_opt.webp
+cwebp -q 80 assets/INPUT_resized.jpg -o assets/INPUT_opt.webp
 
 # Dọn dẹp
 rm assets/INPUT_resized.jpg
 ```
+
+**Giải thích crop:** `crop=iw:iw*CONTAINER_H/CONTAINER_W` giữ full width, cắt height theo tỷ lệ container.
 
 ### 4. Kiểm tra size
 ```bash
@@ -84,8 +88,9 @@ assets/
 ## Checklist
 
 - [ ] Ảnh gốc lưu `assets/`
-- [ ] Xác định WxH từ CSS class
-- [ ] Chạy ffmpeg + cwebp
-- [ ] Size ~30KB (base64 ~40KB)
-- [ ] Comment source trong HTML
-- [ ] Test browser
+- [ ] Xác định container size từ CSS class
+- [ ] Tính output size: container * 1.4
+- [ ] Chạy ffmpeg (pre-crop + resize) + cwebp q80
+- [ ] Kiểm tra size ~30KB WebP
+- [ ] Tạo base64, nhúng HTML với comment source
+- [ ] Test browser (desktop + mobile)
