@@ -208,6 +208,10 @@
       background: var(--cream-warm);
     }
 
+    .section-warm .subtitle {
+      margin-top: 0;
+    }
+
     .section-terracotta {
       background: linear-gradient(180deg, rgba(196, 149, 106, 0.08) 0%, rgba(196, 149, 106, 0.03) 100%);
     }
@@ -433,61 +437,6 @@
       border-radius: 20px;
     }
 
-    /* Yoga Styles Section */
-    .yoga-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .yoga-item {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      background: white;
-      border-radius: 16px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(107, 68, 35, 0.05);
-    }
-
-    .yoga-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(107, 68, 35, 0.12);
-    }
-
-    .yoga-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 1.2rem;
-      background: linear-gradient(135deg, var(--terracotta-light) 0%, var(--terracotta) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 15px rgba(196, 149, 106, 0.3);
-    }
-
-    .yoga-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: white;
-    }
-
-    .yoga-item h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--text-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .yoga-item span {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      line-height: 1.5;
-    }
-
     /* Training Steps */
     .training-grid {
       display: grid;
@@ -534,59 +483,97 @@
       line-height: 1.8;
     }
 
-    /* Benefits Section */
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
+    /* Training Detail Card */
+    .training-detail {
+      background: linear-gradient(135deg, var(--earth-brown) 0%, var(--earth-dark) 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
     }
 
-    .benefit-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
+    .training-detail::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(196, 149, 106, 0.2) 0%, transparent 70%);
+    }
+
+    .training-detail h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .training-detail p {
+      color: var(--terracotta-light);
+      line-height: 1.9;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    .feature-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--terracotta-light);
+      border-bottom: 1px solid rgba(196, 149, 106, 0.15);
+    }
+
+    .feature-list li::before {
+      content: '◇';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+    }
+
+    /* Teaching Style */
+    .teaching-point {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
       align-items: flex-start;
-      box-shadow: 0 4px 20px rgba(107, 68, 35, 0.05);
-      transition: all 0.3s ease;
     }
 
-    .benefit-card:hover {
-      transform: translateX(10px);
-      box-shadow: 0 8px 30px rgba(107, 68, 35, 0.1);
-    }
-
-    .benefit-icon {
+    .teaching-number {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, var(--terracotta-light) 0%, var(--terracotta) 100%);
-      border-radius: 12px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
       flex-shrink: 0;
     }
 
-    .benefit-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-    }
-
-    .benefit-content h4 {
+    .teaching-content h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: var(--earth-brown);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
     }
 
-    .benefit-content p {
+    .teaching-content p {
       color: var(--text-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.9;
     }
 
     /* Contact */
@@ -707,20 +694,44 @@
       background: rgba(196, 149, 106, 0.05);
     }
 
+    /* Curriculum Grid */
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .curriculum-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--terracotta);
+    }
+
+    .curriculum-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--earth-brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .curriculum-item p {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .grid-2,
       .training-grid,
       .contact-grid,
-      .benefit-grid {
+      .curriculum-grid {
         grid-template-columns: 1fr;
       }
 
       .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .yoga-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -742,10 +753,6 @@
         grid-template-columns: 1fr;
       }
 
-      .yoga-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .section {
         padding: 5rem 5%;
       }
@@ -763,6 +770,11 @@
         padding: 2rem;
         font-size: 1.2rem;
       }
+
+      .teaching-point {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
@@ -772,12 +784,11 @@
     <div class="nav-container">
       <div class="logo">Metta Yoga</div>
       <ul class="nav-links">
-        <li><a href="#about">Về Metta</a></li>
-        <li><a href="#philosophy">Triết Lý</a></li>
-        <li><a href="#styles">Phong Cách</a></li>
+        <li><a href="#about">Về Cô Giang</a></li>
+        <li><a href="#teaching">Phong Cách Dạy</a></li>
+        <li><a href="#training">Anusara & Đào Tạo</a></li>
+        <li><a href="#blog">Bài Viết</a></li>
         <li><a href="#services">Lớp Học</a></li>
-        <li><a href="#training">Đào Tạo</a></li>
-        <li><a href="#schedule">Lịch Học</a></li>
         <li><a href="#contact">Liên Hệ</a></li>
       </ul>
     </div>
@@ -787,7 +798,6 @@
   <section class="hero">
     <div class="hero-content">
       <svg class="hero-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Lotus flower icon -->
         <path d="M50 85 C50 85 30 70 30 55 C30 40 50 30 50 30 C50 30 70 40 70 55 C70 70 50 85 50 85Z" stroke="#C4956A" stroke-width="1.5" fill="none"/>
         <path d="M50 30 C50 30 35 25 25 35 C15 45 20 60 20 60" stroke="#C4956A" stroke-width="1.5" fill="none"/>
         <path d="M50 30 C50 30 65 25 75 35 C85 45 80 60 80 60" stroke="#C4956A" stroke-width="1.5" fill="none"/>
@@ -797,248 +807,406 @@
       <div class="hero-label">Thân · Tâm · Hơi thở</div>
       <h1>Metta Yoga</h1>
       <p class="hero-subtitle">Hành trình trở về với chính mình</p>
-      <a href="#services" class="hero-cta">Bắt Đầu</a>
+      <a href="#about" class="hero-cta">Bắt Đầu Hành Trình</a>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About Giang -->
   <section id="about" class="section section-light">
     <div class="content-wide">
       <div class="grid-2">
         <div>
           <div class="section-label">Người Sáng Lập</div>
-          <h2 class="section-title">Giang Metta</h2>
+          <h2 class="section-title">Cô Giang Metta</h2>
           <div class="divider" style="margin-left: 0;"></div>
           <p class="text-content">
-            Người sáng lập Học viện Yoga & Chuông Xoay Metta, được công nhận bởi Yoga Alliance (USA). 
-            Với hơn 8 năm kinh nghiệm thực hành và giảng dạy yoga, Giang hướng dẫn với năng lượng bình an 
-            và tính ứng dụng cao trong đời sống.
+            Cô Giang – người sáng lập Học viện Yoga & Chuông Xoay Metta – là giáo viên yoga được 
+            công nhận bởi Liên đoàn Yoga Thế giới (Yoga Alliance - Hoa Kỳ) với chứng chỉ E-RYT 500. Với hơn 8 năm kinh nghiệm 
+            thực hành và giảng dạy, cô đã đào tạo hàng trăm học viên và hàng chục giáo viên yoga 
+            trên khắp Việt Nam.
+          </p>
+          <p class="text-content">
+            Hành trình của cô bắt đầu từ năm 2016, khi yoga giúp cô vượt qua giai đoạn khó khăn 
+            trong cuộc sống. Từ đó, cô quyết tâm mang yoga đến với nhiều người hơn – không phải 
+            như một bộ môn thể dục, mà như một phương pháp chuyển hóa thân tâm.
           </p>
           <p class="text-content">
             Tại Metta, yoga không chỉ là những động tác trên thảm. Yoga là cách sống – là sự kết nối 
-            giữa thân, tâm và hơi thở. Mỗi buổi tập là một hành trình khám phá bản thân.
+            giữa thân, tâm và hơi thở. Mỗi buổi tập là một hành trình khám phá bản thân, không phải 
+            cuộc đua để chạm tay vào ngón chân.
           </p>
           <div class="quote-box">
-            "Yoga không phải là việc chạm tay vào ngón chân. Yoga là những gì bạn học được trên đường 
-            hướng xuống – về sự kiên nhẫn, về giới hạn, về yêu thương bản thân."
+            "Tôi không dạy yoga để bạn trở thành người khác. Tôi dạy yoga để bạn trở về với chính mình – 
+            với phiên bản chân thật nhất, bình an nhất mà bạn có thể là."
           </div>
         </div>
-        <img src="assets/giang-avatar.jpg" alt="Giang Metta" class="grid-img">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="35" r="15" stroke="#C4956A" stroke-width="2"/>
+            <path d="M50 50 L50 75 M50 60 L35 50 M50 60 L65 50 M50 75 L35 90 M50 75 L65 90" stroke="#C4956A" stroke-width="2"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Philosophy -->
-  <section id="philosophy" class="section section-terracotta">
+  <!-- Teaching Style -->
+  <section id="teaching" class="section section-terracotta">
     <div class="content-box text-center">
       <div class="section-label">Triết Lý</div>
-      <h2 class="section-title">Yoga Là Gì?</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="content-box">
-      <p class="text-content">
-        Yoga (योग) trong tiếng Sanskrit có nghĩa là "kết nối" hoặc "hợp nhất". Đây là một hệ thống 
-        thực hành cổ đại từ Ấn Độ, kết hợp động tác thể chất (asana), kỹ thuật thở (pranayama), 
-        và thiền định (dhyana) để đạt được sự cân bằng toàn diện.
-      </p>
-      <p class="text-content">
-        Yoga không phải môn thể thao hay bài tập giảm cân. Yoga là phương pháp tu dưỡng thân tâm – 
-        giúp bạn lắng nghe cơ thể, quan sát tâm trí, và tìm về sự bình an bên trong.
-      </p>
-
-      <div class="quote-box">
-        "Yoga không yêu cầu bạn phải dẻo. Yoga chỉ yêu cầu bạn xuất hiện trên thảm – 
-        với bất cứ điều gì bạn đang mang theo hôm nay. Mọi thứ khác sẽ đến."
-      </div>
-
-      <h3 class="subtitle">Tám Nhánh Yoga (Ashtanga)</h3>
-      <p class="text-content">
-        Theo Patanjali – người hệ thống hóa yoga trong "Yoga Sutras" – yoga có 8 nhánh, 
-        không chỉ giới hạn ở động tác:
-      </p>
-      <p class="text-content">
-        <strong>1. Yama:</strong> Nguyên tắc đạo đức với thế giới bên ngoài – không bạo lực, không gian dối, không tham lam.<br>
-        <strong>2. Niyama:</strong> Nguyên tắc với bản thân – sạch sẽ, hài lòng, kỷ luật, học hỏi, buông xả.<br>
-        <strong>3. Asana:</strong> Tư thế yoga – phần thể chất mà hầu hết mọi người biết đến.<br>
-        <strong>4. Pranayama:</strong> Điều khiển hơi thở – cầu nối giữa thân và tâm.
-      </p>
-      <p class="text-content">
-        <strong>5. Pratyahara:</strong> Thu hồi giác quan – hướng sự chú ý vào bên trong.<br>
-        <strong>6. Dharana:</strong> Tập trung – giữ tâm trí vào một điểm duy nhất.<br>
-        <strong>7. Dhyana:</strong> Thiền định – dòng chảy liên tục của nhận thức.<br>
-        <strong>8. Samadhi:</strong> Hợp nhất – trạng thái tĩnh lặng tuyệt đối, giác ngộ.
-      </p>
-
-      <div class="quote-box">
-        "Asana chỉ là 1 trong 8 nhánh. Nếu bạn chỉ tập asana mà bỏ qua 7 nhánh còn lại, 
-        bạn đang thiếu 87.5% của yoga. Yoga thật sự bắt đầu khi bạn rời khỏi thảm."
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits -->
-  <section class="section section-light">
-    <div class="content-box text-center">
-      <div class="section-label">Lợi Ích</div>
-      <h2 class="section-title">Yoga Mang Lại Gì?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="content-wide">
-      <div class="benefit-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Cải Thiện Thể Chất</h4>
-            <p>Tăng cường sức mạnh, độ dẻo dai và sự cân bằng. Giảm đau lưng, cổ vai gáy. Cải thiện tư thế và hơi thở.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Giảm Căng Thẳng</h4>
-            <p>Kích hoạt hệ thần kinh đối giao cảm – chế độ "nghỉ ngơi và tiêu hóa". Giảm cortisol, hormone stress.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Cải Thiện Giấc Ngủ</h4>
-            <p>Thực hành yoga đều đặn giúp điều hòa nhịp sinh học, dễ ngủ hơn và ngủ sâu hơn.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Tăng Cường Tập Trung</h4>
-            <p>Yoga rèn luyện khả năng chú ý và nhận biết. Giúp tâm trí sáng suốt, quyết định tốt hơn.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Kết Nối Bản Thân</h4>
-            <p>Học cách lắng nghe cơ thể, hiểu cảm xúc, và chấp nhận bản thân đúng như hiện tại.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h4>Cộng Đồng & Hỗ Trợ</h4>
-            <p>Tham gia cộng đồng người cùng tần số. Học hỏi, chia sẻ và phát triển cùng nhau.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="content-box" style="margin-top: 4rem;">
-      <div class="quote-box">
-        "Yoga không hứa hẹn bạn sẽ trở nên hoàn hảo. Yoga chỉ mời bạn trở về với chính mình – 
-        với tất cả vết thương, sức mạnh, và tiềm năng chưa được khám phá."
-      </div>
-    </div>
-  </section>
-
-  <!-- Yoga Styles -->
-  <section id="styles" class="section section-terracotta">
-    <div class="content-box text-center">
-      <div class="section-label">Phong Cách</div>
-      <h2 class="section-title">Các Loại Yoga Tại Metta</h2>
+      <h2 class="section-title">Phong Cách Dạy Của Cô Giang</h2>
       <div class="divider"></div>
       <p class="text-content" style="max-width: 700px; margin: 0 auto;">
-        Mỗi phong cách yoga phù hợp với nhu cầu và trình độ khác nhau
+        Không theo công thức. Không áp đặt. Chỉ có sự lắng nghe và đồng hành.
+      </p>
+    </div>
+
+    <div class="content-box" style="margin-top: 3rem;">
+      <div class="teaching-point">
+        <div class="teaching-number">1</div>
+        <div class="teaching-content">
+          <h4>Yoga Là Để Cảm Nhận, Không Phải Để Biểu Diễn</h4>
+          <p>Cô Giang luôn nhấn mạnh: "Yoga không có tư thế đúng hay sai – chỉ có tư thế phù hợp với 
+          cơ thể bạn hôm nay." Trong lớp của cô, không có sự so sánh, không có áp lực phải làm 
+          giống người bên cạnh. Mỗi người có một hành trình riêng, và yoga là để phục vụ cơ thể bạn, 
+          không phải để cơ thể bạn phục vụ yoga.</p>
+        </div>
+      </div>
+
+      <div class="teaching-point">
+        <div class="teaching-number">2</div>
+        <div class="teaching-content">
+          <h4>Hơi Thở Là Thầy</h4>
+          <p>Mọi buổi tập tại Metta đều bắt đầu và kết thúc bằng hơi thở. Cô Giang dạy học viên cách 
+          lắng nghe nhịp thở của chính mình – khi nào cần dừng lại, khi nào có thể đi sâu hơn. 
+          "Nếu bạn đang gồng cứng và nín thở, đó là dấu hiệu bạn đang ép cơ thể. Hãy lui lại, 
+          tìm lại hơi thở, rồi mới tiếp tục."</p>
+        </div>
+      </div>
+
+      <div class="teaching-point">
+        <div class="teaching-number">3</div>
+        <div class="teaching-content">
+          <h4>Quan Sát Từng Học Viên</h4>
+          <p>Cô Giang không đứng trước lớp và hô động tác như robot. Cô di chuyển, quan sát, điều chỉnh 
+          nhẹ nhàng. Cô nhớ tên từng học viên, nhớ chấn thương của họ, nhớ họ đang ở giai đoạn nào 
+          trong hành trình. "Mỗi người đến với yoga vì một lý do khác nhau. Nhiệm vụ của giáo viên 
+          là nhìn thấy họ – không phải nhìn thấy động tác."</p>
+        </div>
+      </div>
+
+      <div class="teaching-point">
+        <div class="teaching-number">4</div>
+        <div class="teaching-content">
+          <h4>Không Dạy Theo Công Thức</h4>
+          <p>Cô Giang phản đối việc dạy yoga theo kịch bản cứng nhắc. Mỗi buổi tập được điều chỉnh 
+          theo năng lượng của nhóm, theo thời tiết, theo giai đoạn trong tháng. "Nếu hôm nay cả lớp 
+          đều mệt mỏi, tôi sẽ không ép họ tập Yoga Vận Động mạnh. Yoga là lắng nghe – lắng nghe cơ thể, 
+          lắng nghe học viên, lắng nghe không gian."</p>
+        </div>
+      </div>
+
+      <div class="teaching-point">
+        <div class="teaching-number">5</div>
+        <div class="teaching-content">
+          <h4>Yoga Không Chỉ Trên Thảm</h4>
+          <p>Cô Giang dạy rằng yoga thật sự bắt đầu khi bạn rời khỏi thảm. Cách bạn phản ứng với 
+          stress, cách bạn đối xử với người xung quanh, cách bạn ăn uống và nghỉ ngơi – tất cả 
+          đều là yoga. "Tập asana mỗi ngày mà vẫn cáu gắt, vẫn đánh giá người khác, vẫn không 
+          thể ngồi yên 5 phút – thì bạn mới chỉ tập thể dục, chưa phải yoga."</p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        "Giáo viên yoga giỏi không phải người dẻo nhất hay mạnh nhất. Đó là người biết tạo không gian 
+        an toàn để học viên được là chính mình – được yếu đuối, được chậm lại, được khóc nếu cần. 
+        Yoga là về sự chữa lành, không phải về thành tích."
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Programs - Expanded -->
+  <section id="training" class="section section-light">
+    <div class="content-box text-center">
+      <div class="section-label">Đào Tạo Giáo Viên</div>
+      <h2 class="section-title">Khóa Học Tại Metta</h2>
+      <div class="divider"></div>
+      <p class="text-content" style="max-width: 700px; margin: 0 auto;">
+        Bắt đầu từ con số 0 – bạn sẽ được tập đúng ngay từ đầu. 
+        Thời gian học từ 1-3 tháng tùy khóa.
       </p>
     </div>
 
     <div class="content-wide">
-      <div class="yoga-grid">
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Hatha Yoga</h4>
-          <span>Nền tảng, nhẹ nhàng<br>Phù hợp người mới</span>
+      <div class="training-grid">
+        <div class="training-card">
+          <div class="training-num">01</div>
+          <h3>Khóa Nền Tảng 200 Giờ</h3>
+          <p>Chương trình nền tảng được Liên đoàn Yoga Thế giới công nhận. Dành cho người mới bắt đầu – 
+          bạn sẽ được hướng dẫn tập đúng từ những bước đầu tiên. Hoàn thành để trở thành 
+          Giáo viên Yoga đăng ký quốc tế.</p>
         </div>
 
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Vinyasa Flow</h4>
-          <span>Linh hoạt, năng động<br>Kết hợp hơi thở</span>
+        <div class="training-card">
+          <div class="training-num">02</div>
+          <h3>Khóa Nâng Cao 300 Giờ</h3>
+          <p>Chương trình nâng cao cho người đã hoàn thành khóa 200 giờ. Đi sâu vào chuyên môn, 
+          phát triển phong cách giảng dạy riêng. Hoàn thành để đạt chứng chỉ 500 giờ.</p>
         </div>
 
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Yin Yoga</h4>
-          <span>Chậm rãi, sâu lắng<br>Giữ tư thế lâu</span>
+        <div class="training-card">
+          <div class="training-num">03</div>
+          <h3>Chuyên Đề Bổ Sung</h3>
+          <p>Các khóa chuyên sâu: Yoga Âm, Yoga Bà Bầu, Yoga Trị Liệu, Thở & Thiền định. 
+          Phù hợp cho cả người mới và giáo viên muốn mở rộng kiến thức.</p>
         </div>
+      </div>
+    </div>
 
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Restorative</h4>
-          <span>Phục hồi, thư giãn<br>Dùng dụng cụ hỗ trợ</span>
+    <div class="content-box" style="margin-top: 3rem;">
+      <div class="quote-box">
+        "Bạn không cần phải dẻo hay có kinh nghiệm để bắt đầu khóa đào tạo giáo viên. 
+        Điều quan trọng nhất là tấm lòng muốn học và sự cam kết với hành trình. 
+        Tại Metta, bạn sẽ được dạy đúng ngay từ đầu – không phải sửa sai sau này."
+      </div>
+    </div>
+
+    <!-- Ashtanga Yoga -->
+    <div class="content-wide" style="margin-top: 4rem;">
+      <h3 class="subtitle text-center">Trường Phái Anusara Yoga</h3>
+      <p class="text-content text-center" style="max-width: 800px; margin: 0 auto 2rem;">
+        Anusara Yoga là nền tảng triết học và thực hành tại Metta – 
+        một trường phái yoga hiện đại kết hợp định tuyến chính xác với triết học Tantra tích cực.
+      </p>
+    </div>
+
+    <div class="content-box">
+      <h4 class="subtitle" style="font-size: 1.5rem;">Anusara Là Gì?</h4>
+      <p class="text-content">
+        "Anusara" trong tiếng Phạn có nghĩa là "thuận theo dòng chảy" hoặc "đi theo trái tim". 
+        Đây là trường phái yoga được sáng lập bởi John Friend vào năm 1997 tại Mỹ, dựa trên 
+        nền tảng của Iyengar Yoga (với sự chú trọng vào định tuyến) kết hợp với triết học 
+        Tantra phi nhị nguyên.
+      </p>
+      <p class="text-content">
+        Điểm đặc biệt của Anusara là cách tiếp cận tích cực: thay vì tập trung vào "sửa lỗi" hay 
+        "khắc phục yếu điểm", Anusara tin rằng mỗi người vốn đã hoàn hảo trong bản chất sâu thẳm nhất. 
+        Yoga không phải để "sửa" bạn – mà để giúp bạn nhận ra và biểu hiện vẻ đẹp vốn có bên trong.
+      </p>
+
+      <div class="quote-box">
+        "Anusara không dạy bạn trở thành người khác. Anusara giúp bạn nhớ ra bạn thực sự là ai – 
+        một biểu hiện độc đáo của nguồn năng lượng sáng tạo vũ trụ."
+      </div>
+
+      <h4 class="subtitle" style="font-size: 1.5rem; margin-top: 2rem;">Triết Học Nền Tảng</h4>
+      <p class="text-content">
+        <strong>Tantra Phi Nhị Nguyên</strong><br>
+        Khác với một số trường phái yoga coi thế giới vật chất là "ảo ảnh" cần vượt qua, 
+        Tantra phi nhị nguyên nhìn nhận mọi thứ – cơ thể, cảm xúc, cuộc sống hàng ngày – 
+        đều là biểu hiện của năng lượng thiêng liêng. Không có gì cần phải chối bỏ; 
+        tất cả đều có thể trở thành con đường dẫn đến giác ngộ.
+      </p>
+      <p class="text-content">
+        <strong>Ba Nguyên Tắc Cốt Lõi:</strong><br>
+        • <strong>Thái độ:</strong> Bắt đầu mỗi buổi tập với thái độ tôn kính và biết ơn. 
+        Nhận ra rằng việc có cơ thể khỏe mạnh để tập yoga là một đặc ân.<br>
+        • <strong>Định tuyến:</strong> Sắp xếp cơ thể một cách có ý thức và chính xác, 
+        không chỉ để an toàn mà còn để năng lượng lưu thông tự do.<br>
+        • <strong>Hành động:</strong> Kích hoạt cơ bắp một cách cân bằng – 
+        vừa đủ nỗ lực để ổn định, vừa đủ mềm mại để mở rộng.
+      </p>
+
+      <h4 class="subtitle" style="font-size: 1.5rem; margin-top: 2rem;">Nguyên Tắc Định Tuyến Phổ Quát</h4>
+      <p class="text-content">
+        Anusara nổi tiếng với hệ thống "Nguyên Tắc Định Tuyến Phổ Quát" – một bộ nguyên tắc 
+        sinh cơ học áp dụng cho MỌI tư thế yoga. Thay vì học hàng trăm "luật" riêng biệt cho 
+        từng tư thế, bạn học một bộ nguyên tắc cốt lõi và áp dụng chúng linh hoạt.
+      </p>
+      
+      <p class="text-content">
+        <strong>1. Mở Ra Với Ân Điển</strong><br>
+        Đây là nguyên tắc nền tảng, không chỉ về thể chất mà còn về tinh thần. Về mặt cơ thể: 
+        mềm mại bên ngoài, tạo không gian bên trong, mở rộng từ trong ra ngoài. Về mặt tinh thần: 
+        buông bỏ căng thẳng, đón nhận hiện tại, kết nối với điều gì đó lớn hơn bản thân.
+      </p>
+      
+      <p class="text-content">
+        <strong>2. Năng Lượng Cơ Bắp</strong><br>
+        Kích hoạt cơ bắp hướng vào đường giữa cơ thể và lên trung tâm. 
+        Điều này tạo sự ổn định, sức mạnh và cảm giác "ôm lấy" xương. Năng lượng cơ bắp giúp 
+        bảo vệ khớp và tạo nền tảng vững chắc cho mọi tư thế.
+      </p>
+      
+      <p class="text-content">
+        <strong>3. Xoắn Ốc Bên Trong</strong><br>
+        Một chuyển động xoắn ốc từ chân lên hông, hướng vào trong, ra sau và mở rộng. 
+        Xoắn ốc bên trong giúp mở rộng vùng thắt lưng, tạo đường cong tự nhiên cho cột sống, 
+        và chuẩn bị cơ thể cho các tư thế gập người về phía trước và xoắn.
+      </p>
+      
+      <p class="text-content">
+        <strong>4. Xoắn Ốc Bên Ngoài</strong><br>
+        Chuyển động đối lập với xoắn ốc bên trong – từ thắt lưng xuống chân, xoắn ra ngoài, 
+        về phía trước và kéo vào. Xoắn ốc bên ngoài giúp ổn định vùng xương cùng, 
+        bảo vệ thắt lưng và tạo sự cân bằng với xoắn ốc bên trong.
+      </p>
+      
+      <p class="text-content">
+        <strong>5. Năng Lượng Hữu Cơ</strong><br>
+        Đối lập và cân bằng với năng lượng cơ bắp. Sau khi đã ổn định bằng năng lượng cơ bắp, 
+        năng lượng hữu cơ là sự mở rộng từ trung tâm ra ngoài – duỗi dài, tỏa sáng, biểu hiện. 
+        Đây là năng lượng tạo nên sự duyên dáng, nhẹ nhàng và vẻ đẹp trong mỗi tư thế.
+      </p>
+
+      <div class="quote-box">
+        "5 Nguyên Tắc Phổ Quát không phải để nhớ thuộc lòng – mà để cảm nhận trong cơ thể. 
+        Khi bạn thực sự hiểu chúng, bạn có thể áp dụng vào bất kỳ tư thế nào, 
+        kể cả những tư thế bạn chưa từng học."
+      </div>
+
+      <h4 class="subtitle" style="font-size: 1.5rem; margin-top: 2rem;">Vòng Năng Lượng Trong Cơ Thể</h4>
+      <p class="text-content">
+        Anusara còn dạy về 7 vòng năng lượng chạy dọc theo cơ thể, giúp định tuyến 
+        tinh tế hơn và hiểu sâu hơn về cách năng lượng di chuyển:
+      </p>
+      <p class="text-content">
+        • <strong>Vòng mắt cá:</strong> Từ gót chân, qua mắt cá, lên cẳng chân – giúp nâng vòm bàn chân.<br>
+        • <strong>Vòng cẳng chân:</strong> Từ gót chân, lên cẳng chân, ra đầu gối – tạo sự ổn định cho cẳng chân.<br>
+        • <strong>Vòng đùi:</strong> Từ đầu gối, lên đùi, ra sau hông – giúp mở rộng vùng háng.<br>
+        • <strong>Vòng chậu:</strong> Từ thắt lưng, xuống xương cùng, lên bụng dưới – ổn định vùng chậu.<br>
+        • <strong>Vòng thận:</strong> Từ bụng dưới, lên thận, ra sau lưng – nâng và mở rộng vùng thắt lưng.<br>
+        • <strong>Vòng vai:</strong> Từ vòm miệng, xuống ngực, ra sau vai – mở rộng ngực và vai.<br>
+        • <strong>Vòng đầu:</strong> Từ vòm miệng, lên đỉnh đầu, ra sau gáy – cân bằng đầu và cổ.
+      </p>
+
+      <h4 class="subtitle" style="font-size: 1.5rem; margin-top: 2rem;">Tại Sao Anusara Phù Hợp Với Metta?</h4>
+      <p class="text-content">
+        Cô Giang chọn Anusara làm nền tảng giảng dạy tại Metta vì nhiều lý do:
+      </p>
+      <p class="text-content">
+        <strong>1. Định tuyến chính xác nhưng không cứng nhắc:</strong> Anusara dạy định tuyến dựa trên 
+        nguyên tắc sinh cơ học, nhưng luôn điều chỉnh theo từng cơ thể. Không có "tư thế chuẩn" – 
+        chỉ có tư thế phù hợp với bạn.
+      </p>
+      <p class="text-content">
+        <strong>2. Triết học tích cực:</strong> Thay vì nói "bạn sai", Anusara nói "hãy thử cách này". 
+        Thay vì "sửa lỗi", Anusara "mở ra khả năng mới". Điều này tạo không gian an toàn 
+        để học viên khám phá mà không sợ phán xét.
+      </p>
+      <p class="text-content">
+        <strong>3. Kết nối thân – tâm – linh:</strong> Anusara không chỉ dạy động tác. Mỗi buổi tập 
+        bắt đầu bằng việc thiết lập ý định (intention), kết nối với điều gì đó có ý nghĩa. 
+        Đây là yoga toàn diện – không chỉ cho cơ thể mà còn cho tâm hồn.
+      </p>
+      <p class="text-content">
+        <strong>4. Ứng dụng cho mọi trình độ:</strong> Vì dựa trên nguyên tắc phổ quát, Anusara 
+        có thể được điều chỉnh cho người mới bắt đầu lẫn người đã tập lâu năm. 
+        Cùng một nguyên tắc, nhưng biểu hiện khác nhau tùy theo khả năng.
+      </p>
+
+      <div class="quote-box">
+        "Anusara dạy tôi rằng mỗi học viên đều đẹp theo cách riêng của họ. 
+        Công việc của giáo viên không phải là đúc khuôn họ thành một hình mẫu – 
+        mà là giúp họ tỏa sáng với vẻ đẹp vốn có. Đó là tinh thần tôi mang vào mỗi lớp học tại Metta."
+      </div>
+
+      <h4 class="subtitle" style="font-size: 1.5rem; margin-top: 2rem;">Thực Hành Lấy Trái Tim Làm Trung Tâm</h4>
+      <p class="text-content">
+        Một đặc điểm nổi bật của Anusara là lấy trái tim làm trung tâm. 
+        Điều này có nghĩa:
+      </p>
+      <p class="text-content">
+        • Về mặt thể chất: Nhiều tư thế được thiết kế để mở rộng vùng ngực, giải phóng 
+        căng thẳng quanh tim, và cải thiện tư thế (không còn vai khom, ngực xẹp).<br>
+        • Về mặt cảm xúc: Vùng ngực là nơi chúng ta "giữ" nhiều cảm xúc chưa được xử lý. 
+        Mở rộng vùng này có thể giải phóng cảm xúc, đôi khi dẫn đến nước mắt hoặc cảm giác nhẹ nhõm.<br>
+        • Về mặt tinh thần: "Mở trái tim" là ẩn dụ cho việc sống với lòng từ bi, dũng cảm, 
+        và kết nối chân thành với bản thân và người khác.
+      </p>
+
+      <div class="quote-box">
+        "Khi trái tim mở, mọi thứ khác theo sau – hơi thở tự do hơn, tâm trí sáng hơn, 
+        và bạn có thể đối mặt với cuộc sống từ vị trí của tình yêu thay vì sợ hãi. 
+        Đó là lý do tại sao tôi tin vào Anusara."
+      </div>
+    </div>
+
+    <div class="training-detail" style="margin-top: 3rem;">
+      <h3>Điểm Khác Biệt Của Metta</h3>
+      <p>Khóa đào tạo tại Metta không giống bất kỳ nơi nào khác. Cô Giang tin rằng giáo viên yoga 
+      cần được đào tạo toàn diện – không chỉ về kỹ thuật, mà còn về tâm hồn.</p>
+      <ul class="feature-list">
+        <li>Lớp nhỏ tối đa 12 học viên – đảm bảo sự quan sát và hỗ trợ cá nhân</li>
+        <li>Học định tuyến Anusara từ nền tảng – tập đúng ngay từ đầu</li>
+        <li>Được cô Giang trực tiếp hướng dẫn và kèm cặp riêng</li>
+        <li>Học cách tạo không gian an toàn, không phải chỉ học hô động tác</li>
+        <li>Kết hợp chuông xoay Tây Tạng trong một số phần học</li>
+        <li>Hỗ trợ sau khóa học: tham gia lớp trợ giảng, review bài miễn phí</li>
+        <li>Cộng đồng cựu học viên hỗ trợ suốt đời</li>
+      </ul>
+    </div>
+
+    <!-- Specialty Courses -->
+    <div class="content-wide" style="margin-top: 4rem;">
+      <h3 class="subtitle text-center">Khóa Chuyên Đề</h3>
+      <p class="text-content text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+        Bổ sung kiến thức chuyên sâu. Phù hợp cho cả người mới và giáo viên muốn nâng cao.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Yoga Âm Chuyên Sâu</h3>
+          <p>Triết học Âm Dương, giải phẫu mô liên kết và kinh lạc, các tư thế Yoga Âm cơ bản, 
+          cách dẫn dắt lớp Yoga Âm an toàn và hiệu quả.</p>
         </div>
-
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Ashtanga</h4>
-          <span>Chuỗi động tác cố định<br>Thử thách, kỷ luật</span>
+        <div class="card">
+          <h3>Yoga Bà Bầu & Sau Sinh</h3>
+          <p>Yoga cho bà bầu từng tam cá nguyệt, các tư thế an toàn và cấm kỵ, 
+          yoga phục hồi sau sinh. Phù hợp giáo viên và nhân viên y tế.</p>
         </div>
-
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Pranayama</h4>
-          <span>Kỹ thuật thở<br>Cân bằng năng lượng</span>
-        </div>
-
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Meditation</h4>
-          <span>Thiền định<br>Tĩnh tâm, quan sát</span>
-        </div>
-
-        <div class="yoga-item">
-          <div class="yoga-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg>
-          </div>
-          <h4>Yoga + Chuông Xoay</h4>
-          <span>Kết hợp âm thanh<br>Thư giãn sâu</span>
+        <div class="card">
+          <h3>Thở & Thiền Định</h3>
+          <p>Đi sâu vào các kỹ thuật thở cổ điển, thiền định theo truyền thống khác nhau, 
+          ứng dụng trong trị liệu và đời sống.</p>
         </div>
       </div>
     </div>
 
     <div class="content-box" style="margin-top: 4rem;">
       <div class="quote-box">
-        "Không có phong cách yoga nào tốt hơn phong cách nào. Chỉ có phong cách phù hợp với bạn 
-        vào thời điểm này. Hãy thử và lắng nghe cơ thể – nó sẽ cho bạn biết."
+        "Tôi không đào tạo giáo viên yoga để họ dạy giống tôi. Tôi đào tạo để họ tìm ra giọng nói 
+        của riêng mình – phong cách của riêng mình. Thế giới không cần thêm bản sao. 
+        Thế giới cần thêm những người dám là chính mình."
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Metta -->
+  <section class="section section-earth">
+    <div class="content-box text-center">
+      <div class="section-label" style="color: var(--terracotta-light);">Cam Kết</div>
+      <h2 class="section-title" style="color: var(--cream);">Tại Sao Chọn Metta?</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="content-wide">
+      <div class="grid-3" style="margin-top: 3rem;">
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(196,149,106,0.2);">
+          <h3 style="color: var(--cream);">Học Từ Kinh Nghiệm Thực Tế</h3>
+          <p style="color: var(--terracotta-light);">Cô Giang không dạy từ sách vở. Mọi bài học đều đến từ 8 năm thực hành, 
+          giảng dạy, và quan sát hàng nghìn học viên với đủ loại cơ thể và vấn đề khác nhau.</p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(196,149,106,0.2);">
+          <h3 style="color: var(--cream);">Cộng Đồng Suốt Đời</h3>
+          <p style="color: var(--terracotta-light);">Tốt nghiệp không phải là kết thúc – mà là bắt đầu. Học viên Metta được 
+          tham gia nhóm cựu học viên, hội thảo miễn phí, và hỗ trợ hướng dẫn khi cần.</p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(196,149,106,0.2);">
+          <h3 style="color: var(--cream);">Không Gian Chữa Lành</h3>
+          <p style="color: var(--terracotta-light);">Đà Lạt – khí hậu mát mẻ, thiên nhiên trong lành. Phòng tập Metta được thiết kế 
+          để bạn có thể thở sâu, buông bỏ, và hoàn toàn tập trung vào hành trình của mình.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1047,7 +1215,7 @@
   <section id="services" class="section section-light">
     <div class="content-box text-center">
       <div class="section-label">Lớp Học</div>
-      <h2 class="section-title">Gói Dịch Vụ</h2>
+      <h2 class="section-title">Dịch Vụ Tại Metta</h2>
       <div class="divider"></div>
     </div>
 
@@ -1056,111 +1224,56 @@
         <div class="service-card">
           <div class="service-number">01</div>
           <h3>Lớp Cộng Đồng</h3>
-          <p>Lớp yoga nhóm hàng tuần, phù hợp mọi trình độ. Thời lượng 75-90 phút. 
-          Không khí thân thiện, năng lượng cộng đồng. Bắt đầu từ nền tảng.</p>
+          <p>Lớp yoga nhóm hàng tuần với nhiều phong cách: Yoga Cơ Bản, Yoga Vận Động, Yoga Âm, Yoga Phục Hồi. 
+          Thời lượng 75-90 phút. Phù hợp mọi trình độ.</p>
           <span class="service-tag">Đăng ký theo tháng</span>
         </div>
 
         <div class="service-card">
           <div class="service-number">02</div>
           <h3>Lớp Riêng 1:1</h3>
-          <p>Buổi tập riêng tư, thiết kế theo nhu cầu cá nhân. Thời lượng 60-90 phút. 
-          Phù hợp người mới, người có chấn thương, hoặc muốn đi sâu hơn.</p>
+          <p>Buổi tập riêng tư với cô Giang hoặc giáo viên có kinh nghiệm. Thiết kế theo mục tiêu cá nhân: 
+          chữa lành chấn thương, giảm stress, tăng sức mạnh.</p>
           <span class="service-tag">Liên hệ đặt lịch</span>
         </div>
 
         <div class="service-card">
           <div class="service-number">03</div>
-          <h3>Gói Chuyên Sâu</h3>
-          <p>Gói 8-12 buổi cho người muốn chuyển hóa. Theo dõi tiến trình, 
-          điều chỉnh bài tập theo từng giai đoạn. Hỗ trợ tư vấn dinh dưỡng và lối sống.</p>
-          <span class="service-tag">Cam kết 8 buổi</span>
+          <h3>Yoga + Chuông Xoay</h3>
+          <p>Lớp yoga kết hợp tắm âm thanh chuông xoay Tây Tạng. Thư giãn sâu, cân bằng năng lượng, 
+          giải phóng cảm xúc tích tụ.</p>
+          <span class="service-tag">Mỗi tuần 1 buổi</span>
         </div>
 
         <div class="service-card">
           <div class="service-number">04</div>
           <h3>Yoga Doanh Nghiệp</h3>
-          <p>Chương trình yoga cho công ty, văn phòng. Giúp nhân viên giảm stress, 
-          tăng năng suất. Thời lượng và địa điểm linh hoạt.</p>
+          <p>Chương trình yoga cho công ty, văn phòng. Giúp nhân viên giảm stress, tăng năng suất. 
+          Có thể tổ chức tại văn phòng hoặc phòng tập.</p>
           <span class="service-tag">Đặt trước 1 tuần</span>
         </div>
 
         <div class="service-card">
           <div class="service-number">05</div>
-          <h3>Retreat Cuối Tuần</h3>
-          <p>Chuỗi sự kiện 2-3 ngày tại Đà Lạt. Yoga, thiền, tắm âm thanh, 
-          ẩm thực lành mạnh. Ngắt kết nối, về với thiên nhiên và chính mình.</p>
-          <span class="service-tag">Theo Fanpage</span>
+          <h3>Khóa Tu Tập Cuối Tuần</h3>
+          <p>Chuỗi sự kiện 2-3 ngày tại Đà Lạt. Yoga, thiền, tắm âm thanh, ẩm thực lành mạnh. 
+          Ngắt kết nối, về với thiên nhiên.</p>
+          <span class="service-tag">Theo trang Facebook</span>
         </div>
 
         <div class="service-card">
           <div class="service-number">06</div>
           <h3>Yoga Bà Bầu</h3>
-          <p>Lớp yoga đặc biệt cho phụ nữ mang thai. Bài tập an toàn, 
-          chuẩn bị cho sinh nở. Hỗ trợ giảm đau lưng, phù chân.</p>
-          <span class="service-tag">Từ tam cá nguyệt 2</span>
+          <p>Lớp yoga an toàn cho phụ nữ mang thai từ tam cá nguyệt thứ 2. Chuẩn bị cho sinh nở, 
+          giảm đau lưng và phù chân.</p>
+          <span class="service-tag">Lớp nhỏ 6 người</span>
         </div>
-      </div>
-    </div>
-
-    <div class="content-box" style="margin-top: 4rem;">
-      <div class="quote-box">
-        "Mỗi người đến với yoga có một câu chuyện riêng. Tại Metta, chúng tôi không áp đặt – 
-        chỉ đồng hành và hỗ trợ bạn trên hành trình của riêng mình."
-      </div>
-    </div>
-  </section>
-
-  <!-- Training -->
-  <section id="training" class="section section-terracotta">
-    <div class="content-box text-center">
-      <div class="section-label">Đào Tạo</div>
-      <h2 class="section-title">Khóa Đào Tạo Giáo Viên</h2>
-      <div class="divider"></div>
-      <p class="text-content" style="max-width: 700px; margin: 0 auto;">
-        Từ người thực hành đến Giáo viên Yoga chuyên nghiệp
-      </p>
-    </div>
-
-    <div class="content-wide">
-      <div class="training-grid">
-        <div class="training-card">
-          <div class="training-num">200h</div>
-          <h3>RYT 200 Foundation</h3>
-          <p>Chương trình nền tảng 200 giờ, được Yoga Alliance công nhận. 
-          Asana, pranayama, giải phẫu, triết học yoga, phương pháp giảng dạy. 
-          Hoàn thành để trở thành Giáo viên Yoga đăng ký.</p>
-        </div>
-
-        <div class="training-card">
-          <div class="training-num">300h</div>
-          <h3>RYT 300 Advanced</h3>
-          <p>Chương trình nâng cao 300 giờ cho người đã hoàn thành RYT 200. 
-          Đi sâu vào kỹ thuật, chuyên môn hóa theo phong cách. 
-          Hoàn thành để đạt RYT 500.</p>
-        </div>
-
-        <div class="training-card">
-          <div class="training-num">50h</div>
-          <h3>Chuyên Đề</h3>
-          <p>Các khóa chuyên đề: Yin Yoga, Prenatal Yoga, Yoga cho trẻ em, 
-          Pranayama & Thiền định, Yoga Therapy. 
-          Bổ sung giờ CEU cho Giáo viên.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="content-box" style="margin-top: 4rem;">
-      <div class="quote-box">
-        "Giáo viên yoga giỏi không phải người dẻo nhất hay mạnh nhất. 
-        Đó là người biết lắng nghe – lắng nghe cơ thể mình, lắng nghe học viên, 
-        và lắng nghe khoảng lặng giữa những hơi thở."
       </div>
     </div>
   </section>
 
   <!-- Schedule -->
-  <section id="schedule" class="section section-light">
+  <section id="schedule" class="section section-terracotta">
     <div class="content-box text-center">
       <div class="section-label">Lịch Học</div>
       <h2 class="section-title">Thời Khóa Biểu</h2>
@@ -1184,40 +1297,40 @@
         <tbody>
           <tr>
             <td><strong>6:00 - 7:15</strong></td>
-            <td>Hatha Yoga</td>
+            <td>Yoga Cơ Bản</td>
             <td>-</td>
-            <td>Hatha Yoga</td>
+            <td>Yoga Cơ Bản</td>
             <td>-</td>
-            <td>Hatha Yoga</td>
+            <td>Yoga Cơ Bản</td>
             <td>-</td>
             <td>-</td>
           </tr>
           <tr>
             <td><strong>8:00 - 9:15</strong></td>
-            <td>Vinyasa Flow</td>
-            <td>Yin Yoga</td>
-            <td>Vinyasa Flow</td>
-            <td>Yin Yoga</td>
-            <td>Vinyasa Flow</td>
-            <td>Hatha Yoga</td>
-            <td>Restorative</td>
+            <td>Yoga Vận Động</td>
+            <td>Yoga Âm</td>
+            <td>Yoga Vận Động</td>
+            <td>Yoga Âm</td>
+            <td>Yoga Vận Động</td>
+            <td>Yoga Cơ Bản</td>
+            <td>Yoga Phục Hồi</td>
           </tr>
           <tr>
             <td><strong>17:30 - 18:45</strong></td>
-            <td>Hatha Yoga</td>
-            <td>Vinyasa Flow</td>
-            <td>Hatha Yoga</td>
-            <td>Vinyasa Flow</td>
-            <td>Yin Yoga</td>
+            <td>Yoga Cơ Bản</td>
+            <td>Yoga Vận Động</td>
+            <td>Yoga Cơ Bản</td>
+            <td>Yoga Vận Động</td>
+            <td>Yoga Âm</td>
             <td>-</td>
             <td>-</td>
           </tr>
           <tr>
             <td><strong>19:00 - 20:15</strong></td>
-            <td>Yin Yoga</td>
-            <td>Pranayama</td>
-            <td>Restorative</td>
-            <td>Meditation</td>
+            <td>Yoga Âm</td>
+            <td>Thở</td>
+            <td>Yoga Phục Hồi</td>
+            <td>Thiền</td>
             <td>Yoga + Chuông</td>
             <td>-</td>
             <td>-</td>
@@ -1234,8 +1347,279 @@
     </div>
   </section>
 
+  <!-- Blog / Articles -->
+  <section id="blog" class="section section-warm">
+    <div class="content-box text-center">
+      <div class="section-label">Kiến Thức</div>
+      <h2 class="section-title">Bài Viết Về Yoga</h2>
+      <div class="divider"></div>
+      <p class="text-content" style="max-width: 700px; margin: 0 auto;">
+        Những chia sẻ từ cô Giang về cách tập luyện đúng, alignment, và triết lý yoga
+      </p>
+    </div>
+
+    <!-- Article 1: Định Tuyến -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">Định Tuyến Là Gì? Tại Sao Quan Trọng?</h3>
+      <p class="text-content">
+        Định tuyến (căn chỉnh) là cách sắp xếp cơ thể trong mỗi tư thế yoga sao cho 
+        an toàn, hiệu quả và bền vững. Đây không phải "tư thế đẹp" hay "giống hình mẫu" – 
+        mà là cách cơ thể BẠN cần được đặt để tránh chấn thương và nhận được lợi ích tối đa.
+      </p>
+      <p class="text-content">
+        <strong>Tại sao định tuyến quan trọng?</strong><br>
+        Khi cơ thể không được căn chỉnh đúng, áp lực sẽ dồn vào những vị trí không nên chịu lực – 
+        thường là khớp gối, thắt lưng, cổ. Lâu dần, điều này gây ra đau mãn tính, thoái hóa, 
+        hoặc chấn thương cấp tính. Ngược lại, khi định tuyến đúng, cơ bắp làm việc hiệu quả, 
+        khớp được bảo vệ, và năng lượng lưu thông tự do.
+      </p>
+      <p class="text-content">
+        <strong>Ví dụ cụ thể:</strong> Trong tư thế Chiến binh 2, nếu đầu gối trước đổ vào trong 
+        (thay vì hướng thẳng về phía ngón chân thứ 2-3), dây chằng đầu gối sẽ bị căng sai hướng. 
+        Tập như vậy hàng trăm lần sẽ dẫn đến vấn đề ở đầu gối. Đó là lý do định tuyến không phải 
+        "chi tiết nhỏ" – mà là nền tảng của thực hành an toàn.
+      </p>
+      <div class="quote-box">
+        "Định tuyến không phải để bạn trông đẹp trong tư thế. Định tuyến là để 20 năm sau, 
+        bạn vẫn có thể bước lên thảm yoga mà không đau đớn. Đó là yoga bền vững."
+      </div>
+    </div>
+
+    <!-- Article 2: Common Mistakes -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">5 Lỗi Thường Gặp Khi Tập Yoga</h3>
+      
+      <p class="text-content">
+        <strong>1. Nín thở khi vào tư thế khó</strong><br>
+        Khi gặp tư thế khó, phản xạ tự nhiên là nín thở để "cố gắng hơn". Đây là sai lầm lớn. 
+        Nín thở khiến cơ bắp co cứng, tâm trí căng thẳng, và bạn thực sự yếu đi. Nếu không thể 
+        thở đều trong một tư thế – đó là dấu hiệu bạn đang đi quá xa. Hãy lui lại, tìm phiên bản 
+        dễ hơn mà bạn vẫn có thể thở.
+      </p>
+      
+      <p class="text-content">
+        <strong>2. So sánh với người bên cạnh</strong><br>
+        Mỗi cơ thể có cấu trúc xương, độ dài cơ, và lịch sử khác nhau. Người bên cạnh có thể 
+        chạm tay xuống sàn trong tư thế Gập Người, còn bạn chỉ chạm được đầu gối – điều đó hoàn toàn 
+        bình thường. Yoga không phải cuộc thi. Mục tiêu là CẢM NHẬN, không phải ĐẠT ĐƯỢC hình dạng.
+      </p>
+      
+      <p class="text-content">
+        <strong>3. Bỏ qua khởi động</strong><br>
+        Nhiều người muốn "vào việc" ngay, bỏ qua phần khởi động. Đây là công thức cho chấn thương. 
+        Cơ thể cần thời gian để "thức dậy" – máu cần lưu thông đến cơ bắp, khớp cần được bôi trơn, 
+        tâm trí cần chuyển từ chế độ "bận rộn" sang chế độ "lắng nghe". Ít nhất 10-15 phút khởi động 
+        nhẹ nhàng trước khi vào tư thế sâu.
+      </p>
+      
+      <p class="text-content">
+        <strong>4. Ép cơ thể vào tư thế "chuẩn"</strong><br>
+        Hình ảnh trên mạng xã hội không phải mục tiêu. Mỗi cơ thể khác nhau – xương chậu, độ dài 
+        tứ chi, độ linh hoạt tự nhiên. Một số người sẽ không bao giờ ngồi được tư thế Hoa Sen vì 
+        cấu trúc xương hông không cho phép – và điều đó hoàn toàn ổn. Yoga là làm việc VỚI cơ thể, 
+        không phải CHỐNG LẠI nó.
+      </p>
+      
+      <p class="text-content">
+        <strong>5. Bỏ qua tư thế Xác Chết</strong><br>
+        Nhiều người thấy "nằm yên" là lãng phí thời gian nên bỏ về sớm. Thực tế, tư thế Xác Chết là 
+        lúc cơ thể tích hợp mọi thứ đã tập – cơ bắp phục hồi, hệ thần kinh cân bằng, tâm trí 
+        lắng đọng. Bỏ qua tư thế này giống như nấu cơm xong mà không để cơm chín hẳn.
+      </p>
+      
+      <div class="quote-box">
+        "Lỗi lớn nhất trong yoga không phải tư thế sai – mà là không lắng nghe cơ thể. 
+        Cơ thể luôn nói với bạn khi nào cần dừng, khi nào có thể đi sâu hơn. 
+        Vấn đề là chúng ta thường không chịu nghe."
+      </div>
+    </div>
+
+    <!-- Article 3: Proper Practice -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">Cách Tập Yoga Đúng Cách</h3>
+      
+      <p class="text-content">
+        <strong>Bắt đầu từ hơi thở</strong><br>
+        Trước khi nghĩ đến tư thế, hãy học cách thở. Hơi thở là cầu nối giữa thân và tâm. 
+        Khi bạn thở đúng – sâu, đều, qua mũi – hệ thần kinh đối giao cảm được kích hoạt, 
+        cơ thể chuyển sang chế độ "nghỉ ngơi và chữa lành". Bắt đầu mỗi buổi tập bằng 5-10 phút 
+        chỉ ngồi yên và thở. Điều này quan trọng hơn bất kỳ tư thế nào.
+      </p>
+      
+      <p class="text-content">
+        <strong>Tập đều đặn quan trọng hơn tập nhiều</strong><br>
+        20 phút mỗi ngày tốt hơn 2 tiếng vào cuối tuần. Cơ thể cần sự nhất quán để thay đổi – 
+        không phải những nỗ lực "anh hùng" rồi bỏ dở. Nếu bạn chỉ có 15 phút, hãy tập 15 phút. 
+        Chào Mặt Trời + vài phút thở + tư thế Xác Chết ngắn cũng đủ để duy trì thực hành.
+      </p>
+      
+      <p class="text-content">
+        <strong>Lắng nghe cơ thể mỗi ngày</strong><br>
+        Cơ thể hôm nay không giống hôm qua. Giấc ngủ, stress, ăn uống, chu kỳ kinh nguyệt, 
+        thời tiết – tất cả ảnh hưởng đến cơ thể. Một tư thế bạn làm dễ dàng hôm qua có thể 
+        khó khăn hôm nay – và ngược lại. Đừng có "kỳ vọng" về buổi tập. Hãy đến với thảm 
+        với tâm trí cởi mở và xem hôm nay cơ thể muốn gì.
+      </p>
+      
+      <p class="text-content">
+        <strong>Sử dụng dụng cụ hỗ trợ</strong><br>
+        Gạch, dây đai, chăn, gối tựa không phải "cho người mới" hay "người không dẻo". 
+        Dụng cụ hỗ trợ giúp bạn vào đúng định tuyến, giữ tư thế lâu hơn, và đi sâu hơn một cách an toàn. 
+        Ngay cả giáo viên giàu kinh nghiệm cũng dùng dụng cụ. Đừng để cái tôi ngăn bạn sử dụng công cụ 
+        có thể nâng cao thực hành.
+      </p>
+      
+      <p class="text-content">
+        <strong>Tìm giáo viên tốt</strong><br>
+        Video trên mạng có thể giúp duy trì thực hành, nhưng không thể thay thế giáo viên thực. 
+        Một giáo viên tốt sẽ nhìn thấy những gì bạn không thể tự thấy, điều chỉnh alignment, 
+        và đưa ra biến thể phù hợp với cơ thể bạn. Đặc biệt quan trọng khi bạn mới bắt đầu – 
+        thói quen sai lúc đầu rất khó sửa sau này.
+      </p>
+      
+      <div class="quote-box">
+        "Yoga đúng cách không có nghĩa là tư thế hoàn hảo. Yoga đúng cách là tập với sự 
+        tôn trọng cơ thể, sự hiện diện của tâm trí, và sự kiên nhẫn với bản thân. 
+        Mọi thứ khác chỉ là thể dục."
+      </div>
+    </div>
+
+    <!-- Article 4: Alignment Principles -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">Nguyên Tắc Alignment Cơ Bản</h3>
+      
+      <p class="text-content">
+        <strong>1. Nền tảng vững chắc (Foundation)</strong><br>
+        Mọi tư thế đều bắt đầu từ nền tảng – phần cơ thể tiếp xúc với sàn. Trong tư thế đứng, 
+        đó là bàn chân. Trong tư thế Chó Úp Mặt, đó là bàn tay và bàn chân. Nền tảng phải vững trước, 
+        phần còn lại mới có thể ổn định. Hãy "root down" (bám rễ xuống) trước khi "rise up" (vươn lên).
+      </p>
+      
+      <p class="text-content">
+        <strong>2. Cột sống trung tính (Neutral Spine)</strong><br>
+        Cột sống có 3 đường cong tự nhiên: cổ (cervical), ngực (thoracic), thắt lưng (lumbar). 
+        Trong hầu hết tư thế, chúng ta muốn duy trì các đường cong này – không làm phẳng, 
+        không cong quá mức. Khi gập người về phía trước, hãy gập từ HIP (khớp hông), 
+        không phải từ thắt lưng. Điều này bảo vệ đĩa đệm và dây chằng.
+      </p>
+      
+      <p class="text-content">
+        <strong>3. Đầu gối theo hướng ngón chân</strong><br>
+        Trong mọi tư thế gập gối (tấn, ngồi xổm, Chiến binh), đầu gối nên hướng về phía ngón chân 
+        thứ 2-3, không đổ vào trong hay ra ngoài. Khi đầu gối lệch hướng, dây chằng bên trong 
+        và bên ngoài đầu gối chịu lực không đều, dẫn đến tổn thương theo thời gian.
+      </p>
+      
+      <p class="text-content">
+        <strong>4. Vai rời xa tai</strong><br>
+        Khi căng thẳng, vai có xu hướng nâng lên gần tai. Trong yoga, hầu hết tư thế đều yêu cầu 
+        vai "roll back and down" (xoay ra sau và hạ xuống), tạo không gian cho cổ và giải phóng 
+        căng thẳng vùng thang. Đây là điều chỉnh nhỏ nhưng tạo khác biệt lớn.
+      </p>
+      
+      <p class="text-content">
+        <strong>5. Kích hoạt core (lõi)</strong><br>
+        Core không chỉ là "cơ bụng 6 múi". Core bao gồm tất cả cơ bắp bao quanh thân – 
+        cơ bụng sâu, cơ lưng, cơ sàn chậu, cơ hoành. Kích hoạt core nhẹ nhàng trong mọi tư thế 
+        giúp bảo vệ cột sống và tạo sự ổn định. Không phải "gồng cứng" – mà là "engaged" (kích hoạt nhẹ).
+      </p>
+      
+      <div class="quote-box">
+        "Alignment tốt là khi bạn có thể thở dễ dàng, giữ tư thế mà không run rẩy quá mức, 
+        và ra khỏi tư thế mà không đau. Nếu thiếu một trong ba điều này, hãy điều chỉnh lại."
+      </div>
+    </div>
+
+    <!-- Article 5: Yoga Philosophy -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">Yoga Không Chỉ Là Động Tác</h3>
+      
+      <p class="text-content">
+        Khi nói "tập yoga", hầu hết mọi người nghĩ đến những tư thế trên thảm. Nhưng asana 
+        (tư thế) chỉ là 1 trong 8 nhánh yoga theo Patanjali. Nếu bạn chỉ tập asana mà bỏ qua 
+        7 nhánh còn lại, bạn đang thiếu phần lớn những gì yoga thực sự mang lại.
+      </p>
+      
+      <p class="text-content">
+        <strong>Yama – Nguyên tắc với thế giới bên ngoài</strong><br>
+        Ahimsa (không bạo lực), Satya (trung thực), Asteya (không trộm cắp), 
+        Brahmacharya (tiết chế), Aparigraha (không tham lam). Đây là nền tảng đạo đức – 
+        cách bạn đối xử với người khác và thế giới xung quanh.
+      </p>
+      
+      <p class="text-content">
+        <strong>Niyama – Nguyên tắc với bản thân</strong><br>
+        Saucha (sạch sẽ), Santosha (hài lòng), Tapas (kỷ luật), Svadhyaya (tự học), 
+        Ishvara Pranidhana (buông xả). Đây là cách bạn chăm sóc và phát triển bản thân.
+      </p>
+      
+      <p class="text-content">
+        <strong>Ứng dụng trong đời sống</strong><br>
+        Yoga thật sự bắt đầu khi bạn rời khỏi thảm. Khi ai đó cắt ngang làn xe của bạn và bạn 
+        không phản ứng bằng giận dữ – đó là yoga. Khi bạn chọn nói sự thật dù khó khăn – đó là yoga. 
+        Khi bạn ăn uống lành mạnh vì tôn trọng cơ thể – đó là yoga. Tư thế trên thảm chỉ là 
+        "phòng tập" để bạn rèn luyện những phẩm chất này.
+      </p>
+      
+      <div class="quote-box">
+        "Bạn có thể gập người chạm đất, trồng chuối 10 phút, ngồi xếp bằng hoàn hảo – 
+        nhưng nếu ra khỏi lớp yoga bạn vẫn cáu gắt với người thân, vẫn nói dối, vẫn tham lam, 
+        thì bạn mới chỉ tập thể dục. Yoga là cách sống, không phải buổi tập."
+      </div>
+    </div>
+
+    <!-- Article 6: Home Practice Tips -->
+    <div class="content-box" style="margin-top: 4rem;">
+      <h3 class="subtitle">Hướng Dẫn Tự Tập Yoga Tại Nhà</h3>
+      
+      <p class="text-content">
+        <strong>Tạo không gian riêng</strong><br>
+        Không cần phòng riêng – chỉ cần một góc yên tĩnh đủ trải thảm. Giữ không gian này 
+        sạch sẽ, thoáng đãng. Nếu có thể, để một vài vật dụng gợi nhắc về thực hành: 
+        nến, cây xanh nhỏ, hình ảnh truyền cảm hứng. Não bộ sẽ liên kết không gian này 
+        với sự tĩnh lặng, giúp bạn dễ "vào trạng thái" hơn.
+      </p>
+      
+      <p class="text-content">
+        <strong>Chọn thời điểm cố định</strong><br>
+        Sáng sớm là thời điểm tốt nhất – tâm trí còn yên tĩnh, chưa bị cuốn vào công việc. 
+        Nhưng bất kỳ thời điểm nào bạn có thể duy trì đều đặn đều là thời điểm tốt. 
+        Chiều tối giúp giải tỏa căng thẳng sau ngày dài. Quan trọng là SỰ NHẤT QUÁN, 
+        không phải thời điểm "hoàn hảo".
+      </p>
+      
+      <p class="text-content">
+        <strong>Bắt đầu ngắn, tăng dần</strong><br>
+        Đừng hứa với bản thân "tập 1 tiếng mỗi ngày" rồi bỏ sau 1 tuần. Bắt đầu với 
+        15-20 phút – một chuỗi Chào Mặt Trời, vài tư thế cơ bản, và tư thế Xác Chết. 
+        Khi thói quen đã hình thành, tự nhiên bạn sẽ muốn tập lâu hơn.
+      </p>
+      
+      <p class="text-content">
+        <strong>Chuỗi thực hành gợi ý cho người mới (20 phút)</strong><br>
+        • 3 phút: Ngồi yên, thở đều, thiết lập ý định<br>
+        • 5 phút: 3-5 vòng Chào Mặt Trời<br>
+        • 8 phút: Chiến binh 1, Chiến binh 2, Tam giác, Cây (mỗi bên)<br>
+        • 2 phút: Gập người ngồi<br>
+        • 2 phút: Tư thế Xác Chết
+      </p>
+      
+      <p class="text-content">
+        <strong>Khi nào cần giáo viên</strong><br>
+        Tự tập tại nhà tốt cho việc duy trì thực hành, nhưng hãy đến lớp ít nhất 1-2 lần/tuần 
+        để được điều chỉnh định tuyến, học tư thế mới an toàn, và nhận năng lượng từ cộng đồng. 
+        Đặc biệt quan trọng nếu bạn có chấn thương hoặc vấn đề sức khỏe cụ thể.
+      </p>
+      
+      <div class="quote-box">
+        "Thực hành tại nhà là món quà bạn tự tặng mình mỗi ngày. Không cần hoàn hảo. 
+        Chỉ cần bước lên thảm, thở, và hiện diện. Mọi thứ khác sẽ tự đến."
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section class="section section-terracotta">
+  <section class="section section-light">
     <div class="content-box text-center">
       <div class="section-label">Câu Hỏi</div>
       <h2 class="section-title">Thắc Mắc Thường Gặp</h2>
@@ -1243,34 +1627,37 @@
     </div>
 
     <div class="content-box">
-      <h3 class="subtitle">Tôi không dẻo, có tập yoga được không?</h3>
+      <h3 class="subtitle">Tôi chưa từng tập yoga, có học được khóa đào tạo giáo viên không?</h3>
       <p class="text-content">
-        Đương nhiên! Yoga không yêu cầu bạn phải dẻo – yoga giúp bạn trở nên dẻo dai hơn. 
-        Mỗi người có cấu trúc cơ thể khác nhau. Yoga không phải để so sánh, mà để khám phá 
-        giới hạn và khả năng của chính mình.
+        Hoàn toàn được! Tại Metta, bạn có thể bắt đầu từ con số 0. Cô Giang tin rằng khi được dạy đúng 
+        ngay từ đầu, bạn sẽ có nền tảng vững chắc hơn những người tự tập sai rồi phải sửa. 
+        Khóa học được thiết kế để đồng hành cùng bạn từ những bước đầu tiên cho đến khi 
+        tự tin đứng lớp.
       </p>
 
-      <h3 class="subtitle" style="margin-top: 2rem;">Bao lâu thì thấy kết quả?</h3>
+      <h3 class="subtitle" style="margin-top: 2rem;">Thời gian học bao lâu?</h3>
       <p class="text-content">
-        Tùy vào mục tiêu và tần suất tập. Sau 2-3 tuần tập đều đặn, bạn có thể cảm nhận 
-        ngủ ngon hơn, ít căng thẳng hơn. Sau 2-3 tháng, cơ thể dẻo dai và khỏe khoắn hơn rõ rệt.
+        Thời gian học từ 1-3 tháng tùy khóa và lịch trình của bạn. Cô Giang thiết kế chương trình 
+        linh hoạt để phù hợp với cả người đi làm và người có thể học toàn thời gian. 
+        Điều quan trọng là chất lượng học, không phải số giờ trên giấy.
       </p>
 
-      <h3 class="subtitle" style="margin-top: 2rem;">Tôi cần chuẩn bị gì cho buổi tập đầu tiên?</h3>
+      <h3 class="subtitle" style="margin-top: 2rem;">Sau khi tốt nghiệp, tôi có thể dạy ở đâu?</h3>
       <p class="text-content">
-        Mang theo quần áo thoải mái (không cần chuyên dụng), bình nước, và tinh thần cởi mở. 
-        Metta có đầy đủ thảm và dụng cụ hỗ trợ. Nên ăn nhẹ 2 tiếng trước khi tập.
+        Với chứng chỉ từ Yoga Alliance, bạn có thể dạy yoga ở bất kỳ đâu trên thế giới – 
+        studio, phòng gym, khu nghỉ dưỡng, trực tuyến, hoặc mở lớp riêng. Metta cũng hỗ trợ kết nối học viên 
+        với các phòng tập đối tác nếu bạn cần.
       </p>
 
       <div class="quote-box">
-        "Yoga không có điểm đến, chỉ có hành trình. Mỗi buổi tập là một khởi đầu mới – 
-        không so sánh với hôm qua, không mong đợi về ngày mai. Chỉ có hiện tại trên thảm."
+        "Đừng học đào tạo giáo viên chỉ vì muốn có bằng cấp. Hãy học vì bạn thật sự yêu yoga 
+        và muốn chia sẻ điều đó với người khác. Nếu động lực đúng, mọi thứ khác sẽ đến."
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section section-light">
+  <section id="contact" class="section section-terracotta">
     <div class="content-box text-center">
       <div class="section-label">Kết Nối</div>
       <h2 class="section-title">Liên Hệ</h2>
@@ -1300,8 +1687,8 @@
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div>
-            <h4>Email</h4>
-            <a href="mailto:metta.dalat@gmail.com">metta.dalat@gmail.com</a>
+            <h4>Thư điện tử</h4>
+            <a href="mailto:Giangmetta@gmail.com">Giangmetta@gmail.com</a>
           </div>
         </div>
 
@@ -1325,7 +1712,7 @@
       vui lòng tham khảo ý kiến bác sĩ trước khi bắt đầu tập yoga.
     </div>
     <div class="footer-copy">
-      © 2024 Metta Yoga Đà Lạt. Tất cả quyền được bảo lưu.
+      © 2026 Metta Yoga. Nội dung có bản quyền.
     </div>
   </footer>
 
