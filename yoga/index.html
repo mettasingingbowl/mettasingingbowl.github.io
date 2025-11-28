@@ -746,7 +746,15 @@
 
     @media (max-width: 768px) {
       .nav-links {
-        display: none;
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+
+      .mobile-menu {
+        display: block !important;
       }
 
       .grid-3 {
@@ -847,16 +855,6 @@
 
     .mobile-menu a:hover {
       color: var(--terracotta-deep);
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex !important;
-      }
-
-      .mobile-menu {
-        display: block !important;
-      }
     }
   </style>
 </head>
