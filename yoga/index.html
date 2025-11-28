@@ -1814,6 +1814,24 @@
       document.getElementById('mobileMenu').classList.toggle('active');
       document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
     }
+
+    // Force show hamburger on mobile
+    function checkMobile() {
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (window.innerWidth <= 768) {
+        hamburger.style.cssText = 'display: flex !important;';
+        navLinks.style.cssText = 'display: none !important;';
+      } else {
+        hamburger.style.cssText = 'display: none;';
+        navLinks.style.cssText = 'display: flex;';
+      }
+    }
+    // Run immediately, on load, and on resize
+    checkMobile();
+    window.addEventListener('DOMContentLoaded', checkMobile);
+    window.addEventListener('load', checkMobile);
+    window.addEventListener('resize', checkMobile);
   </script>
 </body>
 </html>
