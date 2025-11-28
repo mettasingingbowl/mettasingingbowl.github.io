@@ -776,6 +776,88 @@
         gap: 1rem;
       }
     }
+
+    /* Mobile Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--earth-brown);
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(253, 248, 243, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      padding-top: 80px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--terracotta-deep);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -791,8 +873,24 @@
         <li><a href="#services">Lớp Học</a></li>
         <li><a href="#contact">Liên Hệ</a></li>
       </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" onclick="toggleMenu()">Về Cô Giang</a></li>
+      <li><a href="#teaching" onclick="toggleMenu()">Phong Cách Dạy</a></li>
+      <li><a href="#training" onclick="toggleMenu()">Anusara & Đào Tạo</a></li>
+      <li><a href="#blog" onclick="toggleMenu()">Bài Viết</a></li>
+      <li><a href="#services" onclick="toggleMenu()">Lớp Học</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Liên Hệ</a></li>
+    </ul>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -1712,5 +1810,12 @@
     </div>
   </footer>
 
+  <script>
+    function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+    }
+  </script>
 </body>
 </html>
