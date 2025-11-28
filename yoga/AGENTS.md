@@ -13,7 +13,7 @@ Website sử dụng **single-file approach** - tất cả ảnh được nhúng 
 | Format | **WebP** |
 | Tool | **cwebp** (cài: `sudo apt install webp`) |
 | Quality | **80** |
-| Target | **~30KB** WebP (~40KB base64) |
+| Target | **~40KB** WebP (~53KB base64) |
 | DPR | **2x** (full retina) |
 
 **Công thức tính size:** `Container_W * 2` x `Container_H * 2` (full retina)
@@ -59,7 +59,7 @@ rm assets/INPUT_resized.jpg
 
 ### 4. Kiểm tra size
 ```bash
-du -h assets/INPUT_opt.webp  # Target: ~30KB (base64 sẽ ~40KB)
+du -h assets/INPUT_opt.webp  # Target: ~40KB (base64 sẽ ~53KB)
 ```
 
 ### 5. Tạo base64 và nhúng HTML
@@ -68,7 +68,7 @@ base64 -w 0 assets/INPUT_opt.webp
 ```
 
 ```html
-<!-- Source: assets/INPUT.jpg | Optimized: WxH WebP q75 -->
+<!-- Source: assets/INPUT.jpg | Optimized: WxH WebP q80 (2x retina) -->
 <img src="data:image/webp;base64,..." alt="Mô tả" class="grid-img">
 ```
 
@@ -79,7 +79,7 @@ base64 -w 0 assets/INPUT_opt.webp
 ```
 assets/
 ├── giang-avatar.jpg      # Gốc
-├── giang-avatar_opt.webp # Optimized (600x500, q75)
+├── giang-avatar_opt.webp # Optimized (1136x1000, q80, 2x retina)
 └── ...
 ```
 
@@ -89,8 +89,8 @@ assets/
 
 - [ ] Ảnh gốc lưu `assets/`
 - [ ] Xác định container size từ CSS class
-- [ ] Tính output size: container * 1.4
+- [ ] Tính output size: `min(container * 2, original)` 
 - [ ] Chạy ffmpeg (pre-crop + resize) + cwebp q80
-- [ ] Kiểm tra size ~30KB WebP
+- [ ] Kiểm tra size ~40KB WebP
 - [ ] Tạo base64, nhúng HTML với comment source
 - [ ] Test browser (desktop + mobile)
