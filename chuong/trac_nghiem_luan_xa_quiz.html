@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trắc nghiệm cân bằng 7 luân xa</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #f5f5f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 24px 28px 32px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 28px;
+      color: #1e88e5;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #555;
+    }
+    section.chakra {
+      margin-bottom: 24px;
+      padding: 16px 18px 8px;
+      border-radius: 10px;
+      border: 1px solid #e0e0ea;
+      background: #fafafe;
+    }
+    section.chakra h2 {
+      margin-top: 0;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+    section.chakra .note {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .question {
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed #e0e0ea;
+    }
+    .question:last-child {
+      border-bottom: none;
+    }
+    .question-text {
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .scale {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .scale label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .scale span.desc {
+      margin-left: 8px;
+      color: #777;
+      font-size: 13px;
+    }
+    .hint {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 16px;
+    }
+    button {
+      background: #4a3aff;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    button:hover {
+      background: #3729d4;
+    }
+    .share-buttons {
+      margin-top: 16px;
+    }
+    .share-btn {
+      background: #1877f2;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .share-btn:hover {
+      background: #145dbf;
+    }
+    #results {
+      margin-top: 24px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: #f0f4ff;
+      border: 1px solid #d0d7ff;
+      font-size: 15px;
+    }
+    .result-item {
+      margin-bottom: 8px;
+    }
+    .result-item strong {
+      display: inline-block;
+      width: 170px;
+    }
+    .level-high { color: #1b8b4b; }
+    .level-mid { color: #e68a00; }
+    .level-low { color: #c0392b; }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #777;
+      font-style: italic;
+    }
+    /* Màu toàn bộ nội dung cho 7 luân xa */
+    section.chakra[data-chakra="root"] { color: #e53935; }      /* đỏ - luân xa 1 */
+    section.chakra[data-chakra="root"] .note { color: #e53935; }
+
+    section.chakra[data-chakra="sacral"] { color: #fb8c00; }    /* cam - luân xa 2 */
+    section.chakra[data-chakra="sacral"] .note { color: #fb8c00; }
+
+    section.chakra[data-chakra="solar"] { color: #fbc02d; }     /* vàng - luân xa 3 */
+    section.chakra[data-chakra="solar"] .note { color: #fbc02d; }
+
+    section.chakra[data-chakra="heart"] { color: #43a047; }     /* xanh lá - luân xa 4 */
+    section.chakra[data-chakra="heart"] .note { color: #43a047; }
+
+    section.chakra[data-chakra="throat"] { color: #1e88e5; }    /* xanh dương - luân xa 5 */
+    section.chakra[data-chakra="throat"] .note { color: #1e88e5; }
+
+    section.chakra[data-chakra="thirdEye"] { color: #5e35b1; }  /* chàm - luân xa 6 */
+    section.chakra[data-chakra="thirdEye"] .note { color: #5e35b1; }
+
+    section.chakra[data-chakra="crown"] { color: #8e24aa; }     /* tím - luân xa 7 */
+    section.chakra[data-chakra="crown"] .note { color: #8e24aa; }
+    @media (max-width: 640px) {
+      .container {
+        margin: 16px;
+        padding: 18px 16px 22px;
+      }
+      .result-item strong {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TRẮC NGHIỆM CÂN BẰNG 7 LUÂN XA</h1>
+    <p class="subtitle">Đánh giá nhanh mức độ hài hòa của từng luân xa dựa trên thói quen, cảm xúc và suy nghĩ hằng ngày.</p>
+
+    <p class="hint"><strong>Cách làm:</strong> Với mỗi câu, hãy chọn một số từ <strong>1 đến 5</strong>:<br>
+      1 = Hoàn toàn không đúng với tôi (rất không giống tôi)<br>
+      2 = Khá không đúng với tôi<br>
+      3 = Thỉnh thoảng đúng với tôi (trung bình, lúc đúng lúc không)<br>
+      4 = Khá đúng với tôi<br>
+      5 = Rất đúng với tôi (rất giống tôi)
+    </p>
+
+    <form id="chakraQuiz">
+      <!-- ROOT -->
+      <section class="chakra" data-chakra="root">
+        <h2>1. Luân xa Gốc (Muladhara)</h2>
+        <p class="note">Chủ đề: an toàn, nền tảng, tiền bạc, cảm giác thuộc về.</p>
+
+        <div class="question">
+          <div class="question-text">1. Tôi thường cảm thấy an toàn và được nâng đỡ trong cuộc sống hằng ngày.</div>
+          <div class="scale">
+            <label><input type="radio" name="root1" value="1">1</label>
+            <label><input type="radio" name="root1" value="2">2</label>
+            <label><input type="radio" name="root1" value="3">3</label>
+            <label><input type="radio" name="root1" value="4">4</label>
+            <label><input type="radio" name="root1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">2. Tôi không quá lo lắng về các nhu cầu cơ bản (ăn, ở, chi phí tối thiểu).</div>
+          <div class="scale">
+            <label><input type="radio" name="root2" value="1">1</label>
+            <label><input type="radio" name="root2" value="2">2</label>
+            <label><input type="radio" name="root2" value="3">3</label>
+            <label><input type="radio" name="root2" value="4">4</label>
+            <label><input type="radio" name="root2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">3. Tôi cảm thấy mình thuộc về gia đình, nhóm hoặc môi trường sống hiện tại.</div>
+          <div class="scale">
+            <label><input type="radio" name="root3" value="1">1</label>
+            <label><input type="radio" name="root3" value="2">2</label>
+            <label><input type="radio" name="root3" value="3">3</label>
+            <label><input type="radio" name="root3" value="4">4</label>
+            <label><input type="radio" name="root3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">4. Khi gặp khó khăn, tôi vẫn giữ được sự bình tĩnh nhất định.</div>
+          <div class="scale">
+            <label><input type="radio" name="root4" value="1">1</label>
+            <label><input type="radio" name="root4" value="2">2</label>
+            <label><input type="radio" name="root4" value="3">3</label>
+            <label><input type="radio" name="root4" value="4">4</label>
+            <label><input type="radio" name="root4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- SACRAL -->
+      <section class="chakra" data-chakra="sacral">
+        <h2>2. Luân xa Sáng tạo / Cảm xúc (Svadhisthana)</h2>
+        <p class="note">Chủ đề: cảm xúc, vui vẻ, sáng tạo, thân mật.</p>
+
+        <div class="question">
+          <div class="question-text">5. Tôi dễ nhận ra và bày tỏ cảm xúc của mình.</div>
+          <div class="scale">
+            <label><input type="radio" name="sacral1" value="1">1</label>
+            <label><input type="radio" name="sacral1" value="2">2</label>
+            <label><input type="radio" name="sacral1" value="3">3</label>
+            <label><input type="radio" name="sacral1" value="4">4</label>
+            <label><input type="radio" name="sacral1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">6. Tôi cho phép bản thân vui chơi, nghỉ ngơi mà không thấy tội lỗi.</div>
+          <div class="scale">
+            <label><input type="radio" name="sacral2" value="1">1</label>
+            <label><input type="radio" name="sacral2" value="2">2</label>
+            <label><input type="radio" name="sacral2" value="3">3</label>
+            <label><input type="radio" name="sacral2" value="4">4</label>
+            <label><input type="radio" name="sacral2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">7. Tôi thường có ý tưởng mới khi làm việc hoặc học tập.</div>
+          <div class="scale">
+            <label><input type="radio" name="sacral3" value="1">1</label>
+            <label><input type="radio" name="sacral3" value="2">2</label>
+            <label><input type="radio" name="sacral3" value="3">3</label>
+            <label><input type="radio" name="sacral3" value="4">4</label>
+            <label><input type="radio" name="sacral3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">8. Các mối quan hệ thân thiết của tôi nhìn chung ấm áp và linh hoạt.</div>
+          <div class="scale">
+            <label><input type="radio" name="sacral4" value="1">1</label>
+            <label><input type="radio" name="sacral4" value="2">2</label>
+            <label><input type="radio" name="sacral4" value="3">3</label>
+            <label><input type="radio" name="sacral4" value="4">4</label>
+            <label><input type="radio" name="sacral4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLAR PLEXUS -->
+      <section class="chakra" data-chakra="solar">
+        <h2>3. Luân xa Sức mạnh cá nhân (Manipura)</h2>
+        <p class="note">Chủ đề: tự tin, ý chí, hành động.</p>
+
+        <div class="question">
+          <div class="question-text">9. Tôi tin vào khả năng của mình khi bắt đầu một việc mới.</div>
+          <div class="scale">
+            <label><input type="radio" name="solar1" value="1">1</label>
+            <label><input type="radio" name="solar1" value="2">2</label>
+            <label><input type="radio" name="solar1" value="3">3</label>
+            <label><input type="radio" name="solar1" value="4">4</label>
+            <label><input type="radio" name="solar1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">10. Tôi dám nói "không" khi điều gì đó không phù hợp với mình.</div>
+          <div class="scale">
+            <label><input type="radio" name="solar2" value="1">1</label>
+            <label><input type="radio" name="solar2" value="2">2</label>
+            <label><input type="radio" name="solar2" value="3">3</label>
+            <label><input type="radio" name="solar2" value="4">4</label>
+            <label><input type="radio" name="solar2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">11. Tôi có thói quen hoàn thành những việc mình đã lên kế hoạch.</div>
+          <div class="scale">
+            <label><input type="radio" name="solar3" value="1">1</label>
+            <label><input type="radio" name="solar3" value="2">2</label>
+            <label><input type="radio" name="solar3" value="3">3</label>
+            <label><input type="radio" name="solar3" value="4">4</label>
+            <label><input type="radio" name="solar3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">12. Tôi thường chủ động tạo cơ hội thay vì chỉ ngồi chờ đợi.</div>
+          <div class="scale">
+            <label><input type="radio" name="solar4" value="1">1</label>
+            <label><input type="radio" name="solar4" value="2">2</label>
+            <label><input type="radio" name="solar4" value="3">3</label>
+            <label><input type="radio" name="solar4" value="4">4</label>
+            <label><input type="radio" name="solar4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- HEART -->
+      <section class="chakra" data-chakra="heart">
+        <h2>4. Luân xa Tim (Anahata)</h2>
+        <p class="note">Chủ đề: tình yêu, kết nối, lòng trắc ẩn.</p>
+
+        <div class="question">
+          <div class="question-text">13. Tôi dễ cảm thông với cảm xúc của người khác.</div>
+          <div class="scale">
+            <label><input type="radio" name="heart1" value="1">1</label>
+            <label><input type="radio" name="heart1" value="2">2</label>
+            <label><input type="radio" name="heart1" value="3">3</label>
+            <label><input type="radio" name="heart1" value="4">4</label>
+            <label><input type="radio" name="heart1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">14. Tôi cảm thấy mình xứng đáng được yêu thương.</div>
+          <div class="scale">
+            <label><input type="radio" name="heart2" value="1">1</label>
+            <label><input type="radio" name="heart2" value="2">2</label>
+            <label><input type="radio" name="heart2" value="3">3</label>
+            <label><input type="radio" name="heart2" value="4">4</label>
+            <label><input type="radio" name="heart2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">15. Tôi cảm thấy kết nối với con người, động vật hoặc thiên nhiên xung quanh.</div>
+          <div class="scale">
+            <label><input type="radio" name="heart3" value="1">1</label>
+            <label><input type="radio" name="heart3" value="2">2</label>
+            <label><input type="radio" name="heart3" value="3">3</label>
+            <label><input type="radio" name="heart3" value="4">4</label>
+            <label><input type="radio" name="heart3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">16. Tôi có thể cho đi mà không luôn chờ nhận lại ngay lập tức.</div>
+          <div class="scale">
+            <label><input type="radio" name="heart4" value="1">1</label>
+            <label><input type="radio" name="heart4" value="2">2</label>
+            <label><input type="radio" name="heart4" value="3">3</label>
+            <label><input type="radio" name="heart4" value="4">4</label>
+            <label><input type="radio" name="heart4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- THROAT -->
+      <section class="chakra" data-chakra="throat">
+        <h2>5. Luân xa Cổ họng (Vishuddha)</h2>
+        <p class="note">Chủ đề: giao tiếp, bày tỏ sự thật bên trong.</p>
+
+        <div class="question">
+          <div class="question-text">17. Tôi thường nói ra suy nghĩ của mình một cách rõ ràng và tôn trọng.</div>
+          <div class="scale">
+            <label><input type="radio" name="throat1" value="1">1</label>
+            <label><input type="radio" name="throat1" value="2">2</label>
+            <label><input type="radio" name="throat1" value="3">3</label>
+            <label><input type="radio" name="throat1" value="4">4</label>
+            <label><input type="radio" name="throat1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">18. Tôi dám bày tỏ nhu cầu, mong muốn của bản thân.</div>
+          <div class="scale">
+            <label><input type="radio" name="throat2" value="1">1</label>
+            <label><input type="radio" name="throat2" value="2">2</label>
+            <label><input type="radio" name="throat2" value="3">3</label>
+            <label><input type="radio" name="throat2" value="4">4</label>
+            <label><input type="radio" name="throat2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">19. Tôi biết lắng nghe người khác mà không vội cắt lời hay phán xét.</div>
+          <div class="scale">
+            <label><input type="radio" name="throat3" value="1">1</label>
+            <label><input type="radio" name="throat3" value="2">2</label>
+            <label><input type="radio" name="throat3" value="3">3</label>
+            <label><input type="radio" name="throat3" value="4">4</label>
+            <label><input type="radio" name="throat3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">20. Tôi ít khi phải "giả vờ", nói khác với điều mình thực sự nghĩ.</div>
+          <div class="scale">
+            <label><input type="radio" name="throat4" value="1">1</label>
+            <label><input type="radio" name="throat4" value="2">2</label>
+            <label><input type="radio" name="throat4" value="3">3</label>
+            <label><input type="radio" name="throat4" value="4">4</label>
+            <label><input type="radio" name="throat4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- THIRD EYE -->
+      <section class="chakra" data-chakra="thirdEye">
+        <h2>6. Luân xa Con mắt thứ ba (Ajna)</h2>
+        <p class="note">Chủ đề: trực giác, tầm nhìn, tự hiểu mình.</p>
+
+        <div class="question">
+          <div class="question-text">21. Tôi thường có trực giác khá tốt về điều gì phù hợp hoặc không phù hợp với mình.</div>
+          <div class="scale">
+            <label><input type="radio" name="thirdEye1" value="1">1</label>
+            <label><input type="radio" name="thirdEye1" value="2">2</label>
+            <label><input type="radio" name="thirdEye1" value="3">3</label>
+            <label><input type="radio" name="thirdEye1" value="4">4</label>
+            <label><input type="radio" name="thirdEye1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">22. Trước khi quyết định, tôi có thể nhìn được bức tranh tổng thể của vấn đề.</div>
+          <div class="scale">
+            <label><input type="radio" name="thirdEye2" value="1">1</label>
+            <label><input type="radio" name="thirdEye2" value="2">2</label>
+            <label><input type="radio" name="thirdEye2" value="3">3</label>
+            <label><input type="radio" name="thirdEye2" value="4">4</label>
+            <label><input type="radio" name="thirdEye2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">23. Tôi có thói quen quan sát bản thân (viết nhật ký, suy ngẫm, ngồi yên…).</div>
+          <div class="scale">
+            <label><input type="radio" name="thirdEye3" value="1">1</label>
+            <label><input type="radio" name="thirdEye3" value="2">2</label>
+            <label><input type="radio" name="thirdEye3" value="3">3</label>
+            <label><input type="radio" name="thirdEye3" value="4">4</label>
+            <label><input type="radio" name="thirdEye3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">24. Tôi không quá bị cuốn vào drama, tin đồn hoặc mạng xã hội.</div>
+          <div class="scale">
+            <label><input type="radio" name="thirdEye4" value="1">1</label>
+            <label><input type="radio" name="thirdEye4" value="2">2</label>
+            <label><input type="radio" name="thirdEye4" value="3">3</label>
+            <label><input type="radio" name="thirdEye4" value="4">4</label>
+            <label><input type="radio" name="thirdEye4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- CROWN -->
+      <section class="chakra" data-chakra="crown">
+        <h2>7. Luân xa Vương miện (Sahasrara)</h2>
+        <p class="note">Chủ đề: ý nghĩa cuộc sống, kết nối với điều lớn hơn bản thân.</p>
+
+        <div class="question">
+          <div class="question-text">25. Tôi từng có những khoảnh khắc cảm thấy cuộc sống có ý nghĩa hơn chuyện vật chất.</div>
+          <div class="scale">
+            <label><input type="radio" name="crown1" value="1">1</label>
+            <label><input type="radio" name="crown1" value="2">2</label>
+            <label><input type="radio" name="crown1" value="3">3</label>
+            <label><input type="radio" name="crown1" value="4">4</label>
+            <label><input type="radio" name="crown1" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">26. Khi khó khăn, tôi tìm được chỗ dựa ở niềm tin, giá trị sống hoặc cộng đồng.</div>
+          <div class="scale">
+            <label><input type="radio" name="crown2" value="1">1</label>
+            <label><input type="radio" name="crown2" value="2">2</label>
+            <label><input type="radio" name="crown2" value="3">3</label>
+            <label><input type="radio" name="crown2" value="4">4</label>
+            <label><input type="radio" name="crown2" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">27. Tôi dành thời gian cho sự tĩnh lặng (thiền, cầu nguyện, đi bộ chậm, hít thở sâu…).</div>
+          <div class="scale">
+            <label><input type="radio" name="crown3" value="1">1</label>
+            <label><input type="radio" name="crown3" value="2">2</label>
+            <label><input type="radio" name="crown3" value="3">3</label>
+            <label><input type="radio" name="crown3" value="4">4</label>
+            <label><input type="radio" name="crown3" value="5">5</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">28. Tôi cảm thấy mình là một phần của thế giới, không hoàn toàn cô đơn.</div>
+          <div class="scale">
+            <label><input type="radio" name="crown4" value="1">1</label>
+            <label><input type="radio" name="crown4" value="2">2</label>
+            <label><input type="radio" name="crown4" value="3">3</label>
+            <label><input type="radio" name="crown4" value="4">4</label>
+            <label><input type="radio" name="crown4" value="5">5</label>
+          </div>
+        </div>
+      </section>
+
+      <button type="submit">Xem kết quả luân xa</button>
+    </form>
+
+    <div id="results" style="display:none;"></div>
+
+    <p class="footer-note">Lưu ý: Bài trắc nghiệm này chỉ mang tính chất tham khảo, không thay thế cho tư vấn y khoa hay tâm lý chuyên nghiệp.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('chakraQuiz');
+    const resultsDiv = document.getElementById('results');
+
+    // THAY email này bằng email của mày
+    const RECEIVER_EMAIL = 'giangmetta@gmail.com';
+
+    function levelText(score) {
+      if (score >= 17) {
+        return { text: 'khá hài hòa', cls: 'level-high' };
+      } else if (score >= 13) {
+        return { text: 'cân bằng tương đối, có vài chỗ kẹt nhẹ', cls: 'level-mid' };
+      } else {
+        return { text: 'mất cân bằng rõ, nên ưu tiên chăm sóc', cls: 'level-low' };
+      }
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Tự động chọn ngẫu nhiên cho các câu chưa trả lời
+      const allQuestions = form.querySelectorAll('.question');
+      allQuestions.forEach(q => {
+        const radios = q.querySelectorAll('input[type="radio"]');
+        const isAnswered = Array.from(radios).some(r => r.checked);
+        if (!isAnswered && radios.length > 0) {
+          const randomIndex = Math.floor(Math.random() * radios.length);
+          radios[randomIndex].checked = true;
+        }
+      });
+
+      const chakraNames = {
+        root: 'Luân xa Gốc',
+        sacral: 'Luân xa Sáng tạo / Cảm xúc',
+        solar: 'Luân xa Sức mạnh cá nhân',
+        heart: 'Luân xa Tim',
+        throat: 'Luân xa Cổ họng',
+        thirdEye: 'Luân xa Con mắt thứ ba',
+        crown: 'Luân xa Vương miện'
+      };
+
+      const scores = {
+        root: 0, sacral: 0, solar: 0,
+        heart: 0, throat: 0, thirdEye: 0, crown: 0
+      };
+
+      // Cộng điểm từng luân xa
+      Object.keys(scores).forEach(chakraKey => {
+        const section = document.querySelector('section[data-chakra="' + chakraKey + '"]');
+        const inputs = section.querySelectorAll('input[type="radio"]:checked');
+        let sum = 0;
+        inputs.forEach(i => { sum += parseInt(i.value, 10); });
+        scores[chakraKey] = sum;
+      });
+
+      // Tìm luân xa thấp nhất & cao nhất
+      let minKey = null, maxKey = null;
+      Object.keys(scores).forEach(key => {
+        if (minKey === null || scores[key] < scores[minKey]) minKey = key;
+        if (maxKey === null || scores[key] > scores[maxKey]) maxKey = key;
+      });
+
+      let html = '<h3>Kết quả tổng quan</h3>';
+      html += '<p>Mỗi luân xa có điểm từ 4 đến 20. Điểm càng cao, luân xa càng hài hòa.</p>';
+
+      Object.keys(scores).forEach(key => {
+        const level = levelText(scores[key]);
+        html += '<div class="result-item">'
+          + '<strong>' + chakraNames[key] + ':</strong> '
+          + '<span>' + scores[key] + ' điểm – </span>'
+          + '<span class="' + level.cls + '">' + level.text + '</span>'
+          + '</div>';
+      });
+
+      html += '<hr style="margin:14px 0; border:none; border-top:1px dashed #ccd;" />';
+      html += '<p><strong>Luân xa cần ưu tiên chăm sóc:</strong> ' + chakraNames[minKey] + '.</p>';
+      html += '<p><strong>Luân xa là thế mạnh tự nhiên của bạn:</strong> ' + chakraNames[maxKey] + '.</p>';
+
+      // Chuẩn bị nội dung email
+      let emailBody = 'Chào bạn,\n\nĐây là kết quả trắc nghiệm 7 luân xa của tôi:\n\n';
+      Object.keys(scores).forEach(key => {
+        emailBody += chakraNames[key] + ': ' + scores[key] + ' điểm ( ' + levelText(scores[key]).text + ' )\n';
+      });
+      emailBody += '\nLuân xa cần ưu tiên chăm sóc: ' + chakraNames[minKey] + '.';
+      emailBody += '\nLuân xa là thế mạnh tự nhiên: ' + chakraNames[maxKey] + '.';
+      emailBody += '\n\nTrân trọng.';
+
+      const mailtoLink = 'mailto:'
+        + encodeURIComponent(RECEIVER_EMAIL)
+        + '?subject=' + encodeURIComponent('Kết quả trắc nghiệm 7 luân xa')
+        + '&body=' + encodeURIComponent(emailBody);
+
+      html += '<p style="margin-top:16px;">Nếu bạn muốn gửi kết quả này cho giáo viên, bấm vào đường link dưới đây:</p>';
+      html += '<p><a href="' + mailtoLink + '" style="font-weight:600; text-decoration:underline;">Gửi kết quả qua email</a></p>';
+
+      html += '<div class="share-buttons"><button type="button" id="fbShareBtn" class="share-btn">Chia sẻ kết quả trên Facebook</button></div>';
+
+      resultsDiv.innerHTML = html;
+      resultsDiv.style.display = 'block';
+
+      const shareTextSummary = 'Kết quả trắc nghiệm 7 luân xa của tôi - Luân xa cần ưu tiên chăm sóc: ' + chakraNames[minKey] + ', luân xa mạnh nhất: ' + chakraNames[maxKey] + '.';
+      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
+      const fbBtn = document.getElementById('fbShareBtn');
+      if (fbBtn) {
+        fbBtn.addEventListener('click', function () {
+          window.open(fbShareUrl, '_blank');
+        });
+      }
+
+      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
