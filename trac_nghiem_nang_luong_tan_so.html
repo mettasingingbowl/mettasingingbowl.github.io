@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>TRẮC NGHIỆM ĐO NĂNG LƯỢNG & TẦN SỐ CẢM XÚC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fffbeb 0%, #bfdbfe 40%, #bbf7d0 100%);
+      margin: 0;
+      padding: 0;
+      color: #111827;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 26px 28px 32px;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.16);
+      border: 1px solid #3b82f6;
+    }
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-size: 28px;
+      letter-spacing: 2px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #2563eb; /* Meta main color */
+      font-weight: 500;
+    }
+    .question {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #fecaca;
+    }
+    .question h3 {
+      font-size: 15px;
+      margin: 0 0 8px;
+      color: #2563eb; /* Meta main color */
+      font-weight: 600;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #2563eb; /* Meta main color for answers */
+    }
+    .options input[type="radio"] {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      transform: scale(1.4);
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: #f9fafb;
+    }
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .result-box {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #fffbeb;
+      border: 1px solid #2563eb;
+      display: none;
+      color: #7c2d12;
+    }
+    .result-box h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #2563eb; /* Meta main color */
+    }
+    .result-range {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #2563eb; /* Meta main color */
+    }
+    .note {
+      font-size: 12px;
+      margin-top: 20px;
+      line-height: 1.5;
+      color: #2563eb; /* Meta main color */
+    }
+    .email-share {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .email-share label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      color: #2563eb; /* Meta main color */
+      font-weight: 500;
+    }
+    .email-share input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background: #ffffff;
+      color: #111827;
+    }
+    .share-buttons {
+      margin-top: 10px;
+    }
+    .btn-facebook {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: #f9fafb;
+    }
+    .score-text {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #2563eb; /* Meta main color */
+    }
+    .highlight-missing {
+      background-color: #fee2e2;
+      transition: background-color 0.6s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TRẮC NGHIỆM ĐO NĂNG LƯỢNG &amp; TẦN SỐ CẢM XÚC</h1>
+    <div class="subtitle">
+      Hãy trả lời dựa trên trạng thái của bạn trong 1–2 tuần gần đây. Mỗi câu chỉ chọn 1 đáp án.
+    </div>
+
+    <form id="quiz-form">
+      <!-- Câu 1 -->
+      <div class="question" data-question="1">
+        <h3>Câu 1: Buổi sáng thức dậy, cảm xúc phổ biến nhất của bạn là gì?</h3>
+        <div class="options">
+          <label><input type="radio" name="q1" value="1">A. Mệt mỏi, nặng nề, không muốn rời khỏi giường</label>
+          <label><input type="radio" name="q1" value="2">B. Bình thường, hơi lười nhưng vẫn ổn</label>
+          <label><input type="radio" name="q1" value="3">C. Khá hứng khởi, có vài điều mong chờ trong ngày</label>
+          <label><input type="radio" name="q1" value="4">D. Tràn đầy năng lượng, háo hức bắt đầu ngày mới</label>
+        </div>
+      </div>
+
+      <!-- Câu 2 -->
+      <div class="question" data-question="2">
+        <h3>Câu 2: Mức năng lượng cơ thể trong ngày của bạn như thế nào?</h3>
+        <div class="options">
+          <label><input type="radio" name="q2" value="1">A. Thường xuyên uể oải, rất dễ kiệt sức</label>
+          <label><input type="radio" name="q2" value="2">B. Lúc có lúc không, phụ thuộc cà phê/đồ ăn</label>
+          <label><input type="radio" name="q2" value="3">C. Khá ổn, vẫn làm việc tốt đến cuối ngày</label>
+          <label><input type="radio" name="q2" value="4">D. Dồi dào, ít khi cảm thấy mệt mỏi</label>
+        </div>
+      </div>
+
+      <!-- Câu 3 -->
+      <div class="question" data-question="3">
+        <h3>Câu 3: Tần suất bạn cảm thấy căng thẳng, lo lắng vô cớ?</h3>
+        <div class="options">
+          <label><input type="radio" name="q3" value="1">A. Gần như mỗi ngày</label>
+          <label><input type="radio" name="q3" value="2">B. Vài lần mỗi tuần</label>
+          <label><input type="radio" name="q3" value="3">C. Thỉnh thoảng thôi</label>
+          <label><input type="radio" name="q3" value="4">D. Rất hiếm, đa số thời gian khá bình an</label>
+        </div>
+      </div>
+
+      <!-- Câu 4 -->
+      <div class="question" data-question="4">
+        <h3>Câu 4: Khi có chuyện không như ý xảy ra, bạn phản ứng thế nào?</h3>
+        <div class="options">
+          <label><input type="radio" name="q4" value="1">A. Dễ bực bội, than phiền, tự trách hoặc trách người khác</label>
+          <label><input type="radio" name="q4" value="2">B. Bực nhưng cố nén, rồi lại âm ỉ suy nghĩ</label>
+          <label><input type="radio" name="q4" value="3">C. Nhận khó chịu, sau đó tìm cách giải quyết</label>
+          <label><input type="radio" name="q4" value="4">D. Bình tĩnh quan sát, rút kinh nghiệm và buông khá nhanh</label>
+        </div>
+      </div>
+
+      <!-- Câu 5 -->
+      <div class="question" data-question="5">
+        <h3>Câu 5: Mức độ bạn yêu thích và trân trọng bản thân?</h3>
+        <div class="options">
+          <label><input type="radio" name="q5" value="1">A. Thường xuyên tự chê, so sánh với người khác</label>
+          <label><input type="radio" name="q5" value="2">B. Đôi khi thấy ổn, đôi khi lại thấy mình “chẳng ra gì”</label>
+          <label><input type="radio" name="q5" value="3">C. Nhìn nhận được ưu – khuyết điểm, khá chấp nhận bản thân</label>
+          <label><input type="radio" name="q5" value="4">D. Thật sự trân trọng, yêu và chăm sóc bản thân mỗi ngày</label>
+        </div>
+      </div>
+
+      <!-- Câu 6 -->
+      <div class="question" data-question="6">
+        <h3>Câu 6: Chất lượng mối quan hệ xung quanh bạn hiện tại?</h3>
+        <div class="options">
+          <label><input type="radio" name="q6" value="1">A. Nhiều drama, hiểu lầm, hay phải gồng mình</label>
+          <label><input type="radio" name="q6" value="2">B. Có vài người hiểu mình, nhưng vẫn khá cô đơn</label>
+          <label><input type="radio" name="q6" value="3">C. Có những mối quan hệ tích cực, hỗ trợ lẫn nhau</label>
+          <label><input type="radio" name="q6" value="4">D. Xung quanh chủ yếu là người tích cực, tử tế, truyền cảm hứng</label>
+        </div>
+      </div>
+
+      <!-- Câu 7 -->
+      <div class="question" data-question="7">
+        <h3>Câu 7: Thói quen chăm sóc cơ thể của bạn:</h3>
+        <div class="options">
+          <label><input type="radio" name="q7" value="1">A. Ngủ thất thường, ăn uống lung tung, ít vận động</label>
+          <label><input type="radio" name="q7" value="2">B. Thi thoảng mới để ý, không có thói quen rõ ràng</label>
+          <label><input type="radio" name="q7" value="3">C. Khá quan tâm: ngủ nghỉ, ăn uống tạm ổn, có vận động</label>
+          <label><input type="radio" name="q7" value="4">D. Chủ động chăm sóc: ngủ đủ, ăn lành mạnh, vận động thường xuyên</label>
+        </div>
+      </div>
+
+      <!-- Câu 8 -->
+      <div class="question" data-question="8">
+        <h3>Câu 8: Tần suất bạn cảm thấy biết ơn (vì những điều nhỏ như có đồ ăn, mái nhà, người thân…)?</h3>
+        <div class="options">
+          <label><input type="radio" name="q8" value="1">A. Hầu như không nghĩ đến chuyện biết ơn</label>
+          <label><input type="radio" name="q8" value="2">B. Thỉnh thoảng, khi có chuyện gì đó rõ ràng</label>
+          <label><input type="radio" name="q8" value="3">C. Khá thường xuyên, nhất là vào cuối ngày</label>
+          <label><input type="radio" name="q8" value="4">D. Gần như mỗi ngày, biết ơn nhiều điều nhỏ bé</label>
+        </div>
+      </div>
+
+      <!-- Câu 9 -->
+      <div class="question" data-question="9">
+        <h3>Câu 9: Mức độ kết nối với hiện tại (mindfulness) của bạn:</h3>
+        <div class="options">
+          <label><input type="radio" name="q9" value="1">A. Tâm trí thường ở quá khứ hoặc tương lai, rất khó tập trung</label>
+          <label><input type="radio" name="q9" value="2">B. Đôi lúc nhận ra mình “bị cuốn đi”, nhưng chưa biết cách kéo về</label>
+          <label><input type="radio" name="q9" value="3">C. Thỉnh thoảng chủ động quay về hơi thở, cơ thể, hiện tại</label>
+          <label><input type="radio" name="q9" value="4">D. Thường xuyên nhận biết được suy nghĩ, cảm xúc và hiện diện</label>
+        </div>
+      </div>
+
+      <!-- Câu 10 -->
+      <div class="question" data-question="10">
+        <h3>Câu 10: Khi nghĩ về tương lai, cảm giác chính của bạn là gì?</h3>
+        <div class="options">
+          <label><input type="radio" name="q10" value="1">A. Sợ hãi, mơ hồ, nhiều lo âu</label>
+          <label><input type="radio" name="q10" value="2">B. Nửa lo nửa hy vọng, khá bất an</label>
+          <label><input type="radio" name="q10" value="3">C. Khá tin tưởng, dù vẫn có chút lo</label>
+          <label><input type="radio" name="q10" value="4">D. Rất tin tưởng và háo hức, cảm thấy mọi thứ đang dần tốt lên</label>
+        </div>
+      </div>
+
+      <!-- Câu 11 -->
+      <div class="question" data-question="11">
+        <h3>Câu 11: Mức độ bạn làm những việc khiến mình “thật sự vui &amp; có ý nghĩa”?</h3>
+        <div class="options">
+          <label><input type="radio" name="q11" value="1">A. Hiếm khi, chủ yếu là “sống cho xong ngày”</label>
+          <label><input type="radio" name="q11" value="2">B. Đôi khi mới có thời gian làm điều mình thích</label>
+          <label><input type="radio" name="q11" value="3">C. Cũng thường xuyên sắp xếp được</label>
+          <label><input type="radio" name="q11" value="4">D. Rất hay làm, chủ động thiết kế cuộc sống theo điều mình yêu thích</label>
+        </div>
+      </div>
+
+      <!-- Câu 12 -->
+      <div class="question" data-question="12">
+        <h3>Câu 12: Tự đánh giá “tần số cảm xúc” trung bình của bạn trong ngày:</h3>
+        <div class="options">
+          <label><input type="radio" name="q12" value="1">A. Thường ở vùng: chán nản, mệt, bực bội</label>
+          <label><input type="radio" name="q12" value="2">B. Lẫn lộn: lúc vui, lúc tụt mood rõ rệt</label>
+          <label><input type="radio" name="q12" value="3">C. Đa phần là ổn, có vài lúc xuống nhưng hồi lại nhanh</label>
+          <label><input type="radio" name="q12" value="4">D. Thường ở vùng: bình an, vui, biết ơn, hứng thú</label>
+        </div>
+      </div>
+
+      <!-- Câu 13 -->
+      <div class="question" data-question="13">
+        <h3>Câu 13: Khi cơ thể mệt hoặc đau nhẹ, bạn thường:</h3>
+        <div class="options">
+          <label><input type="radio" name="q13" value="1">A. Phớt lờ và cố làm tiếp cho xong việc</label>
+          <label><input type="radio" name="q13" value="2">B. Chịu đựng, than vãn một chút rồi lại cố gắng</label>
+          <label><input type="radio" name="q13" value="3">C. Giảm tốc, lắng nghe cơ thể và điều chỉnh công việc</label>
+          <label><input type="radio" name="q13" value="4">D. Chủ động nghỉ ngơi, chăm sóc và xem lại lối sống của mình</label>
+        </div>
+      </div>
+
+      <!-- Câu 14 -->
+      <div class="question" data-question="14">
+        <h3>Câu 14: Mức độ bạn lắng nghe và xử lý cảm xúc khó chịu (buồn, tủi, giận...):</h3>
+        <div class="options">
+          <label><input type="radio" name="q14" value="1">A. Thường đè nén, tránh né, giả vờ như không có</label>
+          <label><input type="radio" name="q14" value="2">B. Để cảm xúc tràn ra rồi lại thấy tội lỗi, mệt mỏi</label>
+          <label><input type="radio" name="q14" value="3">C. Thừa nhận cảm xúc và cố gắng hiểu lý do phía sau</label>
+          <label><input type="radio" name="q14" value="4">D. Nhìn rõ, ôm ấp cảm xúc và biết cách chuyển hóa qua thiền, viết, thực hành chữa lành</label>
+        </div>
+      </div>
+
+      <!-- Câu 15 -->
+      <div class="question" data-question="15">
+        <h3>Câu 15: Trong ngày, bạn dành bao nhiêu cho các hoạt động "sạc pin" cho bản thân (yoga, thiền, đi bộ, sáng tạo...)?</h3>
+        <div class="options">
+          <label><input type="radio" name="q15" value="1">A. Hầu như không, rất ít khi</label>
+          <label><input type="radio" name="q15" value="2">B. Chỉ 1–2 lần mỗi tuần khi rảnh</label>
+          <label><input type="radio" name="q15" value="3">C. Gần như mỗi ngày, khoảng 10–30 phút</label>
+          <label><input type="radio" name="q15" value="4">D. Gần như mỗi ngày, trên 30 phút và coi đó là ưu tiên</label>
+        </div>
+      </div>
+
+      <!-- Câu 16 -->
+      <div class="question" data-question="16">
+        <h3>Câu 16: Khi ở trong tập thể hoặc nhóm người khác, bạn thường:</h3>
+        <div class="options">
+          <label><input type="radio" name="q16" value="1">A. Cảm thấy bị hút cạn năng lượng, chỉ muốn trốn đi</label>
+          <label><input type="radio" name="q16" value="2">B. Phải gồng lên để hoà nhập, sợ bị đánh giá</label>
+          <label><input type="radio" name="q16" value="3">C. Tương đối thoải mái, có lúc vui có lúc hơi mệt</label>
+          <label><input type="radio" name="q16" value="4">D. Thường cảm thấy được nâng đỡ, truyền cảm hứng và kết nối</label>
+        </div>
+      </div>
+
+      <!-- Câu 17 -->
+      <div class="question" data-question="17">
+        <h3>Câu 17: Bạn cảm thấy cuộc sống hiện tại của mình có ý nghĩa và định hướng rõ ràng đến mức nào?</h3>
+        <div class="options">
+          <label><input type="radio" name="q17" value="1">A. Thấy khá vô định, chủ yếu là cố gắng sống qua ngày</label>
+          <label><input type="radio" name="q17" value="2">B. Có vài ý tưởng nhưng vẫn mơ hồ, dễ bị hoang mang</label>
+          <label><input type="radio" name="q17" value="3">C. Có hướng đi tương đối rõ và đang bước từng bước</label>
+          <label><input type="radio" name="q17" value="4">D. Rất rõ điều mình muốn cống hiến và đang sống gần với điều đó</label>
+        </div>
+      </div>
+
+      <!-- Câu 18 -->
+      <div class="question" data-question="18">
+        <h3>Câu 18: Khi gặp biến cố lớn hoặc thay đổi bất ngờ, bạn thường:</h3>
+        <div class="options">
+          <label><input type="radio" name="q18" value="1">A. Sụp xuống rất lâu, rất khó đứng dậy</label>
+          <label><input type="radio" name="q18" value="2">B. Cố gắng chống chọi nhưng dễ kiệt sức, hay muốn bỏ cuộc</label>
+          <label><input type="radio" name="q18" value="3">C. Vẫn sốc nhưng dần tìm được cách thích nghi và đi tiếp</label>
+          <label><input type="radio" name="q18" value="4">D. Nhìn ra cả nỗi đau lẫn bài học, cơ hội trưởng thành trong biến cố</label>
+        </div>
+      </div>
+
+      <!-- Câu 19 -->
+      <div class="question" data-question="19">
+        <h3>Câu 19: Mối quan hệ của bạn với tiền bạc &amp; công việc hiện tại:</h3>
+        <div class="options">
+          <label><input type="radio" name="q19" value="1">A. Thường xuyên lo thiếu, sợ mất, luôn trong trạng thái căng thẳng</label>
+          <label><input type="radio" name="q19" value="2">B. Đủ sống nhưng luôn thấy áp lực, sợ mình không đủ giỏi</label>
+          <label><input type="radio" name="q19" value="3">C. Tương đối ổn, đôi khi lo lắng nhưng vẫn tin mình có thể xoay xở</label>
+          <label><input type="radio" name="q19" value="4">D. Cảm thấy mình đang mở rộng, biết cách đón nhận, cho đi và tạo giá trị</label>
+        </div>
+      </div>
+
+      <!-- Câu 20 -->
+      <div class="question" data-question="20">
+        <h3>Câu 20: Mức độ bạn dám sống thật theo giá trị của mình (kể cả khi người khác không hiểu):</h3>
+        <div class="options">
+          <label><input type="radio" name="q20" value="1">A. Hầu như luôn chiều ý người khác, sợ làm ai đó phật ý</label>
+          <label><input type="radio" name="q20" value="2">B. Đôi lúc dám sống thật nhưng thường rút lại vì sợ bị đánh giá</label>
+          <label><input type="radio" name="q20" value="3">C. Khá thường xuyên, dù vẫn có vài tình huống khiến bạn chần chừ</label>
+          <label><input type="radio" name="q20" value="4">D. Sống khá thẳng hàng với giá trị của mình, dám chọn điều phù hợp với mình dù không vừa lòng tất cả mọi người</label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" onclick="tinhDiem()">Xem kết quả</button>
+      <button type="reset" class="btn btn-secondary" onclick="resetResult()">Làm lại</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+
+    <div class="email-share">
+      <label>Nhấn nút dưới đây để gửi kết quả này cho cô Giang (giangmetta@gmail.com).</label>
+      
+      <button class="btn btn-primary" type="button" onclick="guiEmail()">Gửi kết quả cho cô Giang</button>
+
+      <div class="share-buttons">
+        <button class="btn btn-facebook" type="button" onclick="shareFacebook()">Chia sẻ kết quả lên Facebook</button>
+      </div>
+    </div>
+
+    <div class="note">
+      Lưu ý: Bài trắc nghiệm này chỉ mang tính chất tự khám phá và tự phản chiếu, không phải công cụ chẩn đoán y khoa hay đo lường khoa học.
+    </div>
+  </div>
+
+  <script>
+    function scrollToQuestion(index) {
+      const target = document.querySelector('.question[data-question="' + index + '"]');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.classList.add('highlight-missing');
+        setTimeout(function () {
+          target.classList.remove('highlight-missing');
+        }, 1600);
+      }
+    }
+
+    function tinhDiem() {
+      const form = document.getElementById('quiz-form');
+      let total = 0;
+      let answered = true;
+      const numQuestions = 20;
+      let firstUnansweredIndex = null;
+
+      for (let i = 1; i <= numQuestions; i++) {
+        const name = 'q' + i;
+        const radios = form.elements[name];
+        let checked = false;
+
+        if (!radios) {
+          continue;
+        }
+
+        if (radios.length === undefined) {
+          if (radios.checked) {
+            total += parseInt(radios.value, 10) || 0;
+            checked = true;
+          }
+        } else {
+          for (let j = 0; j < radios.length; j++) {
+            const r = radios[j];
+            if (r.checked) {
+              total += parseInt(r.value, 10) || 0;
+              checked = true;
+              break;
+            }
+          }
+        }
+
+        if (!checked) {
+          answered = false;
+          firstUnansweredIndex = i;
+          break;
+        }
+      }
+
+      const resultBox = document.getElementById('result');
+
+      if (!answered) {
+        resultBox.style.display = 'block';
+        resultBox.innerHTML = '<h2>Kết quả</h2><p>Vui lòng trả lời đầy đủ tất cả các câu hỏi trước khi xem kết quả.</p>';
+        if (firstUnansweredIndex !== null) {
+          scrollToQuestion(firstUnansweredIndex);
+        }
+        return;
+      }
+
+      let message = '';
+      let rangeText = '';
+
+      // Tổng điểm tối thiểu: 20, tối đa: 80
+      if (total >= 20 && total <= 31) {
+        rangeText = '20 – 31 điểm: Năng lượng rất thấp, tần số đang bị chèn ép';
+        message = 'Hiện tại cơ thể và cảm xúc của bạn đang ở vùng dễ kiệt sức, dễ bi quan. Có thể bạn đã phải cố gắng quá lâu, ngủ nghỉ kém, ít vận động và ôm nhiều lo âu chưa được nói ra. Giai đoạn này, điều quan trọng nhất không phải là “cố gắng hơn” mà là dừng lại để nghỉ, xin hỗ trợ và chăm sóc lại những nhu cầu cơ bản: ngủ, ăn, thở, kết nối với người an toàn.';
+      } else if (total >= 32 && total <= 43) {
+        rangeText = '32 – 43 điểm: Năng lượng thấp – dao động, dễ tụt mood';
+        message = 'Bạn có những lúc vui, nhưng nền chung vẫn khá nặng và dễ bị kéo xuống bởi môi trường, công việc, mạng xã hội. Bạn cần bắt đầu thiết lập ranh giới lành mạnh: bớt ở gần người/nguồn làm mình kiệt sức, và thêm vào ngày thường các thói quen “sạc nhẹ” như đi bộ, hít thở sâu, tắt màn hình sớm, nói thật về cảm xúc với một người đáng tin.';
+      } else if (total >= 44 && total <= 55) {
+        rangeText = '44 – 55 điểm: Năng lượng trung bình, có nền ổn nhưng chưa thật sự nhẹ';
+        message = 'Bạn không ở vùng kiệt sức, nhưng cũng chưa ở vùng rực sáng. Bạn có một nền tảng khá ổn: vẫn làm việc, vẫn sống được, vẫn có những niềm vui nhỏ. Điểm cần chú ý là xây dựng thêm những thói quen giúp ổn định hệ thần kinh: nhịp sinh hoạt đều, vận động nhẹ đều đặn, ăn uống bớt đường – bớt kích thích, và chủ động nuôi những kết nối lành mạnh thay vì chờ “tự đến”.';
+      } else if (total >= 56 && total <= 67) {
+        rangeText = '56 – 67 điểm: Năng lượng khá cao, tần số tích cực & linh hoạt';
+        message = 'Bạn có xu hướng lạc quan, biết tự điều chỉnh khi tụt mood và đã có sẵn vài thói quen tốt (vận động, nghỉ ngơi, biết ơn, thiền hoặc tương tự). Bạn bắt đầu thu hút những mối quan hệ và cơ hội phù hợp hơn với mình. Giai đoạn này, bạn có thể đi sâu vào việc hiểu rõ giá trị cá nhân, học cách giao tiếp chân thật, và tinh chỉnh lối sống sao cho vừa nuôi mình, vừa đóng góp cho người khác mà không bị “gồng cứu thế”.';
+      } else if (total >= 68 && total <= 80) {
+        rangeText = '68 – 80 điểm: Năng lượng rất cao, tần số mở rộng & lan tỏa';
+        message = 'Bạn thường ở vùng bình an, rõ ràng, có nhiều khoảnh khắc hứng khởi và biết ơn. Bạn khá hiểu mình, biết mình cần gì và không dễ bị cuốn vào drama. Đây là vùng tần số giúp bạn lan tỏa cảm hứng, chữa lành và sáng tạo. Điều cần lưu ý là giữ sự khiêm tốn, tiếp tục chăm sóc bản thân ở mức sâu (thân – tâm – hệ thần kinh), không cố gắng “lúc nào cũng phải tích cực” và tôn trọng hành trình riêng của người khác.';
+      } else {
+        rangeText = 'Điểm số ngoài khoảng dự kiến';
+        message = 'Hãy kiểm tra lại câu trả lời của bạn.';
+      }
+
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = '<h2>Kết quả</h2>' +
+        '<div class="score-text">Tổng điểm của bạn: ' + total + ' / 80</div>' +
+        '<div class="result-range">' + rangeText + '</div>' +
+        '<p>' + message + '</p>';
+    }
+
+    function resetResult() {
+      const resultBox = document.getElementById('result');
+      resultBox.style.display = 'none';
+      resultBox.innerHTML = '';
+    }
+
+    function guiEmail() {
+      const resultBox = document.getElementById('result');
+
+      if (resultBox.style.display !== 'block') {
+        alert('Vui lòng làm bài và xem kết quả trước khi gửi email.');
+        return;
+      }
+
+      const text = resultBox.innerText;
+      const subject = encodeURIComponent('Kết quả trắc nghiệm năng lượng & tần số cảm xúc');
+      const body = encodeURIComponent('Kết quả: ' + text);
+
+      const receiver = 'giangmetta@gmail.com';
+
+      window.location.href = 'mailto:' + receiver + '?subject=' + subject + '&body=' + body;
+    }
+
+    function shareFacebook() {
+      const resultBox = document.getElementById('result');
+      if (resultBox.style.display !== 'block') {
+        alert('Vui lòng làm bài và xem kết quả trước khi chia sẻ.');
+        return;
+      }
+      const text = encodeURIComponent(resultBox.innerText + ' | Bạn có thể làm bài trắc nghiệm này để khám phá mức năng lượng của mình.');
+      const url = encodeURIComponent(window.location.href);
+      const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + text;
+      window.open(shareUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
