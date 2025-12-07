@@ -743,7 +743,8 @@
       const fbBtn = document.getElementById('fbShareBtn');
       if (fbBtn) {
         fbBtn.addEventListener('click', function () {
-          window.open(fbShareUrl, '_blank');
+          // Dùng location.href thay vì window.open để tương thích iOS Safari
+          window.location.href = fbShareUrl;
         });
       }
 

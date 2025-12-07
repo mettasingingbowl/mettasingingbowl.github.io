@@ -629,7 +629,8 @@
       const text = encodeURIComponent(resultBox.innerText + ' | Bạn có thể làm bài trắc nghiệm này để khám phá mức năng lượng của mình.');
       const url = encodeURIComponent(window.location.href);
       const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + text;
-      window.open(shareUrl, '_blank');
+      // Dùng location.href thay vì window.open để tương thích iOS Safari
+      window.location.href = shareUrl;
     }
 
     // Fallback cho iOS Safari cũ không hỗ trợ :has() selector
