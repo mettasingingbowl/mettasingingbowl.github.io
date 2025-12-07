@@ -659,6 +659,9 @@
 
       let resultName, resultYoga, emailDoshaName;
 
+      // Map key to CSS class name
+      const doshaClassMap = { V: 'vata', P: 'pitta', K: 'kapha' };
+
       if (doshaType === 'single') {
         // Thể tạng đơn
         const primary = doshaInfo[doshaKey];
@@ -666,7 +669,7 @@
         resultYoga = primary.yoga;
         emailDoshaName = primary.name;
         
-        html += '<div class="primary-dosha ' + doshaKey.toLowerCase() + '">';
+        html += '<div class="primary-dosha ' + doshaClassMap[doshaKey] + '">';
         html += '<h4>Thể tạng của bạn: ' + primary.name + ' – ' + primary.element + '</h4>';
         html += '<p><strong>Đặc điểm:</strong> ' + primary.traits + '</p>';
         html += '<p><strong>Mục tiêu khi tập Yoga:</strong> ' + primary.goal + '</p>';
