@@ -576,27 +576,27 @@
       }
     };
 
-    // Thông tin cho dual-dosha
+    // Thông tin cho dual-dosha (keys theo thứ tự alphabet: K, P, V)
     const dualDoshaInfo = {
-      'VP': {
+      'PV': {
         name: 'Vata-Pitta',
         traits: 'Sáng tạo và quyết đoán, nhưng dễ căng thẳng, hay lo và nóng vội.',
         yoga: ['Hatha Yoga cân bằng', 'Gentle Flow', 'Yoga Nidra'],
         advice: 'Cần bài tập vừa đủ nhẹ để an thần Vata, vừa đủ mát để hạ nhiệt Pitta. Tập trung vào hơi thở và không quá cạnh tranh.'
       },
-      'VK': {
+      'KV': {
         name: 'Vata-Kapha', 
         traits: 'Sáng tạo nhưng hay trì hoãn, năng lượng lên xuống thất thường, dễ lo âu khi stress.',
         yoga: ['Hatha Yoga', 'Gentle Vinyasa', 'Yin-Yang Yoga'],
         advice: 'Cần sự cân bằng - đủ động để kích hoạt Kapha, đủ ổn định để neo Vata. Tập đều đặn là chìa khóa.'
       },
-      'PK': {
+      'KP': {
         name: 'Pitta-Kapha',
         traits: 'Mạnh mẽ, bền bỉ, quyết tâm cao nhưng dễ cứng đầu và tích tụ nhiệt trong người.',
         yoga: ['Vinyasa Flow', 'Hatha động', 'Swimming Yoga'],
         advice: 'Cần bài tập năng động để kích hoạt Kapha, nhưng không quá nóng để tránh tăng Pitta. Tập ngoài trời hoặc phòng mát.'
       },
-      'VPK': {
+      'KPV': {
         name: 'Tri-Dosha (Vata-Pitta-Kapha)',
         traits: 'Hiếm gặp! Bạn có sự cân bằng tự nhiên của cả 3 dosha - linh hoạt, mạnh mẽ và ổn định.',
         yoga: ['Hatha Yoga truyền thống', 'Vinyasa nhẹ', 'Yoga theo mùa'],
@@ -627,9 +627,10 @@
         }
       }
 
-      // Xác định dosha chính và phụ (trong khoảng 2 điểm được coi là ngang nhau)
+      // Xác định dosha chính và phụ
+      // Với 20 câu, mỗi dosha max ~7-8 điểm, nên threshold=1 là hợp lý
       const maxScore = Math.max(scores.V, scores.P, scores.K);
-      const threshold = 2; // Nếu chênh lệch <= 2 điểm, coi như dual-dosha
+      const threshold = 1; // Chênh lệch <= 1 điểm = coi như ngang nhau
       
       const dominantDoshas = [];
       if (maxScore - scores.V <= threshold) dominantDoshas.push('V');
@@ -642,10 +643,10 @@
       
       if (dominantDoshas.length === 3) {
         doshaType = 'tri';
-        doshaKey = 'VPK';
+        doshaKey = 'KPV'; // alphabet order
       } else if (dominantDoshas.length === 2) {
         doshaType = 'dual';
-        doshaKey = dominantDoshas.sort().join('');
+        doshaKey = dominantDoshas.sort().join(''); // alphabet order: K, P, V
       }
 
       let html = '<h3>Kết quả Dosha của bạn</h3>';
