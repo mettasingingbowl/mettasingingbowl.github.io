@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc Nghiệm - Metta Singingbowl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sage-light: #C5D5BC;
+      --sage: #9CAF88;
+      --sage-deep: #7A9668;
+      --forest: #4A5D3E;
+      --earth: #3D4A35;
+      --cream: #FDFBF7;
+      --cream-warm: #F7F3EB;
+      --sand: #E8E2D5;
+      --text-dark: #2C3527;
+      --text-soft: #5A6355;
+      --gold-soft: #C9B896;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-warm) 50%, var(--sand) 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--sage-deep);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 40px;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--forest);
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--forest);
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .quiz-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 30px rgba(74, 93, 62, 0.08);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: block;
+      border: 1px solid rgba(156, 175, 136, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quiz-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--sage) 0%, var(--gold-soft) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .quiz-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 50px rgba(74, 93, 62, 0.15);
+    }
+
+    .quiz-card:hover::before {
+      opacity: 1;
+    }
+
+    .quiz-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .quiz-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .quiz-card p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .quiz-meta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .quiz-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(156, 175, 136, 0.12);
+      color: var(--sage-deep);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 20px;
+    }
+
+    .quiz-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--sage-deep);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .quiz-cta svg {
+      transition: transform 0.3s;
+    }
+
+    .quiz-card:hover .quiz-cta svg {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 40px 16px;
+      }
+
+      .page-title {
+        font-size: 2.2rem;
+      }
+
+      .quiz-card {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Quay lại trang chính
+    </a>
+
+    <h1 class="page-title">Trắc Nghiệm</h1>
+    <p class="page-subtitle">Khám phá bản thân qua các bài trắc nghiệm về năng lượng và luân xa. Kết quả có thể gửi trực tiếp cho cô Giang.</p>
+
+    <div class="quiz-grid">
+      <a href="trac_nghiem_luan_xa.html" class="quiz-card">
+        <div class="quiz-icon">🔮</div>
+        <h2>Trắc Nghiệm Cân Bằng 7 Luân Xa</h2>
+        <p>Đánh giá nhanh mức độ hài hòa của từng luân xa dựa trên thói quen, cảm xúc và suy nghĩ hằng ngày của bạn.</p>
+        <div class="quiz-meta">
+          <span class="quiz-tag">28 câu hỏi</span>
+          <span class="quiz-tag">~10 phút</span>
+        </div>
+        <div class="quiz-cta">
+          Làm bài ngay
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="trac_nghiem_nang_luong_tan_so.html" class="quiz-card">
+        <div class="quiz-icon">⚡</div>
+        <h2>Trắc Nghiệm Đo Năng Lượng & Tần Số Cảm Xúc</h2>
+        <p>Khám phá mức năng lượng và tần số cảm xúc hiện tại của bạn trong 1-2 tuần gần đây.</p>
+        <div class="quiz-meta">
+          <span class="quiz-tag">20 câu hỏi</span>
+          <span class="quiz-tag">~8 phút</span>
+        </div>
+        <div class="quiz-cta">
+          Làm bài ngay
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

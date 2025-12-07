@@ -65,36 +65,61 @@
     .scale {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 14px;
+      gap: 10px;
+      font-size: 15px;
     }
     .scale label {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      min-width: 44px;
-      min-height: 44px;
-      padding: 8px 12px;
-      border: 2px solid #e0e0ea;
-      border-radius: 8px;
+      min-width: 48px;
+      height: 48px;
+      padding: 0 16px;
+      border: none;
+      border-radius: 24px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      background: #fff;
+      transition: all 0.25s ease;
+      background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-weight: 500;
+      color: #495057;
+      position: relative;
+      overflow: hidden;
+    }
+    .scale label::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      border: 2px solid transparent;
+      transition: border-color 0.25s ease;
     }
     .scale label:hover {
-      border-color: #4a3aff;
-      background: #f0f0ff;
+      background: linear-gradient(145deg, #fff, #f1f3f5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .scale label:hover::before {
+      border-color: rgba(74, 58, 255, 0.3);
     }
     .scale label:has(input:checked) {
-      border-color: #4a3aff;
-      background: #e8e5ff;
+      background: linear-gradient(145deg, #4a3aff, #6366f1);
+      color: #fff;
       font-weight: 600;
+      box-shadow: 0 4px 14px rgba(74, 58, 255, 0.35);
+      transform: translateY(-1px);
+    }
+    .scale label:has(input:checked)::before {
+      border-color: transparent;
+    }
+    .scale label:active {
+      transform: scale(0.96);
     }
     .scale input[type="radio"] {
-      width: 18px;
-      height: 18px;
-      margin: 0;
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
     .scale span.desc {
       margin-left: 8px;
