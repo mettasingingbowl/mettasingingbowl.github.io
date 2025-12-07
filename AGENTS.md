@@ -80,18 +80,31 @@
 - Đảm bảo iOS Safari compatible: Web Share API, `:has()` fallback, smooth scroll
 
 ### 2. Tạo OG Image (BẮT BUỘC sau khi tạo quiz)
-```bash
-# Dùng illust_sh để tạo ảnh
-cd ~/mx/illust_sh
-./illust_v2.1.sh "Mô tả ảnh OG cho quiz [tên quiz]..." \
-  --format facebook --quality 2K --work-dir [tên-quiz]-og
 
-# Resize về 1200x630 và optimize
-cd [thư-mục-assets]
-ffmpeg -y -i ~/mx/illust_sh/[tên-quiz]-og/output.png \
-  -vf "scale=1200:630:force_original_aspect_ratio=decrease,pad=1200:630:(ow-iw)/2:(oh-ih)/2" \
+**Dùng g3pip (gemini-3-pro-image-preview) từ pptx_sh:**
+```bash
+# Load API key
+source ~/mx/pptx_sh/keys.sh
+
+# Generate image với g3pip
+curl -s -X POST \
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"contents":[{"parts":[{"text":"PROMPT_MÔ_TẢ_ẢNH"}]}],"generationConfig":{"responseModalities":["IMAGE"]}}' \
+  | jq -r '.candidates[0].content.parts[0].inlineData.data' | base64 -d > output.jpg
+
+# Resize về 1200x630
+ffmpeg -y -i output.jpg \
+  -vf "scale=1200:630:force_original_aspect_ratio=decrease,pad=1200:630:(ow-iw)/2:(oh-ih)/2:color=#F5F0E8" \
   -q:v 2 og-[tên-quiz].jpg
 ```
+
+**Style OG image:**
+- Background cream sạch, KHÔNG border/frame
+- KHÔNG text trên ảnh
+- Biểu tượng elegant với soft glow
+- Tham khảo: `assets/og-chakra.jpg`, `assets/og-energy.jpg`
 
 ### 3. Cập nhật meta tags
 ```html
