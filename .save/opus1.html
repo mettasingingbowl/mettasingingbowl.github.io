@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Metta Singing Bowl - Trị liệu âm thanh & Y học rung động tại Đà Lạt. Khám phá hành trình trở về với cơ thể, hơi thở và sự tĩnh lặng bên trong.">
+    <meta name="keywords" content="singing bowl, chuông xoay, trị liệu âm thanh, sound therapy, vibrational medicine, y học rung động, Đà Lạt, thiền định, meditation">
+    <title>Metta Singing Bowl | Trị Liệu Âm Thanh & Y Học Rung Động</title>
+    
+    <!-- Google Fonts - Elegant Typography like saraauster.com -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Warm, contemplative dark palette
+                        void: '#0D0B0A',
+                        ink: '#1A1614',
+                        coal: '#252019',
+                        bark: '#3D332A',
+                        copper: '#C17F59',
+                        amber: '#D4A574',
+                        honey: '#E8C89E',
+                        bone: '#F5EDE4',
+                        rust: '#9B5B3F',
+                        moss: '#4A5942',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'emerge': 'emerge 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'emerge-slow': 'emerge 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'float': 'float 8s ease-in-out infinite',
+                        'glow': 'glow 4s ease-in-out infinite',
+                        'ripple-out': 'rippleOut 6s ease-out infinite',
+                        'breathe': 'breathe 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        emerge: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(1deg)' },
+                        },
+                        glow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        },
+                        rippleOut: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0.6' },
+                            '100%': { transform: 'scale(2.5)', opacity: '0' },
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.02)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Grain texture overlay */
+        .grain::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Rotating text animation */
+        .rotating-text {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            height: 1.15em;
+            vertical-align: bottom;
+        }
+        
+        .rotating-text-item {
+            display: block;
+            animation: rotateText 16s ease-in-out infinite;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
+        
+        .rotating-text-item:nth-child(1) { animation-delay: 0s; }
+        .rotating-text-item:nth-child(2) { animation-delay: 4s; }
+        .rotating-text-item:nth-child(3) { animation-delay: 8s; }
+        .rotating-text-item:nth-child(4) { animation-delay: 12s; }
+        
+        @keyframes rotateText {
+            0%, 20% { opacity: 1; transform: translateY(0); }
+            25%, 100% { opacity: 0; transform: translateY(-100%); }
+        }
+        
+        /* Sonic ripple effect */
+        .sonic-ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(193, 127, 89, 0.3);
+            animation: rippleOut 6s ease-out infinite;
+        }
+        
+        .sonic-ripple:nth-child(2) { animation-delay: 1.5s; }
+        .sonic-ripple:nth-child(3) { animation-delay: 3s; }
+        .sonic-ripple:nth-child(4) { animation-delay: 4.5s; }
+        
+        /* Gradient mesh background */
+        .mesh-gradient {
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(193, 127, 89, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(155, 91, 63, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(74, 89, 66, 0.08) 0%, transparent 60%);
+        }
+        
+        /* Staggered animations */
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.35s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.7s; opacity: 0; }
+        
+        /* Ornamental divider */
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(193, 127, 89, 0.4), transparent);
+        }
+        
+        /* Card hover with warm glow */
+        .card-warm {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+        
+        .card-warm::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(193, 127, 89, 0.3), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
+        }
+        
+        .card-warm:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-warm:hover::before {
+            opacity: 1;
+        }
+        
+        /* Copper underline effect */
+        .copper-underline {
+            position: relative;
+            display: inline;
+        }
+        
+        .copper-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #C17F59, #D4A574);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .copper-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        /* Button glow effect */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .btn-glow:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(193, 127, 89, 0.4);
+        }
+        
+        /* Section scroll offset */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+        
+        /* Quote styling */
+        .quote-large {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 5rem;
+            line-height: 1;
+            color: rgba(193, 127, 89, 0.2);
+        }
+        
+        /* Image treatment */
+        .img-treatment {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .img-treatment::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(13, 11, 10, 0.4));
+            pointer-events: none;
+        }
+        
+        .img-treatment img {
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .img-treatment:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Organic shape clip-paths */
+        .organic-shape {
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+        
+        /* Selection color */
+        ::selection {
+            background: rgba(193, 127, 89, 0.3);
+            color: #F5EDE4;
+        }
+    </style>
+</head>
+<body class="bg-void text-bone font-sans antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <span class="font-serif text-2xl font-medium tracking-wide text-bone group-hover:text-copper transition-colors duration-300">Metta</span>
+                    <span class="font-serif text-lg text-bone/50">Singing Bowl</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#about" class="copper-underline text-sm font-medium text-bone/70 hover:text-bone transition-colors duration-300 py-1">Giới thiệu</a>
+                    <a href="#sound-therapy" class="copper-underline text-sm font-medium text-bone/70 hover:text-bone transition-colors duration-300 py-1">Trị liệu âm thanh</a>
+                    <a href="#programs" class="copper-underline text-sm font-medium text-bone/70 hover:text-bone transition-colors duration-300 py-1">Chương trình</a>
+                    <a href="#philosophy" class="copper-underline text-sm font-medium text-bone/70 hover:text-bone transition-colors duration-300 py-1">Triết lý</a>
+                    <a href="#contact" class="btn-glow px-6 py-2.5 bg-copper text-void text-sm font-semibold rounded-full hover:bg-amber transition-colors duration-300">
+                        Liên hệ
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-bone" id="mobile-menu-btn" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-ink/98 backdrop-blur-xl border-t border-bark/30" id="mobile-menu">
+            <div class="px-6 py-6 space-y-5">
+                <a href="#about" class="block text-sm font-medium text-bone/70 hover:text-copper transition-colors">Giới thiệu</a>
+                <a href="#sound-therapy" class="block text-sm font-medium text-bone/70 hover:text-copper transition-colors">Trị liệu âm thanh</a>
+                <a href="#programs" class="block text-sm font-medium text-bone/70 hover:text-copper transition-colors">Chương trình</a>
+                <a href="#philosophy" class="block text-sm font-medium text-bone/70 hover:text-copper transition-colors">Triết lý</a>
+                <a href="#contact" class="inline-block px-6 py-2.5 bg-copper text-void text-sm font-semibold rounded-full">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden grain">
+        <!-- Layered background -->
+        <div class="absolute inset-0 bg-void">
+            <div class="mesh-gradient absolute inset-0"></div>
+            <img 
+                src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1920&q=80" 
+                alt="Background texture" 
+                class="w-full h-full object-cover opacity-20 mix-blend-luminosity"
+                loading="eager"
+            >
+            <div class="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void"></div>
+        </div>
+        
+        <!-- Animated sonic ripples -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+            <div class="sonic-ripple w-64 h-64 md:w-[500px] md:h-[500px]"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 md:py-40">
+            <div class="max-w-4xl">
+                <!-- Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-copper/10 border border-copper/20 rounded-full mb-10 animate-emerge stagger-1">
+                    <span class="w-2 h-2 bg-copper rounded-full mr-3 animate-glow"></span>
+                    <span class="text-sm font-medium text-copper">Trị Liệu Âm Thanh & Y Học Rung Động tại Đà Lạt</span>
+                </div>
+                
+                <!-- Main Heading -->
+                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-bone leading-[1.1] mb-10 animate-emerge stagger-2">
+                    Âm thanh là
+                    <span class="rotating-text text-copper">
+                        <span class="rotating-text-item">cánh cửa</span>
+                        <span class="rotating-text-item">hành trình</span>
+                        <span class="rotating-text-item">sự chữa lành</span>
+                        <span class="rotating-text-item">con đường về nhà</span>
+                    </span>
+                </h1>
+                
+                <!-- Subtitle -->
+                <p class="font-serif text-xl md:text-2xl text-bone/60 leading-relaxed mb-14 max-w-2xl animate-emerge stagger-3">
+                    Không chỉ là tiếng chuông, mà là hành trình trở về với cơ thể, hơi thở và sự tĩnh lặng bên trong.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-5 animate-emerge stagger-4">
+                    <a href="#contact" class="btn-glow inline-flex items-center justify-center px-8 py-4 bg-copper text-void font-semibold rounded-full hover:bg-amber transition-all duration-300">
+                        <span>Đặt lịch trị liệu</span>
+                        <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#programs" class="inline-flex items-center justify-center px-8 py-4 border border-bone/20 text-bone font-medium rounded-full hover:bg-bone/5 hover:border-bone/40 transition-all duration-300">
+                        <span>Khám phá khóa học</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+            <a href="#about" class="flex flex-col items-center text-bone/40 hover:text-copper transition-colors duration-300">
+                <span class="text-xs font-medium mb-3 tracking-[0.2em] uppercase">Khám phá</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-28 md:py-36 bg-ink relative overflow-hidden grain">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-copper/5 rounded-full blur-[150px]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="img-treatment aspect-[4/5] rounded-3xl overflow-hidden">
+                        <img 
+                            src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/74c50b53-9e78-400c-be52-cad945d81478/Sara%2BAuster%2B%2528by%2BMax%2BHemphill%2Bbowls%2529.jpg" 
+                            alt="Nhà trị liệu chuông xoay tại Metta" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 border border-copper/20 rounded-full -z-10"></div>
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-copper/10 rounded-full blur-2xl"></div>
+                </div>
+                
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <div class="divider-ornament mb-8">
+                        <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Câu chuyện</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight mb-8">
+                        Metta<br><span class="text-copper italic">Singing Bowl</span>
+                    </h2>
+                    
+                    <p class="text-lg text-bone/70 leading-relaxed mb-6">
+                        Năm 2016, <strong class="text-amber">Giang Hoàng</strong> rời công việc văn phòng, bắt đầu lại với một tấm thảm yoga. Và rồi, gặp <strong class="text-amber">chuông xoay</strong> – tiếng chuông chạm vào hệ thần kinh và tâm trí theo cách mà lời nói không làm được.
+                    </p>
+                    
+                    <p class="text-bone/60 leading-relaxed mb-8">
+                        Từ đó, Metta Singing Bowl ra đời – nơi <strong class="text-bone/80">trị liệu âm thanh</strong> và <strong class="text-bone/80">y học rung động</strong> được thực hành bài bản, kết hợp tri thức giải phẫu – thần kinh với hệ thống luân xa cổ xưa.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <div class="flex items-center space-x-3 px-5 py-3 bg-bark/50 border border-bark rounded-full">
+                            <span class="w-2 h-2 bg-copper rounded-full"></span>
+                            <span class="text-sm text-bone/70">9+ năm kinh nghiệm</span>
+                        </div>
+                        <div class="flex items-center space-x-3 px-5 py-3 bg-bark/50 border border-bark rounded-full">
+                            <span class="w-2 h-2 bg-copper rounded-full"></span>
+                            <span class="text-sm text-bone/70">Yoga Alliance USA</span>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="border-l-2 border-copper/50 pl-6 py-3">
+                        <p class="font-serif text-xl text-bone/80 italic">
+                            "Tiếng chuông không chỉ để nghe cho dễ chịu, mà là công cụ nghiêm túc trong trị liệu âm thanh."
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sound Therapy Section -->
+    <section id="sound-therapy" class="py-28 md:py-36 bg-void relative grain">
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-moss/10 rounded-full blur-[120px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="divider-ornament mb-8">
+                    <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Phương pháp</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight mb-6">
+                    Trị liệu âm thanh &<br>
+                    <span class="text-copper italic">Y học rung động</span>
+                </h2>
+                <p class="text-lg text-bone/50">
+                    theo cách Metta hiểu
+                </p>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="grid lg:grid-cols-2 gap-12 items-start mb-20">
+                <!-- Left: Explanation -->
+                <div class="bg-ink border border-bark/50 rounded-3xl p-10 md:p-12">
+                    <h3 class="font-serif text-2xl text-bone mb-8">Trị liệu âm thanh là gì?</h3>
+                    
+                    <p class="text-bone/60 leading-relaxed mb-8">
+                        <strong class="text-amber">Trị liệu âm thanh</strong> là phương pháp dùng âm thanh, tần số và rung động để tác động lên:
+                    </p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center">
+                                <span class="w-2 h-2 bg-copper rounded-full"></span>
+                            </span>
+                            <span class="text-bone/70">Hệ thần kinh</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center">
+                                <span class="w-2 h-2 bg-copper rounded-full"></span>
+                            </span>
+                            <span class="text-bone/70">Hệ nội tiết</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center">
+                                <span class="w-2 h-2 bg-copper rounded-full"></span>
+                            </span>
+                            <span class="text-bone/70">Dòng chảy năng lượng dọc cột sống (luân xa)</span>
+                        </li>
+                    </ul>
+                    
+                    <p class="text-bone/60 leading-relaxed mb-6">
+                        Khi <strong class="text-amber">chuông xoay</strong> chạm vào cơ thể, dao động cơ học lan vào mô mềm, dịch thể; từ đó chuyển hóa thành <strong class="text-bone/80">dao động điện sinh học</strong> trong hệ thần kinh.
+                    </p>
+                    
+                    <p class="text-bone/60 leading-relaxed">
+                        Đó chính là nền tảng của <strong class="text-amber">y học rung động</strong> – y học dựa trên rung động.
+                    </p>
+                </div>
+                
+                <!-- Right: Image & Quote -->
+                <div class="space-y-10">
+                    <div class="img-treatment aspect-video rounded-3xl overflow-hidden">
+                        <img 
+                            src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/8e655c8e-afe7-4421-a5a2-8728a8f13915/Group+Sound+Bath+Release+Tension+Find+Serenity+Sara+Auster.png" 
+                            alt="Buổi trị liệu âm thanh nhóm" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    
+                    <div class="bg-copper/10 border border-copper/20 rounded-3xl p-10 relative overflow-hidden">
+                        <span class="quote-large absolute -top-4 left-4">"</span>
+                        <blockquote class="relative z-10">
+                            <p class="font-serif text-xl md:text-2xl text-bone leading-relaxed">
+                                Một cánh cửa dịu dàng, giúp cơ thể nhớ lại khả năng tự chữa lành vốn có.
+                            </p>
+                        </blockquote>
+                    </div>
+                    
+                    <p class="text-sm text-bone/40 italic px-2">
+                        * Metta không coi trị liệu âm thanh là "phép màu" thay thế y khoa. Bạn vẫn cần thăm khám và tuân thủ chỉ định của bác sĩ khi có vấn đề sức khỏe.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Singing Bowl Method -->
+            <div class="bg-ink border border-bark/50 rounded-3xl p-10 md:p-14">
+                <h3 class="font-serif text-2xl md:text-3xl text-bone mb-10 text-center">
+                    Chuông xoay tại Metta – hơn cả vài tiếng chuông thư giãn
+                </h3>
+                
+                <p class="text-center text-bone/60 max-w-2xl mx-auto mb-14">
+                    Tại Metta Singing Bowl, mỗi buổi trị liệu đều được thiết kế theo <strong class="text-amber">trục cột sống – hệ thần kinh – luân xa</strong>:
+                </p>
+                
+                <!-- 3-Day Process -->
+                <div class="grid md:grid-cols-3 gap-8 mb-14">
+                    <div class="text-center p-8 rounded-2xl bg-bark/30 border border-bark/50 card-warm">
+                        <div class="w-20 h-20 bg-copper/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="font-serif text-3xl text-copper font-medium">1</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-bone mb-4">Ngày đầu</h4>
+                        <p class="text-bone/60 text-sm leading-relaxed">
+                            Làm việc với luân xa 1–2–3 – nền tảng an toàn, sinh tồn, tiêu hóa năng lượng.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-2xl bg-bark/30 border border-bark/50 card-warm">
+                        <div class="w-20 h-20 bg-copper/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="font-serif text-3xl text-copper font-medium">2</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-bone mb-4">Ngày thứ hai</h4>
+                        <p class="text-bone/60 text-sm leading-relaxed">
+                            Luân xa 4 – trái tim, kết nối, cảm xúc.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-2xl bg-bark/30 border border-bark/50 card-warm">
+                        <div class="w-20 h-20 bg-copper/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="font-serif text-3xl text-copper font-medium">3</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-bone mb-4">Ngày thứ ba</h4>
+                        <p class="text-bone/60 text-sm leading-relaxed">
+                            Luân xa 5–6–7 – biểu đạt, trực giác, nhận thức.
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="text-center text-bone/60 max-w-2xl mx-auto">
+                    Cách đi từ gốc lên ngọn giúp <strong class="text-amber">nền tảng cơ thể – thần kinh – năng lượng</strong> trở nên vững hơn, thay vì chỉ "bay" ở những tầng trên.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Who is it for Section -->
+    <section class="py-28 md:py-36 bg-ink relative overflow-hidden grain">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-rust/5 rounded-full blur-[200px]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="divider-ornament mb-8">
+                    <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Dành cho ai</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight">
+                    Ai phù hợp với<br>
+                    <span class="text-copper italic">Metta Singing Bowl?</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-void border border-bark/50 rounded-3xl p-10 card-warm">
+                    <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Người tìm kiếm sự bình yên</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Người đang <strong class="text-amber">căng thẳng, mất ngủ, khó thả lỏng</strong>, muốn tìm một phương pháp mềm mại để chăm sóc lại hệ thần kinh.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-void border border-bark/50 rounded-3xl p-10 card-warm">
+                    <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Người làm nghề chữa lành</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Giáo viên yoga, thiền, chuyên viên trị liệu cơ thể, huấn luyện viên… muốn học thêm <strong class="text-amber">trị liệu âm thanh, chuông xoay, y học rung động</strong> để bổ sung cho nghề.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-void border border-bark/50 rounded-3xl p-10 card-warm">
+                    <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Người tìm con đường mới</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Những ai đang tìm một <strong class="text-amber">con đường nghề nghiệp mới</strong> trong lĩnh vực chữa lành, nhưng muốn học một cách nghiêm túc, có căn bản khoa học.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section id="programs" class="py-28 md:py-36 bg-void relative grain">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="divider-ornament mb-8">
+                    <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Chương trình</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight">
+                    Các chương trình chính<br>
+                    <span class="text-copper italic">tại Metta Singing Bowl</span>
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-ink border border-bark/50 rounded-3xl overflow-hidden card-warm group">
+                    <div class="img-treatment aspect-[4/3] overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=800&q=80" 
+                            alt="Phiên trị liệu cá nhân bằng chuông xoay" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="p-8">
+                        <div class="inline-block px-4 py-1.5 bg-copper/10 border border-copper/30 text-copper text-xs font-semibold rounded-full mb-5 tracking-wide uppercase">
+                            Trị liệu
+                        </div>
+                        <h3 class="font-serif text-xl text-bone mb-4">Phiên trị liệu cá nhân & nhóm</h3>
+                        <p class="text-bone/60 text-sm leading-relaxed mb-6">
+                            Buổi 1–1 hoặc nhóm nhỏ, đi sâu vào thư giãn hệ thần kinh, cân bằng luân xa, hỗ trợ giấc ngủ và tái tạo năng lượng.
+                        </p>
+                        <p class="text-xs text-bone/40 mb-6">
+                            Trực tiếp tại Metta Đà Lạt / Workshop tại Hà Nội & các tỉnh
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-copper font-medium hover:text-amber transition-colors group/link">
+                            <span>Đặt lịch ngay</span>
+                            <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="bg-ink border border-bark/50 rounded-3xl overflow-hidden card-warm group">
+                    <div class="img-treatment aspect-[4/3] overflow-hidden">
+                        <img 
+                            src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/1713326072735-GFB84E2DKCKEJR1C4C9O/Release+Tension%2C+Find+Serenity+Sara+Auster%27s+Relaxation+Techniques.png" 
+                            alt="Khóa đào tạo nhà trị liệu chuông xoay" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="p-8">
+                        <div class="inline-block px-4 py-1.5 bg-amber/10 border border-amber/30 text-amber text-xs font-semibold rounded-full mb-5 tracking-wide uppercase">
+                            Đào tạo chuyên sâu
+                        </div>
+                        <h3 class="font-serif text-xl text-bone mb-4">Khóa Đào tạo Nhà trị liệu Chuông xoay</h3>
+                        <p class="text-bone/60 text-sm leading-relaxed mb-4">
+                            Dành cho giáo viên yoga, nhà trị liệu, huấn luyện viên:
+                        </p>
+                        <ul class="text-bone/60 text-sm space-y-2 mb-6">
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Nền tảng âm thanh – sóng não – cơ thể học</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Kỹ thuật đặt chuông, xoay, gõ</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Xây dựng phác đồ trị liệu cá nhân hóa</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center text-copper font-medium hover:text-amber transition-colors group/link">
+                            <span>Tìm hiểu thêm</span>
+                            <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="bg-ink border border-bark/50 rounded-3xl overflow-hidden card-warm group">
+                    <div class="img-treatment aspect-[4/3] overflow-hidden">
+                        <img 
+                            src="https://images.squarespace-cdn.com/content/v1/66199a9a645a061a7e3f32d6/2759f370-14d9-40fd-8037-20b07db35a4a/Journeying+into+Self-Awareness+with+Sara+Auster.png" 
+                            alt="Workshop và retreat chuông xoay" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="p-8">
+                        <div class="inline-block px-4 py-1.5 bg-moss/20 border border-moss/40 text-honey text-xs font-semibold rounded-full mb-5 tracking-wide uppercase">
+                            Workshop & Retreat
+                        </div>
+                        <h3 class="font-serif text-xl text-bone mb-4">Workshop, Retreat & Dịch vụ thiết lập</h3>
+                        <p class="text-bone/60 text-sm leading-relaxed mb-4">
+                            Metta tổ chức và nhận thiết kế:
+                        </p>
+                        <ul class="text-bone/60 text-sm space-y-2 mb-6">
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Buổi thiền chuông, tắm âm thanh theo chủ đề</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Retreat cuối tuần: Yoga – Thiền – Chuông xoay – Cồng</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-1.5 h-1.5 bg-copper rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Thiết lập không gian trị liệu âm thanh</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center text-copper font-medium hover:text-amber transition-colors group/link">
+                            <span>Liên hệ hợp tác</span>
+                            <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-28 md:py-36 relative overflow-hidden">
+        <!-- Gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-bark via-coal to-ink"></div>
+        <div class="absolute inset-0 grain"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-copper/10 rounded-full blur-[200px]"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-moss/10 rounded-full blur-[150px]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="divider-ornament mb-8">
+                    <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Triết lý</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight">
+                    Triết lý<br>
+                    <span class="text-copper italic">Metta Singing Bowl</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-20">
+                <!-- Philosophy 1 -->
+                <div class="text-center p-8">
+                    <div class="w-24 h-24 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-breathe">
+                        <svg class="w-12 h-12 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Học tử tế – Dạy tử tế</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Không dạy "chiêu trò", chỉ dạy những gì Giang và đội ngũ đã tự mình đi qua, đã kiểm chứng trên cơ thể mình và học viên.
+                    </p>
+                </div>
+                
+                <!-- Philosophy 2 -->
+                <div class="text-center p-8">
+                    <div class="w-24 h-24 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-breathe" style="animation-delay: 0.5s;">
+                        <svg class="w-12 h-12 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Chậm mà sâu</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Metta không chạy theo phong trào hay giảm giá ồn ào. Chúng tôi chọn đi chậm, để mỗi học viên có thời gian tiêu hóa, thực hành và trưởng thành thật sự.
+                    </p>
+                </div>
+                
+                <!-- Philosophy 3 -->
+                <div class="text-center p-8">
+                    <div class="w-24 h-24 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-breathe" style="animation-delay: 1s;">
+                        <svg class="w-12 h-12 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-bone mb-5">Không phán xét – Không so sánh</h3>
+                    <p class="text-bone/60 leading-relaxed">
+                        Mỗi người đến đây với một câu chuyện. Nhiệm vụ của chúng tôi không phải là sửa bạn, mà là đồng hành để bạn nhớ lại con người khỏe mạnh, an yên vốn có bên trong.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Quote -->
+            <div class="max-w-4xl mx-auto text-center">
+                <blockquote class="relative">
+                    <span class="quote-large absolute -top-10 left-1/2 -translate-x-1/2">"</span>
+                    <p class="font-serif text-2xl md:text-3xl lg:text-4xl leading-relaxed text-bone/90">
+                        Khi chúng ta thật sự <em class="text-copper not-italic">lắng nghe</em>, chúng ta không thể không <em class="text-copper not-italic">thay đổi</em>.
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="py-28 md:py-36 bg-ink relative overflow-hidden grain">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80" 
+                alt="" 
+                class="w-full h-full object-cover opacity-10"
+                loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink"></div>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <div class="divider-ornament mb-12">
+                <span class="text-copper">&#10022;</span>
+            </div>
+            
+            <blockquote>
+                <p class="font-serif text-2xl md:text-3xl lg:text-4xl text-bone leading-relaxed mb-10">
+                    "Một nhà trị liệu giỏi không phải người gõ chuông hay nhất, mà là người <em class="text-copper not-italic">lắng nghe sâu nhất</em> – với trái tim, với đôi tay, với cả sự tĩnh lặng bên trong."
+                </p>
+                <footer class="text-bone/60">
+                    <cite class="not-italic font-medium text-amber">— Giang Hoàng</cite>
+                    <span class="block text-sm mt-1">Sáng lập Metta Singing Bowl</span>
+                </footer>
+            </blockquote>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-28 md:py-36 bg-void relative grain">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-copper/5 rounded-full blur-[200px]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-20">
+                <!-- Contact Info -->
+                <div>
+                    <div class="divider-ornament mb-8 justify-start">
+                        <span class="text-copper text-sm tracking-[0.3em] uppercase font-medium">Liên hệ</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-bone leading-tight mb-8">
+                        Bắt đầu<br>
+                        <span class="text-copper italic">hành trình của bạn</span>
+                    </h2>
+                    
+                    <p class="text-lg text-bone/60 leading-relaxed mb-10">
+                        Dù bạn chọn cách nào, Metta vẫn sẽ ở đây – giữa Đà Lạt yên tĩnh – để cùng bạn lắng nghe, cùng bạn học, và cùng bạn đi chặng đường dài với trị liệu âm thanh, chuông xoay và y học rung động.
+                    </p>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start space-x-5">
+                            <div class="w-14 h-14 bg-copper/10 border border-copper/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-bone mb-1">Địa chỉ</h4>
+                                <p class="text-bone/60">Đà Lạt, Lâm Đồng, Việt Nam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-5">
+                            <div class="w-14 h-14 bg-copper/10 border border-copper/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-bone mb-1">Email</h4>
+                                <p class="text-bone/60">hello@mettasingingbowl.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-5">
+                            <div class="w-14 h-14 bg-copper/10 border border-copper/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-bone mb-1">Điện thoại</h4>
+                                <p class="text-bone/60">+84 xxx xxx xxx</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center text-copper hover:bg-copper hover:text-void transition-all duration-300" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center text-copper hover:bg-copper hover:text-void transition-all duration-300" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-copper/10 border border-copper/20 rounded-full flex items-center justify-center text-copper hover:bg-copper hover:text-void transition-all duration-300" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-ink border border-bark/50 rounded-3xl p-10 md:p-12">
+                    <h3 class="font-serif text-2xl text-bone mb-8">Gửi tin nhắn cho chúng tôi</h3>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-bone/70 mb-3">Họ và tên</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="w-full px-5 py-4 bg-void border border-bark rounded-xl text-bone placeholder-bone/30 focus:outline-none focus:ring-2 focus:ring-copper/50 focus:border-copper transition-all duration-300"
+                                    placeholder="Nguyễn Văn A"
+                                >
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-bone/70 mb-3">Email</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="w-full px-5 py-4 bg-void border border-bark rounded-xl text-bone placeholder-bone/30 focus:outline-none focus:ring-2 focus:ring-copper/50 focus:border-copper transition-all duration-300"
+                                    placeholder="email@example.com"
+                                >
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-bone/70 mb-3">Số điện thoại</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="w-full px-5 py-4 bg-void border border-bark rounded-xl text-bone placeholder-bone/30 focus:outline-none focus:ring-2 focus:ring-copper/50 focus:border-copper transition-all duration-300"
+                                placeholder="0912 345 678"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label for="interest" class="block text-sm font-medium text-bone/70 mb-3">Bạn quan tâm đến</label>
+                            <select 
+                                id="interest" 
+                                name="interest" 
+                                class="w-full px-5 py-4 bg-void border border-bark rounded-xl text-bone focus:outline-none focus:ring-2 focus:ring-copper/50 focus:border-copper transition-all duration-300"
+                            >
+                                <option value="" class="bg-void">Chọn một mục...</option>
+                                <option value="therapy" class="bg-void">Phiên trị liệu cá nhân</option>
+                                <option value="group" class="bg-void">Trị liệu nhóm</option>
+                                <option value="training" class="bg-void">Khóa đào tạo nhà trị liệu</option>
+                                <option value="workshop" class="bg-void">Workshop / Retreat</option>
+                                <option value="corporate" class="bg-void">Dịch vụ doanh nghiệp</option>
+                                <option value="other" class="bg-void">Khác</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-bone/70 mb-3">Lời nhắn</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="4" 
+                                class="w-full px-5 py-4 bg-void border border-bark rounded-xl text-bone placeholder-bone/30 focus:outline-none focus:ring-2 focus:ring-copper/50 focus:border-copper transition-all duration-300 resize-none"
+                                placeholder="Chia sẻ với chúng tôi câu chuyện của bạn..."
+                            ></textarea>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="btn-glow w-full px-8 py-4 bg-copper text-void font-semibold rounded-full hover:bg-amber transition-all duration-300"
+                        >
+                            Gửi tin nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-ink border-t border-bark/30 py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="font-serif text-2xl font-medium text-bone">Metta</span>
+                        <span class="font-serif text-lg text-bone/50">Singing Bowl</span>
+                    </div>
+                    <p class="text-bone/50 leading-relaxed max-w-md">
+                        Nằm giữa rừng thông Đà Lạt, Metta Singing Bowl là không gian nơi trị liệu âm thanh, chuông xoay và y học rung động được thực hành một cách bài bản, an toàn và đầy tính nhân văn.
+                    </p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-medium text-bone mb-5">Liên kết</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-bone/50 hover:text-copper transition-colors">Giới thiệu</a></li>
+                        <li><a href="#sound-therapy" class="text-bone/50 hover:text-copper transition-colors">Trị liệu âm thanh</a></li>
+                        <li><a href="#programs" class="text-bone/50 hover:text-copper transition-colors">Chương trình</a></li>
+                        <li><a href="#philosophy" class="text-bone/50 hover:text-copper transition-colors">Triết lý</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-medium text-bone mb-5">Liên hệ</h4>
+                    <ul class="space-y-3 text-bone/50">
+                        <li>Đà Lạt, Lâm Đồng</li>
+                        <li>hello@mettasingingbowl.com</li>
+                        <li>+84 xxx xxx xxx</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="h-px bg-gradient-to-r from-transparent via-bark to-transparent mb-10"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-bone/40 text-sm">
+                    &copy; 2026 Metta Singing Bowl. Tất cả quyền được bảo lưu.
+                </p>
+                <p class="text-bone/40 text-sm">
+                    Thiết kế với <span class="text-copper">&#10084;</span> tại Đà Lạt
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-void/95', 'backdrop-blur-xl', 'border-b', 'border-bark/30');
+            } else {
+                navbar.classList.remove('bg-void/95', 'backdrop-blur-xl', 'border-b', 'border-bark/30');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for staggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate-emerge');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe staggered elements
+        document.querySelectorAll('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
