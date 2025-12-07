@@ -101,10 +101,34 @@ ffmpeg -y -i output.jpg \
 ```
 
 **Style OG image:**
-- Background cream sạch, KHÔNG border/frame
+- Background cream sạch (#F5F0E8), KHÔNG border/frame
 - KHÔNG text trên ảnh
-- Biểu tượng elegant với soft glow
-- Tham khảo: `assets/og-chakra.jpg`, `assets/og-energy.jpg`
+- Biểu tượng/silhouette elegant với soft glow
+- Minimalist, spiritual, premium wellness style
+
+**Ví dụ prompt tốt (Dosha quiz):**
+```
+Create a 1200x630 elegant wellness image. Clean cream/beige background. 
+Show 3 human silhouettes in different yoga poses representing Dosha elements:
+- LEFT - VATA (Air): standing gracefully with arms raised up, purple/lavender swirl glow
+- CENTER - PITTA (Fire): warrior II pose, orange/gold flame glow at solar plexus  
+- RIGHT - KAPHA (Water): seated meditation in water drop shape, teal glow at heart
+Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
+```
+
+**Nguyên tắc thiết kế:**
+| Yếu tố | Nên | Không nên |
+|--------|-----|-----------|
+| Background | Cream sạch | Busy, gradient phức tạp |
+| Biểu tượng | Silhouette mờ + glow | Cartoon, quá chi tiết |
+| Màu sắc | 2-3 màu chủ đạo | Rainbow, neon |
+| Tư thế người | Đa dạng, có ý nghĩa | Giống nhau, nằm như chết |
+| Text | KHÔNG | Có chữ |
+
+**Tham khảo:**
+- `assets/og-chakra.jpg` - 7 lotus mandalas
+- `assets/og-energy.jpg` - Golden waves trừu tượng
+- `yoga/assets/og-dosha.jpg` - 3 silhouettes yoga poses
 
 ### 3. Cập nhật meta tags
 ```html
