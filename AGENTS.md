@@ -69,3 +69,42 @@
 > "Ai chọn chuông xoay, trước hết là chọn quay về với chính mình. Rồi từ sự tĩnh lặng đó, bạn mới đủ âm vang để dẫn dắt người khác trở về."
 
 > "Âm thanh đẹp không đến từ kỹ thuật hoàn hảo, mà từ sự hiện diện trọn vẹn. Khi tâm tĩnh, tay mềm, âm thanh tự nhiên trong trẻo."
+
+---
+
+## Quy trình tạo Quiz mới
+
+### 1. Tạo file HTML
+- Copy từ quiz template có sẵn (VD: `trac_nghiem_luan_xa.html`)
+- Điều chỉnh màu sắc theo site (main: sage/forest, yoga: terracotta/earth-brown)
+- Đảm bảo iOS Safari compatible: Web Share API, `:has()` fallback, smooth scroll
+
+### 2. Tạo OG Image (BẮT BUỘC sau khi tạo quiz)
+```bash
+# Dùng illust_sh để tạo ảnh
+cd ~/mx/illust_sh
+./illust_v2.1.sh "Mô tả ảnh OG cho quiz [tên quiz]..." \
+  --format facebook --quality 2K --work-dir [tên-quiz]-og
+
+# Resize về 1200x630 và optimize
+cd [thư-mục-assets]
+ffmpeg -y -i ~/mx/illust_sh/[tên-quiz]-og/output.png \
+  -vf "scale=1200:630:force_original_aspect_ratio=decrease,pad=1200:630:(ow-iw)/2:(oh-ih)/2" \
+  -q:v 2 og-[tên-quiz].jpg
+```
+
+### 3. Cập nhật meta tags
+```html
+<meta property="og:image" content="https://mettasingingbowl.github.io/[path]/assets/og-[tên].jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+```
+
+### 4. Thêm vào navigation
+- Desktop nav: `<ul class="nav-links">`
+- Mobile nav: `<div class="mobile-menu">`
+
+### 5. Test
+- Chạy edge cases với Node.js
+- Test trên iPhone Safari thực tế
+- Dùng Facebook Sharing Debugger để verify OG image
