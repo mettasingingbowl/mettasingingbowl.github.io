@@ -401,7 +401,14 @@
     function scrollToQuestion(index) {
       const target = document.querySelector('.question[data-question="' + index + '"]');
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Safari/iOS fallback for smooth scroll
+        if ('scrollBehavior' in document.documentElement.style) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          var targetRect = target.getBoundingClientRect();
+          var targetY = window.pageYOffset + targetRect.top - (window.innerHeight / 2) + (targetRect.height / 2);
+          window.scrollTo(0, targetY);
+        }
         target.classList.add('highlight-missing');
         setTimeout(function () {
           target.classList.remove('highlight-missing');
