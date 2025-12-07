@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trắc nghiệm Thể Tạng Dosha - Tìm Yoga phù hợp | Giang Metta</title>
+  <title>Trắc nghiệm Thể Tạng Dosha - Tìm Yoga phù hợp | Metta Yoga Đà Lạt</title>
   
   <!-- SEO & Social Sharing -->
   <meta name="description" content="Khám phá thể tạng Dosha (Vata, Pitta, Kapha) của bạn qua 20 câu hỏi. Tìm ra trường phái Yoga phù hợp với cơ địa và tính cách của bạn.">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mettasingingbowl.github.io/trac_nghiem_dosha.html">
+  <meta property="og:url" content="https://mettasingingbowl.github.io/yoga/trac_nghiem_dosha.html">
   <meta property="og:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
   <meta property="og:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
-  <meta property="og:image" content="https://mettasingingbowl.github.io/assets/og-dosha.jpg">
+  <meta property="og:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="Giang Metta">
+  <meta property="og:site_name" content="Metta Yoga Đà Lạt">
   <meta property="og:locale" content="vi_VN">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
   <meta name="twitter:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
-  <meta name="twitter:image" content="https://mettasingingbowl.github.io/assets/og-dosha.jpg">
+  <meta name="twitter:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --sage-light: #C5D5BC;
-      --sage: #9CAF88;
-      --sage-deep: #7A9668;
-      --forest: #4A5D3E;
-      --earth: #3D4A35;
-      --cream: #FDFBF7;
-      --cream-warm: #F7F3EB;
-      --sand: #E8E2D5;
-      --text-dark: #2C3527;
-      --text-soft: #5A6355;
-      --gold-soft: #C9B896;
+      --terracotta-light: #D4A574;
+      --terracotta: #C4956A;
+      --terracotta-deep: #A67B5B;
+      --earth-brown: #6B4423;
+      --earth-dark: #4A2F1A;
+      --cream: #FDF8F3;
+      --cream-warm: #F5EDE4;
+      --sand: #E8DFD4;
+      --text-dark: #3D2914;
+      --text-soft: #6B5344;
+      --gold-soft: #D4A574;
       --vata: #7E57C2;
       --pitta: #EF5350;
       --kapha: #26A69A;
@@ -55,13 +55,13 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      color: var(--sage-deep);
+      color: var(--terracotta-deep);
       font-size: 0.9rem;
       font-weight: 500;
       margin-bottom: 30px;
       transition: color 0.3s;
     }
-    .back-link:hover { color: var(--forest); }
+    .back-link:hover { color: var(--earth-brown); }
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -73,7 +73,7 @@
       margin-bottom: 12px;
       font-size: 2.5rem;
       font-weight: 400;
-      color: var(--forest);
+      color: var(--earth-brown);
       letter-spacing: 2px;
     }
     .subtitle {
@@ -89,10 +89,10 @@
       font-size: 0.95rem;
       color: var(--text-soft);
       margin-bottom: 30px;
-      border: 1px solid rgba(156, 175, 136, 0.2);
-      box-shadow: 0 4px 20px rgba(74, 93, 62, 0.06);
+      border: 1px solid rgba(196, 149, 106, 0.2);
+      box-shadow: 0 4px 20px rgba(107, 68, 35, 0.06);
     }
-    .hint strong { color: var(--forest); }
+    .hint strong { color: var(--earth-brown); }
     .dosha-intro {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -114,8 +114,8 @@
       padding: 24px;
       border-radius: 16px;
       background: white;
-      border: 1px solid rgba(156, 175, 136, 0.15);
-      box-shadow: 0 4px 20px rgba(74, 93, 62, 0.06);
+      border: 1px solid rgba(196, 149, 106, 0.15);
+      box-shadow: 0 4px 20px rgba(107, 68, 35, 0.06);
     }
     section.part h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -123,12 +123,12 @@
       margin-bottom: 20px;
       font-size: 1.4rem;
       font-weight: 500;
-      color: var(--forest);
+      color: var(--earth-brown);
     }
     .question {
       margin-bottom: 20px;
       padding-bottom: 20px;
-      border-bottom: 1px dashed rgba(156, 175, 136, 0.3);
+      border-bottom: 1px dashed rgba(196, 149, 106, 0.3);
     }
     .question:last-child { border-bottom: none; padding-bottom: 0; }
     .question-text {
@@ -152,7 +152,7 @@
       cursor: pointer;
       transition: all 0.25s ease;
       background: linear-gradient(145deg, var(--cream), var(--sand));
-      box-shadow: 0 2px 8px rgba(74, 93, 62, 0.08);
+      box-shadow: 0 2px 8px rgba(107, 68, 35, 0.08);
       font-weight: 500;
       color: var(--text-soft);
       position: relative;
@@ -161,15 +161,15 @@
     .options label:hover {
       background: linear-gradient(145deg, #fff, var(--cream-warm));
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(74, 93, 62, 0.12);
-      color: var(--forest);
+      box-shadow: 0 4px 12px rgba(107, 68, 35, 0.12);
+      color: var(--earth-brown);
     }
     .options label:has(input:checked),
     .options label.selected {
-      background: linear-gradient(145deg, var(--sage), var(--sage-deep));
+      background: linear-gradient(145deg, var(--terracotta), var(--terracotta-deep));
       color: #fff;
       font-weight: 600;
-      box-shadow: 0 4px 14px rgba(122, 150, 104, 0.4);
+      box-shadow: 0 4px 14px rgba(166, 123, 91, 0.4);
       transform: translateY(-1px);
     }
     .options label:active { transform: scale(0.98); }
@@ -180,7 +180,7 @@
       height: 0;
     }
     button {
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%);
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
       color: white;
       border: none;
       padding: 14px 28px;
@@ -194,11 +194,11 @@
     }
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(122, 150, 104, 0.35);
+      box-shadow: 0 6px 20px rgba(166, 123, 91, 0.35);
     }
     .share-buttons { margin-top: 16px; }
     .share-btn {
-      background: var(--forest);
+      background: var(--earth-brown);
       color: var(--cream);
       border: none;
       padding: 12px 20px;
@@ -210,18 +210,18 @@
       transition: all 0.3s ease;
       font-family: 'Quicksand', sans-serif;
     }
-    .share-btn:hover { background: var(--earth); }
+    .share-btn:hover { background: var(--earth-dark); }
     #results {
       margin-top: 30px;
       padding: 24px;
       border-radius: 16px;
-      background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, rgba(201, 184, 150, 0.08) 100%);
-      border: 1px solid rgba(156, 175, 136, 0.25);
+      background: linear-gradient(135deg, rgba(196, 149, 106, 0.1) 0%, rgba(201, 184, 150, 0.08) 100%);
+      border: 1px solid rgba(196, 149, 106, 0.25);
       font-size: 1rem;
     }
     #results h3 {
       font-family: 'Cormorant Garamond', serif;
-      color: var(--forest);
+      color: var(--earth-brown);
       font-size: 1.5rem;
       margin-bottom: 12px;
     }
@@ -271,9 +271,9 @@
     .primary-dosha.vata h4 { color: var(--vata); }
     .primary-dosha.pitta h4 { color: var(--pitta); }
     .primary-dosha.kapha h4 { color: var(--kapha); }
-    .primary-dosha.dual { background: linear-gradient(135deg, rgba(156, 175, 136, 0.15), rgba(201, 184, 150, 0.1)); border-left: 4px solid var(--sage-deep); }
-    .primary-dosha.dual h4 { color: var(--forest); }
-    .dosha-score.dominant { box-shadow: 0 0 0 3px var(--sage); transform: scale(1.05); }
+    .primary-dosha.dual { background: linear-gradient(135deg, rgba(196, 149, 106, 0.15), rgba(201, 184, 150, 0.1)); border-left: 4px solid var(--terracotta-deep); }
+    .primary-dosha.dual h4 { color: var(--earth-brown); }
+    .dosha-score.dominant { box-shadow: 0 0 0 3px var(--terracotta); transform: scale(1.05); }
     .primary-dosha p { margin-bottom: 10px; line-height: 1.7; }
     .primary-dosha ul { margin: 12px 0; padding-left: 20px; }
     .primary-dosha li { margin-bottom: 6px; }
@@ -283,7 +283,7 @@
       border-radius: 12px;
       margin-top: 16px;
     }
-    .yoga-recommendation strong { color: var(--forest); }
+    .yoga-recommendation strong { color: var(--earth-brown); }
     .footer-note {
       margin-top: 30px;
       font-size: 0.85rem;
@@ -302,7 +302,7 @@
 </head>
 <body>
   <div class="container">
-    <a href="quiz.html" class="back-link">← Quay lại danh sách trắc nghiệm</a>
+    <a href="index.html" class="back-link">← Quay lại Metta Yoga</a>
     <h1>Trắc Nghiệm Thể Tạng Dosha</h1>
     <p class="subtitle">Khám phá thể tạng Ayurveda của bạn và tìm ra trường phái Yoga phù hợp nhất.</p>
 
@@ -703,11 +703,11 @@
         html += '</div>';
         
         // Hiển thị chi tiết từng dosha
-        html += '<div style="margin-top:20px;"><h4 style="font-family:Cormorant Garamond,serif; color:var(--forest); margin-bottom:14px;">Chi tiết từng thể tạng:</h4>';
+        html += '<div style="margin-top:20px;"><h4 style="font-family:Cormorant Garamond,serif; color:var(--earth-brown); margin-bottom:14px;">Chi tiết từng thể tạng:</h4>';
         dominantDoshas.forEach(d => {
           const info = doshaInfo[d];
           html += '<details style="margin-bottom:12px; background:white; padding:14px; border-radius:12px; border:1px solid rgba(156,175,136,0.2);">';
-          html += '<summary style="cursor:pointer; font-weight:600; color:var(--forest);">' + info.name + ' – ' + info.element + '</summary>';
+          html += '<summary style="cursor:pointer; font-weight:600; color:var(--earth-brown);">' + info.name + ' – ' + info.element + '</summary>';
           html += '<div style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(156,175,136,0.3);">';
           html += '<p><strong>Đặc điểm:</strong> ' + info.traits + '</p>';
           html += '<p style="margin-top:8px;"><strong>Yoga phù hợp:</strong> ' + info.yoga.join(', ') + '</p>';
@@ -747,7 +747,7 @@
         if (navigator.share) {
           try {
             await navigator.share({
-              title: 'Trắc nghiệm Dosha - Giang Metta',
+              title: 'Trắc nghiệm Dosha - Metta Yoga Đà Lạt',
               text: shareTextSummary,
               url: window.location.href
             });
