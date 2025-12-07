@@ -65,13 +65,36 @@
     .scale {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       font-size: 14px;
     }
     .scale label {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 4px;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 2px solid #e0e0ea;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fff;
+    }
+    .scale label:hover {
+      border-color: #4a3aff;
+      background: #f0f0ff;
+    }
+    .scale label:has(input:checked) {
+      border-color: #4a3aff;
+      background: #e8e5ff;
+      font-weight: 600;
+    }
+    .scale input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
     }
     .scale span.desc {
       margin-left: 8px;
@@ -632,8 +655,7 @@
         + '?subject=' + encodeURIComponent('Kết quả trắc nghiệm 7 luân xa')
         + '&body=' + encodeURIComponent(emailBody);
 
-      html += '<p style="margin-top:16px;">Nếu bạn muốn gửi kết quả này cho giáo viên, bấm vào đường link dưới đây:</p>';
-      html += '<p><a href="' + mailtoLink + '" style="font-weight:600; text-decoration:underline;">Gửi kết quả qua email</a></p>';
+      html += '<p style="margin-top:16px;"><button type="button" id="emailBtn" style="background:#e53935; color:#fff; border:none; padding:12px 20px; border-radius:999px; font-size:15px; cursor:pointer; min-height:44px;">Gửi kết quả cho cô Giang</button></p>';
 
       html += '<div class="share-buttons"><button type="button" id="fbShareBtn" class="share-btn">Chia sẻ kết quả trên Facebook</button></div>';
 
@@ -642,6 +664,13 @@
 
       const shareTextSummary = 'Kết quả trắc nghiệm 7 luân xa của tôi - Luân xa cần ưu tiên chăm sóc: ' + chakraNames[minKey] + ', luân xa mạnh nhất: ' + chakraNames[maxKey] + '.';
       const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
+      const emailBtn = document.getElementById('emailBtn');
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function () {
+          window.location.href = mailtoLink;
+        });
+      }
+
       const fbBtn = document.getElementById('fbShareBtn');
       if (fbBtn) {
         fbBtn.addEventListener('click', function () {
@@ -649,7 +678,14 @@
         });
       }
 
-      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      // Safari/iOS fallback for smooth scroll
+      if ('scrollBehavior' in document.documentElement.style) {
+        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        var targetRect = resultsDiv.getBoundingClientRect();
+        var targetY = window.pageYOffset + targetRect.top - 50;
+        window.scrollTo(0, targetY);
+      }
     });
   </script>
 </body>
