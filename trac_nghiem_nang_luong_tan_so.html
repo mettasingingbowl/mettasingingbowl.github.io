@@ -620,17 +620,33 @@
       window.location.href = 'mailto:' + receiver + '?subject=' + subject + '&body=' + body;
     }
 
-    function shareFacebook() {
+    async function shareFacebook() {
       const resultBox = document.getElementById('result');
       if (resultBox.style.display !== 'block') {
         alert('Vui lòng làm bài và xem kết quả trước khi chia sẻ.');
         return;
       }
-      const text = encodeURIComponent(resultBox.innerText + ' | Bạn có thể làm bài trắc nghiệm này để khám phá mức năng lượng của mình.');
-      const url = encodeURIComponent(window.location.href);
-      const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + text;
-      // Dùng location.href thay vì window.open để tương thích iOS Safari
-      window.location.href = shareUrl;
+      const shareText = resultBox.innerText + ' | Bạn có thể làm bài trắc nghiệm này để khám phá mức năng lượng của mình.';
+      const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareText);
+      
+      // Ưu tiên Web Share API (hoạt động tốt trên iOS Safari)
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Trắc nghiệm Năng Lượng & Tần Số - Giang Metta',
+            text: shareText,
+            url: window.location.href
+          });
+        } catch (err) {
+          // User cancelled hoặc lỗi - fallback sang Facebook
+          if (err.name !== 'AbortError') {
+            window.location.href = shareUrl;
+          }
+        }
+      } else {
+        // Fallback cho browser không hỗ trợ Web Share API
+        window.location.href = shareUrl;
+      }
     }
 
     // Fallback cho iOS Safari cũ không hỗ trợ :has() selector

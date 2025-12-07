@@ -742,9 +742,25 @@
 
       const fbBtn = document.getElementById('fbShareBtn');
       if (fbBtn) {
-        fbBtn.addEventListener('click', function () {
-          // Dùng location.href thay vì window.open để tương thích iOS Safari
-          window.location.href = fbShareUrl;
+        fbBtn.addEventListener('click', async function () {
+          // Ưu tiên Web Share API (hoạt động tốt trên iOS Safari)
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: 'Trắc nghiệm 7 Luân Xa - Giang Metta',
+                text: shareTextSummary,
+                url: window.location.href
+              });
+            } catch (err) {
+              // User cancelled hoặc lỗi - fallback sang Facebook
+              if (err.name !== 'AbortError') {
+                window.location.href = fbShareUrl;
+              }
+            }
+          } else {
+            // Fallback cho browser không hỗ trợ Web Share API
+            window.location.href = fbShareUrl;
+          }
         });
       }
 
