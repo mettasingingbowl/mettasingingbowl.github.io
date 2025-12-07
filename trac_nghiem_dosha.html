@@ -271,6 +271,9 @@
     .primary-dosha.vata h4 { color: var(--vata); }
     .primary-dosha.pitta h4 { color: var(--pitta); }
     .primary-dosha.kapha h4 { color: var(--kapha); }
+    .primary-dosha.dual { background: linear-gradient(135deg, rgba(156, 175, 136, 0.15), rgba(201, 184, 150, 0.1)); border-left: 4px solid var(--sage-deep); }
+    .primary-dosha.dual h4 { color: var(--forest); }
+    .dosha-score.dominant { box-shadow: 0 0 0 3px var(--sage); transform: scale(1.05); }
     .primary-dosha p { margin-bottom: 10px; line-height: 1.7; }
     .primary-dosha ul { margin: 12px 0; padding-left: 20px; }
     .primary-dosha li { margin-bottom: 6px; }
@@ -550,7 +553,8 @@
         traits: 'Nhẹ, hay lo, năng lượng thất thường, dễ lạnh, sáng tạo, linh hoạt.',
         yoga: ['Hatha Yoga', 'Yin Yoga', 'Restorative Yoga', 'Yoga Nidra'],
         goal: 'Ổn định – Tiếp đất – An thần – Thư giãn',
-        advice: 'Bạn cần những bài tập chậm, nhẹ nhàng, giúp ổn định tâm trí và kết nối với mặt đất. Tránh các lớp học quá nhanh hoặc đông đúc.'
+        whyYoga: 'Vata có năng lượng gió - nhẹ, hay thay đổi, dễ lo âu và mất ngủ. Vì vậy cần những bài tập <strong>chậm, giữ tư thế lâu</strong> như Yin Yoga hay Restorative để "neo" lại, giúp hệ thần kinh được nghỉ ngơi. Hatha truyền thống với nhịp chậm giúp Vata cảm thấy được tiếp đất và ổn định hơn.',
+        avoid: 'Tránh các lớp học quá nhanh, nhạc ồn ào hoặc môi trường đông đúc - sẽ làm Vata thêm bất an.'
       },
       P: {
         name: 'Pitta',
@@ -558,7 +562,8 @@
         traits: 'Mạnh mẽ, nóng, quyết đoán, dễ cáu, tập trung cao, nhiệt huyết.',
         yoga: ['Gentle Flow', 'Hatha nhẹ', 'Cooling Yoga', 'Yoga Nidra'],
         goal: 'Làm dịu – Cân bằng – Giảm sức ép nội lực',
-        advice: 'Bạn cần những bài tập làm mát, giảm nhiệt, tránh cạnh tranh quá mức. Tập trung vào hơi thở và sự buông bỏ.'
+        whyYoga: 'Pitta đã có sẵn "lửa" bên trong - nhiệt huyết, cạnh tranh, dễ nóng giận. Nếu tập Power Yoga hay Hot Yoga sẽ thêm "dầu vào lửa". Thay vào đó, <strong>Gentle Flow và Cooling Yoga</strong> giúp hạ nhiệt, cân bằng. Yoga Nidra dạy Pitta buông bỏ thay vì luôn cố gắng đạt mục tiêu.',
+        avoid: 'Tránh Hot Yoga, Bikram hoặc các lớp quá cạnh tranh - Pitta dễ bị cuốn vào việc "thắng" thay vì thư giãn.'
       },
       K: {
         name: 'Kapha',
@@ -566,7 +571,36 @@
         traits: 'Vững chãi, chậm, bền bỉ nhưng dễ trì trệ, dễ tăng cân, điềm tĩnh.',
         yoga: ['Vinyasa Yoga', 'Power Yoga (cơ bản)', 'Ashtanga Level 1'],
         goal: 'Kích hoạt – Tăng năng lượng – Giảm ì',
-        advice: 'Bạn cần những bài tập năng động, có nhịp độ để kích hoạt năng lượng và giảm sự trì trệ. Tập buổi sáng sẽ hiệu quả nhất.'
+        whyYoga: 'Kapha vốn đã chậm, ổn định và dễ "ì". Nếu tập Yin Yoga hay Restorative sẽ càng thêm trì trệ. Kapha cần <strong>Vinyasa với nhịp độ</strong> để kích hoạt năng lượng, đánh thức cơ thể. Tập buổi sáng sớm hiệu quả nhất vì đó là giờ Kapha (6-10h sáng).',
+        avoid: 'Tránh các lớp quá chậm hoặc tập vào buổi tối - Kapha cần được "đánh thức" chứ không phải ru ngủ thêm.'
+      }
+    };
+
+    // Thông tin cho dual-dosha
+    const dualDoshaInfo = {
+      'VP': {
+        name: 'Vata-Pitta',
+        traits: 'Sáng tạo và quyết đoán, nhưng dễ căng thẳng, hay lo và nóng vội.',
+        yoga: ['Hatha Yoga cân bằng', 'Gentle Flow', 'Yoga Nidra'],
+        advice: 'Cần bài tập vừa đủ nhẹ để an thần Vata, vừa đủ mát để hạ nhiệt Pitta. Tập trung vào hơi thở và không quá cạnh tranh.'
+      },
+      'VK': {
+        name: 'Vata-Kapha', 
+        traits: 'Sáng tạo nhưng hay trì hoãn, năng lượng lên xuống thất thường, dễ lo âu khi stress.',
+        yoga: ['Hatha Yoga', 'Gentle Vinyasa', 'Yin-Yang Yoga'],
+        advice: 'Cần sự cân bằng - đủ động để kích hoạt Kapha, đủ ổn định để neo Vata. Tập đều đặn là chìa khóa.'
+      },
+      'PK': {
+        name: 'Pitta-Kapha',
+        traits: 'Mạnh mẽ, bền bỉ, quyết tâm cao nhưng dễ cứng đầu và tích tụ nhiệt trong người.',
+        yoga: ['Vinyasa Flow', 'Hatha động', 'Swimming Yoga'],
+        advice: 'Cần bài tập năng động để kích hoạt Kapha, nhưng không quá nóng để tránh tăng Pitta. Tập ngoài trời hoặc phòng mát.'
+      },
+      'VPK': {
+        name: 'Tri-Dosha (Vata-Pitta-Kapha)',
+        traits: 'Hiếm gặp! Bạn có sự cân bằng tự nhiên của cả 3 dosha - linh hoạt, mạnh mẽ và ổn định.',
+        yoga: ['Hatha Yoga truyền thống', 'Vinyasa nhẹ', 'Yoga theo mùa'],
+        advice: 'Thể tạng cân bằng có thể tập nhiều loại yoga khác nhau. Điều quan trọng là lắng nghe cơ thể mỗi ngày và chọn bài tập phù hợp với trạng thái hiện tại.'
       }
     };
 
@@ -593,41 +627,99 @@
         }
       }
 
-      // Tìm dosha cao nhất
-      let primaryDosha = 'V';
-      if (scores.P >= scores.V && scores.P >= scores.K) primaryDosha = 'P';
-      if (scores.K >= scores.V && scores.K >= scores.P) primaryDosha = 'K';
+      // Xác định dosha chính và phụ (trong khoảng 2 điểm được coi là ngang nhau)
+      const maxScore = Math.max(scores.V, scores.P, scores.K);
+      const threshold = 2; // Nếu chênh lệch <= 2 điểm, coi như dual-dosha
+      
+      const dominantDoshas = [];
+      if (maxScore - scores.V <= threshold) dominantDoshas.push('V');
+      if (maxScore - scores.P <= threshold) dominantDoshas.push('P');
+      if (maxScore - scores.K <= threshold) dominantDoshas.push('K');
 
-      const primary = doshaInfo[primaryDosha];
+      // Xác định loại thể tạng
+      let doshaType = 'single'; // single, dual, tri
+      let doshaKey = dominantDoshas[0];
+      
+      if (dominantDoshas.length === 3) {
+        doshaType = 'tri';
+        doshaKey = 'VPK';
+      } else if (dominantDoshas.length === 2) {
+        doshaType = 'dual';
+        doshaKey = dominantDoshas.sort().join('');
+      }
 
       let html = '<h3>Kết quả Dosha của bạn</h3>';
       
       html += '<div class="dosha-result">';
-      html += '<div class="dosha-score vata"><div class="name">Vata</div><div class="points">' + scores.V + '</div></div>';
-      html += '<div class="dosha-score pitta"><div class="name">Pitta</div><div class="points">' + scores.P + '</div></div>';
-      html += '<div class="dosha-score kapha"><div class="name">Kapha</div><div class="points">' + scores.K + '</div></div>';
+      html += '<div class="dosha-score vata' + (dominantDoshas.includes('V') ? ' dominant' : '') + '"><div class="name">Vata</div><div class="points">' + scores.V + '</div></div>';
+      html += '<div class="dosha-score pitta' + (dominantDoshas.includes('P') ? ' dominant' : '') + '"><div class="name">Pitta</div><div class="points">' + scores.P + '</div></div>';
+      html += '<div class="dosha-score kapha' + (dominantDoshas.includes('K') ? ' dominant' : '') + '"><div class="name">Kapha</div><div class="points">' + scores.K + '</div></div>';
       html += '</div>';
 
-      html += '<div class="primary-dosha ' + primaryDosha.toLowerCase() + '">';
-      html += '<h4>Thể tạng chính của bạn: ' + primary.name + ' – ' + primary.element + '</h4>';
-      html += '<p><strong>Đặc điểm:</strong> ' + primary.traits + '</p>';
-      html += '<p><strong>Mục tiêu khi tập Yoga:</strong> ' + primary.goal + '</p>';
-      html += '<div class="yoga-recommendation">';
-      html += '<strong>Phong cách Yoga phù hợp:</strong>';
-      html += '<ul>';
-      primary.yoga.forEach(y => { html += '<li>' + y + '</li>'; });
-      html += '</ul>';
-      html += '</div>';
-      html += '<p style="margin-top:14px;"><em>' + primary.advice + '</em></p>';
-      html += '</div>';
+      let resultName, resultYoga, emailDoshaName;
+
+      if (doshaType === 'single') {
+        // Thể tạng đơn
+        const primary = doshaInfo[doshaKey];
+        resultName = primary.name + ' – ' + primary.element;
+        resultYoga = primary.yoga;
+        emailDoshaName = primary.name;
+        
+        html += '<div class="primary-dosha ' + doshaKey.toLowerCase() + '">';
+        html += '<h4>Thể tạng của bạn: ' + primary.name + ' – ' + primary.element + '</h4>';
+        html += '<p><strong>Đặc điểm:</strong> ' + primary.traits + '</p>';
+        html += '<p><strong>Mục tiêu khi tập Yoga:</strong> ' + primary.goal + '</p>';
+        html += '<div class="yoga-recommendation">';
+        html += '<strong>Phong cách Yoga phù hợp:</strong>';
+        html += '<ul>';
+        primary.yoga.forEach(y => { html += '<li>' + y + '</li>'; });
+        html += '</ul>';
+        html += '<p style="margin-top:12px;"><strong>Tại sao?</strong> ' + primary.whyYoga + '</p>';
+        html += '</div>';
+        html += '<p style="margin-top:14px; padding:12px; background:rgba(0,0,0,0.03); border-radius:8px;"><strong>Lưu ý:</strong> ' + primary.avoid + '</p>';
+        html += '</div>';
+      } else {
+        // Dual hoặc Tri-dosha
+        const dual = dualDoshaInfo[doshaKey];
+        resultName = dual.name;
+        resultYoga = dual.yoga;
+        emailDoshaName = dual.name;
+        
+        html += '<div class="primary-dosha dual">';
+        html += '<h4>Thể tạng của bạn: ' + dual.name + '</h4>';
+        html += '<p style="background:rgba(156,175,136,0.15); padding:10px 14px; border-radius:8px; margin-bottom:14px;"><em>Hầu hết mọi người đều mang 2-3 dosha, không ai hoàn toàn chỉ có 1 dosha. Điều này hoàn toàn bình thường!</em></p>';
+        html += '<p><strong>Đặc điểm:</strong> ' + dual.traits + '</p>';
+        html += '<div class="yoga-recommendation">';
+        html += '<strong>Phong cách Yoga phù hợp:</strong>';
+        html += '<ul>';
+        dual.yoga.forEach(y => { html += '<li>' + y + '</li>'; });
+        html += '</ul>';
+        html += '</div>';
+        html += '<p style="margin-top:14px;"><em>' + dual.advice + '</em></p>';
+        html += '</div>';
+        
+        // Hiển thị chi tiết từng dosha
+        html += '<div style="margin-top:20px;"><h4 style="font-family:Cormorant Garamond,serif; color:var(--forest); margin-bottom:14px;">Chi tiết từng thể tạng:</h4>';
+        dominantDoshas.forEach(d => {
+          const info = doshaInfo[d];
+          html += '<details style="margin-bottom:12px; background:white; padding:14px; border-radius:12px; border:1px solid rgba(156,175,136,0.2);">';
+          html += '<summary style="cursor:pointer; font-weight:600; color:var(--forest);">' + info.name + ' – ' + info.element + '</summary>';
+          html += '<div style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(156,175,136,0.3);">';
+          html += '<p><strong>Đặc điểm:</strong> ' + info.traits + '</p>';
+          html += '<p style="margin-top:8px;"><strong>Yoga phù hợp:</strong> ' + info.yoga.join(', ') + '</p>';
+          html += '<p style="margin-top:8px;"><strong>Tại sao?</strong> ' + info.whyYoga + '</p>';
+          html += '</div></details>';
+        });
+        html += '</div>';
+      }
 
       // Email content
       let emailBody = 'Chào cô Giang,\n\nĐây là kết quả trắc nghiệm Dosha của em:\n\n';
       emailBody += 'Vata: ' + scores.V + ' điểm\n';
       emailBody += 'Pitta: ' + scores.P + ' điểm\n';
       emailBody += 'Kapha: ' + scores.K + ' điểm\n\n';
-      emailBody += 'Thể tạng chính: ' + primary.name + ' (' + primary.element + ')\n';
-      emailBody += 'Yoga phù hợp: ' + primary.yoga.join(', ') + '\n\n';
+      emailBody += 'Thể tạng: ' + emailDoshaName + '\n';
+      emailBody += 'Yoga phù hợp: ' + resultYoga.join(', ') + '\n\n';
       emailBody += 'Trân trọng.';
 
       const mailtoLink = 'mailto:' + encodeURIComponent(RECEIVER_EMAIL) + 
@@ -640,7 +732,7 @@
       resultsDiv.innerHTML = html;
       resultsDiv.style.display = 'block';
 
-      const shareTextSummary = 'Kết quả trắc nghiệm Dosha của tôi: ' + primary.name + ' (' + primary.element + '). Yoga phù hợp: ' + primary.yoga.join(', ') + '.';
+      const shareTextSummary = 'Kết quả trắc nghiệm Dosha của tôi: ' + resultName + '. Yoga phù hợp: ' + resultYoga.join(', ') + '.';
       const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
 
       document.getElementById('emailBtn').addEventListener('click', function() {
