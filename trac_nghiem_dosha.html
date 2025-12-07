@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trắc nghiệm Thể Tạng Dosha - Tìm Yoga phù hợp | Giang Metta</title>
+  
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Khám phá thể tạng Dosha (Vata, Pitta, Kapha) của bạn qua 20 câu hỏi. Tìm ra trường phái Yoga phù hợp với cơ địa và tính cách của bạn.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mettasingingbowl.github.io/trac_nghiem_dosha.html">
+  <meta property="og:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
+  <meta property="og:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
+  <meta property="og:image" content="https://mettasingingbowl.github.io/assets/og-dosha.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Giang Metta">
+  <meta property="og:locale" content="vi_VN">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
+  <meta name="twitter:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
+  <meta name="twitter:image" content="https://mettasingingbowl.github.io/assets/og-dosha.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage-light: #C5D5BC;
+      --sage: #9CAF88;
+      --sage-deep: #7A9668;
+      --forest: #4A5D3E;
+      --earth: #3D4A35;
+      --cream: #FDFBF7;
+      --cream-warm: #F7F3EB;
+      --sand: #E8E2D5;
+      --text-dark: #2C3527;
+      --text-soft: #5A6355;
+      --gold-soft: #C9B896;
+      --vata: #7E57C2;
+      --pitta: #EF5350;
+      --kapha: #26A69A;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.8;
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-warm) 50%, var(--sand) 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--sage-deep);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--forest); }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--forest);
+      letter-spacing: 2px;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+    .hint {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 30px;
+      border: 1px solid rgba(156, 175, 136, 0.2);
+      box-shadow: 0 4px 20px rgba(74, 93, 62, 0.06);
+    }
+    .hint strong { color: var(--forest); }
+    .dosha-intro {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .dosha-intro-item {
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .dosha-intro-item.vata { background: rgba(126, 87, 194, 0.1); color: var(--vata); }
+    .dosha-intro-item.pitta { background: rgba(239, 83, 80, 0.1); color: var(--pitta); }
+    .dosha-intro-item.kapha { background: rgba(38, 166, 154, 0.1); color: var(--kapha); }
+    .dosha-intro-item strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    section.part {
+      margin-bottom: 24px;
+      padding: 24px;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid rgba(156, 175, 136, 0.15);
+      box-shadow: 0 4px 20px rgba(74, 93, 62, 0.06);
+    }
+    section.part h2 {
+      font-family: 'Cormorant Garamond', serif;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--forest);
+    }
+    .question {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed rgba(156, 175, 136, 0.3);
+    }
+    .question:last-child { border-bottom: none; padding-bottom: 0; }
+    .question-text {
+      margin-bottom: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .options label {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: linear-gradient(145deg, var(--cream), var(--sand));
+      box-shadow: 0 2px 8px rgba(74, 93, 62, 0.08);
+      font-weight: 500;
+      color: var(--text-soft);
+      position: relative;
+      line-height: 1.5;
+    }
+    .options label:hover {
+      background: linear-gradient(145deg, #fff, var(--cream-warm));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(74, 93, 62, 0.12);
+      color: var(--forest);
+    }
+    .options label:has(input:checked),
+    .options label.selected {
+      background: linear-gradient(145deg, var(--sage), var(--sage-deep));
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(122, 150, 104, 0.4);
+      transform: translateY(-1px);
+    }
+    .options label:active { transform: scale(0.98); }
+    .options input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    button {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(122, 150, 104, 0.35);
+    }
+    .share-buttons { margin-top: 16px; }
+    .share-btn {
+      background: var(--forest);
+      color: var(--cream);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .share-btn:hover { background: var(--earth); }
+    #results {
+      margin-top: 30px;
+      padding: 24px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, rgba(201, 184, 150, 0.08) 100%);
+      border: 1px solid rgba(156, 175, 136, 0.25);
+      font-size: 1rem;
+    }
+    #results h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--forest);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .dosha-result {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .dosha-score {
+      flex: 1;
+      min-width: 100px;
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .dosha-score.vata { background: rgba(126, 87, 194, 0.15); }
+    .dosha-score.pitta { background: rgba(239, 83, 80, 0.15); }
+    .dosha-score.kapha { background: rgba(38, 166, 154, 0.15); }
+    .dosha-score .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .dosha-score.vata .name { color: var(--vata); }
+    .dosha-score.pitta .name { color: var(--pitta); }
+    .dosha-score.kapha .name { color: var(--kapha); }
+    .dosha-score .points {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .primary-dosha {
+      padding: 20px;
+      border-radius: 16px;
+      margin: 20px 0;
+    }
+    .primary-dosha.vata { background: linear-gradient(135deg, rgba(126, 87, 194, 0.2), rgba(126, 87, 194, 0.05)); border-left: 4px solid var(--vata); }
+    .primary-dosha.pitta { background: linear-gradient(135deg, rgba(239, 83, 80, 0.2), rgba(239, 83, 80, 0.05)); border-left: 4px solid var(--pitta); }
+    .primary-dosha.kapha { background: linear-gradient(135deg, rgba(38, 166, 154, 0.2), rgba(38, 166, 154, 0.05)); border-left: 4px solid var(--kapha); }
+    .primary-dosha h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .primary-dosha.vata h4 { color: var(--vata); }
+    .primary-dosha.pitta h4 { color: var(--pitta); }
+    .primary-dosha.kapha h4 { color: var(--kapha); }
+    .primary-dosha p { margin-bottom: 10px; line-height: 1.7; }
+    .primary-dosha ul { margin: 12px 0; padding-left: 20px; }
+    .primary-dosha li { margin-bottom: 6px; }
+    .yoga-recommendation {
+      background: white;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+    .yoga-recommendation strong { color: var(--forest); }
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      font-style: italic;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .container { padding: 24px 16px 40px; }
+      h1 { font-size: 1.8rem; }
+      section.part { padding: 18px; }
+      .dosha-intro { grid-template-columns: 1fr; }
+      .dosha-result { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="quiz.html" class="back-link">← Quay lại danh sách trắc nghiệm</a>
+    <h1>Trắc Nghiệm Thể Tạng Dosha</h1>
+    <p class="subtitle">Khám phá thể tạng Ayurveda của bạn và tìm ra trường phái Yoga phù hợp nhất.</p>
+
+    <div class="hint">
+      <strong>Dosha là gì?</strong> Theo Ayurveda (y học cổ truyền Ấn Độ), mỗi người có một thể tạng riêng gọi là Dosha, được tạo thành từ 3 năng lượng: Vata, Pitta và Kapha.
+      <div class="dosha-intro">
+        <div class="dosha-intro-item vata">
+          <strong>Vata</strong>
+          Gió – Nhẹ, linh hoạt, sáng tạo
+        </div>
+        <div class="dosha-intro-item pitta">
+          <strong>Pitta</strong>
+          Lửa – Mạnh mẽ, quyết đoán, nhiệt huyết
+        </div>
+        <div class="dosha-intro-item kapha">
+          <strong>Kapha</strong>
+          Đất & Nước – Vững chãi, bền bỉ, điềm tĩnh
+        </div>
+      </div>
+    </div>
+
+    <form id="doshaQuiz">
+      <!-- PHẦN I: ĐẶC ĐIỂM CƠ THỂ -->
+      <section class="part">
+        <h2>Phần I – Đặc điểm cơ thể tự nhiên</h2>
+
+        <div class="question">
+          <div class="question-text">1. Thân hình tự nhiên của bạn thường là…</div>
+          <div class="options">
+            <label><input type="radio" name="q1" value="V">Mảnh mai, nhẹ, gầy, dễ sụt cân</label>
+            <label><input type="radio" name="q1" value="P">Vừa phải, cân đối, có cơ</label>
+            <label><input type="radio" name="q1" value="K">To, đầy đặn, dễ tăng cân</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">2. Da của bạn thường…</div>
+          <div class="options">
+            <label><input type="radio" name="q2" value="V">Khô, dễ nứt, nhạy cảm</label>
+            <label><input type="radio" name="q2" value="P">Ấm, hơi đỏ, dễ nổi mụn</label>
+            <label><input type="radio" name="q2" value="K">Mịn, hơi dầu hoặc ẩm</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">3. Bạn cảm thấy thế nào với thời tiết lạnh?</div>
+          <div class="options">
+            <label><input type="radio" name="q3" value="V">Rất dễ lạnh, chịu lạnh kém</label>
+            <label><input type="radio" name="q3" value="P">Chịu lạnh tốt, nhưng dễ nóng</label>
+            <label><input type="radio" name="q3" value="K">Chịu lạnh khá tốt nhưng ghét ẩm</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">4. Tốc độ tiêu hóa của bạn…</div>
+          <div class="options">
+            <label><input type="radio" name="q4" value="V">Không ổn định, lúc nhanh lúc chậm</label>
+            <label><input type="radio" name="q4" value="P">Mạnh, nhanh, dễ đói</label>
+            <label><input type="radio" name="q4" value="K">Chậm, dễ đầy bụng, no lâu</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">5. Khi ngủ, bạn thường…</div>
+          <div class="options">
+            <label><input type="radio" name="q5" value="V">Ngủ không sâu, dễ tỉnh</label>
+            <label><input type="radio" name="q5" value="P">Ngủ vừa phải, đôi khi mơ nhiều</label>
+            <label><input type="radio" name="q5" value="K">Ngủ sâu, dễ buồn ngủ</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">6. Tốc độ tăng cân – giảm cân của bạn…</div>
+          <div class="options">
+            <label><input type="radio" name="q6" value="V">Dễ giảm cân, khó tăng cân</label>
+            <label><input type="radio" name="q6" value="P">Cân bằng, tăng giảm đều</label>
+            <label><input type="radio" name="q6" value="K">Dễ tăng cân, khó giảm</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">7. Bạn mô tả năng lượng cơ thể mỗi ngày như thế nào?</div>
+          <div class="options">
+            <label><input type="radio" name="q7" value="V">Lên xuống thất thường</label>
+            <label><input type="radio" name="q7" value="P">Ổn định và mạnh mẽ</label>
+            <label><input type="radio" name="q7" value="K">Chậm nhưng bền vững</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHẦN II: TÍNH CÁCH & SUY NGHĨ -->
+      <section class="part">
+        <h2>Phần II – Tính cách & Suy nghĩ</h2>
+
+        <div class="question">
+          <div class="question-text">8. Phong cách suy nghĩ của bạn:</div>
+          <div class="options">
+            <label><input type="radio" name="q8" value="V">Nhiều ý tưởng, sáng tạo, nghĩ nhanh</label>
+            <label><input type="radio" name="q8" value="P">Rõ ràng, logic, định hướng mục tiêu</label>
+            <label><input type="radio" name="q8" value="K">Điềm đạm, ổn định, suy nghĩ chậm mà chắc</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">9. Khi làm việc nhóm, bạn là kiểu người…</div>
+          <div class="options">
+            <label><input type="radio" name="q9" value="V">Đóng góp ý tưởng nhưng dễ phân tán</label>
+            <label><input type="radio" name="q9" value="P">Lãnh đạo tự nhiên, muốn mọi thứ hiệu quả</label>
+            <label><input type="radio" name="q9" value="K">Kiên trì, hỗ trợ tốt, không vội vàng</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">10. Khi cảm xúc thay đổi, bạn thường…</div>
+          <div class="options">
+            <label><input type="radio" name="q10" value="V">Lo lắng, nhạy cảm</label>
+            <label><input type="radio" name="q10" value="P">Nóng giận, mất kiên nhẫn</label>
+            <label><input type="radio" name="q10" value="K">Buồn nặng, chậm lại</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">11. Quyết định của bạn thường…</div>
+          <div class="options">
+            <label><input type="radio" name="q11" value="V">Thay đổi nhanh, khó giữ</label>
+            <label><input type="radio" name="q11" value="P">Quyết đoán, rõ ràng</label>
+            <label><input type="radio" name="q11" value="K">Chậm nhưng chắc, đã quyết là giữ</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">12. Mức độ kiên trì với thói quen mới:</div>
+          <div class="options">
+            <label><input type="radio" name="q12" value="V">Dễ bỏ, dễ chán</label>
+            <label><input type="radio" name="q12" value="P">Cực kỳ kiên trì, muốn tiến bộ rõ ràng</label>
+            <label><input type="radio" name="q12" value="K">Bắt đầu chậm nhưng duy trì rất tốt</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">13. Nhịp độ giao tiếp xã hội của bạn:</div>
+          <div class="options">
+            <label><input type="radio" name="q13" value="V">Linh hoạt, thích nói chuyện</label>
+            <label><input type="radio" name="q13" value="P">Hòa đồng, thẳng thắn</label>
+            <label><input type="radio" name="q13" value="K">Trầm ổn, hòa nhã nhưng ít nói</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">14. Khi bị áp lực, bạn phản ứng thế nào?</div>
+          <div class="options">
+            <label><input type="radio" name="q14" value="V">Loạn, mất tập trung</label>
+            <label><input type="radio" name="q14" value="P">Căng thẳng, cáu gắt</label>
+            <label><input type="radio" name="q14" value="K">Chậm lại, buồn hoặc ăn nhiều</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHẦN III: LỐI SỐNG HẰNG NGÀY -->
+      <section class="part">
+        <h2>Phần III – Lối sống hằng ngày</h2>
+
+        <div class="question">
+          <div class="question-text">15. Tốc độ di chuyển – cử động của bạn:</div>
+          <div class="options">
+            <label><input type="radio" name="q15" value="V">Nhanh, nhẹ nhưng không vững</label>
+            <label><input type="radio" name="q15" value="P">Nhanh, mạnh, rõ ràng</label>
+            <label><input type="radio" name="q15" value="K">Chậm rãi, chắc chắn</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">16. Thói quen ăn uống:</div>
+          <div class="options">
+            <label><input type="radio" name="q16" value="V">Thay đổi thất thường, không giờ giấc</label>
+            <label><input type="radio" name="q16" value="P">Đúng giờ, ăn đều</label>
+            <label><input type="radio" name="q16" value="K">Ăn ít nhưng dễ tăng cân</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">17. Khi làm việc lâu, bạn…</div>
+          <div class="options">
+            <label><input type="radio" name="q17" value="V">Mau mệt, dễ mất năng lượng</label>
+            <label><input type="radio" name="q17" value="P">Tập trung tốt, khó bị gián đoạn</label>
+            <label><input type="radio" name="q17" value="K">Làm bền bỉ, nhưng cần khởi động lâu</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">18. Lịch sinh hoạt của bạn:</div>
+          <div class="options">
+            <label><input type="radio" name="q18" value="V">Không ổn định, dễ thay đổi</label>
+            <label><input type="radio" name="q18" value="P">Rõ ràng, có kế hoạch</label>
+            <label><input type="radio" name="q18" value="K">Chậm rãi, thích sự thoải mái</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">19. Loại thời tiết bạn yêu thích:</div>
+          <div class="options">
+            <label><input type="radio" name="q19" value="V">Ấm áp, khô ráo</label>
+            <label><input type="radio" name="q19" value="P">Mát mẻ, tránh nóng</label>
+            <label><input type="radio" name="q19" value="K">Hơi nóng, ghét lạnh và ẩm</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">20. Bạn mong muốn điều gì nhất từ một môn vận động?</div>
+          <div class="options">
+            <label><input type="radio" name="q20" value="V">Sự bình yên, an thần, thoải mái</label>
+            <label><input type="radio" name="q20" value="P">Sự tiến bộ, cảm giác mạnh mẽ</label>
+            <label><input type="radio" name="q20" value="K">Cơ thể nhẹ nhàng, năng lượng tăng lên</label>
+          </div>
+        </div>
+      </section>
+
+      <button type="submit">Xem kết quả Dosha</button>
+    </form>
+
+    <div id="results" style="display:none;"></div>
+
+    <p class="footer-note">Lưu ý: Bài trắc nghiệm này chỉ mang tính chất tham khảo, giúp bạn hiểu hơn về bản thân theo góc nhìn Ayurveda.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('doshaQuiz');
+    const resultsDiv = document.getElementById('results');
+    const RECEIVER_EMAIL = 'giangmetta@gmail.com';
+
+    // Fallback cho iOS Safari cũ không hỗ trợ :has() selector
+    document.querySelectorAll('.options input[type="radio"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var name = this.name;
+        document.querySelectorAll('input[name="' + name + '"]').forEach(function(r) {
+          r.parentElement.classList.remove('selected');
+        });
+        if (this.checked) {
+          this.parentElement.classList.add('selected');
+        }
+      });
+    });
+
+    const doshaInfo = {
+      V: {
+        name: 'Vata',
+        element: 'Gió',
+        traits: 'Nhẹ, hay lo, năng lượng thất thường, dễ lạnh, sáng tạo, linh hoạt.',
+        yoga: ['Hatha Yoga', 'Yin Yoga', 'Restorative Yoga', 'Yoga Nidra'],
+        goal: 'Ổn định – Tiếp đất – An thần – Thư giãn',
+        advice: 'Bạn cần những bài tập chậm, nhẹ nhàng, giúp ổn định tâm trí và kết nối với mặt đất. Tránh các lớp học quá nhanh hoặc đông đúc.'
+      },
+      P: {
+        name: 'Pitta',
+        element: 'Lửa',
+        traits: 'Mạnh mẽ, nóng, quyết đoán, dễ cáu, tập trung cao, nhiệt huyết.',
+        yoga: ['Gentle Flow', 'Hatha nhẹ', 'Cooling Yoga', 'Yoga Nidra'],
+        goal: 'Làm dịu – Cân bằng – Giảm sức ép nội lực',
+        advice: 'Bạn cần những bài tập làm mát, giảm nhiệt, tránh cạnh tranh quá mức. Tập trung vào hơi thở và sự buông bỏ.'
+      },
+      K: {
+        name: 'Kapha',
+        element: 'Đất & Nước',
+        traits: 'Vững chãi, chậm, bền bỉ nhưng dễ trì trệ, dễ tăng cân, điềm tĩnh.',
+        yoga: ['Vinyasa Yoga', 'Power Yoga (cơ bản)', 'Ashtanga Level 1'],
+        goal: 'Kích hoạt – Tăng năng lượng – Giảm ì',
+        advice: 'Bạn cần những bài tập năng động, có nhịp độ để kích hoạt năng lượng và giảm sự trì trệ. Tập buổi sáng sẽ hiệu quả nhất.'
+      }
+    };
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Tự động chọn ngẫu nhiên cho các câu chưa trả lời
+      const allQuestions = form.querySelectorAll('.question');
+      allQuestions.forEach(q => {
+        const radios = q.querySelectorAll('input[type="radio"]');
+        const isAnswered = Array.from(radios).some(r => r.checked);
+        if (!isAnswered && radios.length > 0) {
+          const randomIndex = Math.floor(Math.random() * radios.length);
+          radios[randomIndex].checked = true;
+        }
+      });
+
+      // Tính điểm
+      const scores = { V: 0, P: 0, K: 0 };
+      for (let i = 1; i <= 20; i++) {
+        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+        if (selected) {
+          scores[selected.value]++;
+        }
+      }
+
+      // Tìm dosha cao nhất
+      let primaryDosha = 'V';
+      if (scores.P >= scores.V && scores.P >= scores.K) primaryDosha = 'P';
+      if (scores.K >= scores.V && scores.K >= scores.P) primaryDosha = 'K';
+
+      const primary = doshaInfo[primaryDosha];
+
+      let html = '<h3>Kết quả Dosha của bạn</h3>';
+      
+      html += '<div class="dosha-result">';
+      html += '<div class="dosha-score vata"><div class="name">Vata</div><div class="points">' + scores.V + '</div></div>';
+      html += '<div class="dosha-score pitta"><div class="name">Pitta</div><div class="points">' + scores.P + '</div></div>';
+      html += '<div class="dosha-score kapha"><div class="name">Kapha</div><div class="points">' + scores.K + '</div></div>';
+      html += '</div>';
+
+      html += '<div class="primary-dosha ' + primaryDosha.toLowerCase() + '">';
+      html += '<h4>Thể tạng chính của bạn: ' + primary.name + ' – ' + primary.element + '</h4>';
+      html += '<p><strong>Đặc điểm:</strong> ' + primary.traits + '</p>';
+      html += '<p><strong>Mục tiêu khi tập Yoga:</strong> ' + primary.goal + '</p>';
+      html += '<div class="yoga-recommendation">';
+      html += '<strong>Phong cách Yoga phù hợp:</strong>';
+      html += '<ul>';
+      primary.yoga.forEach(y => { html += '<li>' + y + '</li>'; });
+      html += '</ul>';
+      html += '</div>';
+      html += '<p style="margin-top:14px;"><em>' + primary.advice + '</em></p>';
+      html += '</div>';
+
+      // Email content
+      let emailBody = 'Chào cô Giang,\n\nĐây là kết quả trắc nghiệm Dosha của em:\n\n';
+      emailBody += 'Vata: ' + scores.V + ' điểm\n';
+      emailBody += 'Pitta: ' + scores.P + ' điểm\n';
+      emailBody += 'Kapha: ' + scores.K + ' điểm\n\n';
+      emailBody += 'Thể tạng chính: ' + primary.name + ' (' + primary.element + ')\n';
+      emailBody += 'Yoga phù hợp: ' + primary.yoga.join(', ') + '\n\n';
+      emailBody += 'Trân trọng.';
+
+      const mailtoLink = 'mailto:' + encodeURIComponent(RECEIVER_EMAIL) + 
+        '?subject=' + encodeURIComponent('Kết quả trắc nghiệm Dosha') + 
+        '&body=' + encodeURIComponent(emailBody);
+
+      html += '<p style="margin-top:16px;"><button type="button" id="emailBtn" style="background:#e53935; color:#fff; border:none; padding:12px 20px; border-radius:999px; font-size:15px; cursor:pointer; min-height:44px;">Gửi kết quả cho cô Giang</button></p>';
+      html += '<div class="share-buttons"><button type="button" id="fbShareBtn" class="share-btn">Chia sẻ kết quả</button></div>';
+
+      resultsDiv.innerHTML = html;
+      resultsDiv.style.display = 'block';
+
+      const shareTextSummary = 'Kết quả trắc nghiệm Dosha của tôi: ' + primary.name + ' (' + primary.element + '). Yoga phù hợp: ' + primary.yoga.join(', ') + '.';
+      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
+
+      document.getElementById('emailBtn').addEventListener('click', function() {
+        window.location.href = mailtoLink;
+      });
+
+      document.getElementById('fbShareBtn').addEventListener('click', async function() {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Trắc nghiệm Dosha - Giang Metta',
+              text: shareTextSummary,
+              url: window.location.href
+            });
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              window.location.href = fbShareUrl;
+            }
+          }
+        } else {
+          window.location.href = fbShareUrl;
+        }
+      });
+
+      // Smooth scroll to results
+      if ('scrollBehavior' in document.documentElement.style) {
+        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        var targetRect = resultsDiv.getBoundingClientRect();
+        var targetY = window.pageYOffset + targetRect.top - 50;
+        window.scrollTo(0, targetY);
+      }
+    });
+  </script>
+</body>
+</html>
