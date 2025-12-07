@@ -516,15 +516,24 @@
 
     function tinhDiem() {
       const form = document.getElementById('quiz-form');
+      
+      // Tự động chọn ngẫu nhiên cho các câu chưa trả lời
+      const allQuestions = form.querySelectorAll('.question');
+      allQuestions.forEach(q => {
+        const radios = q.querySelectorAll('input[type="radio"]');
+        const isAnswered = Array.from(radios).some(r => r.checked);
+        if (!isAnswered && radios.length > 0) {
+          const randomIndex = Math.floor(Math.random() * radios.length);
+          radios[randomIndex].checked = true;
+        }
+      });
+
       let total = 0;
-      let answered = true;
       const numQuestions = 20;
-      let firstUnansweredIndex = null;
 
       for (let i = 1; i <= numQuestions; i++) {
         const name = 'q' + i;
         const radios = form.elements[name];
-        let checked = false;
 
         if (!radios) {
           continue;
@@ -533,36 +542,19 @@
         if (radios.length === undefined) {
           if (radios.checked) {
             total += parseInt(radios.value, 10) || 0;
-            checked = true;
           }
         } else {
           for (let j = 0; j < radios.length; j++) {
             const r = radios[j];
             if (r.checked) {
               total += parseInt(r.value, 10) || 0;
-              checked = true;
               break;
             }
           }
         }
-
-        if (!checked) {
-          answered = false;
-          firstUnansweredIndex = i;
-          break;
-        }
       }
 
       const resultBox = document.getElementById('result');
-
-      if (!answered) {
-        resultBox.style.display = 'block';
-        resultBox.innerHTML = '<h2>Kết quả</h2><p>Vui lòng trả lời đầy đủ tất cả các câu hỏi trước khi xem kết quả.</p>';
-        if (firstUnansweredIndex !== null) {
-          scrollToQuestion(firstUnansweredIndex);
-        }
-        return;
-      }
 
       let message = '';
       let rangeText = '';
