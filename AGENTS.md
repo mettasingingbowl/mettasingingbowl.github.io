@@ -196,3 +196,34 @@ window.location.href = 'results/[type].html?score=X&param=Y';
 3. **Đơn giản hơn**: Ít lựa chọn = ít confusion = conversion tốt hơn
 
 **Nguyên tắc:** Khi thiết kế CTA, chọn 1 action chính thay vì cho nhiều options làm user phân vân.
+
+### Hybrid Approach: Giữ UX gốc + Personalized Share
+
+**Vấn đề:** Quiz Luân xa hiển thị 7 điểm số (không phải 1 kết quả) → redirect sang trang kết quả sẽ mất thông tin chi tiết.
+
+**Giải pháp Hybrid:**
+1. **Giữ nguyên hiển thị** đầy đủ 7 điểm trên trang quiz (UX gốc)
+2. **Phân loại kết quả** thành các nhóm có ý nghĩa (20 nhóm)
+3. **Nút Share** link đến trang kết quả riêng với OG image cá nhân hóa
+
+**20 nhóm kết quả Luân xa:**
+- 4 Archetypes: Người Sáng Tạo (Sacral+ThirdEye), Người Lãnh Đạo (Solar+Throat), Người Chữa Lành (Heart+Crown), Người Tiếp Đất (Root+Sacral)
+- 2 Tổng quan: Cân Bằng (all ≥14), Cần Chăm Sóc (all <12)
+- 4 Cặp đối lập: Crown↑Root↓, Root↑Crown↓, Solar↑Heart↓, Heart↑Solar↓
+- 3 Vùng yếu: Nền Tảng (lower), Kết Nối (middle), Tâm Linh (upper)
+- 7 Luân xa đơn lẻ: theo luân xa yếu nhất (fallback)
+
+**Code pattern:**
+```javascript
+// Hiển thị kết quả đầy đủ trên quiz
+resultsDiv.innerHTML = html; // 7 điểm + badge nhóm
+
+// Share URL riêng
+const resultGroup = getResultGroup(scores, minKey, maxKey);
+const shareResultUrl = 'https://domain/results/chakra/' + resultGroup + '.html';
+
+// Nút share dùng URL riêng (không phải window.location.href)
+navigator.share({ url: shareResultUrl });
+```
+
+**Bài học:** Khi quiz có nhiều kết quả phức tạp, không cần redirect - chỉ cần thay đổi URL khi share.
