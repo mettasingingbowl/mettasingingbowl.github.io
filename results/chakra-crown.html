@@ -36,42 +36,6 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #7B1FA2); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
-    .cta-box { background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(156, 39, 176, 0.03)); padding: 24px; border-radius: 16px; text-align: center; margin-top: 30px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
-    <div class="chakra-dot"></div>
-    <h1>👑 Luân xa Vương miện cần chăm sóc</h1>
-    <p class="subtitle">Sahasrara – Kết nối tâm linh, Giác ngộ, Hợp nhất</p>
-    <div class="result-card">
-      <h3>Ý nghĩa</h3>
-      <p>Luân xa Vương miện nằm ở đỉnh đầu, liên quan đến <strong>kết nối với điều lớn hơn bản thân, giác ngộ, ý nghĩa cuộc sống</strong>. Khi luân xa này yếu, bạn có thể cảm thấy mất phương hướng, thiếu mục đích hoặc cô lập về tâm linh.</p>
-      <div class="advice-box">
-        <h4>💚 Cách chăm sóc Luân xa Vương miện</h4>
-        <ul>
-          <li>Thiền định hàng ngày, đặc biệt thiền im lặng</li>
-          <li>Dành thời gian trong tự nhiên</li>
-          <li>Tập Headstand hoặc các tư thế đảo ngược</li>
-          <li>Nhịn ăn ngắn (intermittent fasting)</li>
-          <li>Dùng tinh dầu: trầm hương, hoa sen, cây đàn hương</li>
-        </ul>
-      </div>
-    </div>
-    <div class="share-section">
-      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá</p>
-      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
-    </div>
-    <div class="cta-box">
-      <h3 style="color: var(--forest); font-family: 'Cormorant Garamond', serif; margin-bottom: 12px;">Bạn bè cần chăm sóc luân xa nào?</h3>
-      <a href="../trac_nghiem_luan_xa.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
-    </div>
-  </div>
-  <script>
-    document.getElementById('shareBtn').addEventListener('click', async function() {
-      const shareText = 'Luân xa Vương miện của tôi cần chăm sóc! 👑 Liên quan đến kết nối tâm linh. Bạn cần chăm sóc luân xa nào?';
-      if (navigator.share) { try { await navigator.share({ title: 'Kết quả 7 Luân xa', text: shareText, url: window.location.href }); } catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); } } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
     });
   </script>
 </body>

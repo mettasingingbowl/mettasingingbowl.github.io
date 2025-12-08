@@ -36,42 +36,6 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #1976D2); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
-    .cta-box { background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(33, 150, 243, 0.03)); padding: 24px; border-radius: 16px; text-align: center; margin-top: 30px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
-    <div class="chakra-dot"></div>
-    <h1>🔵 Luân xa Cổ họng cần chăm sóc</h1>
-    <p class="subtitle">Vishuddha – Giao tiếp, Biểu đạt, Nói thật</p>
-    <div class="result-card">
-      <h3>Ý nghĩa</h3>
-      <p>Luân xa Cổ họng nằm ở vùng cổ, liên quan đến <strong>giao tiếp, biểu đạt bản thân, nói sự thật và lắng nghe</strong>. Khi luân xa này yếu, bạn có thể khó diễn đạt suy nghĩ, hay giữ trong lòng hoặc sợ nói lên ý kiến.</p>
-      <div class="advice-box">
-        <h4>💚 Cách chăm sóc Luân xa Cổ họng</h4>
-        <ul>
-          <li>Hát, đọc thơ hoặc nói chuyện với người tin tưởng</li>
-          <li>Tập tư thế: Shoulder Stand, Plow, Fish</li>
-          <li>Viết nhật ký để biểu đạt cảm xúc</li>
-          <li>Ăn thực phẩm màu xanh dương: việt quất, mận</li>
-          <li>Dùng tinh dầu: bạc hà, khuynh diệp, tràm trà</li>
-        </ul>
-      </div>
-    </div>
-    <div class="share-section">
-      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá</p>
-      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
-    </div>
-    <div class="cta-box">
-      <h3 style="color: var(--forest); font-family: 'Cormorant Garamond', serif; margin-bottom: 12px;">Bạn bè cần chăm sóc luân xa nào?</h3>
-      <a href="../trac_nghiem_luan_xa.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
-    </div>
-  </div>
-  <script>
-    document.getElementById('shareBtn').addEventListener('click', async function() {
-      const shareText = 'Luân xa Cổ họng của tôi cần chăm sóc! 🔵 Liên quan đến giao tiếp và biểu đạt. Bạn cần chăm sóc luân xa nào?';
-      if (navigator.share) { try { await navigator.share({ title: 'Kết quả 7 Luân xa', text: shareText, url: window.location.href }); } catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); } } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
     });
   </script>
 </body>

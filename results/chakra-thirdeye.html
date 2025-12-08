@@ -36,42 +36,6 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #512DA8); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
-    .cta-box { background: linear-gradient(135deg, rgba(103, 58, 183, 0.1), rgba(103, 58, 183, 0.03)); padding: 24px; border-radius: 16px; text-align: center; margin-top: 30px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
-    <div class="chakra-dot"></div>
-    <h1>🔮 Luân xa Con mắt thứ ba cần chăm sóc</h1>
-    <p class="subtitle">Ajna – Trực giác, Tầm nhìn, Nhận thức</p>
-    <div class="result-card">
-      <h3>Ý nghĩa</h3>
-      <p>Luân xa Con mắt thứ ba nằm ở trán, liên quan đến <strong>trực giác, tầm nhìn nội tâm, nhận thức và trí tuệ</strong>. Khi luân xa này yếu, bạn có thể thiếu tầm nhìn rõ ràng, hay bị lạc hướng hoặc khó tin vào trực giác.</p>
-      <div class="advice-box">
-        <h4>💚 Cách chăm sóc Luân xa Con mắt thứ ba</h4>
-        <ul>
-          <li>Thiền định, đặc biệt tập trung vào vùng trán</li>
-          <li>Viết nhật ký giấc mơ</li>
-          <li>Tập Child's Pose với trán chạm đất</li>
-          <li>Ăn thực phẩm màu tím: nho, cà tím, việt quất</li>
-          <li>Dùng tinh dầu: oải hương, xô thơm, trầm hương</li>
-        </ul>
-      </div>
-    </div>
-    <div class="share-section">
-      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá</p>
-      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
-    </div>
-    <div class="cta-box">
-      <h3 style="color: var(--forest); font-family: 'Cormorant Garamond', serif; margin-bottom: 12px;">Bạn bè cần chăm sóc luân xa nào?</h3>
-      <a href="../trac_nghiem_luan_xa.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
-    </div>
-  </div>
-  <script>
-    document.getElementById('shareBtn').addEventListener('click', async function() {
-      const shareText = 'Luân xa Con mắt thứ ba của tôi cần chăm sóc! 🔮 Liên quan đến trực giác và tầm nhìn. Bạn cần chăm sóc luân xa nào?';
-      if (navigator.share) { try { await navigator.share({ title: 'Kết quả 7 Luân xa', text: shareText, url: window.location.href }); } catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); } } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
     });
   </script>
 </body>

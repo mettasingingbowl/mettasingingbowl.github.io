@@ -38,43 +38,6 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #8B1E1E); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
-    .cta-box { background: linear-gradient(135deg, rgba(193, 39, 45, 0.1), rgba(193, 39, 45, 0.03)); padding: 24px; border-radius: 16px; text-align: center; margin-top: 30px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
-    <div class="chakra-dot"></div>
-    <h1>🔴 Luân xa Gốc cần chăm sóc</h1>
-    <p class="subtitle">Muladhara – Nền tảng, An toàn, Ổn định</p>
-    <div class="result-card">
-      <h3>Ý nghĩa</h3>
-      <p>Luân xa Gốc nằm ở đáy cột sống, liên quan đến <strong>cảm giác an toàn, ổn định, và sự kết nối với đất</strong>. Khi luân xa này yếu, bạn có thể cảm thấy bất an, lo lắng về tài chính, sức khỏe hoặc thiếu nền tảng vững chắc.</p>
-      <div class="advice-box">
-        <h4>💚 Cách chăm sóc Luân xa Gốc</h4>
-        <ul>
-          <li>Đi chân đất trên đất/cỏ (grounding)</li>
-          <li>Tập các tư thế yoga ổn định: Mountain, Tree, Warrior I</li>
-          <li>Thiền tập trung vào hơi thở và cảm giác cơ thể</li>
-          <li>Ăn thực phẩm màu đỏ: củ cải đỏ, cà chua</li>
-          <li>Dùng tinh dầu: gỗ đàn hương, vetiver</li>
-        </ul>
-      </div>
-    </div>
-    <div class="share-section">
-      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá luân xa</p>
-      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
-    </div>
-    <div class="cta-box">
-      <h3 style="color: var(--forest); font-family: 'Cormorant Garamond', serif; margin-bottom: 12px;">Bạn bè cần chăm sóc luân xa nào?</h3>
-      <a href="../trac_nghiem_luan_xa.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
-    </div>
-  </div>
-  <script>
-    document.getElementById('shareBtn').addEventListener('click', async function() {
-      const shareText = 'Luân xa Gốc của tôi cần chăm sóc! 🔴 Liên quan đến sự an toàn và ổn định. Bạn cần chăm sóc luân xa nào?';
-      if (navigator.share) {
-        try { await navigator.share({ title: 'Kết quả 7 Luân xa', text: shareText, url: window.location.href }); }
         catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
       } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
     });
