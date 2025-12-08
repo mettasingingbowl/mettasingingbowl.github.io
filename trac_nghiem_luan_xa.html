@@ -694,6 +694,20 @@
         if (maxKey === null || scores[key] > scores[maxKey]) maxKey = key;
       });
 
+      // Redirect to result page based on weakest chakra
+      const chakraPageMap = {
+        root: 'chakra-root',
+        sacral: 'chakra-sacral',
+        solar: 'chakra-solar',
+        heart: 'chakra-heart',
+        throat: 'chakra-throat',
+        thirdEye: 'chakra-thirdeye',
+        crown: 'chakra-crown'
+      };
+      const scoresParam = Object.keys(scores).map(k => k + '=' + scores[k]).join('&');
+      window.location.href = 'results/' + chakraPageMap[minKey] + '.html?' + scoresParam;
+      return;
+
       let html = '<h3>Kết quả tổng quan</h3>';
       html += '<p>Mỗi luân xa có điểm từ 4 đến 20. Điểm càng cao, luân xa càng hài hòa.</p>';
 

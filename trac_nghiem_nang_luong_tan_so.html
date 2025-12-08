@@ -555,6 +555,24 @@
         }
       }
 
+      // Redirect to result page based on score
+      let resultPage = '';
+      if (total >= 20 && total <= 31) {
+        resultPage = 'energy-1-very-low';
+      } else if (total >= 32 && total <= 43) {
+        resultPage = 'energy-2-low';
+      } else if (total >= 44 && total <= 55) {
+        resultPage = 'energy-3-medium';
+      } else if (total >= 56 && total <= 67) {
+        resultPage = 'energy-4-high';
+      } else if (total >= 68 && total <= 80) {
+        resultPage = 'energy-5-very-high';
+      } else {
+        resultPage = 'energy-3-medium';
+      }
+      window.location.href = 'results/' + resultPage + '.html?score=' + total;
+      return;
+
       const resultBox = document.getElementById('result');
 
       let message = '';

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kết quả: Bạn là TRI-DOSHA | Trắc nghiệm Dosha</title>
+  
+  <meta name="description" content="Thể tạng Tri-Dosha - Cân bằng Gió, Lửa, Đất. Hiếm gặp! Linh hoạt, mạnh mẽ và ổn định.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mettasingingbowl.github.io/yoga/results/tri-dosha.html">
+  <meta property="og:title" content="🌬️🔥🌊 Tôi là TRI-DOSHA - Cân bằng hoàn hảo!">
+  <meta property="og:description" content="Hiếm gặp! Cân bằng tự nhiên cả 3 năng lượng. Bạn là Dosha nào? Làm trắc nghiệm để khám phá!">
+  <meta property="og:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha-tri.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Metta Yoga Đà Lạt">
+  <meta property="og:locale" content="vi_VN">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🌬️🔥🌊 Tôi là TRI-DOSHA - Cân bằng hoàn hảo!">
+  <meta name="twitter:description" content="Hiếm gặp! Cân bằng tự nhiên cả 3 năng lượng. Bạn là Dosha nào? Làm trắc nghiệm để khám phá!">
+  <meta name="twitter:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha-tri.jpg">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --terracotta: #C4956A;
+      --terracotta-deep: #A67B5B;
+      --earth-brown: #6B4423;
+      --cream: #FDF8F3;
+      --cream-warm: #F5EDE4;
+      --sand: #E8DFD4;
+      --text-dark: #3D2914;
+      --text-soft: #6B5344;
+      --vata: #7E57C2;
+      --pitta: #EF5350;
+      --kapha: #26A69A;
+      --tri: #D4A574;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.8;
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-warm) 50%, var(--sand) 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--terracotta-deep);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--earth-brown); }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 2.2rem;
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--vata), var(--pitta), var(--kapha));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+    }
+    .rare-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #5D4037;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .result-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(212, 165, 116, 0.2);
+      border: 2px solid rgba(212, 165, 116, 0.3);
+      margin-bottom: 24px;
+    }
+    .dosha-result {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .dosha-score {
+      flex: 1;
+      min-width: 90px;
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .dosha-score.vata { background: rgba(126, 87, 194, 0.15); }
+    .dosha-score.pitta { background: rgba(239, 83, 80, 0.15); }
+    .dosha-score.kapha { background: rgba(38, 166, 154, 0.15); }
+    .dosha-score .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .dosha-score.vata .name { color: var(--vata); }
+    .dosha-score.pitta .name { color: var(--pitta); }
+    .dosha-score.kapha .name { color: var(--kapha); }
+    .dosha-score .points {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .dosha-score.dominant { box-shadow: 0 0 0 3px var(--tri); transform: scale(1.02); }
+    .traits {
+      background: linear-gradient(135deg, rgba(126, 87, 194, 0.06), rgba(239, 83, 80, 0.06), rgba(38, 166, 154, 0.06));
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border-left: 4px solid var(--tri);
+    }
+    .traits h3 { color: var(--earth-brown); margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; }
+    .yoga-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid rgba(212, 165, 116, 0.3);
+    }
+    .yoga-box h3 { color: var(--earth-brown); margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; }
+    .yoga-box ul { padding-left: 20px; margin: 12px 0; }
+    .yoga-box li { margin-bottom: 8px; }
+    .share-section {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px dashed rgba(212, 165, 116, 0.3);
+    }
+    .share-section p { margin-bottom: 16px; color: var(--text-soft); }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+      border: none;
+      margin: 6px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--vata), var(--pitta), var(--kapha));
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+    }
+    .btn-secondary {
+      background: var(--earth-brown);
+      color: var(--cream);
+    }
+    .btn-secondary:hover { background: #4A2F1A; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.05));
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .cta-box h3 { color: var(--earth-brown); margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+    @media (max-width: 640px) {
+      .container { padding: 24px 16px 40px; }
+      h1 { font-size: 1.7rem; }
+      .dosha-result { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_dosha.html" class="back-link">← Làm lại trắc nghiệm</a>
+    
+    <div style="text-align: center;">
+      <span class="rare-badge">✨ Hiếm gặp!</span>
+    </div>
+    
+    <h1>🌬️🔥🌊 Bạn là TRI-DOSHA</h1>
+    <p class="subtitle">Cân bằng hoàn hảo – Gió, Lửa & Đất</p>
+    
+    <div class="result-card">
+      <div class="dosha-result">
+        <div class="dosha-score vata dominant">
+          <div class="name">Vata</div>
+          <div class="points" id="vataScore">-</div>
+        </div>
+        <div class="dosha-score pitta dominant">
+          <div class="name">Pitta</div>
+          <div class="points" id="pittaScore">-</div>
+        </div>
+        <div class="dosha-score kapha dominant">
+          <div class="name">Kapha</div>
+          <div class="points" id="kaphaScore">-</div>
+        </div>
+      </div>
+      
+      <div class="traits">
+        <h3>Đặc điểm của bạn</h3>
+        <p>Bạn có sự cân bằng tự nhiên của cả 3 dosha - linh hoạt (Vata), mạnh mẽ (Pitta) và ổn định (Kapha). Đây là thể tạng hiếm gặp, cho phép bạn thích ứng tốt với nhiều hoàn cảnh khác nhau.</p>
+      </div>
+      
+      <div class="yoga-box">
+        <h3>🧘 Yoga phù hợp với bạn</h3>
+        <ul>
+          <li><strong>Hatha Yoga truyền thống</strong> – Toàn diện, cân bằng</li>
+          <li><strong>Vinyasa nhẹ</strong> – Linh hoạt theo năng lượng ngày</li>
+          <li><strong>Yoga theo mùa</strong> – Điều chỉnh theo thời tiết</li>
+        </ul>
+        <p style="margin-top:14px;"><strong>Lời khuyên:</strong> Thể tạng cân bằng có thể tập nhiều loại yoga khác nhau. Điều quan trọng là lắng nghe cơ thể mỗi ngày và chọn bài tập phù hợp với trạng thái hiện tại.</p>
+        <p style="margin-top:10px;"><strong>💡 Mẹo:</strong> Buổi sáng có thể năng động hơn (Vinyasa), buổi tối nên nhẹ nhàng (Yin/Restorative).</p>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p>Chia sẻ kết quả để bạn bè cùng khám phá thể tạng của họ!</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+    
+    <div class="cta-box">
+      <h3>Bạn bè bạn là Dosha nào?</h3>
+      <p>Gửi link trắc nghiệm cho bạn bè để cùng khám phá!</p>
+      <a href="../trac_nghiem_dosha.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('vataScore').textContent = params.get('v') || '-';
+    document.getElementById('pittaScore').textContent = params.get('p') || '-';
+    document.getElementById('kaphaScore').textContent = params.get('k') || '-';
+    
+    const shareText = 'Tôi là TRI-DOSHA - Cân bằng hoàn hảo! 🌬️🔥🌊 Hiếm gặp! Bạn là Dosha nào?';
+    const shareUrl = window.location.href;
+    
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: 'Kết quả Dosha của tôi', text: shareText, url: shareUrl });
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+          }
+        }
+      } else {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+      }
+    });
+  </script>
+</body>
+</html>

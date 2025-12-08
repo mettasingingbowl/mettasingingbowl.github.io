@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kết quả: Bạn là VATA - Gió | Trắc nghiệm Dosha</title>
+  
+  <meta name="description" content="Thể tạng Vata - Năng lượng Gió. Nhẹ nhàng, sáng tạo, linh hoạt. Yoga phù hợp: Hatha, Yin, Restorative.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mettasingingbowl.github.io/yoga/results/vata.html">
+  <meta property="og:title" content="🌬️ Tôi là VATA - Năng lượng Gió!">
+  <meta property="og:description" content="Nhẹ nhàng, sáng tạo, linh hoạt như gió. Bạn là Dosha nào? Làm trắc nghiệm để khám phá!">
+  <meta property="og:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha-vata.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Metta Yoga Đà Lạt">
+  <meta property="og:locale" content="vi_VN">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🌬️ Tôi là VATA - Năng lượng Gió!">
+  <meta name="twitter:description" content="Nhẹ nhàng, sáng tạo, linh hoạt như gió. Bạn là Dosha nào? Làm trắc nghiệm để khám phá!">
+  <meta name="twitter:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha-vata.jpg">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --terracotta: #C4956A;
+      --terracotta-deep: #A67B5B;
+      --earth-brown: #6B4423;
+      --cream: #FDF8F3;
+      --cream-warm: #F5EDE4;
+      --sand: #E8DFD4;
+      --text-dark: #3D2914;
+      --text-soft: #6B5344;
+      --vata: #7E57C2;
+      --pitta: #EF5350;
+      --kapha: #26A69A;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.8;
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-warm) 50%, var(--sand) 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--terracotta-deep);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--earth-brown); }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--vata);
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+    }
+    .result-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(126, 87, 194, 0.15);
+      border: 2px solid rgba(126, 87, 194, 0.2);
+      margin-bottom: 24px;
+    }
+    .dosha-result {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .dosha-score {
+      flex: 1;
+      min-width: 90px;
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .dosha-score.vata { background: rgba(126, 87, 194, 0.15); }
+    .dosha-score.pitta { background: rgba(239, 83, 80, 0.15); }
+    .dosha-score.kapha { background: rgba(38, 166, 154, 0.15); }
+    .dosha-score .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .dosha-score.vata .name { color: var(--vata); }
+    .dosha-score.pitta .name { color: var(--pitta); }
+    .dosha-score.kapha .name { color: var(--kapha); }
+    .dosha-score .points {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .dosha-score.dominant { box-shadow: 0 0 0 3px var(--vata); transform: scale(1.05); }
+    .traits {
+      background: rgba(126, 87, 194, 0.08);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border-left: 4px solid var(--vata);
+    }
+    .traits h3 { color: var(--vata); margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; }
+    .yoga-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid rgba(126, 87, 194, 0.2);
+    }
+    .yoga-box h3 { color: var(--earth-brown); margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; }
+    .yoga-box ul { padding-left: 20px; margin: 12px 0; }
+    .yoga-box li { margin-bottom: 8px; }
+    .note-box {
+      background: rgba(0,0,0,0.03);
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+    .share-section {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px dashed rgba(126, 87, 194, 0.3);
+    }
+    .share-section p { margin-bottom: 16px; color: var(--text-soft); }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+      border: none;
+      margin: 6px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--vata) 0%, #5E35B1 100%);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(126, 87, 194, 0.4);
+    }
+    .btn-secondary {
+      background: var(--earth-brown);
+      color: var(--cream);
+    }
+    .btn-secondary:hover { background: #4A2F1A; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(126, 87, 194, 0.15), rgba(126, 87, 194, 0.05));
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .cta-box h3 { color: var(--earth-brown); margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+    @media (max-width: 640px) {
+      .container { padding: 24px 16px 40px; }
+      h1 { font-size: 1.7rem; }
+      .dosha-result { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_dosha.html" class="back-link">← Làm lại trắc nghiệm</a>
+    
+    <h1>🌬️ Bạn là VATA</h1>
+    <p class="subtitle">Năng lượng Gió – Nhẹ nhàng, sáng tạo, linh hoạt</p>
+    
+    <div class="result-card">
+      <div class="dosha-result">
+        <div class="dosha-score vata dominant">
+          <div class="name">Vata</div>
+          <div class="points" id="vataScore">-</div>
+        </div>
+        <div class="dosha-score pitta">
+          <div class="name">Pitta</div>
+          <div class="points" id="pittaScore">-</div>
+        </div>
+        <div class="dosha-score kapha">
+          <div class="name">Kapha</div>
+          <div class="points" id="kaphaScore">-</div>
+        </div>
+      </div>
+      
+      <div class="traits">
+        <h3>Đặc điểm của bạn</h3>
+        <p>Nhẹ, hay lo, năng lượng thất thường, dễ lạnh, sáng tạo, linh hoạt. Bạn có nhiều ý tưởng và thích sự đa dạng, nhưng đôi khi khó tập trung và dễ bị phân tán.</p>
+      </div>
+      
+      <div class="yoga-box">
+        <h3>🧘 Yoga phù hợp với bạn</h3>
+        <p><strong>Mục tiêu:</strong> Ổn định – Tiếp đất – An thần – Thư giãn</p>
+        <ul>
+          <li><strong>Hatha Yoga</strong> – Nhịp chậm, giữ tư thế lâu</li>
+          <li><strong>Yin Yoga</strong> – Thư giãn sâu, kéo dãn nhẹ nhàng</li>
+          <li><strong>Restorative Yoga</strong> – Phục hồi, nghỉ ngơi</li>
+          <li><strong>Yoga Nidra</strong> – Thiền ngủ, an thần</li>
+        </ul>
+        <p style="margin-top:14px;"><strong>Tại sao?</strong> Vata có năng lượng gió - nhẹ, hay thay đổi, dễ lo âu và mất ngủ. Vì vậy cần những bài tập chậm, giữ tư thế lâu để "neo" lại, giúp hệ thần kinh được nghỉ ngơi.</p>
+      </div>
+      
+      <div class="note-box">
+        <strong>⚠️ Lưu ý:</strong> Tránh các lớp học quá nhanh, nhạc ồn ào hoặc môi trường đông đúc - sẽ làm Vata thêm bất an.
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p>Chia sẻ kết quả để bạn bè cùng khám phá thể tạng của họ!</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+    
+    <div class="cta-box">
+      <h3>Bạn bè bạn là Dosha nào?</h3>
+      <p>Gửi link trắc nghiệm cho bạn bè để cùng khám phá!</p>
+      <a href="../trac_nghiem_dosha.html" class="btn btn-secondary">Gửi link trắc nghiệm</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('vataScore').textContent = params.get('v') || '-';
+    document.getElementById('pittaScore').textContent = params.get('p') || '-';
+    document.getElementById('kaphaScore').textContent = params.get('k') || '-';
+    
+    const shareText = 'Tôi là VATA - Năng lượng Gió! 🌬️ Nhẹ nhàng, sáng tạo, linh hoạt. Bạn là Dosha nào?';
+    const shareUrl = window.location.href;
+    
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: 'Kết quả Dosha của tôi', text: shareText, url: shareUrl });
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+          }
+        }
+      } else {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+      }
+    });
+  </script>
+</body>
+</html>

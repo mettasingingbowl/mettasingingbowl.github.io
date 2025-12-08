@@ -649,6 +649,21 @@
         doshaKey = dominantDoshas.sort().join(''); // alphabet order: K, P, V
       }
 
+      // Redirect to result page with scores
+      const resultPageMap = {
+        'V': 'vata',
+        'P': 'pitta', 
+        'K': 'kapha',
+        'PV': 'vata-pitta',
+        'KV': 'vata-kapha',
+        'KP': 'pitta-kapha',
+        'KPV': 'tri-dosha'
+      };
+      const resultPage = resultPageMap[doshaKey] || 'vata';
+      const resultUrl = 'results/' + resultPage + '.html?v=' + scores.V + '&p=' + scores.P + '&k=' + scores.K;
+      window.location.href = resultUrl;
+      return;
+
       let html = '<h3>Kết quả Dosha của bạn</h3>';
       
       html += '<div class="dosha-result">';

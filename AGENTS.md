@@ -145,3 +145,40 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - Chạy edge cases với Node.js
 - Test trên iPhone Safari thực tế
 - Dùng Facebook Sharing Debugger để verify OG image
+
+---
+
+## Nguyên tắc làm việc cho AI Assistant
+
+### Chủ động phát hiện vấn đề
+AI cần **chủ động phát hiện** các vấn đề tiềm ẩn trong codebase và đề xuất giải pháp, không chỉ làm theo yêu cầu.
+
+**Ví dụ các vấn đề cần chú ý:**
+- **Social sharing không cá nhân hóa**: Khi user share kết quả quiz lên Facebook, OG image/title là chung cho cả quiz → không hấp dẫn → cần tạo trang kết quả riêng cho từng loại với OG riêng
+- **Mobile UX issues**: Thiếu fallback cho iOS Safari, thiếu touch-friendly buttons
+- **SEO thiếu sót**: Thiếu meta tags, structured data, sitemap
+- **Performance**: Images chưa optimize, thiếu lazy loading
+- **Accessibility**: Thiếu alt text, contrast kém, thiếu ARIA labels
+
+### Cách đề xuất
+1. Phát hiện vấn đề khi review code hoặc thực hiện task
+2. Giải thích ngắn gọn vấn đề và tác động
+3. Đề xuất giải pháp cụ thể, khả thi
+4. Hỏi user có muốn implement không trước khi làm
+
+### Pattern đã áp dụng: Personalized Quiz Results
+Khi tạo quiz có nhiều kết quả khác nhau:
+```
+/results/
+  ├── [quiz]-[result-type-1].html  ← OG riêng cho kết quả 1
+  ├── [quiz]-[result-type-2].html  ← OG riêng cho kết quả 2
+  └── ...
+
+Quiz chính redirect đến trang kết quả phù hợp với params:
+window.location.href = 'results/[type].html?score=X&param=Y';
+```
+
+Đã implement cho:
+- Dosha Quiz: 7 kết quả (vata, pitta, kapha, dual, tri)
+- Năng lượng Quiz: 5 mức năng lượng
+- Luân xa Quiz: 7 chakra (theo luân xa yếu nhất)
