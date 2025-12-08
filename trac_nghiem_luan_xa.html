@@ -746,7 +746,7 @@
       }
       
       const resultGroup = getResultGroup(scores, minKey, maxKey);
-      const shareResultUrl = 'https://mettasingingbowl.github.io/results/chakra/' + resultGroup + '.html';
+      const shareResultUrl = window.location.origin + '/results/chakra/' + resultGroup + '.html';
 
       // Chuẩn bị nội dung email
       let emailBody = 'Chào bạn,\n\nĐây là kết quả trắc nghiệm 7 luân xa của tôi:\n\n';
