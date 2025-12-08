@@ -710,6 +710,44 @@
       html += '<p><strong>Luân xa cần ưu tiên chăm sóc:</strong> ' + chakraNames[minKey] + '.</p>';
       html += '<p><strong>Luân xa là thế mạnh tự nhiên của bạn:</strong> ' + chakraNames[maxKey] + '.</p>';
 
+      // Xác định nhóm kết quả để share (20 nhóm)
+      function getResultGroup(scores, minKey, maxKey) {
+        const s = scores;
+        const allValues = Object.values(s);
+        const sorted = Object.entries(s).sort((a, b) => b[1] - a[1]);
+        const top2 = [sorted[0][0], sorted[1][0]];
+        const avgLower = (s.root + s.sacral + s.solar) / 3;
+        const avgMiddle = (s.heart + s.throat) / 2;
+        const avgUpper = (s.thirdEye + s.crown) / 2;
+        
+        // Archetypes - top 2 mạnh nhất
+        if (top2.includes('sacral') && top2.includes('thirdEye')) return 'archetype-creator';
+        if (top2.includes('solar') && top2.includes('throat')) return 'archetype-leader';
+        if (top2.includes('heart') && top2.includes('crown')) return 'archetype-healer';
+        if (top2.includes('root') && top2.includes('sacral')) return 'archetype-grounded';
+        
+        // Tổng quan cân bằng
+        if (allValues.every(v => v >= 14)) return 'balanced';
+        if (allValues.every(v => v < 12)) return 'needs-care';
+        
+        // Cặp đối lập
+        if (maxKey === 'crown' && minKey === 'root') return 'flying-no-root';
+        if (maxKey === 'root' && minKey === 'crown') return 'grounded-no-spirit';
+        if (maxKey === 'solar' && minKey === 'heart') return 'strong-closed-heart';
+        if (maxKey === 'heart' && minKey === 'solar') return 'loving-no-confidence';
+        
+        // Vùng yếu
+        if (avgLower < avgMiddle && avgLower < avgUpper) return 'weak-foundation';
+        if (avgMiddle < avgLower && avgMiddle < avgUpper) return 'weak-connection';
+        if (avgUpper < avgLower && avgUpper < avgMiddle) return 'weak-spiritual';
+        
+        // Default: luân xa yếu nhất
+        return 'weak-' + minKey;
+      }
+      
+      const resultGroup = getResultGroup(scores, minKey, maxKey);
+      const shareResultUrl = 'https://mettasingingbowl.github.io/results/chakra/' + resultGroup + '.html';
+
       // Chuẩn bị nội dung email
       let emailBody = 'Chào bạn,\n\nĐây là kết quả trắc nghiệm 7 luân xa của tôi:\n\n';
       Object.keys(scores).forEach(key => {
@@ -726,13 +764,40 @@
 
       html += '<p style="margin-top:16px;"><button type="button" id="emailBtn" style="background:#e53935; color:#fff; border:none; padding:12px 20px; border-radius:999px; font-size:15px; cursor:pointer; min-height:44px;">Gửi kết quả cho cô Giang</button></p>';
 
+      const resultGroupNames = {
+        'archetype-creator': 'Người Sáng Tạo',
+        'archetype-leader': 'Người Lãnh Đạo',
+        'archetype-healer': 'Người Chữa Lành',
+        'archetype-grounded': 'Người Tiếp Đất',
+        'balanced': '7 Luân Xa Cân Bằng',
+        'needs-care': 'Cần Chăm Sóc Toàn Diện',
+        'flying-no-root': 'Bay Bổng Quên Gốc Rễ',
+        'grounded-no-spirit': 'Thực Tế Thiếu Kết Nối Cao',
+        'strong-closed-heart': 'Mạnh Mẽ Nhưng Khó Mở Lòng',
+        'loving-no-confidence': 'Yêu Thương Nhưng Thiếu Tự Tin',
+        'weak-foundation': 'Nền Tảng Cần Củng Cố',
+        'weak-connection': 'Kết Nối Cần Nuôi Dưỡng',
+        'weak-spiritual': 'Tâm Linh Cần Mở Rộng',
+        'weak-root': 'Luân Xa Gốc Cần Chăm Sóc',
+        'weak-sacral': 'Luân Xa Sáng Tạo Cần Chăm Sóc',
+        'weak-solar': 'Luân Xa Sức Mạnh Cần Chăm Sóc',
+        'weak-heart': 'Luân Xa Tim Cần Chăm Sóc',
+        'weak-throat': 'Luân Xa Cổ Họng Cần Chăm Sóc',
+        'weak-thirdEye': 'Luân Xa Con Mắt Thứ Ba Cần Chăm Sóc',
+        'weak-crown': 'Luân Xa Vương Miện Cần Chăm Sóc'
+      };
+      const resultGroupName = resultGroupNames[resultGroup] || 'Kết quả 7 Luân Xa';
+
+      // Thêm badge nhóm kết quả vào đầu
+      html += '<p style="margin-top:16px; padding:14px; background:linear-gradient(135deg, rgba(156,175,136,0.15), rgba(156,175,136,0.05)); border-radius:12px; text-align:center;"><strong style="color:var(--forest); font-size:1.1rem;">✨ ' + resultGroupName + '</strong></p>';
+
       html += '<div class="share-buttons"><button type="button" id="fbShareBtn" class="share-btn">Chia sẻ kết quả trên Facebook</button></div>';
 
       resultsDiv.innerHTML = html;
       resultsDiv.style.display = 'block';
-
-      const shareTextSummary = 'Kết quả trắc nghiệm 7 luân xa của tôi - Luân xa cần ưu tiên chăm sóc: ' + chakraNames[minKey] + ', luân xa mạnh nhất: ' + chakraNames[maxKey] + '.';
-      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
+      
+      const shareTextSummary = 'Kết quả 7 luân xa của tôi: ' + resultGroupName + '! Bạn thuộc nhóm nào?';
+      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareResultUrl) + '&quote=' + encodeURIComponent(shareTextSummary);
       const emailBtn = document.getElementById('emailBtn');
       if (emailBtn) {
         emailBtn.addEventListener('click', function () {
@@ -747,9 +812,9 @@
           if (navigator.share) {
             try {
               await navigator.share({
-                title: 'Trắc nghiệm 7 Luân Xa - Giang Metta',
+                title: 'Kết quả 7 Luân Xa - ' + resultGroupName,
                 text: shareTextSummary,
-                url: window.location.href
+                url: shareResultUrl
               });
             } catch (err) {
               // User cancelled hoặc lỗi - fallback sang Facebook

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tâm Linh Cần Mở Rộng - Kết quả 7 Luân Xa | Giang Metta</title>
+  <meta property="og:title" content="Tâm Linh Cần Mở Rộng - Kết quả 7 Luân Xa">
+  <meta property="og:description" content="Cần mở rộng nhận thức và kết nối cao hơn.">
+  <meta property="og:image" content="https://mettasingingbowl.github.io/assets/og-chakra-weak-spiritual.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://mettasingingbowl.github.io/results/chakra/weak-spiritual.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --forest: #4A5D3E; --sage: #9CAF88; --cream: #FDFBF7; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FDFBF7, #F7F3EB); min-height: 100vh; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 32px 20px 60px; }
+    .back-link { display: inline-block; margin-bottom: 20px; color: var(--forest); text-decoration: none; font-size: 14px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--forest); margin-bottom: 8px; }
+    .subtitle { color: #666; margin-bottom: 24px; }
+    .result-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 24px; }
+    .badge { display: inline-block; padding: 8px 16px; background: #673AB722; color: #673AB7; border-radius: 20px; font-weight: 600; margin-bottom: 16px; }
+    .desc { line-height: 1.7; margin-bottom: 20px; }
+    .share-section { text-align: center; margin-top: 24px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; min-height: 48px; }
+    .btn-primary { background: var(--forest); color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
+    <h1>✨ Tâm Linh Cần Mở Rộng</h1>
+    <p class="subtitle">Third Eye + Crown yếu</p>
+    <div class="result-card">
+      <span class="badge">Tâm Linh Cần Mở Rộng</span>
+      <p class="desc">Cần mở rộng nhận thức và kết nối cao hơn.</p>
+      <p class="desc">Hãy làm trắc nghiệm để xem chi tiết điểm số 7 luân xa của bạn!</p>
+    </div>
+    <div class="share-section">
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+  </div>
+  <script>
+    const shareText = 'Kết quả 7 luân xa của tôi: Tâm Linh Cần Mở Rộng! Bạn thuộc nhóm nào?';
+    const shareUrl = window.location.href;
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Tâm Linh Cần Mở Rộng', text: shareText, url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+    });
+  </script>
+</body>
+</html>
