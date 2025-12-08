@@ -227,3 +227,22 @@ navigator.share({ url: shareResultUrl });
 ```
 
 **Bài học:** Khi quiz có nhiều kết quả phức tạp, không cần redirect - chỉ cần thay đổi URL khi share.
+
+### Không Hardcode Domain trong JavaScript
+
+**Sai:**
+```javascript
+const shareUrl = 'https://mettasingingbowl.github.io/results/' + type + '.html';
+```
+
+**Đúng:**
+```javascript
+const shareUrl = window.location.origin + '/results/' + type + '.html';
+```
+
+**Lý do:**
+- Code sẽ hoạt động trên mọi domain (localhost, staging, production, custom domain)
+- Không cần sửa code khi đổi domain
+- Dễ test local
+
+**Ngoại lệ:** OG meta tags PHẢI hardcode URL tuyệt đối vì Facebook crawler không chạy JavaScript.
