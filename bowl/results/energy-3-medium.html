@@ -88,6 +88,7 @@
     
     <div class="share-section">
       <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá năng lượng của họ</p>
+      <button type="button" class="btn" id="emailBtn" style="background:#e53935; color:#fff;">Gửi kết quả cho cô Giang</button>
       <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
     </div>
     
@@ -110,6 +111,12 @@
         try { await navigator.share({ title: 'Kết quả Năng lượng', text: shareText, url: shareUrl }); }
         catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
       } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+    });
+    
+    document.getElementById('emailBtn').addEventListener('click', function() {
+      const subject = 'Kết quả trắc nghiệm năng lượng & tần số cảm xúc';
+      const body = 'Kết quả: Năng lượng trung bình (44-55 điểm)\nĐiểm số: ' + score + '/80\n\nTrân trọng.';
+      window.location.href = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   </script>
 </body>
