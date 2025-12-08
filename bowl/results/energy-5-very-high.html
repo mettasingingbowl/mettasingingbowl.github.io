@@ -50,14 +50,68 @@
     .share-section { text-align: center; margin-top: 30px; padding-top: 24px; border-top: 1px dashed rgba(201, 184, 150, 0.4); }
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s ease; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74, 93, 62, 0.3); }
     .btn-secondary { background: var(--forest); color: var(--cream); }
+    @media (max-width: 640px) { .container { padding: 24px 16px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_nang_luong_tan_so.html" class="back-link">← Làm lại trắc nghiệm</a>
+    
+    <h1>🌈 Năng lượng rất cao!</h1>
+    <p class="subtitle">68 – 80 điểm: Tần số mở rộng và lan tỏa</p>
+    
+    <div class="score-display">
+      <span class="badge">Top Energy!</span>
+      <div class="score-number" id="scoreDisplay">-</div>
+      <div class="score-max">/ 80 điểm</div>
+      <div class="energy-bar">
+        <div class="energy-fill" id="energyFill" style="width: 92%; background: linear-gradient(90deg, #4A5D3E, #C9B896);"></div>
+      </div>
+    </div>
+    
+    <div class="result-card">
+      <h3>Tình trạng hiện tại</h3>
+      <p>Xuất sắc! Bạn đang ở vùng năng lượng <strong>rất cao</strong> – tần số mở rộng, lan tỏa và thu hút. Đây là vùng của sự bình an sâu sắc, sáng tạo dồi dào và kết nối tâm linh.</p>
+      <p>Ở mức này, bạn không chỉ chữa lành cho bản thân mà còn có thể <strong>hỗ trợ người khác</strong> trên hành trình của họ.</p>
+      
+      <div class="advice-box">
+        <h4>💚 Gợi ý để tiếp tục phát triển</h4>
+        <ul>
+          <li>Chia sẻ ánh sáng của bạn với cộng đồng</li>
+          <li>Thực hành thiền định sâu hơn</li>
+          <li>Hướng dẫn hoặc mentoring cho người khác</li>
+          <li>Tiếp tục học hỏi và phát triển tâm linh</li>
+          <li>Biết ơn và trân trọng hành trình đã đi qua</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè cùng khám phá năng lượng của họ</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+    
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const score = params.get('score') || '-';
+    document.getElementById('scoreDisplay').textContent = score;
+    if (score !== '-') {
+      const pct = Math.round((parseInt(score) / 80) * 100);
+      document.getElementById('energyFill').style.width = pct + '%';
+    }
+    
+    const shareText = 'Kết quả năng lượng: Rất cao! 🌈 Tần số mở rộng & lan tỏa. Bạn đang ở mức nào?';
+    const shareUrl = window.location.href;
     
     document.getElementById('shareBtn').addEventListener('click', async function() {
-      const shareText = 'Kết quả năng lượng: Rất cao! 🌈 Tần số mở rộng & lan tỏa. Bạn đang ở mức nào?';
       if (navigator.share) {
-        try { await navigator.share({ title: 'Kết quả Năng lượng', text: shareText, url: window.location.href }); }
-        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
-      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
+        try { await navigator.share({ title: 'Kết quả Năng lượng', text: shareText, url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
     });
   </script>
 </body>
