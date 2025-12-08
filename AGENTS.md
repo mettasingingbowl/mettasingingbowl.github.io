@@ -182,3 +182,17 @@ window.location.href = 'results/[type].html?score=X&param=Y';
 - Dosha Quiz: 7 kết quả (vata, pitta, kapha, dual, tri)
 - Năng lượng Quiz: 5 mức năng lượng
 - Luân xa Quiz: 7 chakra (theo luân xa yếu nhất)
+
+---
+
+## Bài học UX
+
+### Share Result > Share Quiz Link
+**Vấn đề:** Trang kết quả có 2 nút: "Chia sẻ kết quả" và "Gửi link trắc nghiệm"
+
+**Bài học:** Chỉ cần nút "Chia sẻ kết quả" vì:
+1. **Motivation cao hơn**: User muốn khoe kết quả của mình, không phải quảng cáo quiz
+2. **Đã có link về quiz**: Trang kết quả có link "Làm lại trắc nghiệm" và khi bạn bè click vào kết quả được share, họ tự tìm được quiz
+3. **Đơn giản hơn**: Ít lựa chọn = ít confusion = conversion tốt hơn
+
+**Nguyên tắc:** Khi thiết kế CTA, chọn 1 action chính thay vì cho nhiều options làm user phân vân.
