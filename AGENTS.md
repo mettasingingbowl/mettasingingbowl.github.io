@@ -142,6 +142,7 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - Mobile nav: `<div class="mobile-menu">`
 
 ### 5. Test
+- **Chạy `./scripts/check-html.sh`** để kiểm tra cấu trúc HTML (BẮT BUỘC sau khi tạo/sửa file HTML)
 - Chạy edge cases với Node.js
 - Test trên iPhone Safari thực tế
 - Dùng Facebook Sharing Debugger để verify OG image
