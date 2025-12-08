@@ -37,6 +37,46 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #D4531F); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
+    @media (max-width: 640px) { .container { padding: 24px 16px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
+    <div class="chakra-dot"></div>
+    <h1>🟠 Luân xa Sáng tạo cần chăm sóc</h1>
+    <p class="subtitle">Svadhisthana - Nguồn cảm xúc và sáng tạo</p>
+    
+    <div class="result-card">
+      <h3>Ý nghĩa Luân xa Sáng tạo</h3>
+      <p>Luân xa Sáng tạo nằm dưới rốn, là trung tâm của <strong>cảm xúc, sáng tạo, niềm vui và khoái cảm</strong>.</p>
+      <p>Khi luân xa này yếu, bạn có thể cảm thấy thiếu cảm hứng sáng tạo, khó kết nối cảm xúc, hoặc gặp vấn đề trong các mối quan hệ thân mật.</p>
+      
+      <div class="advice-box">
+        <h4>💚 Cách chăm sóc Luân xa Sáng tạo</h4>
+        <ul>
+          <li>Tham gia hoạt động sáng tạo: vẽ, viết, nhảy</li>
+          <li>Tắm nước ấm hoặc bơi lội</li>
+          <li>Cho phép bản thân cảm nhận và biểu đạt cảm xúc</li>
+          <li>Ăn thực phẩm màu cam: cam, cà rốt, bí đỏ</li>
+          <li>Thực hành yoga hip-opening poses</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè khám phá luân xa của họ</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+  </div>
+
+  <script>
+    const shareUrl = window.location.href;
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Luân xa Sáng tạo cần chăm sóc', text: 'Kết quả 7 luân xa: Luân xa Sáng tạo cần được quan tâm. Bạn cần chăm sóc luân xa nào?', url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
     });
   </script>
 </body>

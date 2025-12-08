@@ -36,6 +36,46 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #388E3C); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
+    @media (max-width: 640px) { .container { padding: 24px 16px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
+    <div class="chakra-dot"></div>
+    <h1>💚 Luân xa Tim cần chăm sóc</h1>
+    <p class="subtitle">Anahata - Trung tâm tình yêu và lòng trắc ẩn</p>
+    
+    <div class="result-card">
+      <h3>Ý nghĩa Luân xa Tim</h3>
+      <p>Luân xa Tim nằm ở giữa ngực, là cầu nối giữa thể xác và tâm linh, trung tâm của <strong>tình yêu, lòng trắc ẩn, sự tha thứ và kết nối</strong>.</p>
+      <p>Khi luân xa này yếu, bạn có thể khó mở lòng với người khác, sợ bị tổn thương, thiếu lòng trắc ẩn với bản thân, hoặc cảm thấy cô đơn.</p>
+      
+      <div class="advice-box">
+        <h4>💚 Cách chăm sóc Luân xa Tim</h4>
+        <ul>
+          <li>Thực hành lòng biết ơn mỗi ngày</li>
+          <li>Ôm người thân và thú cưng</li>
+          <li>Viết thư tha thứ (cho bản thân hoặc người khác)</li>
+          <li>Yoga heart-opening poses: Cobra, Camel</li>
+          <li>Dành thời gian trong thiên nhiên xanh</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè khám phá luân xa của họ</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+  </div>
+
+  <script>
+    const shareUrl = window.location.href;
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Luân xa Tim cần chăm sóc', text: 'Kết quả 7 luân xa: Luân xa Tim cần được quan tâm. Bạn cần chăm sóc luân xa nào?', url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
     });
   </script>
 </body>

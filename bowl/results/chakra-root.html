@@ -38,8 +38,46 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #8B1E1E); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
-        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
-      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
+    @media (max-width: 640px) { .container { padding: 24px 16px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
+    <div class="chakra-dot"></div>
+    <h1>🔴 Luân xa Gốc cần chăm sóc</h1>
+    <p class="subtitle">Muladhara - Nền tảng sự an toàn và ổn định</p>
+    
+    <div class="result-card">
+      <h3>Ý nghĩa Luân xa Gốc</h3>
+      <p>Luân xa Gốc nằm ở đáy cột sống, là nền tảng của toàn bộ hệ thống năng lượng. Nó liên quan đến <strong>sự an toàn, ổn định, và kết nối với đất</strong>.</p>
+      <p>Khi luân xa này yếu, bạn có thể cảm thấy bất an, lo lắng về tương lai, thiếu cảm giác thuộc về, hoặc gặp vấn đề về tài chính và sức khỏe thể chất.</p>
+      
+      <div class="advice-box">
+        <h4>💚 Cách chăm sóc Luân xa Gốc</h4>
+        <ul>
+          <li>Đi bộ chân trần trên đất, cỏ, cát</li>
+          <li>Tập yoga các tư thế đứng vững (Mountain, Warrior)</li>
+          <li>Ăn thực phẩm màu đỏ và rễ củ</li>
+          <li>Thiền định tập trung vào hơi thở và cảm giác cơ thể</li>
+          <li>Tạo không gian sống gọn gàng, an toàn</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè khám phá luân xa của họ</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+  </div>
+
+  <script>
+    const shareUrl = window.location.href;
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Luân xa Gốc cần chăm sóc', text: 'Kết quả 7 luân xa: Luân xa Gốc cần được quan tâm. Bạn cần chăm sóc luân xa nào?', url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
     });
   </script>
 </body>

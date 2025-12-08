@@ -36,6 +36,46 @@
     .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.3s; font-family: 'Quicksand', sans-serif; border: none; margin: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--chakra-color), #1976D2); color: white; }
     .btn-secondary { background: var(--forest); color: var(--cream); }
+    @media (max-width: 640px) { .container { padding: 24px 16px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../trac_nghiem_luan_xa.html" class="back-link">← Làm lại trắc nghiệm</a>
+    <div class="chakra-dot"></div>
+    <h1>🔵 Luân xa Cổ họng cần chăm sóc</h1>
+    <p class="subtitle">Vishuddha - Trung tâm giao tiếp và biểu đạt</p>
+    
+    <div class="result-card">
+      <h3>Ý nghĩa Luân xa Cổ họng</h3>
+      <p>Luân xa Cổ họng nằm ở vùng cổ, là trung tâm của <strong>giao tiếp, biểu đạt bản thân, nói sự thật và lắng nghe</strong>.</p>
+      <p>Khi luân xa này yếu, bạn có thể khó nói lên suy nghĩ thật, sợ bị phán xét, hay nói dối hoặc nói quá nhiều, hoặc gặp vấn đề về giọng nói và cổ họng.</p>
+      
+      <div class="advice-box">
+        <h4>💚 Cách chăm sóc Luân xa Cổ họng</h4>
+        <ul>
+          <li>Hát, ngâm mantra hoặc đọc to</li>
+          <li>Viết nhật ký để biểu đạt suy nghĩ</li>
+          <li>Thực hành nói sự thật với lòng trắc ẩn</li>
+          <li>Uống trà ấm với mật ong</li>
+          <li>Yoga: Fish pose, Shoulder stand</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="share-section">
+      <p style="color: var(--text-soft); margin-bottom: 16px;">Chia sẻ để bạn bè khám phá luân xa của họ</p>
+      <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+    </div>
+  </div>
+
+  <script>
+    const shareUrl = window.location.href;
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Luân xa Cổ họng cần chăm sóc', text: 'Kết quả 7 luân xa: Luân xa Cổ họng cần được quan tâm. Bạn cần chăm sóc luân xa nào?', url: shareUrl }); }
+        catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+      } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
     });
   </script>
 </body>
