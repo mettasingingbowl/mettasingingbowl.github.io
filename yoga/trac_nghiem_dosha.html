@@ -660,9 +660,7 @@
         'KPV': 'tri-dosha'
       };
       const resultPage = resultPageMap[doshaKey] || 'vata';
-      const resultUrl = 'results/' + resultPage + '.html?v=' + scores.V + '&p=' + scores.P + '&k=' + scores.K;
-      window.location.href = resultUrl;
-      return;
+      const shareResultUrl = window.location.origin + '/yoga/results/' + resultPage + '.html?v=' + scores.V + '&p=' + scores.P + '&k=' + scores.K;
 
       let html = '<h3>Kết quả Dosha của bạn</h3>';
       
@@ -751,7 +749,7 @@
       resultsDiv.style.display = 'block';
 
       const shareTextSummary = 'Kết quả trắc nghiệm Dosha của tôi: ' + resultName + '. Yoga phù hợp: ' + resultYoga.join(', ') + '.';
-      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareTextSummary);
+      const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareResultUrl) + '&quote=' + encodeURIComponent(shareTextSummary);
 
       document.getElementById('emailBtn').addEventListener('click', function() {
         window.location.href = mailtoLink;
@@ -763,15 +761,15 @@
             await navigator.share({
               title: 'Trắc nghiệm Dosha - Metta Yoga Đà Lạt',
               text: shareTextSummary,
-              url: window.location.href
+              url: shareResultUrl
             });
           } catch (err) {
             if (err.name !== 'AbortError') {
-              window.location.href = fbShareUrl;
+              window.open(fbShareUrl, '_blank');
             }
           }
         } else {
-          window.location.href = fbShareUrl;
+          window.open(fbShareUrl, '_blank');
         }
       });
 
