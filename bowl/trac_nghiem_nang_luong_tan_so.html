@@ -191,41 +191,24 @@
       font-style: italic;
       text-align: center;
     }
-    .email-share {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(156, 175, 136, 0.2);
-    }
-    .email-share label {
-      font-size: 0.95rem;
-      display: block;
-      margin-bottom: 8px;
-      color: var(--forest);
-      font-weight: 500;
-    }
-    .email-share input[type="email"] {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(156, 175, 136, 0.3);
+    .share-buttons { margin-top: 16px; text-align: center; }
+    .share-btn {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 999px;
       font-size: 1rem;
-      box-sizing: border-box;
-      margin-bottom: 12px;
-      background: #ffffff;
-      color: var(--text-dark);
+      font-weight: 500;
+      cursor: pointer;
       font-family: 'Quicksand', sans-serif;
+      min-height: 48px;
+      transition: all 0.3s ease;
     }
-    .email-share input[type="email"]:focus {
-      outline: none;
-      border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.2);
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 93, 62, 0.3);
     }
-    .share-buttons { margin-top: 12px; }
-    .btn-facebook {
-      background: var(--forest);
-      color: var(--cream);
-    }
-    .btn-facebook:hover { background: var(--earth); }
     .score-text {
       font-weight: 600;
       margin-bottom: 12px;
@@ -562,40 +545,74 @@
       } else {
         resultPage = 'energy-3-medium';
       }
-      window.location.href = 'results/' + resultPage + '.html?score=' + total;
-      return;
-
-      const resultBox = document.getElementById('result');
-
+      // Hiển thị kết quả inline thay vì redirect
+      let resultName = '';
       let message = '';
       let rangeText = '';
 
       // Tổng điểm tối thiểu: 20, tối đa: 80
       if (total >= 20 && total <= 31) {
+        resultName = 'Năng lượng rất thấp';
         rangeText = '20 – 31 điểm: Năng lượng rất thấp, tần số đang bị chèn ép';
         message = 'Hiện tại cơ thể và cảm xúc của bạn đang ở vùng dễ kiệt sức, dễ bi quan. Có thể bạn đã phải cố gắng quá lâu, ngủ nghỉ kém, ít vận động và ôm nhiều lo âu chưa được nói ra. Giai đoạn này, điều quan trọng nhất không phải là “cố gắng hơn” mà là dừng lại để nghỉ, xin hỗ trợ và chăm sóc lại những nhu cầu cơ bản: ngủ, ăn, thở, kết nối với người an toàn.';
       } else if (total >= 32 && total <= 43) {
+        resultName = 'Năng lượng thấp';
         rangeText = '32 – 43 điểm: Năng lượng thấp – dao động, dễ tụt mood';
         message = 'Bạn có những lúc vui, nhưng nền chung vẫn khá nặng và dễ bị kéo xuống bởi môi trường, công việc, mạng xã hội. Bạn cần bắt đầu thiết lập ranh giới lành mạnh: bớt ở gần người/nguồn làm mình kiệt sức, và thêm vào ngày thường các thói quen “sạc nhẹ” như đi bộ, hít thở sâu, tắt màn hình sớm, nói thật về cảm xúc với một người đáng tin.';
       } else if (total >= 44 && total <= 55) {
+        resultName = 'Năng lượng trung bình';
         rangeText = '44 – 55 điểm: Năng lượng trung bình, có nền ổn nhưng chưa thật sự nhẹ';
         message = 'Bạn không ở vùng kiệt sức, nhưng cũng chưa ở vùng rực sáng. Bạn có một nền tảng khá ổn: vẫn làm việc, vẫn sống được, vẫn có những niềm vui nhỏ. Điểm cần chú ý là xây dựng thêm những thói quen giúp ổn định hệ thần kinh: nhịp sinh hoạt đều, vận động nhẹ đều đặn, ăn uống bớt đường – bớt kích thích, và chủ động nuôi những kết nối lành mạnh thay vì chờ “tự đến”.';
       } else if (total >= 56 && total <= 67) {
+        resultName = 'Năng lượng khá cao';
         rangeText = '56 – 67 điểm: Năng lượng khá cao, tần số tích cực & linh hoạt';
         message = 'Bạn có xu hướng lạc quan, biết tự điều chỉnh khi tụt mood và đã có sẵn vài thói quen tốt (vận động, nghỉ ngơi, biết ơn, thiền hoặc tương tự). Bạn bắt đầu thu hút những mối quan hệ và cơ hội phù hợp hơn với mình. Giai đoạn này, bạn có thể đi sâu vào việc hiểu rõ giá trị cá nhân, học cách giao tiếp chân thật, và tinh chỉnh lối sống sao cho vừa nuôi mình, vừa đóng góp cho người khác mà không bị “gồng cứu thế”.';
       } else if (total >= 68 && total <= 80) {
+        resultName = 'Năng lượng rất cao';
         rangeText = '68 – 80 điểm: Năng lượng rất cao, tần số mở rộng & lan tỏa';
         message = 'Bạn thường ở vùng bình an, rõ ràng, có nhiều khoảnh khắc hứng khởi và biết ơn. Bạn khá hiểu mình, biết mình cần gì và không dễ bị cuốn vào drama. Đây là vùng tần số giúp bạn lan tỏa cảm hứng, chữa lành và sáng tạo. Điều cần lưu ý là giữ sự khiêm tốn, tiếp tục chăm sóc bản thân ở mức sâu (thân – tâm – hệ thần kinh), không cố gắng “lúc nào cũng phải tích cực” và tôn trọng hành trình riêng của người khác.';
       } else {
+        resultName = 'Kết quả';
         rangeText = 'Điểm số ngoài khoảng dự kiến';
         message = 'Hãy kiểm tra lại câu trả lời của bạn.';
       }
 
-      resultBox.style.display = 'block';
-      resultBox.innerHTML = '<h2>Kết quả</h2>' +
+      const resultBox = document.getElementById('result');
+      const shareResultUrl = window.location.origin + '/bowl/results/' + resultPage + '.html?score=' + total;
+      const emailBody = 'Kết quả trắc nghiệm năng lượng & tần số cảm xúc\n\n' + resultName + '\nĐiểm số: ' + total + '/80\n\n' + rangeText + '\n\n' + message + '\n\nTrân trọng.';
+      const mailtoLink = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent('Kết quả trắc nghiệm năng lượng & tần số') + '&body=' + encodeURIComponent(emailBody);
+
+      let html = '<h2>Kết quả</h2>' +
         '<div class="score-text">Tổng điểm của bạn: ' + total + ' / 80</div>' +
         '<div class="result-range">' + rangeText + '</div>' +
         '<p>' + message + '</p>';
+
+      html += '<p style="margin-top:20px; color:var(--text-soft);">🎯 Bạn bè bạn đang ở mức năng lượng nào? Thử thách họ!</p>';
+      html += '<div class="share-buttons"><button type="button" id="fbShareBtn" class="share-btn">Chia sẻ kết quả</button></div>';
+      html += '<p style="margin-top:16px;"><button type="button" id="emailBtn" style="background:#e53935; color:#fff; border:none; padding:12px 20px; border-radius:999px; font-size:15px; cursor:pointer; min-height:44px;">Gửi kết quả cho cô Giang</button></p>';
+
+      resultBox.innerHTML = html;
+      resultBox.style.display = 'block';
+
+      const shareTextSummary = 'Kết quả năng lượng của tôi: ' + resultName + '! Điểm: ' + total + '/80. Bạn đang ở mức nào?';
+
+      document.getElementById('fbShareBtn').addEventListener('click', async function() {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: 'Kết quả Năng lượng', text: shareTextSummary, url: shareResultUrl });
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareResultUrl) + '&quote=' + encodeURIComponent(shareTextSummary), '_blank');
+            }
+          }
+        } else {
+          window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareResultUrl) + '&quote=' + encodeURIComponent(shareTextSummary), '_blank');
+        }
+      });
+
+      document.getElementById('emailBtn').addEventListener('click', function() {
+        window.location.href = mailtoLink;
+      });
 
       // Safari/iOS fallback for smooth scroll to results
       if ('scrollBehavior' in document.documentElement.style) {
@@ -613,51 +630,7 @@
       resultBox.innerHTML = '';
     }
 
-    function guiEmail() {
-      const resultBox = document.getElementById('result');
 
-      if (resultBox.style.display !== 'block') {
-        alert('Vui lòng làm bài và xem kết quả trước khi gửi email.');
-        return;
-      }
-
-      const text = resultBox.innerText;
-      const subject = encodeURIComponent('Kết quả trắc nghiệm năng lượng & tần số cảm xúc');
-      const body = encodeURIComponent('Kết quả: ' + text);
-
-      const receiver = 'giangmetta@gmail.com';
-
-      window.location.href = 'mailto:' + receiver + '?subject=' + subject + '&body=' + body;
-    }
-
-    async function shareFacebook() {
-      const resultBox = document.getElementById('result');
-      if (resultBox.style.display !== 'block') {
-        alert('Vui lòng làm bài và xem kết quả trước khi chia sẻ.');
-        return;
-      }
-      const shareText = resultBox.innerText + ' | Bạn có thể làm bài trắc nghiệm này để khám phá mức năng lượng của mình.';
-      const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(shareText);
-      
-      // Ưu tiên Web Share API (hoạt động tốt trên iOS Safari)
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: 'Trắc nghiệm Năng Lượng & Tần Số - Giang Metta',
-            text: shareText,
-            url: window.location.href
-          });
-        } catch (err) {
-          // User cancelled hoặc lỗi - fallback sang Facebook
-          if (err.name !== 'AbortError') {
-            window.location.href = shareUrl;
-          }
-        }
-      } else {
-        // Fallback cho browser không hỗ trợ Web Share API
-        window.location.href = shareUrl;
-      }
-    }
 
     // Fallback cho iOS Safari cũ không hỗ trợ :has() selector
     document.querySelectorAll('.options input[type="radio"]').forEach(function(radio) {
