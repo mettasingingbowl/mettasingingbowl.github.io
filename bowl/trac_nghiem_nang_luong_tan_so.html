@@ -582,7 +582,17 @@
       const emailBody = 'Kết quả trắc nghiệm năng lượng & tần số cảm xúc\n\n' + resultName + '\nĐiểm số: ' + total + '/80\n\n' + rangeText + '\n\n' + message + '\n\nTrân trọng.';
       const mailtoLink = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent('Kết quả trắc nghiệm năng lượng & tần số') + '&body=' + encodeURIComponent(emailBody);
 
-      let html = '<h2>Kết quả</h2>' +
+      const imageMap = {
+        'energy-1-very-low': 'og-energy-1.jpg',
+        'energy-2-low': 'og-energy-2.jpg',
+        'energy-3-medium': 'og-energy-3.jpg',
+        'energy-4-high': 'og-energy-4.jpg',
+        'energy-5-very-high': 'og-energy-5.jpg'
+      };
+      const resultImage = 'assets/' + imageMap[resultPage];
+
+      let html = '<div style="text-align:center; margin-bottom:20px;"><img src="' + resultImage + '" alt="' + resultName + '" style="max-width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></div>' +
+        '<h2>Kết quả</h2>' +
         '<div class="score-text">Tổng điểm của bạn: ' + total + ' / 80</div>' +
         '<div class="result-range">' + rangeText + '</div>' +
         '<p>' + message + '</p>';
