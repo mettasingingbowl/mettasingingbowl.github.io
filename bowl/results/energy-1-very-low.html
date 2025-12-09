@@ -135,6 +135,8 @@
   </div>
 
   <script>
+    // Redirect to quiz page - result pages are only for OG sharing
+    window.location.href = "../trac_nghiem_nang_luong_tan_so.html";
     const params = new URLSearchParams(window.location.search);
     const score = params.get('score') || '-';
     document.getElementById('scoreDisplay').textContent = score;

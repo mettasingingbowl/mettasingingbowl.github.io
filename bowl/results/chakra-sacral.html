@@ -72,6 +72,8 @@
   </div>
 
   <script>
+    // Redirect to quiz page - result pages are only for OG sharing
+    window.location.href = "../trac_nghiem_luan_xa.html";
     const shareUrl = window.location.href;
     document.getElementById('shareBtn').addEventListener('click', async function() {
       if (navigator.share) {
