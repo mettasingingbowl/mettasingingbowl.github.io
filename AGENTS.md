@@ -182,12 +182,44 @@ giangmettayoga.com/
 
 **Lưu ý:** OG meta tags phải dùng đúng domain tương ứng!
 
-### 6. Test
+### 6. Test trước deploy
 - **Chạy `./check-html.sh`** để kiểm tra cấu trúc HTML nhanh
-- **Chạy `./check-html.sh --serve`** để test qua HTTP server - **BẮT BUỘC trước khi deploy**
-- Chạy edge cases với Node.js
+- **Chạy `./check-html.sh --serve`** để test qua HTTP server
 - Test trên iPhone Safari thực tế
-- Dùng Facebook Sharing Debugger để verify OG image
+
+### 7. Double check sau deploy
+**BẮT BUỘC chạy sau mỗi lần deploy để verify:**
+
+```bash
+# Bowl site
+curl -sIL "https://giangmettasingingbowl.com/trac_nghiem_nang_luong_tan_so.html" | grep HTTP
+curl -sIL "https://giangmettasingingbowl.com/results/energy-3-medium.html" | grep HTTP
+curl -sI "https://giangmettasingingbowl.com/assets/og-energy-3.jpg" | grep HTTP
+
+# Yoga site  
+curl -sIL "https://giangmettayoga.com/trac_nghiem_dosha.html" | grep HTTP
+curl -sIL "https://giangmettayoga.com/results/vata.html" | grep HTTP
+curl -sI "https://giangmettayoga.com/assets/og-dosha-vata.jpg" | grep HTTP
+
+# Verify OG URLs đúng domain (không có /bowl/ hoặc /yoga/ prefix)
+curl -sL "https://giangmettasingingbowl.com/results/energy-3-medium.html" | grep 'og:image'
+curl -sL "https://giangmettayoga.com/results/vata.html" | grep 'og:image'
+```
+
+**Checklist:**
+- [ ] Tất cả pages trả về HTTP 200
+- [ ] OG images accessible (HTTP 200)
+- [ ] OG URLs đúng domain (`giangmettasingingbowl.com` hoặc `giangmettayoga.com`)
+- [ ] OG URLs KHÔNG có `/bowl/` hoặc `/yoga/` prefix
+
+### 8. Test Facebook sharing
+1. Vào https://developers.facebook.com/tools/debug/
+2. Nhập URL result page (VD: `https://giangmettasingingbowl.com/results/energy-3-medium.html`)
+3. Bấm **"Scrape Again"** để clear Facebook cache
+4. Verify:
+   - OG image hiển thị đúng
+   - Title và description đúng
+   - Không có warnings/errors
 
 ---
 
