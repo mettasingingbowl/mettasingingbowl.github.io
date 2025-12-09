@@ -158,8 +158,8 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 **Lưu ý:** Nếu chỉ push GitHub mà không deploy thủ công → links trên `giangmettasingingbowl.com` sẽ 404!
 
 ### 6. Test
-- **Chạy `./scripts/check-html.sh`** để kiểm tra cấu trúc HTML nhanh
-- **Chạy `./scripts/check-html.sh --serve`** để test qua HTTP server - **BẮT BUỘC trước khi deploy**
+- **Chạy `./check-html.sh`** để kiểm tra cấu trúc HTML nhanh
+- **Chạy `./check-html.sh --serve`** để test qua HTTP server - **BẮT BUỘC trước khi deploy**
 - Chạy edge cases với Node.js
 - Test trên iPhone Safari thực tế
 - Dùng Facebook Sharing Debugger để verify OG image
