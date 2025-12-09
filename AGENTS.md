@@ -131,8 +131,10 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - `yoga/assets/og-dosha.jpg` - 3 silhouettes yoga poses
 
 ### 3. Cập nhật meta tags
+**QUAN TRỌNG:** Luôn dùng domain production `giangmettasingingbowl.com` (KHÔNG dùng `mettasingingbowl.github.io`)
 ```html
-<meta property="og:image" content="https://mettasingingbowl.github.io/[path]/assets/og-[tên].jpg">
+<meta property="og:url" content="https://giangmettasingingbowl.com/[path]/[tên-file].html">
+<meta property="og:image" content="https://giangmettasingingbowl.com/[path]/assets/og-[tên].jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ```
@@ -141,7 +143,21 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - Desktop nav: `<ul class="nav-links">`
 - Mobile nav: `<div class="mobile-menu">`
 
-### 5. Test
+### 5. Deploy
+**QUAN TRỌNG:** Website có 2 nguồn deploy riêng biệt:
+
+| Domain | Nguồn | Nội dung |
+|--------|-------|----------|
+| `giangmettasingingbowl.com` | Deploy thủ công | Trang chính + `/bowl/` + `/yoga/` |
+| `mettasingingbowl.github.io` | GitHub Pages (auto) | Chỉ `/bowl/` + `/yoga/` |
+
+**Sau khi thay đổi code:**
+1. Push lên GitHub (auto deploy GitHub Pages)
+2. **Deploy thủ công** lên `giangmettasingingbowl.com` - bao gồm folders `/bowl/` và `/yoga/`
+
+**Lưu ý:** Nếu chỉ push GitHub mà không deploy thủ công → links trên `giangmettasingingbowl.com` sẽ 404!
+
+### 6. Test
 - **Chạy `./scripts/check-html.sh`** để kiểm tra cấu trúc HTML nhanh
 - **Chạy `./scripts/check-html.sh --serve`** để test qua HTTP server - **BẮT BUỘC trước khi deploy**
 - Chạy edge cases với Node.js
