@@ -131,12 +131,21 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - `yoga/assets/og-dosha.jpg` - 3 silhouettes yoga poses
 
 ### 3. Cập nhật meta tags
-**QUAN TRỌNG:** Luôn dùng domain production `giangmettasingingbowl.com` (KHÔNG dùng `mettasingingbowl.github.io`)
+**QUAN TRỌNG:** Dùng đúng domain production theo site:
+
+| Site | Domain |
+|------|--------|
+| bowl (singing bowl, chakra, energy) | `giangmettasingingbowl.com` |
+| yoga (dosha) | `giangmettayoga.com` |
+
 ```html
-<meta property="og:url" content="https://giangmettasingingbowl.com/[path]/[tên-file].html">
-<meta property="og:image" content="https://giangmettasingingbowl.com/[path]/assets/og-[tên].jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<!-- Bowl site -->
+<meta property="og:url" content="https://giangmettasingingbowl.com/[tên-file].html">
+<meta property="og:image" content="https://giangmettasingingbowl.com/assets/og-[tên].jpg">
+
+<!-- Yoga site -->
+<meta property="og:url" content="https://giangmettayoga.com/[tên-file].html">
+<meta property="og:image" content="https://giangmettayoga.com/assets/og-[tên].jpg">
 ```
 
 ### 4. Thêm vào navigation
@@ -144,18 +153,34 @@ Each silhouette soft and ethereal. NO TEXT, NO BORDERS, NO FRAMES.
 - Mobile nav: `<div class="mobile-menu">`
 
 ### 5. Deploy
-**QUAN TRỌNG:** Website có 2 nguồn deploy riêng biệt:
+**QUAN TRỌNG:** Có 2 domain production riêng biệt:
 
-| Domain | Nguồn | Nội dung |
-|--------|-------|----------|
-| `giangmettasingingbowl.com` | Deploy thủ công | Trang chính + `/bowl/` + `/yoga/` |
-| `mettasingingbowl.github.io` | GitHub Pages (auto) | Chỉ `/bowl/` + `/yoga/` |
+| Folder local | Deploy đến | Nội dung |
+|--------------|------------|----------|
+| `bowl/*` | `giangmettasingingbowl.com/` | Singing bowl, chakra, energy quiz |
+| `yoga/*` | `giangmettayoga.com/` | Dosha quiz |
+
+**Cấu trúc sau khi deploy:**
+```
+giangmettasingingbowl.com/
+├── trac_nghiem_nang_luong_tan_so.html
+├── trac_nghiem_luan_xa.html
+├── assets/
+└── results/
+
+giangmettayoga.com/
+├── trac_nghiem_dosha.html
+├── assets/
+└── results/
+```
 
 **Sau khi thay đổi code:**
-1. Push lên GitHub (auto deploy GitHub Pages)
-2. **Deploy thủ công** lên `giangmettasingingbowl.com` - bao gồm folders `/bowl/` và `/yoga/`
+1. Push lên GitHub
+2. Deploy thủ công:
+   - `bowl/*` → root của `giangmettasingingbowl.com`
+   - `yoga/*` → root của `giangmettayoga.com`
 
-**Lưu ý:** Nếu chỉ push GitHub mà không deploy thủ công → links trên `giangmettasingingbowl.com` sẽ 404!
+**Lưu ý:** OG meta tags phải dùng đúng domain tương ứng!
 
 ### 6. Test
 - **Chạy `./check-html.sh`** để kiểm tra cấu trúc HTML nhanh
