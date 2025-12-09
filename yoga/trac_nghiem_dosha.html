@@ -10,10 +10,10 @@
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mettasingingbowl.github.io/yoga/trac_nghiem_dosha.html">
+  <meta property="og:url" content="https://giangmettasingingbowl.com/yoga/trac_nghiem_dosha.html">
   <meta property="og:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
   <meta property="og:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
-  <meta property="og:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha.jpg">
+  <meta property="og:image" content="https://giangmettasingingbowl.com/yoga/assets/og-dosha.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Metta Yoga Đà Lạt">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🧘 Trắc Nghiệm Thể Tạng Dosha - Tìm Yoga Phù Hợp">
   <meta name="twitter:description" content="Bạn là Vata, Pitta hay Kapha? 20 câu hỏi giúp bạn hiểu rõ thể tạng và tìm ra trường phái Yoga phù hợp nhất!">
-  <meta name="twitter:image" content="https://mettasingingbowl.github.io/yoga/assets/og-dosha.jpg">
+  <meta name="twitter:image" content="https://giangmettasingingbowl.com/yoga/assets/og-dosha.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -661,8 +661,21 @@
       };
       const resultPage = resultPageMap[doshaKey] || 'vata';
       const shareResultUrl = window.location.origin + '/yoga/results/' + resultPage + '.html?v=' + scores.V + '&p=' + scores.P + '&k=' + scores.K;
+      
+      // Map resultPage to image filename
+      const imageMap = {
+        'vata': 'og-dosha-vata.jpg',
+        'pitta': 'og-dosha-pitta.jpg',
+        'kapha': 'og-dosha-kapha.jpg',
+        'vata-pitta': 'og-dosha-vata-pitta.jpg',
+        'vata-kapha': 'og-dosha-vata-kapha.jpg',
+        'pitta-kapha': 'og-dosha-pitta-kapha.jpg',
+        'tri-dosha': 'og-dosha-tri.jpg'
+      };
+      const resultImage = 'assets/' + imageMap[resultPage];
 
-      let html = '<h3>Kết quả Dosha của bạn</h3>';
+      let html = '<div style="text-align:center; margin-bottom:20px;"><img src="' + resultImage + '" alt="Kết quả Dosha" style="max-width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></div>';
+      html += '<h3>Kết quả Dosha của bạn</h3>';
       
       html += '<div class="dosha-result">';
       html += '<div class="dosha-score vata' + (dominantDoshas.includes('V') ? ' dominant' : '') + '"><div class="name">Vata</div><div class="points">' + scores.V + '</div></div>';
