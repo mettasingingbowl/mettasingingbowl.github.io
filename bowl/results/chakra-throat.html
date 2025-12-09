@@ -66,6 +66,7 @@
     <div class="share-section">
       <p style="color: var(--text-soft); margin-bottom: 16px;">🎯 Luân xa nào của bạn bè cần chăm sóc? Thử thách họ!</p>
       <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+      <button type="button" class="btn" id="emailBtn" style="background:#e53935; color:#fff;">Gửi kết quả cho cô Giang</button>
     </div>
   </div>
 
@@ -76,6 +77,11 @@
         try { await navigator.share({ title: 'Luân xa Cổ họng cần chăm sóc', text: 'Kết quả 7 luân xa: Luân xa Cổ họng cần được quan tâm. Bạn cần chăm sóc luân xa nào?', url: shareUrl }); }
         catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
       } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+    });
+    document.getElementById('emailBtn').addEventListener('click', function() {
+      const subject = 'Kết quả trắc nghiệm 7 luân xa';
+      const body = 'Kết quả: Luân xa Cổ họng cần chăm sóc\n\nTrân trọng.';
+      window.location.href = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   </script>
 </body>

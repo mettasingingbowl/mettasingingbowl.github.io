@@ -42,6 +42,7 @@
     <div class="share-section">
       <p style="color: #666; margin-bottom: 16px;">🎯 Luân xa nào của bạn bè cần chăm sóc? Thử thách họ!</p>
       <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+      <button type="button" class="btn" id="emailBtn" style="background:#e53935; color:#fff;">Gửi kết quả cho cô Giang</button>
     </div>
   </div>
   <script>
@@ -52,6 +53,9 @@
         try { await navigator.share({ title: '7 Luân Xa Cân Bằng', text: shareText, url: shareUrl }); }
         catch (err) { if (err.name !== 'AbortError') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
       } else { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank'); }
+    });
+    document.getElementById('emailBtn').addEventListener('click', function() {
+      window.location.href = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent('Kết quả trắc nghiệm 7 luân xa') + '&body=' + encodeURIComponent('Kết quả: 7 Luân Xa Cân Bằng\n\nTrân trọng.');
     });
   </script>
 </body>

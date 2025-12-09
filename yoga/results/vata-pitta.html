@@ -230,6 +230,7 @@
     <div class="share-section">
       <p>🎯 Bạn bè bạn thuộc thể tạng nào? Thử thách họ!</p>
       <button type="button" class="btn btn-primary" id="shareBtn">Chia sẻ kết quả</button>
+      <button type="button" class="btn" id="emailBtn" style="background:#e53935; color:#fff;">Gửi kết quả cho cô Giang</button>
     </div>
     
   </div>
@@ -255,6 +256,9 @@
       } else {
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
       }
+    });
+    document.getElementById('emailBtn').addEventListener('click', function() {
+      window.location.href = 'mailto:giangmetta@gmail.com?subject=' + encodeURIComponent('Kết quả trắc nghiệm Dosha') + '&body=' + encodeURIComponent('Kết quả: VATA-PITTA - Gió & Lửa\n\nTrân trọng.');
     });
   </script>
 </body>
