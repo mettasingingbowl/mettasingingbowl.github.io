@@ -1,0 +1,2245 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GIANGMETTA</title>
+    <script>
+      tailwind.config = {
+        safelist: [
+          "from-violet-600",
+          "to-fuchsia-500",
+          "from-sky-600",
+          "to-cyan-500",
+          "from-emerald-600",
+          "to-lime-500",
+          "from-slate-700",
+          "to-slate-500",
+          "bg-red-500",
+          "bg-orange-500",
+          "bg-amber-500",
+          "bg-emerald-500",
+          "bg-sky-500",
+          "bg-indigo-500",
+          "bg-violet-500",
+          "bg-slate-600",
+          "bg-slate-500",
+          "text-red-600",
+          "text-orange-600",
+          "text-amber-700",
+          "text-emerald-700",
+          "text-sky-700",
+          "text-indigo-700",
+          "text-violet-700",
+          "text-slate-700",
+          "bg-violet-400",
+          "bg-amber-400",
+          "bg-emerald-400",
+          "bg-sky-400",
+          "bg-slate-400",
+        ],
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade-enter {
+        animation: fadeUp 0.25s ease;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50">
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      document.title = "GIANGMETTA";
+
+      // ---------- Quiz data ----------
+
+      const LIKERT = [
+        { label: "Không bao giờ", v: 0 },
+        { label: "Hiếm khi", v: 1 },
+        { label: "Thỉnh thoảng", v: 2 },
+        { label: "Thường xuyên", v: 3 },
+        { label: "Rất thường xuyên", v: 4 },
+      ];
+
+      const chakras = [
+        {
+          key: "root",
+          name: "Luân xa Gốc (Root / Muladhara)",
+          tone: "red",
+          colorLabel: "Đỏ",
+          frequency: "396 Hz*",
+          location: "Đáy cột sống / đáy chậu",
+          represents: "Sinh tồn • An toàn • Nền tảng • Tiền bạc",
+          element: "Đất",
+          mantra: "LAM",
+          keywords: "An toàn • Nền tảng • Niềm tin cuộc sống",
+          tips: [
+            "Đi bộ chậm, chạm đất bằng chân trần (nếu an toàn).",
+            "Thở bụng 4–6 nhịp, chú ý vùng xương cùng/đáy chậu.",
+            "Sắp xếp lại không gian sống, ưu tiên giấc ngủ đều.",
+          ],
+        },
+        {
+          key: "sacral",
+          name: "Luân xa Xương cùng (Sacral / Svadhisthana)",
+          tone: "orange",
+          colorLabel: "Cam",
+          frequency: "417 Hz*",
+          location: "Dưới rốn (vùng bụng dưới) / xương cùng",
+          represents: "Cảm xúc • Khoái cảm • Sáng tạo • Nữ tính",
+          element: "Nước",
+          mantra: "VAM",
+          keywords: "Cảm xúc • Khoái cảm • Sáng tạo",
+          tips: [
+            "Uống đủ nước, vận động mềm (hông, xoay khung chậu).",
+            "Viết 10 phút về cảm xúc mà không phán xét.",
+            "Làm 1 hoạt động sáng tạo nhỏ mỗi ngày (vẽ, nấu ăn, nhạc).",
+          ],
+        },
+        {
+          key: "solar",
+          name: "Luân xa Đám rối mặt trời (Solar Plexus / Manipura)",
+          tone: "amber",
+          colorLabel: "Vàng",
+          frequency: "528 Hz*",
+          location: "Vùng thượng vị (trên rốn, dưới xương ức)",
+          represents: "Tự tin • Ý chí • Sức mạnh cá nhân • Ranh giới",
+          element: "Lửa",
+          mantra: "RAM",
+          keywords: "Tự tin • Ý chí • Ranh giới",
+          tips: [
+            "Tập nói “không” một cách tử tế cho 1 việc nhỏ.",
+            "Thở đều và nhẹ (đừng cố quá khi mệt).",
+            "Ăn đúng bữa, ưu tiên thực phẩm ấm, dễ tiêu.",
+          ],
+        },
+        {
+          key: "heart",
+          name: "Luân xa Tim (Heart / Anahata)",
+          tone: "emerald",
+          colorLabel: "Xanh lá",
+          frequency: "639 Hz*",
+          location: "Giữa ngực (vùng tim/phổi)",
+          represents: "Yêu thương • Đồng cảm • Kết nối • Tha thứ",
+          element: "Khí",
+          mantra: "YAM",
+          keywords: "Yêu thương • Đồng cảm • Tha thứ",
+          tips: [
+            "Tập mở ngực nhẹ: kéo giãn vai/ngực 2–3 phút.",
+            "Viết 3 điều biết ơn mỗi ngày.",
+            "Trao – nhận: xin hỗ trợ 1 việc nhỏ thay vì tự gánh.",
+          ],
+        },
+        {
+          key: "throat",
+          name: "Luân xa Cổ họng (Throat / Vishuddha)",
+          tone: "sky",
+          colorLabel: "Xanh dương",
+          frequency: "741 Hz*",
+          location: "Cổ họng / vùng thanh quản",
+          represents: "Giao tiếp • Biểu đạt • Sự thật • Ranh giới lời nói",
+          element: "Không gian (Ether)",
+          mantra: "HAM",
+          keywords: "Giao tiếp • Biểu đạt • Sự thật",
+          tips: [
+            "Nói chậm hơn 10% và thở trước khi trả lời.",
+            "Humming (ngân) 1–2 phút để rung cổ họng.",
+            "Viết ra điều cần nói rồi chọn 1 câu ngắn để bắt đầu.",
+          ],
+        },
+        {
+          key: "thirdEye",
+          name: "Luân xa Con mắt thứ ba (Third Eye / Ajna)",
+          tone: "indigo",
+          colorLabel: "Chàm",
+          frequency: "852 Hz*",
+          location: "Giữa hai chân mày (vùng trán)",
+          represents: "Trực giác • Nhìn sâu • Sáng rõ • Tập trung",
+          element: "Ánh sáng",
+          mantra: "OM",
+          keywords: "Trực giác • Nhìn sâu • Tập trung",
+          tips: [
+            "Giảm đa nhiệm: 1 việc – 1 thời điểm.",
+            "Thiền 5–8 phút, chú ý điểm giữa hai chân mày.",
+            "Giảm màn hình 60 phút trước ngủ.",
+          ],
+        },
+        {
+          key: "crown",
+          name: "Luân xa Đỉnh đầu (Crown / Sahasrara)",
+          tone: "violet",
+          colorLabel: "Tím",
+          frequency: "963 Hz*",
+          location: "Đỉnh đầu",
+          represents: "Ý nghĩa • Niềm tin • Kết nối tinh thần",
+          element: "Ý thức",
+          mantra: "Im lặng",
+          keywords: "Ý nghĩa • Tâm linh • Kết nối",
+          tips: [
+            "Thiền quan sát hoặc cầu nguyện theo niềm tin cá nhân.",
+            "Ở thiên nhiên (cây xanh/ánh nắng) 10–15 phút.",
+            "Giữ thói quen ‘tiếp đất’ (ăn uống, lịch sinh hoạt đều).",
+          ],
+        },
+      ];
+
+      const chakraQuiz = {
+        id: "chakra",
+        icon: "sparkles",
+        title: "Kiểm tra cân bằng luân xa (20 câu)",
+        subtitle: "Đánh giá xu hướng thiếu năng lượng / quá tải theo 7 luân xa.",
+        variant: "likert",
+        questions: [
+          // Root
+          {
+            t: "Tôi thường lo lắng về an toàn, tiền bạc hoặc chỗ dựa.",
+            chakra: "root",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi cứng nhắc, sợ thay đổi và bám chặt thói quen cũ.",
+            chakra: "root",
+            kind: "excess",
+          },
+          {
+            t: "Tôi hay thấy mệt mỏi, thiếu sức bền hoặc trì trệ.",
+            chakra: "root",
+            kind: "deficit",
+          },
+
+          // Sacral
+          {
+            t: "Tôi khó tận hưởng niềm vui, cảm xúc bị ‘tắt’ hoặc khô cạn.",
+            chakra: "sacral",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi dễ sa đà khoái cảm/giải trí, khó dừng lại đúng lúc.",
+            chakra: "sacral",
+            kind: "excess",
+          },
+          {
+            t: "Tôi hay cảm thấy tội lỗi khi muốn điều mình thích.",
+            chakra: "sacral",
+            kind: "deficit",
+          },
+
+          // Solar
+          {
+            t: "Tôi thiếu tự tin khi quyết định; hay nghi ngờ bản thân.",
+            chakra: "solar",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi dễ nóng nảy, muốn kiểm soát người khác hoặc tình huống.",
+            chakra: "solar",
+            kind: "excess",
+          },
+          {
+            t: "Tôi hay ‘nuốt giận’ rồi bị đầy bụng/khó tiêu khi căng thẳng.",
+            chakra: "solar",
+            kind: "deficit",
+          },
+
+          // Heart
+          {
+            t: "Tôi khó tin tưởng, khó mở lòng hoặc nhận yêu thương.",
+            chakra: "heart",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi hay hi sinh quá mức, dễ phụ thuộc cảm xúc vào người khác.",
+            chakra: "heart",
+            kind: "excess",
+          },
+          {
+            t: "Tôi giữ nhiều tổn thương cũ và khó tha thứ (cho mình/người khác).",
+            chakra: "heart",
+            kind: "deficit",
+          },
+
+          // Throat
+          {
+            t: "Tôi ngại nói ra nhu cầu; sợ bị đánh giá khi bày tỏ.",
+            chakra: "throat",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi thường nói nhanh, nói nhiều hoặc cắt lời người khác.",
+            chakra: "throat",
+            kind: "excess",
+          },
+          {
+            t: "Tôi hay ‘nói một đằng nghĩ một nẻo’ để chiều lòng người khác.",
+            chakra: "throat",
+            kind: "deficit",
+          },
+
+          // Third eye
+          {
+            t: "Tôi khó tập trung, trực giác mờ nhạt hoặc hay hoang mang.",
+            chakra: "thirdEye",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi overthink, tự ‘vẽ kịch bản’ và khó dừng suy nghĩ.",
+            chakra: "thirdEye",
+            kind: "excess",
+          },
+          {
+            t: "Tôi hay bị đau đầu/nhức vùng trán khi stress.",
+            chakra: "thirdEye",
+            kind: "excess",
+          },
+
+          // Crown
+          {
+            t: "Tôi thấy cuộc sống thiếu ý nghĩa, mất kết nối với điều lớn hơn.",
+            chakra: "crown",
+            kind: "deficit",
+          },
+          {
+            t: "Tôi dễ ‘bay’/mơ mộng, xa rời thực tế và quên chăm sóc thân thể.",
+            chakra: "crown",
+            kind: "excess",
+          },
+        ],
+      };
+
+      const energyQuiz = {
+        id: "energy",
+        icon: "waves",
+        title: "Bài kiểm tra tần số năng lượng (20 câu)",
+        subtitle: "Xác định xu hướng rung động: trầm • cân bằng • cao.",
+        variant: "likert",
+        questions: [
+          { t: "Tôi thức dậy với cảm giác biết ơn hoặc hào hứng.", bucket: "high" },
+          { t: "Tôi thấy bế tắc, khó thoát khỏi nỗi lo.", bucket: "low" },
+          { t: "Tôi dễ mỉm cười hoặc cảm thấy nhẹ nhõm trong ngày.", bucket: "high" },
+          { t: "Tôi hay cáu kỉnh/khó chịu vì những việc nhỏ.", bucket: "low" },
+          { t: "Tôi có thể bình tĩnh quay về nhịp thở khi căng thẳng.", bucket: "mid" },
+          { t: "Tôi thường so sánh bản thân và thấy thiếu thốn.", bucket: "low" },
+          {
+            t: "Tôi cảm nhận được tình thương (từ mình/đến người khác) khá thường xuyên.",
+            bucket: "high",
+          },
+          { t: "Tôi khó ngủ vì tâm trí chạy liên tục.", bucket: "low" },
+          { t: "Tôi giữ lời hứa với bản thân (dù là việc nhỏ).", bucket: "mid" },
+          { t: "Tôi hay cảm thấy tội lỗi hoặc tự trách quá mức.", bucket: "low" },
+          { t: "Tôi biết đặt ranh giới và nói ‘không’ khi cần.", bucket: "mid" },
+          { t: "Tôi cảm thấy cơ thể nặng nề, thiếu sức sống.", bucket: "low" },
+          { t: "Tôi có khoảnh khắc ‘flow’ khi làm việc/sáng tạo.", bucket: "high" },
+          { t: "Tôi thường xuyên hoài nghi, khó tin vào điều tốt đẹp.", bucket: "low" },
+          { t: "Tôi chủ động chăm sóc bản thân: ăn, ngủ, vận động ở mức ổn.", bucket: "mid" },
+          { t: "Tôi thấy mình kết nối với mục đích hoặc ý nghĩa cá nhân.", bucket: "high" },
+          { t: "Tôi bị cuốn vào drama/xung đột và khó thoát ra.", bucket: "low" },
+          { t: "Tôi biết ‘tạm dừng’ trước khi phản ứng nóng.", bucket: "mid" },
+          { t: "Tôi dễ tha thứ và buông bớt khi việc không như ý.", bucket: "high" },
+          { t: "Tôi thường cảm thấy sợ hãi mơ hồ mà không rõ lý do.", bucket: "low" },
+        ],
+      };
+
+      const doshaQuiz = {
+        id: "dosha",
+        icon: "flower-2",
+        title: "Kiểm tra Dosha (Vata • Pitta • Kapha) – 20 câu",
+        subtitle: "Chọn phương án giống bạn nhất ở thời điểm gần đây.",
+        variant: "tri",
+        questions: [
+          {
+            t: "Dáng người của tôi thường:",
+            a: "Gầy/nhỏ, xương rõ, khó tăng cân (Vata)",
+            b: "Cân đối/đầy cơ, dễ nóng (Pitta)",
+            c: "Đậm/khung to, dễ tăng cân (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Da của tôi thường:",
+            a: "Khô, dễ nứt, lạnh (Vata)",
+            b: "Nhạy cảm, dễ đỏ/nóng (Pitta)",
+            c: "Mịn/ẩm, dày hơn (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Khi đói, tôi:",
+            a: "Bữa đói bữa không, thất thường (Vata)",
+            b: "Rất đói, dễ cáu nếu trễ bữa (Pitta)",
+            c: "Đói vừa, có thể nhịn khá lâu (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tiêu hoá của tôi thường:",
+            a: "Hay đầy hơi/khó đoán (Vata)",
+            b: "Mạnh, nóng, dễ ợ nóng (Pitta)",
+            c: "Chậm, nặng bụng sau ăn (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Nhiệt độ cơ thể tôi:",
+            a: "Hay lạnh tay chân (Vata)",
+            b: "Hay nóng, dễ đổ mồ hôi (Pitta)",
+            c: "Ổn định, chịu lạnh tốt hơn (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tốc độ nói/làm của tôi:",
+            a: "Nhanh, thay đổi, có lúc ‘quá đà’ (Vata)",
+            b: "Nhanh – mục tiêu rõ, quyết liệt (Pitta)",
+            c: "Chậm rãi, chắc chắn, bền bỉ (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Khi stress, tôi thường:",
+            a: "Lo lắng, mất ngủ, nghĩ nhiều (Vata)",
+            b: "Cáu/giận, muốn kiểm soát (Pitta)",
+            c: "Thu mình, trì trệ, ăn nhiều (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Giấc ngủ của tôi:",
+            a: "Nhẹ, dễ tỉnh, mơ nhiều (Vata)",
+            b: "Vừa, dễ thức vì nóng/ý nghĩ (Pitta)",
+            c: "Sâu, ngủ lâu, khó dậy (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tóc của tôi thường:",
+            a: "Khô, xơ, dễ gãy (Vata)",
+            b: "Mỏng/dễ rụng, dễ bạc sớm (Pitta)",
+            c: "Dày, bóng, mọc nhanh (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tính cách nổi bật của tôi:",
+            a: "Sáng tạo, linh hoạt, hay đổi ý (Vata)",
+            b: "Tham vọng, quyết đoán, thẳng (Pitta)",
+            c: "Điềm tĩnh, kiên nhẫn, dễ hài lòng (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tôi học/làm việc tốt nhất khi:",
+            a: "Có sự mới mẻ và nhịp thay đổi (Vata)",
+            b: "Có mục tiêu và deadline rõ (Pitta)",
+            c: "Có lịch đều, lặp lại ổn định (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Sở thích ăn uống của tôi:",
+            a: "Thích ấm, béo nhẹ, dễ tiêu (Vata)",
+            b: "Thích mát, vừa cay/chua, đậm vị (Pitta)",
+            c: "Thích ngọt/béo, ăn ‘ngon miệng’ (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Khi trời lạnh, tôi:",
+            a: "Khó chịu, run, cần giữ ấm (Vata)",
+            b: "Ổn, nhưng không thích gió lạnh (Pitta)",
+            c: "Chịu được khá tốt (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Khi trời nóng, tôi:",
+            a: "Khá ổn, miễn đừng quá oi (Vata)",
+            b: "Rất khó chịu, dễ bốc hỏa (Pitta)",
+            c: "Chịu được, nhưng dễ uể oải (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tôi thường ra quyết định:",
+            a: "Nhanh nhưng hay đổi (Vata)",
+            b: "Nhanh và dứt khoát (Pitta)",
+            c: "Chậm, cân nhắc kỹ (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tôi có xu hướng:",
+            a: "Thích di chuyển/du lịch, không ngồi yên lâu (Vata)",
+            b: "Thích cạnh tranh/đạt thành tích (Pitta)",
+            c: "Thích an toàn/ổn định/ở nhà (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Khi ốm nhẹ, tôi thường:",
+            a: "Đau nhức lặt vặt, khô, táo bón (Vata)",
+            b: "Viêm/nóng, nổi mụn, ợ nóng (Pitta)",
+            c: "Đờm/dị ứng, nặng đầu, phù (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Năng lượng trong ngày của tôi:",
+            a: "Lúc cao lúc thấp, thất thường (Vata)",
+            b: "Mạnh, tập trung, dễ ‘quá tải’ (Pitta)",
+            c: "Ổn định, bền, nhưng dễ ì (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tôi phản ứng với lời góp ý:",
+            a: "Nhạy cảm, dễ lo (Vata)",
+            b: "Tranh luận, bảo vệ quan điểm (Pitta)",
+            c: "Im lặng, chịu đựng, buồn lâu (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+          {
+            t: "Tôi cảm thấy cân bằng nhất khi:",
+            a: "Giữ nếp sinh hoạt ấm áp, đều đặn (Vata)",
+            b: "Giảm nóng, thư giãn và bớt ‘chiến’ (Pitta)",
+            c: "Vận động nhiều hơn, nhẹ người (Kapha)",
+            map: { a: "vata", b: "pitta", c: "kapha" },
+          },
+        ],
+      };
+
+      const QUIZZES = [chakraQuiz, energyQuiz, doshaQuiz];
+
+      const MENUS = [
+        {
+          id: "chakra",
+          label: "Luân xa",
+          tone: "violet",
+          icon: "sparkles",
+          desc: "Khái niệm 7 luân xa + bài quiz cân bằng",
+        },
+        {
+          id: "energy",
+          label: "Năng lượng tần số",
+          tone: "sky",
+          icon: "waves",
+          desc: "Hiểu trạng thái rung động + gợi ý nâng năng lượng",
+        },
+        {
+          id: "dosha",
+          label: "Dosha",
+          tone: "emerald",
+          icon: "flower-2",
+          desc: "Thể tạng Ayurveda + chọn trường phái yoga hợp",
+        },
+      ];
+
+      const ENERGY_RAISE = [
+        "Ngủ đủ + ăn uống đúng bữa (đây là ‘pin’ quan trọng nhất).",
+        "Vận động nhẹ mỗi ngày: đi bộ, giãn cơ, yoga 10–20 phút.",
+        "Thở chậm để hạ stress: hít 4 – thở 6 trong 3–5 phút.",
+        "Giảm kích thích: bớt màn hình/tin tiêu cực/caffeine khi mệt.",
+        "Kết nối: nói chuyện với 1 người tin cậy, ôm, cười, biết ơn.",
+        "Dọn dẹp không gian: gọn hơn = đầu óc nhẹ hơn.",
+      ];
+
+      const ENERGY_KEEP = [
+        "Đặt ranh giới: bớt ‘làm quá sức’ và bớt chiều lòng.",
+        "Chia nhỏ việc: 1 việc – 1 bước, nghỉ ngắn giữa giờ.",
+        "Uống nước + ăn ấm/dễ tiêu khi cơ thể ‘tụt pin’.",
+        "Tập đều hơn tập nặng: 10 phút/ngày tốt hơn 1 buổi ‘chiến’/tuần.",
+        "Theo dõi dấu hiệu: mất ngủ, cáu, uể oải = cần phục hồi.",
+      ];
+
+      const DOSHA_BASICS = [
+        {
+          name: "Vata",
+          tone: "violet",
+          elements: "Không khí + Không gian",
+          represents: "Chuyển động, thần kinh, sáng tạo, linh hoạt",
+          whenOff: "Dễ lo, mất ngủ, khô, phân tán; cơ thể lạnh/thiếu ổn định",
+          yoga: "Chậm, tiếp đất, giữ nhịp đều (Hatha chậm, Yin/Restorative)",
+        },
+        {
+          name: "Pitta",
+          tone: "amber",
+          elements: "Lửa + Nước",
+          represents: "Chuyển hoá, tiêu hoá, trí tuệ, tập trung",
+          whenOff: "Dễ nóng nảy, bốc hoả, ‘chiến’, viêm/nóng; khó thư giãn",
+          yoga: "Vừa phải, làm mát, mềm (Hatha/Vinyasa vừa, Yin mát)",
+        },
+        {
+          name: "Kapha",
+          tone: "emerald",
+          elements: "Đất + Nước",
+          represents: "Cấu trúc, bền bỉ, miễn dịch, ổn định",
+          whenOff: "Dễ ì, chậm, nặng nề, trì trệ; bám vùng an toàn",
+          yoga: "Năng động hơn để kích hoạt (Vinyasa/chuỗi đứng, twist)",
+        },
+      ];
+
+      // ---------- Scoring ----------
+
+      function clamp(n, a, b) {
+        return Math.max(a, Math.min(b, n));
+      }
+
+      function pct(n, denom) {
+        if (!denom) return 0;
+        return Math.round((n / denom) * 100);
+      }
+
+      function scoreChakra(answers) {
+        const acc = Object.fromEntries(
+          chakras.map((c) => [c.key, { deficit: [], excess: [] }])
+        );
+
+        chakraQuiz.questions.forEach((q, i) => {
+          const v = answers[i] ?? 0;
+          acc[q.chakra][q.kind].push(v);
+        });
+
+        const per = chakras.map((c) => {
+          const d = acc[c.key].deficit;
+          const e = acc[c.key].excess;
+
+          const dSum = d.reduce((s, x) => s + x, 0);
+          const eSum = e.reduce((s, x) => s + x, 0);
+          const dMax = d.length * 4;
+          const eMax = e.length * 4;
+
+          const deficitPct = pct(dSum, dMax);
+          const excessPct = pct(eSum, eMax);
+
+          const peak = Math.max(deficitPct, excessPct);
+          const gap = Math.abs(deficitPct - excessPct);
+
+          let status = "Tương đối cân bằng";
+          let explain = "Luân xa này khá ổn. Bạn chỉ cần giữ thói quen tốt là được.";
+
+          if (deficitPct >= 60 && deficitPct > excessPct + 10) {
+            status = "Thiếu năng lượng";
+            explain =
+              "Bạn chọn nhiều câu thuộc nhóm ‘thiếu’ → giống như pin yếu. Hãy nuôi dưỡng từ từ và đều đặn.";
+          } else if (excessPct >= 60 && excessPct > deficitPct + 10) {
+            status = "Quá tải";
+            explain =
+              "Bạn chọn nhiều câu thuộc nhóm ‘quá’ → giống như chạy quá tải. Hãy làm chậm lại, nghỉ nhiều hơn, và đặt ranh giới.";
+          } else if (peak >= 60 && gap <= 10) {
+            status = "Dao động";
+            explain =
+              "Bạn vừa có dấu hiệu thiếu vừa có dấu hiệu quá tải. Thường do nhịp sống thất thường; hãy ổn định giờ ngủ/ăn/vận động.";
+          } else if (peak >= 75) {
+            status = "Lệch mạnh";
+            explain =
+              "Luân xa này đang lệch khá mạnh. Nên ưu tiên chăm sóc 1–2 tuần tới (ngủ/ăn/nhịp sống + bài tập gợi ý).";
+          }
+
+          const intensity = clamp(peak, 0, 100);
+
+          return {
+            ...c,
+            deficitSum: dSum,
+            excessSum: eSum,
+            deficitMax: dMax,
+            excessMax: eMax,
+            deficitPct,
+            excessPct,
+            intensity,
+            status,
+            explain,
+          };
+        });
+
+        const ranked = [...per].sort((a, b) => b.intensity - a.intensity);
+        return { per, headline: ranked[0], secondary: ranked[1] };
+      }
+
+      function energyYoga(score) {
+        if (score < 40) {
+          return [
+            "Restorative / Yoga Nidra: phục hồi, thả lỏng toàn thân",
+            "Yin nhẹ + thở dài (hít 4 – thở 6), 5–10 phút",
+            "Tránh tập quá nặng; ưu tiên an toàn và ngủ đủ",
+          ];
+        }
+        if (score < 70) {
+          return [
+            "Hatha cơ bản hoặc Vinyasa nhẹ: ra mồ hôi vừa",
+            "Thêm 5 phút thở + giãn cuối buổi (Savasana)",
+            "Giữ đều 3–5 buổi/tuần để ổn định",
+          ];
+        }
+        return [
+          "Flow tỉnh thức (Vinyasa vừa): giữ nhịp thở, không ‘cố’",
+          "Thiền 5 phút để giữ sáng rõ nhưng vẫn tiếp đất",
+          "Đừng kín lịch: chừa khoảng nghỉ để cơ thể hồi",
+        ];
+      }
+
+      function scoreEnergy(answers) {
+        const bucketSum = { low: 0, mid: 0, high: 0 };
+        const bucketMax = { low: 0, mid: 0, high: 0 };
+
+        energyQuiz.questions.forEach((q, i) => {
+          const raw = answers[i] ?? 0;
+          const v = q.reverse ? 4 - raw : raw;
+          bucketSum[q.bucket] += v;
+          bucketMax[q.bucket] += 4;
+        });
+
+        const lowP = bucketMax.low ? bucketSum.low / bucketMax.low : 0;
+        const midP = bucketMax.mid ? bucketSum.mid / bucketMax.mid : 0;
+        const highP = bucketMax.high ? bucketSum.high / bucketMax.high : 0;
+
+        const score = clamp(
+          Math.round(
+            ((highP * 0.55 + midP * 0.35 + (1 - lowP) * 0.45) /
+              (0.55 + 0.35 + 0.45)) *
+              100
+          ),
+          0,
+          100
+        );
+
+        let level = "Tần số cao";
+        let tone = "emerald";
+        let message = "Bạn đang ở trạng thái khá nhẹ nhàng, sáng rõ và có khả năng lan tỏa.";
+
+        if (score < 40) {
+          level = "Tần số trầm";
+          tone = "slate";
+          message = "Bạn có thể đang tích tụ mệt mỏi/stress. Ưu tiên phục hồi và an toàn trước.";
+        } else if (score < 70) {
+          level = "Tần số cân bằng";
+          tone = "sky";
+          message = "Bạn tương đối ổn định. Chỉ cần vài thói quen nhỏ để nâng rung động đều hơn.";
+        }
+
+        const tips =
+          score < 40
+            ? [
+                "Ngủ đủ + ăn ấm, dễ tiêu trong 2–3 ngày.",
+                "Đi bộ 10–20 phút và tắm nắng nhẹ (nếu phù hợp).",
+                "Giảm kích thích: bớt mạng xã hội, caffeine, tin tiêu cực.",
+              ]
+            : score < 70
+            ? [
+                "Giữ nhịp thở: 4 giây hít – 6 giây thở, 5 phút.",
+                "Hoàn thành 1 việc nhỏ mỗi sáng để tạo đà.",
+                "Kết nối 1 người thân bằng cuộc gọi ngắn.",
+              ]
+            : [
+                "Duy trì thói quen biết ơn/thiền 5 phút.",
+                "Cho – nhận: làm 1 hành động tử tế mỗi ngày.",
+                "Tạo ‘khoảng trống’ để cảm hứng xuất hiện (đừng kín lịch).",
+              ];
+
+        return {
+          score,
+          level,
+          tone,
+          message,
+          buckets: {
+            low: pct(bucketSum.low, bucketMax.low),
+            mid: pct(bucketSum.mid, bucketMax.mid),
+            high: pct(bucketSum.high, bucketMax.high),
+          },
+          tips,
+        };
+      }
+
+      function scoreDosha(answers) {
+        const counts = { vata: 0, pitta: 0, kapha: 0 };
+        doshaQuiz.questions.forEach((q, i) => {
+          const pick = answers[i];
+          const key = q.map[pick] ?? null;
+          if (key) counts[key] += 1;
+        });
+
+        const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+        const [dominant, domN] = entries[0];
+        const [secondary, secN] = entries[1];
+
+        const meta = {
+          vata: {
+            name: "Vata",
+            tone: "violet",
+            desc: "Không khí + Không gian: linh hoạt, sáng tạo, nhanh.",
+            yoga: [
+              "Hatha chậm, nhịp đều (đặc biệt buổi tối)",
+              "Yin/Restorative (tiếp đất, thư giãn hệ thần kinh)",
+              "Thở êm: hít 4 – thở 6, 3–5 phút",
+            ],
+            balance: [
+              "Giữ ấm – đều – chậm: nếp sinh hoạt ổn định.",
+              "Ưu tiên món ấm, ẩm, dễ tiêu (cháo, súp).",
+              "Giãn cơ/ yoga nhẹ, thiền an thần.",
+            ],
+          },
+          pitta: {
+            name: "Pitta",
+            tone: "amber",
+            desc: "Lửa + Nước: sắc bén, tập trung, tham vọng.",
+            yoga: [
+              "Hatha/Vinyasa vừa phải (không ‘chiến’ quá)",
+              "Yin mát: mở hông – thả lỏng vai/gáy",
+              "Nghỉ giữa giờ + thở êm để hạ nhiệt",
+            ],
+            balance: [
+              "Làm mát và mềm: nghỉ giữa giờ, đi bộ thư giãn.",
+              "Ưu tiên món mát/nhạt hơn, giảm cay – rượu.",
+              "Thực hành buông ‘hoàn hảo’, chọn đủ tốt.",
+            ],
+          },
+          kapha: {
+            name: "Kapha",
+            tone: "emerald",
+            desc: "Đất + Nước: bền bỉ, điềm tĩnh, ổn định.",
+            yoga: [
+              "Vinyasa/Power yoga nhẹ–vừa (ra mồ hôi một chút)",
+              "Chuỗi đứng – thăng bằng – twist để ‘kích hoạt’",
+              "Tập buổi sáng/đầu ngày để đỡ ì",
+            ],
+            balance: [
+              "Vận động đều và mạnh hơn một chút mỗi ngày.",
+              "Ưu tiên món nhẹ, ấm, ít dầu; giảm ngọt.",
+              "Tạo sự mới mẻ: học 1 thứ nhỏ để ‘kích hoạt’.",
+            ],
+          },
+        };
+
+        const d = meta[dominant];
+        const s = meta[secondary];
+
+        return {
+          counts,
+          dominant,
+          secondary,
+          dominantMeta: d,
+          secondaryMeta: s,
+          pct: {
+            vata: pct(counts.vata, doshaQuiz.questions.length),
+            pitta: pct(counts.pitta, doshaQuiz.questions.length),
+            kapha: pct(counts.kapha, doshaQuiz.questions.length),
+          },
+          summary: `Nổi trội: ${d.name} (${domN}/20). Thứ hai: ${s.name} (${secN}/20).`,
+        };
+      }
+
+      // ---------- UI helpers ----------
+
+      function cx(...a) {
+        return a.filter(Boolean).join(" ");
+      }
+
+      function card(children, className = "") {
+        return `<div class="${cx(
+          "rounded-2xl bg-white/80 backdrop-blur shadow-sm ring-1 ring-black/5",
+          className
+        )}">${children}</div>`;
+      }
+
+      function pill(children, className = "") {
+        return `<span class="${cx(
+          "inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold",
+          className
+        )}">${children}</span>`;
+      }
+
+      function progress(value) {
+        return `
+          <div class="h-2 w-full overflow-hidden rounded-full bg-black/5">
+            <div class="h-full rounded-full bg-black/20" style="width: ${value}%"></div>
+          </div>
+        `;
+      }
+
+      function icon(name, className = "") {
+        return `<i data-lucide="${name}" class="${className}"></i>`;
+      }
+
+      // ---------- Tone helpers ----------
+
+      function toneBg(tone) {
+        switch (tone) {
+          case "red":
+            return "bg-red-500";
+          case "orange":
+            return "bg-orange-500";
+          case "amber":
+            return "bg-amber-500";
+          case "emerald":
+            return "bg-emerald-500";
+          case "sky":
+            return "bg-sky-500";
+          case "indigo":
+            return "bg-indigo-500";
+          case "violet":
+            return "bg-violet-500";
+          case "slate":
+          default:
+            return "bg-slate-600";
+        }
+      }
+
+      function toneText(tone) {
+        switch (tone) {
+          case "red":
+            return "text-red-600";
+          case "orange":
+            return "text-orange-600";
+          case "amber":
+            return "text-amber-700";
+          case "emerald":
+            return "text-emerald-700";
+          case "sky":
+            return "text-sky-700";
+          case "indigo":
+            return "text-indigo-700";
+          case "violet":
+            return "text-violet-700";
+          case "slate":
+          default:
+            return "text-slate-700";
+        }
+      }
+
+      function toneDot(tone) {
+        switch (tone) {
+          case "red":
+            return "bg-red-500";
+          case "orange":
+            return "bg-orange-500";
+          case "amber":
+            return "bg-amber-500";
+          case "emerald":
+            return "bg-emerald-500";
+          case "sky":
+            return "bg-sky-500";
+          case "indigo":
+            return "bg-indigo-500";
+          case "violet":
+            return "bg-violet-500";
+          case "slate":
+          default:
+            return "bg-slate-500";
+        }
+      }
+
+      function toneBar(tone) {
+        switch (tone) {
+          case "violet":
+            return "bg-violet-400";
+          case "amber":
+            return "bg-amber-400";
+          case "emerald":
+            return "bg-emerald-400";
+          case "sky":
+            return "bg-sky-400";
+          case "slate":
+          default:
+            return "bg-slate-400";
+        }
+      }
+
+      function menuGrad(menuId) {
+        if (menuId === "chakra") return "from-violet-600 to-fuchsia-500";
+        if (menuId === "energy") return "from-sky-600 to-cyan-500";
+        return "from-emerald-600 to-lime-500";
+      }
+
+      function menuVariant(menuId) {
+        if (menuId === "chakra") return "chakra";
+        if (menuId === "energy") return "wave";
+        return "dosha";
+      }
+
+      function bigIllustration(variant = "chakra", tone = "emerald") {
+        const tones = {
+          red: { a: "#ef4444", b: "#fb7185" },
+          orange: { a: "#f97316", b: "#fb923c" },
+          amber: { a: "#f59e0b", b: "#fbbf24" },
+          emerald: { a: "#10b981", b: "#34d399" },
+          sky: { a: "#0ea5e9", b: "#38bdf8" },
+          indigo: { a: "#6366f1", b: "#818cf8" },
+          violet: { a: "#8b5cf6", b: "#a78bfa" },
+          slate: { a: "#64748b", b: "#94a3b8" },
+        };
+
+        const t = tones[tone] ?? tones.emerald;
+        const gId = `g-${variant}-${tone}`;
+        const rId = `r-${variant}-${tone}`;
+
+        const common = `
+          <defs>
+            <linearGradient id="${gId}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="${t.a}" stop-opacity="0.95"></stop>
+              <stop offset="1" stop-color="${t.b}" stop-opacity="0.95"></stop>
+            </linearGradient>
+            <radialGradient id="${rId}" cx="50%" cy="40%" r="70%">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"></stop>
+              <stop offset="1" stop-color="${t.b}" stop-opacity="0.15"></stop>
+            </radialGradient>
+          </defs>
+          <rect x="0" y="0" width="520" height="240" rx="28" fill="url(#${rId})"></rect>
+          <circle cx="420" cy="80" r="56" fill="url(#${gId})" opacity="0.16"></circle>
+          <circle cx="100" cy="160" r="72" fill="url(#${gId})" opacity="0.12"></circle>
+        `;
+
+        if (variant === "wave") {
+          return `
+            <svg viewBox="0 0 520 240" class="h-40 w-full">
+              ${common}
+              <path
+                d="M0 150 C 60 110, 120 190, 180 150 C 240 110, 300 190, 360 150 C 420 110, 460 170, 520 130"
+                fill="none"
+                stroke="url(#${gId})"
+                stroke-width="10"
+                stroke-linecap="round"
+                opacity="0.85"
+              ></path>
+              <path
+                d="M0 175 C 60 135, 120 215, 180 175 C 240 135, 300 215, 360 175 C 420 135, 460 195, 520 155"
+                fill="none"
+                stroke="url(#${gId})"
+                stroke-width="6"
+                stroke-linecap="round"
+                opacity="0.55"
+              ></path>
+              <circle cx="260" cy="120" r="28" fill="url(#${gId})" opacity="0.28"></circle>
+            </svg>
+          `;
+        }
+
+        if (variant === "dosha") {
+          return `
+            <svg viewBox="0 0 520 240" class="h-40 w-full">
+              ${common}
+              <path
+                d="M260 55 C 235 55, 215 78, 215 105 C 215 140, 245 160, 260 180 C 275 160, 305 140, 305 105 C 305 78, 285 55, 260 55 Z"
+                fill="url(#${gId})"
+                opacity="0.22"
+              ></path>
+              <path
+                d="M150 165 C 190 130, 220 135, 260 155 C 300 135, 330 130, 370 165"
+                fill="none"
+                stroke="url(#${gId})"
+                stroke-width="10"
+                stroke-linecap="round"
+                opacity="0.75"
+              ></path>
+              <circle cx="260" cy="112" r="14" fill="url(#${gId})" opacity="0.35"></circle>
+            </svg>
+          `;
+        }
+
+        let petals = "";
+        for (let i = 0; i < 10; i += 1) {
+          const opacity = 0.08 + (i % 2) * 0.05;
+          petals += `
+            <path
+              d="M0 -70 C 18 -45, 18 -15, 0 0 C -18 -15, -18 -45, 0 -70 Z"
+              transform="rotate(${i * 36})"
+              fill="url(#${gId})"
+              opacity="${opacity}"
+            ></path>
+          `;
+        }
+
+        return `
+          <svg viewBox="0 0 520 240" class="h-40 w-full">
+            ${common}
+            <g transform="translate(260 125)">
+              ${petals}
+              <circle r="20" fill="url(#${gId})" opacity="0.28"></circle>
+              <circle r="8" fill="#ffffff" opacity="0.75"></circle>
+            </g>
+            <path
+              d="M90 180 C 150 150, 220 170, 260 188 C 300 170, 370 150, 430 180"
+              fill="none"
+              stroke="url(#${gId})"
+              stroke-width="6"
+              stroke-linecap="round"
+              opacity="0.45"
+            ></path>
+          </svg>
+        `;
+      }
+
+      // ---------- Render helpers ----------
+
+      function renderHeader(activeMenuMeta) {
+        const navButtons = MENUS.map((m) => {
+          const active = m.id === state.activeMenu;
+          return `
+            <button
+              type="button"
+              data-action="menu"
+              data-menu-id="${m.id}"
+              class="${cx(
+                "inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition",
+                active ? "bg-black text-white" : "text-slate-700 hover:bg-black/5"
+              )}"
+            >
+              ${icon(m.icon, "h-4 w-4")}
+              ${m.label}
+            </button>
+          `;
+        }).join("");
+
+        const mobileButtons = MENUS.map((m) => {
+          const active = m.id === state.activeMenu;
+          return `
+            <button
+              type="button"
+              data-action="menu"
+              data-menu-id="${m.id}"
+              class="${cx(
+                "inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold transition",
+                active
+                  ? "bg-black text-white"
+                  : "bg-white text-slate-700 ring-1 ring-black/10"
+              )}"
+            >
+              ${icon(m.icon, "h-4 w-4")}
+              ${m.label}
+            </button>
+          `;
+        }).join("");
+
+        const rightSide = state.activeQuizId
+          ? `
+            <button
+              type="button"
+              data-action="home"
+              class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-black/5"
+            >
+              ${icon("arrow-left", "h-4 w-4")}
+              Về ${activeMenuMeta.label}
+            </button>
+          `
+          : "";
+
+        return `
+          <header class="sticky top-0 z-30 border-b border-black/5 bg-white/70 backdrop-blur">
+            <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="grid h-10 w-10 place-items-center rounded-2xl bg-black text-white shadow-sm">
+                  ${icon("sparkles", "h-5 w-5")}
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">GIANGMETTA</div>
+                </div>
+              </div>
+
+              <nav class="hidden items-center gap-1 md:flex">
+                ${navButtons}
+              </nav>
+
+              <div class="flex items-center gap-2">
+                ${rightSide}
+              </div>
+            </div>
+
+            <div class="mx-auto max-w-5xl px-4 pb-3 md:hidden">
+              <div class="grid grid-cols-3 gap-2">
+                ${mobileButtons}
+              </div>
+            </div>
+          </header>
+        `;
+      }
+
+      function renderFooter() {
+        return `
+          <footer class="mx-auto max-w-5xl px-4 pb-8 pt-2 text-center text-xs text-slate-500">
+            giangmetta.com - thành lập từ 2016
+          </footer>
+        `;
+      }
+
+      function renderMenuHero(menu) {
+        return card(
+          `
+            <div class="${cx("bg-gradient-to-br p-5 text-white", menuGrad(menu.id))}">
+              <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div class="max-w-2xl">
+                  ${pill(
+                    `${icon(menu.icon, "h-4 w-4")}<span>Menu: ${menu.label}</span>`,
+                    "bg-white/15 text-white ring-1 ring-white/20"
+                  )}
+                  <h1 class="mt-3 text-2xl font-semibold leading-tight md:text-3xl">
+                    ${menu.label}
+                    <span class="block text-white/85">${menu.desc}</span>
+                  </h1>
+                  <p class="mt-2 text-sm text-white/85">
+                    Bạn làm quiz không phải để “đúng/sai”, mà để
+                    <span class="font-semibold text-white">nhìn ra xu hướng</span>.
+                    Sau đó chọn 1–2 bước nhỏ để cải thiện, tập đều 7 ngày rồi kiểm tra lại.
+                  </p>
+                </div>
+
+                <div class="w-full rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 md:w-[380px]">
+                  <div class="text-sm font-semibold">Cách dùng nhanh (3 bước)</div>
+                  <ol class="mt-2 list-decimal space-y-1 pl-5 text-sm text-white/85">
+                    <li>Đọc phần khái niệm của menu này (1–2 phút).</li>
+                    <li>Làm quiz (3–5 phút).</li>
+                    <li>Chọn 1–2 gợi ý dễ làm nhất và thực hành 7 ngày.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          `
+        );
+      }
+
+      function renderChakraMenu() {
+        const chakraCards = chakras
+          .map(
+            (c) => `
+              <div class="rounded-2xl border border-black/10 bg-white p-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold">${c.name}</div>
+                    <div class="mt-1 text-xs text-slate-500">Vị trí: ${c.location}</div>
+                  </div>
+                  ${pill(c.colorLabel, cx("bg-black/5", toneText(c.tone)))}
+                </div>
+
+                <div class="mt-2 text-sm text-slate-700">
+                  <span class="font-semibold">Tượng trưng:</span> ${c.represents}
+                </div>
+
+                <div class="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div>
+                    <span class="font-semibold text-slate-900">Nguyên tố</span>: ${c.element}
+                  </div>
+                  <div>
+                    <span class="font-semibold text-slate-900">Âm</span>: ${c.mantra}
+                  </div>
+                  <div class="col-span-2">
+                    <span class="font-semibold text-slate-900">Tần số</span>: ${c.frequency}
+                  </div>
+                </div>
+
+                <div class="mt-3 text-xs text-slate-600 leading-relaxed">Gợi ý nhanh: ${c.tips[0]}</div>
+              </div>
+            `
+          )
+          .join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold">Khái niệm luân xa (hiểu thật dễ)</div>
+                    <div class="mt-1 text-sm text-slate-600">
+                      Hiểu đơn giản: mỗi luân xa là một “vùng chủ đề” trong cơ thể – cảm xúc.
+                      <span class="font-semibold"> Thiếu năng lượng</span> = như pin yếu.
+                      <span class="font-semibold">Quá tải</span> = như chạy quá mạnh.
+                    </div>
+                  </div>
+                  <div class="grid h-10 w-10 place-items-center rounded-2xl bg-violet-100 text-violet-700">
+                    ${icon("sparkles", "h-5 w-5")}
+                  </div>
+                </div>
+
+                <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                  <div class="text-sm font-semibold">Bạn làm quiz luân xa để làm gì?</div>
+                  <ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                    <li>Biết luân xa nào đang lệch nhất để ưu tiên trước.</li>
+                    <li>Nhận gợi ý cân bằng (thở, thói quen, yoga).</li>
+                    <li>Tập 7 ngày rồi làm lại để thấy thay đổi.</li>
+                  </ul>
+                </div>
+              `,
+              "p-4"
+            )}
+
+            ${card(
+              `
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold">7 luân xa: tượng trưng – màu – vị trí – tần số</div>
+                    <div class="mt-1 text-sm text-slate-600">
+                      Bảng dưới đây giúp bạn nhớ nhanh: mỗi luân xa liên quan điều gì và nằm ở đâu.
+                    </div>
+                  </div>
+                  <div class="hidden md:block">
+                    ${bigIllustration("chakra", "violet")}
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-3 md:grid-cols-2">
+                  ${chakraCards}
+                </div>
+
+                <div class="mt-3 text-xs text-slate-500">
+                  * Tần số (Hz) là thông tin <span class="font-semibold">tham khảo</span> trong một số trường phái âm thanh/chakra (Solfeggio). Không phải chuẩn y khoa.
+                </div>
+              `,
+              "p-5"
+            )}
+
+            ${renderQuizLaunch(chakraQuiz)}
+          </div>
+        `;
+      }
+
+      function renderEnergyMenu() {
+        const raiseList = ENERGY_RAISE.map((t) => `<li>${t}</li>`).join("");
+        const keepList = ENERGY_KEEP.map((t) => `<li>${t}</li>`).join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold">Tần số năng lượng là gì?</div>
+                    <div class="mt-1 text-sm text-slate-600">
+                      Ở web này, “tần số năng lượng” hiểu đơn giản là
+                      <span class="font-semibold">mức năng lượng tinh thần – cảm xúc</span> gần đây.
+                      Khi mệt/stress → tần số trầm. Khi ổn định → cân bằng. Khi nhẹ nhõm/ấm áp → tần số cao.
+                    </div>
+                  </div>
+                  <div class="grid h-10 w-10 place-items-center rounded-2xl bg-sky-100 text-sky-700">
+                    ${icon("waves", "h-5 w-5")}
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-3 md:grid-cols-2">
+                  <div class="rounded-2xl bg-black/5 p-4">
+                    <div class="text-sm font-semibold">Bạn làm quiz này để làm gì?</div>
+                    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      <li>Biết hôm nay nên tập kiểu <span class="font-semibold">phục hồi</span> hay <span class="font-semibold">năng động</span>.</li>
+                      <li>Giảm ‘tập sai trạng thái’ (mệt mà cố tập nặng → càng tụt pin).</li>
+                      <li>Chọn 1–2 thói quen để nâng năng lượng đều lên.</li>
+                    </ul>
+                  </div>
+                  <div class="rounded-2xl bg-black/5 p-4">
+                    <div class="text-sm font-semibold">Một cách đọc điểm thật nhanh</div>
+                    <div class="mt-2 text-sm text-slate-700">
+                      <span class="font-semibold">0–39</span>: ưu tiên phục hồi •
+                      <span class="font-semibold">40–69</span>: tập vừa •
+                      <span class="font-semibold">70–100</span>: flow tỉnh thức + giữ nhịp nghỉ.
+                    </div>
+                    <div class="mt-3">
+                      ${bigIllustration("wave", "sky")}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                  <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="text-sm font-semibold">Cách nâng tần số (dễ làm)</div>
+                    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      ${raiseList}
+                    </ul>
+                  </div>
+                  <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="text-sm font-semibold">Cách giữ gìn năng lượng</div>
+                    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      ${keepList}
+                    </ul>
+                  </div>
+                </div>
+              `,
+              "p-5"
+            )}
+
+            ${renderQuizLaunch(energyQuiz)}
+          </div>
+        `;
+      }
+
+      function renderDoshaMenu() {
+        const doshaCards = DOSHA_BASICS.map(
+          (d) => `
+            <div class="rounded-2xl border border-black/10 bg-white p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-sm font-semibold">${d.name}</div>
+                ${pill(d.elements, cx("bg-black/5", toneText(d.tone)))}
+              </div>
+              <div class="mt-2 text-sm text-slate-700">
+                <span class="font-semibold">Đại diện:</span> ${d.represents}
+              </div>
+              <div class="mt-2 text-sm text-slate-700">
+                <span class="font-semibold">Khi lệch:</span> ${d.whenOff}
+              </div>
+              <div class="mt-2 text-sm text-slate-700">
+                <span class="font-semibold">Yoga hợp:</span> ${d.yoga}
+              </div>
+            </div>
+          `
+        ).join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold">Thể tạng (Dosha) đại diện cho cái gì?</div>
+                    <div class="mt-1 text-sm text-slate-600">
+                      Dosha là “mẫu cơ địa” trong Ayurveda: mỗi người đều có đủ 3 dosha, nhưng sẽ có 1–2 dosha
+                      <span class="font-semibold">nổi trội</span>.
+                      Biết dosha giúp bạn chọn kiểu yoga để <span class="font-semibold">cân bằng</span>
+                      (không phải để ‘chiến’).
+                    </div>
+                  </div>
+                  <div class="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-100 text-emerald-700">
+                    ${icon("flower-2", "h-5 w-5")}
+                  </div>
+                </div>
+
+                <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                  <div class="text-sm font-semibold">Bạn làm quiz Dosha để làm gì?</div>
+                  <div class="mt-1 text-sm text-slate-700">
+                    Để chọn trường phái yoga phù hợp cơ địa và trạng thái stress. Khi tập đúng, bạn sẽ thấy
+                    <span class="font-semibold">dễ duy trì</span> hơn và cơ thể
+                    <span class="font-semibold">ít lệch</span> hơn.
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-3 md:grid-cols-3">
+                  ${doshaCards}
+                </div>
+
+                <div class="mt-4">
+                  ${bigIllustration("dosha", "emerald")}
+                </div>
+              `,
+              "p-5"
+            )}
+
+            ${renderQuizLaunch(doshaQuiz)}
+          </div>
+        `;
+      }
+
+      function renderMenuContent(menuId) {
+        if (menuId === "chakra") return renderChakraMenu();
+        if (menuId === "energy") return renderEnergyMenu();
+        return renderDoshaMenu();
+      }
+
+      function renderQuizLaunch(quiz) {
+        const tone =
+          quiz.id === "chakra" ? "violet" : quiz.id === "energy" ? "sky" : "emerald";
+        const variant = menuVariant(quiz.id);
+
+        return `
+          <button
+            type="button"
+            data-action="start-quiz"
+            data-quiz-id="${quiz.id}"
+            class="text-left"
+            aria-label="Mở quiz: ${quiz.title}"
+          >
+            ${card(
+              `
+                <div class="${cx("p-4 bg-gradient-to-br text-white", menuGrad(quiz.id))}">
+                  <div class="flex items-start justify-between">
+                    <div class="grid gap-1">
+                      <div class="text-sm font-semibold">${quiz.title}</div>
+                      <div class="text-xs text-white/80">${quiz.subtitle}</div>
+                    </div>
+                    <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/20">
+                      ${icon(quiz.icon, "h-5 w-5")}
+                    </div>
+                  </div>
+                </div>
+                <div class="p-4">
+                  ${bigIllustration(variant, tone)}
+                  <div class="mt-2 flex items-center justify-between">
+                    ${pill("20 câu hỏi", "bg-black/5 text-slate-700")}
+                    ${pill("Bấm để làm", "bg-black/5 text-slate-700")}
+                  </div>
+                </div>
+              `,
+              "overflow-hidden transition hover:shadow-md"
+            )}
+          </button>
+        `;
+      }
+
+      function renderQuizHeader(quiz, progressValue, step, qCount, finished) {
+        return card(
+          `
+            <div class="${cx("bg-gradient-to-br p-4 text-white", menuGrad(quiz.id))}">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    ${icon(quiz.icon, "h-5 w-5")}
+                    <div class="text-sm font-semibold">${quiz.title}</div>
+                  </div>
+                  <div class="mt-1 text-xs text-white/85">${quiz.subtitle}</div>
+                </div>
+                <button
+                  type="button"
+                  data-action="reset"
+                  class="inline-flex items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-sm font-semibold ring-1 ring-white/20 hover:bg-white/20"
+                >
+                  ${icon("rotate-ccw", "h-4 w-4")}
+                  Làm lại
+                </button>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-center justify-between text-sm">
+                <div class="font-semibold">Tiến trình</div>
+                <div class="text-slate-600">${
+                  finished ? "Hoàn thành" : `Câu ${step + 1}/${qCount}`
+                }</div>
+              </div>
+              <div class="mt-2">
+                ${progress(progressValue)}
+                <div class="mt-1 text-xs text-slate-500">${progressValue}% đã trả lời</div>
+              </div>
+            </div>
+          `,
+          "overflow-hidden"
+        );
+      }
+
+      function renderQuestionPanel(quiz, step, qCount, value) {
+        const question = quiz.questions[step];
+        const canNext = value !== undefined && value !== null;
+
+        let options = "";
+        if (quiz.variant === "likert") {
+          options = LIKERT.map((o) => {
+            const active = value === o.v;
+            return `
+              <label
+                class="${cx(
+                  "flex cursor-pointer items-center justify-between rounded-2xl border px-4 py-3 transition",
+                  active
+                    ? "border-slate-900 bg-slate-900 text-white"
+                    : "border-black/10 bg-white hover:bg-black/5"
+                )}"
+                data-action="answer"
+                data-value="${o.v}"
+              >
+                <div class="text-sm font-semibold">${o.label}</div>
+                <input
+                  type="radio"
+                  name="q-${quiz.id}-${step}"
+                  value="${o.v}"
+                  ${active ? "checked" : ""}
+                  class="h-4 w-4"
+                />
+              </label>
+            `;
+          }).join("");
+        } else {
+          const tri = [
+            { k: "a", label: question.a },
+            { k: "b", label: question.b },
+            { k: "c", label: question.c },
+          ];
+          options = tri
+            .map((o) => {
+              const active = value === o.k;
+              return `
+                <label
+                  class="${cx(
+                    "flex cursor-pointer items-start gap-3 rounded-2xl border px-4 py-3 transition",
+                    active
+                      ? "border-slate-900 bg-slate-900 text-white"
+                      : "border-black/10 bg-white hover:bg-black/5"
+                  )}"
+                  data-action="answer"
+                  data-value="${o.k}"
+                >
+                  <input
+                    type="radio"
+                    name="q-${quiz.id}-${step}"
+                    value="${o.k}"
+                    ${active ? "checked" : ""}
+                    class="mt-1 h-4 w-4"
+                  />
+                  <div>
+                    <div class="text-sm font-semibold">${o.label}</div>
+                  </div>
+                </label>
+              `;
+            })
+            .join("");
+        }
+
+        return card(
+          `
+            <div class="flex items-center justify-between">
+              ${pill(`Câu ${step + 1} / ${qCount}`, "bg-black/5 text-slate-700")}
+              ${pill("Chọn 1 đáp án", "bg-black/5 text-slate-700")}
+            </div>
+
+            <div class="mt-4 text-lg font-semibold leading-snug">${question.t}</div>
+
+            <div class="mt-4">
+              <div class="grid gap-2">
+                ${options}
+              </div>
+            </div>
+
+            <div class="mt-5 flex items-center justify-between">
+              <button
+                type="button"
+                data-action="prev"
+                ${step === 0 ? "disabled" : ""}
+                class="${cx(
+                  "inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold",
+                  step === 0 ? "text-slate-400" : "text-slate-700 hover:bg-black/5"
+                )}"
+              >
+                ${icon("arrow-left", "h-4 w-4")}
+                Trước
+              </button>
+
+              <button
+                type="button"
+                data-action="next"
+                ${canNext ? "" : "disabled"}
+                class="${cx(
+                  "inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold",
+                  canNext ? "bg-slate-900 text-white hover:bg-black" : "bg-black/10 text-slate-400"
+                )}"
+              >
+                ${step === qCount - 1 ? "Xem kết quả" : "Tiếp"}
+                ${icon("arrow-right", "h-4 w-4")}
+              </button>
+            </div>
+          `,
+          "p-5"
+        );
+      }
+
+      function renderActions() {
+        return `
+          <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <button
+              type="button"
+              data-action="home"
+              class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-black/5"
+            >
+              ${icon("arrow-left", "h-4 w-4")}
+              Về trang menu
+            </button>
+            <button
+              type="button"
+              data-action="reset"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-black"
+            >
+              ${icon("rotate-ccw", "h-4 w-4")}
+              Làm lại bài này
+            </button>
+          </div>
+        `;
+      }
+
+      function renderMetric({ label, value, tone, note }) {
+        return `
+          <div class="rounded-2xl bg-white p-3 ring-1 ring-black/10">
+            <div class="flex items-center justify-between text-sm">
+              <div class="font-semibold">${label}</div>
+              <div class="flex items-center gap-2">
+                ${pill(`${value}%`, cx("bg-black/5", toneText(tone)))}
+                ${note ? `<span class="text-xs text-slate-500">${note}</span>` : ""}
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="h-2 w-full overflow-hidden rounded-full bg-black/5">
+                <div class="${cx("h-full rounded-full", toneBar(tone))}" style="width: ${value}%"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderHighlightChakra(c, tag) {
+        const tips = c.tips
+          .map(
+            (t) => `
+              <div class="flex gap-2">
+                <span class="${cx("mt-1 inline-block h-2 w-2 rounded-full", toneDot(c.tone))}"></span>
+                <span>${t}</span>
+              </div>
+            `
+          )
+          .join("");
+
+        return `
+          <div class="rounded-2xl border border-black/10 bg-white p-4">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                ${pill(tag, cx("text-white", toneBg(c.tone)))}
+                <div class="mt-2 text-base font-semibold">${c.name}</div>
+                <div class="mt-1 text-sm text-slate-600">${c.keywords}</div>
+                <div class="mt-2 grid gap-1 text-xs text-slate-500">
+                  <div>Vị trí: ${c.location}</div>
+                  <div>Tần số tham khảo: ${c.frequency}</div>
+                </div>
+
+                <div class="mt-2 flex flex-wrap items-center gap-2">
+                  ${pill(c.status, cx("bg-black/5", toneText(c.tone)))}
+                  ${pill(`Mức lệch: ${c.intensity}%`, "bg-black/5 text-slate-700")}
+                </div>
+
+                <div class="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div>
+                    Thiếu: <span class="font-semibold text-slate-900">${c.deficitPct}%</span>
+                    <span class="text-slate-500"> (${c.deficitSum}/${c.deficitMax})</span>
+                  </div>
+                  <div>
+                    Quá tải: <span class="font-semibold text-slate-900">${c.excessPct}%</span>
+                    <span class="text-slate-500"> (${c.excessSum}/${c.excessMax})</span>
+                  </div>
+                </div>
+
+                <div class="mt-2 text-sm text-slate-700">${c.explain}</div>
+              </div>
+              <div class="w-48">
+                ${bigIllustration("chakra", c.tone)}
+              </div>
+            </div>
+            <div class="mt-3 grid gap-1 text-sm text-slate-700">
+              ${tips}
+            </div>
+          </div>
+        `;
+      }
+
+      function renderChakraMini(c) {
+        return `
+          <div class="rounded-2xl border border-black/10 bg-white p-4">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-sm font-semibold">${c.name}</div>
+                <div class="mt-1 text-xs text-slate-500">Màu: ${c.colorLabel} • Vị trí: ${c.location}</div>
+                <div class="mt-1 text-xs text-slate-500">Tần số tham khảo: ${c.frequency}</div>
+              </div>
+              ${pill(c.status, cx("bg-black/5", toneText(c.tone)))}
+            </div>
+
+            <div class="mt-3 grid gap-2">
+              <div class="flex items-center justify-between">
+                <div class="text-xs text-slate-600">Mức lệch</div>
+                <div class="text-xs font-semibold text-slate-900">${c.intensity}%</div>
+              </div>
+              ${progress(c.intensity)}
+
+              <div class="grid grid-cols-2 gap-2 text-xs text-slate-600">
+                <div>
+                  Thiếu: <span class="font-semibold text-slate-900">${c.deficitPct}%</span>
+                  <span class="text-slate-500"> (${c.deficitSum}/${c.deficitMax})</span>
+                </div>
+                <div>
+                  Quá tải: <span class="font-semibold text-slate-900">${c.excessPct}%</span>
+                  <span class="text-slate-500"> (${c.excessSum}/${c.excessMax})</span>
+                </div>
+              </div>
+
+              <div class="text-xs text-slate-600 leading-relaxed">${c.explain}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderChakraResult(result) {
+        const highlight = renderHighlightChakra(result.headline, "Nổi bật");
+        const secondary = renderHighlightChakra(result.secondary, "Thứ hai");
+        const minis = result.per.map((c) => renderChakraMini(c)).join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="bg-gradient-to-br from-violet-600 to-fuchsia-500 p-4 text-white">
+                  <div class="text-sm font-semibold">Kết quả: Luân xa</div>
+                  <div class="mt-1 text-xs text-white/85">
+                    % Thiếu / % Quá tải = (điểm bạn chọn) / (điểm tối đa của nhóm câu hỏi đó). Mốc tham khảo: 0–35% (nhẹ) • 36–59% (vừa) • 60%+ (mạnh).
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="grid gap-3 md:grid-cols-2">
+                    ${highlight}
+                    ${secondary}
+                  </div>
+
+                  <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                    <div class="text-sm font-semibold">Ghi chú cách hiểu kết quả</div>
+                    <div class="mt-1 grid gap-1 text-sm text-slate-700">
+                      <div><span class="font-semibold">Thiếu năng lượng</span>: như “pin yếu” → dễ mệt, khó làm tới. Ưu tiên ngủ/ăn đều và làm các bài tập gợi ý.</div>
+                      <div><span class="font-semibold">Quá tải</span>: như “chạy quá mạnh” → dễ căng, khó nghỉ. Ưu tiên làm chậm lại, thư giãn và đặt ranh giới.</div>
+                      <div><span class="font-semibold">Dao động</span>: lúc thiếu lúc quá → cần ổn định nhịp sống (giờ ngủ/ăn/vận động).</div>
+                      <div><span class="font-semibold">Tương đối cân bằng</span>: duy trì thói quen tốt là đủ.</div>
+                    </div>
+                  </div>
+                </div>
+              `,
+              "overflow-hidden"
+            )}
+
+            ${card(
+              `
+                <div class="text-sm font-semibold">Chi tiết theo từng luân xa</div>
+                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                  ${minis}
+                </div>
+                ${renderActions()}
+              `,
+              "p-4"
+            )}
+          </div>
+        `;
+      }
+
+      function renderEnergyResult(result) {
+        const grad =
+          result.tone === "slate"
+            ? "from-slate-700 to-slate-500"
+            : result.tone === "sky"
+            ? "from-sky-600 to-cyan-500"
+            : "from-emerald-600 to-lime-500";
+
+        const yogaList = energyYoga(result.score)
+          .map((t) => `<li>${t}</li>`)
+          .join("");
+        const tipsList = result.tips.map((t) => `<li>${t}</li>`).join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="${cx("bg-gradient-to-br p-4 text-white", grad)}">
+                  <div class="text-sm font-semibold">Kết quả: Tần số năng lượng</div>
+                  <div class="mt-1 text-xs text-white/85">Điểm tổng hợp 0–100 (cao hơn = rung động cao hơn).</div>
+                </div>
+                <div class="p-4">
+                  <div class="grid gap-4 md:grid-cols-2 md:items-center">
+                    <div>
+                      ${pill(result.level, cx("text-white", toneBg(result.tone)))}
+                      <div class="mt-2 text-3xl font-semibold">${result.score}/100</div>
+                      <div class="mt-2 text-sm text-slate-700">${result.message}</div>
+
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Cách đọc điểm</div>
+                        <div class="mt-1 text-sm text-slate-700">
+                          <span class="font-semibold">0–39</span> (Trầm): ưu tiên phục hồi •
+                          <span class="font-semibold">40–69</span> (Cân bằng): tập vừa •
+                          <span class="font-semibold">70–100</span> (Cao): flow tỉnh thức + nghỉ hợp lý.
+                        </div>
+                      </div>
+
+                      <div class="mt-4 grid gap-2">
+                        <div class="text-sm font-semibold">Phân rã theo nhóm (theo % trong 20 câu)</div>
+                        ${renderMetric({ label: "Thấp (stress)", value: result.buckets.low, tone: "slate" })}
+                        ${renderMetric({ label: "Trung (ổn định)", value: result.buckets.mid, tone: "sky" })}
+                        ${renderMetric({ label: "Cao (niềm vui/yêu thương)", value: result.buckets.high, tone: "emerald" })}
+                      </div>
+                    </div>
+
+                    <div>
+                      ${bigIllustration("wave", result.tone)}
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Yoga phù hợp hôm nay</div>
+                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                          ${yogaList}
+                        </ul>
+                      </div>
+
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Gợi ý nâng rung động</div>
+                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                          ${tipsList}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  ${renderActions()}
+                </div>
+              `,
+              "overflow-hidden"
+            )}
+          </div>
+        `;
+      }
+
+      function renderDoshaResult(result) {
+        const d = result.dominantMeta;
+        const s = result.secondaryMeta;
+
+        const dominantYoga = d.yoga.map((t) => `<li>${t}</li>`).join("");
+        const dominantBalance = d.balance.map((t) => `<li>${t}</li>`).join("");
+
+        return `
+          <div class="grid gap-4">
+            ${card(
+              `
+                <div class="bg-gradient-to-br from-emerald-600 to-lime-500 p-4 text-white">
+                  <div class="text-sm font-semibold">Kết quả: Dosha</div>
+                  <div class="mt-1 text-xs text-white/85">${result.summary}</div>
+                </div>
+                <div class="p-4">
+                  <div class="grid gap-4 md:grid-cols-2 md:items-center">
+                    <div>
+                      <div class="flex flex-wrap items-center gap-2">
+                        ${pill(`Nổi trội: ${d.name}`, cx("text-white", toneBg(d.tone)))}
+                        ${pill(`Thứ hai: ${s.name}`, cx("text-white", toneBg(s.tone)))}
+                      </div>
+                      <div class="mt-2 text-sm text-slate-700">${d.desc}</div>
+
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Cách đọc kết quả</div>
+                        <div class="mt-1 text-sm text-slate-700">
+                          Mỗi câu bạn chọn sẽ cộng <span class="font-semibold">1 điểm</span> cho Vata/Pitta/Kapha. % = điểm/20.
+                          Nếu 2 dosha gần nhau (chênh &lt; ~10%), bạn có thể là cơ địa phối hợp.
+                        </div>
+                      </div>
+
+                      <div class="mt-4 grid gap-2">
+                        <div class="text-sm font-semibold">Tỷ lệ</div>
+                        ${renderMetric({ label: "Vata", value: result.pct.vata, tone: "violet", note: `${result.counts.vata}/20` })}
+                        ${renderMetric({ label: "Pitta", value: result.pct.pitta, tone: "amber", note: `${result.counts.pitta}/20` })}
+                        ${renderMetric({ label: "Kapha", value: result.pct.kapha, tone: "emerald", note: `${result.counts.kapha}/20` })}
+                      </div>
+                    </div>
+
+                    <div>
+                      ${bigIllustration("dosha", d.tone)}
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Yoga phù hợp với ${d.name}</div>
+                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                          ${dominantYoga}
+                        </ul>
+                      </div>
+
+                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
+                        <div class="text-sm font-semibold">Gợi ý cân bằng cho ${d.name}</div>
+                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                          ${dominantBalance}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  ${renderActions()}
+                </div>
+              `,
+              "overflow-hidden"
+            )}
+          </div>
+        `;
+      }
+
+      function renderResultPanel(quiz, result) {
+        if (!result) return "";
+        if (quiz.id === "chakra") return renderChakraResult(result);
+        if (quiz.id === "energy") return renderEnergyResult(result);
+        return renderDoshaResult(result);
+      }
+
+      function renderConfirmLeaveModal() {
+        if (!state.navGuard.open) return "";
+        return `
+          <div class="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4">
+            <div class="w-full max-w-lg rounded-2xl bg-white p-5 shadow-xl ring-1 ring-black/10">
+              <div class="text-base font-semibold">Bạn đang làm dở bài quiz</div>
+              <div class="mt-2 text-sm text-slate-600">
+                Nếu bạn rời sang menu khác, bạn sẽ <span class="font-semibold">tạm rời màn hình làm bài</span>.
+                <span class="font-semibold"> Tiến trình vẫn được giữ</span> (bạn có thể quay lại làm tiếp),
+                nhưng để tránh bấm nhầm, mình hỏi lại cho chắc.
+              </div>
+
+              <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+                <button
+                  type="button"
+                  data-action="cancel-leave"
+                  class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-black/5"
+                >
+                  Tiếp tục làm
+                </button>
+                <button
+                  type="button"
+                  data-action="confirm-leave"
+                  class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-black"
+                >
+                  Rời quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderHomeView(activeMenuMeta) {
+        return `
+          <main class="mx-auto max-w-5xl px-4 py-6">
+            <div class="grid gap-5 fade-enter">
+              ${renderMenuHero(activeMenuMeta)}
+              ${renderMenuContent(state.activeMenu)}
+              ${card(
+                `
+                  <div class="text-sm font-semibold">Ghi chú</div>
+                  <div class="mt-1 text-sm text-slate-600">
+                    Đây là bài quiz định hướng tự quan sát (self-check). Không thay thế chẩn đoán y khoa.
+                    Điểm/% phản ánh câu trả lời của bạn ở thời điểm gần đây (có thể thay đổi theo giấc ngủ, stress, chu kỳ, công việc…).
+                    Nếu bạn đang có triệu chứng kéo dài/ảnh hưởng mạnh, hãy cân nhắc gặp chuyên gia.
+                  </div>
+                `,
+                "p-4"
+              )}
+            </div>
+          </main>
+        `;
+      }
+
+      function renderQuizView(quiz, progressValue, qCount, currentAnswers, result) {
+        return `
+          <main class="mx-auto max-w-5xl px-4 py-6">
+            <div class="grid gap-5 fade-enter">
+              ${renderQuizHeader(quiz, progressValue, state.step, qCount, state.finished)}
+              ${
+                state.finished
+                  ? renderResultPanel(quiz, result)
+                  : renderQuestionPanel(quiz, state.step, qCount, currentAnswers[state.step])
+              }
+            </div>
+          </main>
+        `;
+      }
+
+      function render() {
+        const quiz = QUIZZES.find((q) => q.id === state.activeQuizId) ?? null;
+        const qCount = quiz?.questions?.length ?? 0;
+        const currentAnswers = state.activeQuizId ? state.answers[state.activeQuizId] ?? [] : [];
+        const answeredCount = quiz
+          ? currentAnswers.filter((x) => x !== undefined && x !== null).length
+          : 0;
+        const progressValue = quiz ? Math.round((answeredCount / qCount) * 100) : 0;
+        const result =
+          quiz && state.finished
+            ? quiz.id === "chakra"
+              ? scoreChakra(currentAnswers)
+              : quiz.id === "energy"
+              ? scoreEnergy(currentAnswers)
+              : scoreDosha(currentAnswers)
+            : null;
+
+        const activeMenuMeta = MENUS.find((m) => m.id === state.activeMenu) ?? MENUS[0];
+
+        const main = state.activeQuizId
+          ? renderQuizView(quiz, progressValue, qCount, currentAnswers, result)
+          : renderHomeView(activeMenuMeta);
+
+        document.getElementById("app").innerHTML = `
+          <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900">
+            ${renderHeader(activeMenuMeta)}
+            ${main}
+            ${renderFooter()}
+            ${renderConfirmLeaveModal()}
+          </div>
+        `;
+
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      }
+
+      // ---------- State management ----------
+
+      const STORAGE_KEY = "giangmetta_quizhub_v1";
+
+      const state = {
+        activeMenu: "chakra",
+        activeQuizId: null,
+        step: 0,
+        answers: {},
+        finished: false,
+        stepByQuiz: { chakra: 0, energy: 0, dosha: 0 },
+        navGuard: { open: false, targetMenu: null },
+      };
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          if (data?.activeMenu) state.activeMenu = data.activeMenu;
+          if (data?.answers) state.answers = data.answers;
+          if (data?.stepByQuiz) {
+            state.stepByQuiz = { ...state.stepByQuiz, ...data.stepByQuiz };
+          }
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+              activeMenu: state.activeMenu,
+              answers: state.answers,
+              stepByQuiz: state.stepByQuiz,
+            })
+          );
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      function syncStepByQuiz() {
+        if (!state.activeQuizId) return;
+        state.stepByQuiz[state.activeQuizId] = state.step;
+      }
+
+      function update() {
+        syncStepByQuiz();
+        saveState();
+        render();
+      }
+
+      function currentQuiz() {
+        return QUIZZES.find((q) => q.id === state.activeQuizId) ?? null;
+      }
+
+      function findResumeStep(quizId) {
+        const q = QUIZZES.find((x) => x.id === quizId);
+        const arr = state.answers[quizId] ?? [];
+        if (!q) return 0;
+        const idx = q.questions.findIndex((_, i) => arr[i] === undefined || arr[i] === null);
+        if (idx !== -1) return idx;
+        return Math.max(0, (q.questions?.length ?? 1) - 1);
+      }
+
+      function backHome() {
+        state.activeQuizId = null;
+        state.step = 0;
+        state.finished = false;
+      }
+
+      function requestMenuChange(menuId) {
+        if (state.activeQuizId && !state.finished) {
+          state.navGuard = { open: true, targetMenu: menuId };
+          update();
+          return;
+        }
+        state.activeMenu = menuId;
+        backHome();
+        update();
+      }
+
+      function confirmLeaveQuiz() {
+        const target = state.navGuard.targetMenu;
+        state.navGuard = { open: false, targetMenu: null };
+        if (!target) {
+          update();
+          return;
+        }
+        state.activeMenu = target;
+        backHome();
+        update();
+      }
+
+      function cancelLeaveQuiz() {
+        state.navGuard = { open: false, targetMenu: null };
+        update();
+      }
+
+      function startQuiz(quizId) {
+        state.activeQuizId = quizId;
+        state.step = findResumeStep(quizId);
+        state.finished = false;
+        update();
+      }
+
+      function resetQuiz() {
+        if (!state.activeQuizId) return;
+        state.answers[state.activeQuizId] = [];
+        state.step = 0;
+        state.finished = false;
+        update();
+      }
+
+      function setAnswer(value) {
+        const quiz = currentQuiz();
+        if (!quiz) return;
+        const prev = state.answers[quiz.id] ? [...state.answers[quiz.id]] : [];
+        prev[state.step] = value;
+        state.answers[quiz.id] = prev;
+        update();
+      }
+
+      function nextStep() {
+        const quiz = currentQuiz();
+        if (!quiz) return;
+        const arr = state.answers[quiz.id] ?? [];
+        const current = arr[state.step];
+        if (current === undefined || current === null) return;
+        if (state.step < quiz.questions.length - 1) {
+          state.step += 1;
+        } else {
+          state.finished = true;
+        }
+        update();
+      }
+
+      function prevStep() {
+        state.step = Math.max(0, state.step - 1);
+        update();
+      }
+
+      // ---------- Events ----------
+
+      function handleClick(event) {
+        const el = event.target.closest("[data-action]");
+        if (!el) return;
+        const action = el.dataset.action;
+
+        switch (action) {
+          case "menu":
+            requestMenuChange(el.dataset.menuId);
+            break;
+          case "home":
+            backHome();
+            update();
+            break;
+          case "start-quiz":
+            startQuiz(el.dataset.quizId);
+            break;
+          case "reset":
+            resetQuiz();
+            break;
+          case "prev":
+            prevStep();
+            break;
+          case "next":
+            nextStep();
+            break;
+          case "answer": {
+            const quiz = currentQuiz();
+            if (!quiz) return;
+            const raw = el.dataset.value;
+            const value = quiz.variant === "likert" ? Number(raw) : raw;
+            setAnswer(value);
+            break;
+          }
+          case "confirm-leave":
+            confirmLeaveQuiz();
+            break;
+          case "cancel-leave":
+            cancelLeaveQuiz();
+            break;
+          default:
+            break;
+        }
+      }
+
+      loadState();
+      render();
+      document.getElementById("app").addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>
