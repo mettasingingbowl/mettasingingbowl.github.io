@@ -530,7 +530,7 @@
 
       const ENERGY_RAISE = [
         "Ngủ đủ + ăn uống đúng bữa (đây là ‘pin’ quan trọng nhất).",
-        "Vận động nhẹ mỗi ngày: đi bộ, giãn cơ, yoga 10–20 phút.",
+        "Vận động nhẹ mỗi ngày: đi bộ, giãn cơ 10–20 phút.",
         "Thở chậm để hạ stress: hít 4 – thở 6 trong 3–5 phút.",
         "Giảm kích thích: bớt màn hình/tin tiêu cực/caffeine khi mệt.",
         "Kết nối: nói chuyện với 1 người tin cậy, ôm, cười, biết ơn.",
@@ -647,28 +647,6 @@
 
         const ranked = [...per].sort((a, b) => b.intensity - a.intensity);
         return { per, headline: ranked[0], secondary: ranked[1] };
-      }
-
-      function energyYoga(score) {
-        if (score < 40) {
-          return [
-            "Restorative / Yoga Nidra: phục hồi, thả lỏng toàn thân",
-            "Yin nhẹ + thở dài (hít 4 – thở 6), 5–10 phút",
-            "Tránh tập quá nặng; ưu tiên an toàn và ngủ đủ",
-          ];
-        }
-        if (score < 70) {
-          return [
-            "Hatha cơ bản hoặc Vinyasa nhẹ: ra mồ hôi vừa",
-            "Thêm 5 phút thở + giãn cuối buổi (Savasana)",
-            "Giữ đều 3–5 buổi/tuần để ổn định",
-          ];
-        }
-        return [
-          "Flow tỉnh thức (Vinyasa vừa): giữ nhịp thở, không ‘cố’",
-          "Thiền 5 phút để giữ sáng rõ nhưng vẫn tiếp đất",
-          "Đừng kín lịch: chừa khoảng nghỉ để cơ thể hồi",
-        ];
       }
 
       function scoreEnergy(answers) {
@@ -1309,8 +1287,8 @@
                   <div class="rounded-2xl bg-black/5 p-4">
                     <div class="text-sm font-semibold">Bạn làm quiz này để làm gì?</div>
                     <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
-                      <li>Biết hôm nay nên tập kiểu <span class="font-semibold">phục hồi</span> hay <span class="font-semibold">năng động</span>.</li>
-                      <li>Giảm ‘tập sai trạng thái’ (mệt mà cố tập nặng → càng tụt pin).</li>
+                      <li>Biết trạng thái năng lượng hiện tại (trầm • cân bằng • cao).</li>
+                      <li>Tránh đẩy mình quá sức khi đang mệt, ưu tiên hồi phục đúng lúc.</li>
                       <li>Chọn 1–2 thói quen để nâng năng lượng đều lên.</li>
                     </ul>
                   </div>
@@ -1318,8 +1296,8 @@
                     <div class="text-sm font-semibold">Một cách đọc điểm thật nhanh</div>
                     <div class="mt-2 text-sm text-slate-700">
                       <span class="font-semibold">0–39</span>: ưu tiên phục hồi •
-                      <span class="font-semibold">40–69</span>: tập vừa •
-                      <span class="font-semibold">70–100</span>: flow tỉnh thức + giữ nhịp nghỉ.
+                      <span class="font-semibold">40–69</span>: giữ nhịp ổn định •
+                      <span class="font-semibold">70–100</span>: duy trì năng lượng cao + nghỉ hợp lý.
                     </div>
                     <div class="mt-3">
                       ${bigIllustration("wave", "sky")}
@@ -1801,9 +1779,6 @@
             ? "from-sky-600 to-cyan-500"
             : "from-emerald-600 to-lime-500";
 
-        const yogaList = energyYoga(result.score)
-          .map((t) => `<li>${t}</li>`)
-          .join("");
         const tipsList = result.tips.map((t) => `<li>${t}</li>`).join("");
 
         return `
@@ -1825,8 +1800,8 @@
                         <div class="text-sm font-semibold">Cách đọc điểm</div>
                         <div class="mt-1 text-sm text-slate-700">
                           <span class="font-semibold">0–39</span> (Trầm): ưu tiên phục hồi •
-                          <span class="font-semibold">40–69</span> (Cân bằng): tập vừa •
-                          <span class="font-semibold">70–100</span> (Cao): flow tỉnh thức + nghỉ hợp lý.
+                          <span class="font-semibold">40–69</span> (Cân bằng): giữ nhịp ổn định •
+                          <span class="font-semibold">70–100</span> (Cao): duy trì năng lượng cao + nghỉ hợp lý.
                         </div>
                       </div>
 
@@ -1840,13 +1815,6 @@
 
                     <div>
                       ${bigIllustration("wave", result.tone)}
-                      <div class="mt-3 rounded-2xl bg-black/5 p-3">
-                        <div class="text-sm font-semibold">Yoga phù hợp hôm nay</div>
-                        <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
-                          ${yogaList}
-                        </ul>
-                      </div>
-
                       <div class="mt-3 rounded-2xl bg-black/5 p-3">
                         <div class="text-sm font-semibold">Gợi ý nâng rung động</div>
                         <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
